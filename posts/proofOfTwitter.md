@@ -7,16 +7,16 @@ recommanded: false
 slug: "tutorial"
 category: "10 min read"
 tags: ["intro"]
-description: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries. At the end of this guide you will be able to verify a Twitter username on-chain and mint an NFT."
+description: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries.
 ---
 
-# Setting up your ZK Email circuit: Twitter Example
+# Building Proof of Twitter using ZK Email
 
 ## Introduction
 
 Emails serve as our gateway to various online services and platforms. ZK Email uses ZK proofs to authenticate these interactions while preserving privacy.
 
- This guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain, without disclosing any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username.
+ This guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain, without disclosing any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion.
 
 ## ZK Email Library
 
@@ -42,13 +42,27 @@ Install all three packages by running:
 npm install @zk-email/circuits @zk-email/helpers @zk-email/contracts
 ```
 
-
 ## Preparing the Email
 
 What we are trying to get is the "Forgot your password" email from Twitter. This email contains a unique link that allows the user to reset their password. By verifying this email, we can ensure that the user has access to the associated Twitter account.
 
 
-To get the email, you need to obtain the raw email file. You can find this by clicking the three dots in your email. Then, copy and paste the entire email into a .eml file in your repository.
+Let's start by obtaining the raw email file:
+
+1. Initiate a password reset process on Twitter to send yourself a reset email.
+
+2. Locate the email from Twitter in your inbox and download its headers. You can usually find this option under a menu represented by three dots, then select 'Download Message'.
+
+For different email clients, the process varies slightly:
+
+### Outlook
+If you're using Outlook, switch to plain text mode. Then, copy and paste the 'full email details' into the textbox on the client-side webpage.
+
+### Gmail and Yahoo
+For Gmail and Yahoo users, select 'Download Original Message', then copy and paste the contents into the textbox.
+
+3. Finally, copy and paste the entire contents of the file into your .eml file.
+
 
 ## Generating the Input for ZKRegex
 
@@ -124,12 +138,19 @@ export async function generateTwitterVerifierCircuitInputs() {
 }) ();
 
 ```
+To create the inputs.json file run:
+
+```
+npx ts-node inputs.ts
+```
 
 This script reads your raw email file, verifies the DKIM signature, generates the circuit inputs, and writes them to an input.json file.
 
 The generateTwitterVerifierCircuitInputs function is the main function that does all the work. It uses helper functions from the @zk-email/helpers package to generate the inputs and write them to a file.
 
 Remember to replace the address and the path to the raw email file with your own wallet address.
+
+
 
 
 ## Constructing Your Twitter Circom File
@@ -258,6 +279,8 @@ For more details, refer to the following resources:
 ## Compiling and Computing the Witness
 
 After setting up your Twitter circuit, the next step is to compile it and compute the witness. This process involves generating the verification key (vkey) and the zk-SNARK proving keys (zkeys).
+
+For in-browser proving, we will generate chunked zkeys. This is because the twitter.circom file is quite large, leading to extended proving times.
 
 The detailed steps for this process are covered in the [zk-email verifier usage guide](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide). It is recommended to follow the guide to ensure the correct setup and operation of your circuit.
 
