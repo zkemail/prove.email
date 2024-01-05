@@ -82,7 +82,7 @@ Now, let's generate the input for a zkregex using zkregex.com. This tool will he
 
 6. Click "Generate" to get the Circom code for your circuit.
 
-This circuit verifies a Twitter username without revealing any other information. Use it in your zkEmail application to authenticate Twitter usernames on-chain. For this tutorial we will name it `twitter_reset_regex`
+This circuit verifies a Twitter username without revealing any other information. Use it in your zkEmail application to authenticate Twitter usernames on-chain. For this tutorial we will name it `twitter_reset_regex`.
 
 ## Creating Inputs for Your Circuit
 
@@ -149,9 +149,6 @@ This script reads your raw email file, verifies the DKIM signature, generates th
 The generateTwitterVerifierCircuitInputs function is the main function that does all the work. It uses helper functions from the @zk-email/helpers package to generate the inputs and write them to a file.
 
 Remember to replace the address and the path to the raw email file with your own wallet address.
-
-
-
 
 ## Constructing Your Twitter Circom File
 
@@ -282,7 +279,11 @@ After setting up your Twitter circuit, the next step is to compile it and comput
 
 For in-browser proving, we will generate chunked zkeys. This is because the twitter.circom file is quite large, leading to extended proving times.
 
-The detailed steps for this process are covered in the [zk-email verifier usage guide](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide). It is recommended to follow the guide to ensure the correct setup and operation of your circuit.
+To begin, install this specific version of snarkjs which supports chunked key verification.
+
+```
+npm install snarkjs@git+https://github.com/vb7401/snarkjs.git#24981febe8826b6ab76ae4d76cf7f9142919d2b8
+```
 
 ## Conclusion
 
