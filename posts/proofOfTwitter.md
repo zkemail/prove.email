@@ -42,16 +42,18 @@ Install all three packages by running:
 npm install @zk-email/circuits @zk-email/helpers @zk-email/contracts
 ```
 
-## Preparing the Email
+## Preparing the Email from Twitter Containing the Username
 
-What we are trying to get is the "Forgot your password" email from Twitter. This email contains a unique link that allows the user to reset their password. By verifying this email, we can ensure that the user has access to the associated Twitter account.
+To verify ownership of a Twitter account, we will use the "Forgot your password" email from Twitter. This email inherently includes the username and can be generated at any time. By authenticating this email, we can confirm that the user has control over the corresponding Twitter account.
 
 
 Let's start by obtaining the raw email file:
 
 1. Initiate a password reset process on Twitter to send yourself a reset email.
 
-2. Locate the email from Twitter in your inbox and download its headers. You can usually find this option under a menu represented by three dots, then select 'Download Message'.
+2. Locate the email from Twitter in your inbox and download its headers. If you're using gmail you can find this option under a menu represented by three dots, then select 'Download Message'.
+
+![gmailDots](/public/emaildots.png)
 
 For different email clients, the process varies slightly:
 
@@ -82,13 +84,11 @@ Now, let's generate the input for a zkregex using zkregex.com. This tool will he
 
 6. Click "Generate" to get the Circom code for your circuit.
 
-This circuit verifies a Twitter username without revealing any other information. Use it in your zkEmail application to authenticate Twitter usernames on-chain. For this tutorial we will name it `twitter_reset_regex`.
+We will integrate the regex circuit generated into our primary circuit. This will allow us to demonstrate that a user possesses an email authenticated by Twitter's private key. We can verify the presence of a string in the email body that corresponds to the user's Twitter handle and publicly disclose the username as part of the proof.
 
 ## Creating Inputs for Your Circuit
 
-Next, we generate inputs for your circuit using the ZK Email helpers SDK. This example uses a Twitter verification circuit, but the principles can be applied to any circuit you're working with.
-
-Code Example
+After setting up the main Twitter verification circuit, we can proceed to generate inputs for your circuit using the ZK Email helpers SDK.
 
 You can create a `inputs.ts` file and place this code inside:
 ``` typescript
@@ -145,6 +145,8 @@ npx ts-node inputs.ts
 ```
 
 This script reads your raw email file, verifies the DKIM signature, generates the circuit inputs, and writes them to an input.json file.
+
+This input.json file will be used later for witness generation and proving.
 
 The generateTwitterVerifierCircuitInputs function is the main function that does all the work. It uses helper functions from the @zk-email/helpers package to generate the inputs and write them to a file.
 
@@ -248,7 +250,7 @@ component EV = EmailVerifier(max_header_bytes, max_body_bytes, n, k, 0);
 
 In this part of the code, we will add the code to verify the Twitter username that is found in the email body.
 
- We start by defining the maximumm length of a Twitter username and calculating the maximum number of bytes it can occupy when packed.
+ We start by defining the maximum length of a Twitter username and calculating the maximum number of bytes it can occupy when packed.
 
 ```javascript
  var max_twitter_len = 21;
@@ -277,6 +279,26 @@ For more details, refer to the following resources:
 
 After setting up your Twitter circuit, the next step is to compile it and compute the witness. This process involves generating the verification key (vkey) and the zk-SNARK proving keys (zkeys).
 
+### Compilation
+To compile the circuit locally, you need to have Rust and Circom installed first. You can visit this link to install both: https://docs.circom.io/getting-started/installation/#installing-dependencies
+
+```
+circom -l node_modules TwitterVerifier.circom -o --r1cs --wasm --sym --c
+```
+
+This process will generate a `r1cs` file, a `wasm` file, and a `sym` file. These files are essential for generating the vkey, zkey, and computing the witness.
+
+### Compute the witness
+Now, let's move on to computing the witness. The role of the witness is to ensure that the circuit's signals adhere to the defined constraints.
+
+Execute the following command in your terminal:
+
+```
+node generate_witness.js twitterverifier.wasm input.json witness.wtns
+```
+
+## Generating Proving and Verification Keys
+
 For in-browser proving, we will generate chunked zkeys. This is because the twitter.circom file is quite large, leading to extended proving times.
 
 To begin, install this specific version of snarkjs which supports chunked key verification.
@@ -284,6 +306,58 @@ To begin, install this specific version of snarkjs which supports chunked key ve
 ```
 npm install snarkjs@git+https://github.com/vb7401/snarkjs.git#24981febe8826b6ab76ae4d76cf7f9142919d2b8
 ```
+
+
+
+## Contracts
+The `ProofOfTwitter.sol` contract includes the required on-chain logic for verifying Twitter accounts. When the proof is validated successfully, an NFT is minted on the blockchain.
+
+This contract defines constants that represent the indices of various public signals within the proof, such as the DKIM public key hash, the Twitter username, and the Ethereum address. These constants are used to retrieve the corresponding values from the signals array during verification.
+
+```solidity
+    uint32 public constant pubKeyHashIndexInSignals = 0; // index of DKIM public key hash in signals array
+    uint32 public constant usernameIndexInSignals = 1; // index of first packed twitter username in signals array
+    uint32 public constant usernameLengthInSignals = 1; // length of packed twitter username in signals array
+    uint32 public constant addressIndexInSignals = 2; // index of ethereum address in signals array
+```
+
+The contract includes a function to verify the DKIM public key hash against a registry to ensure the email's authenticity:
+
+```solidity
+    bytes32 dkimPublicKeyHashInCircuit = bytes32(signals[pubKeyHashIndexInSignals]);
+    require(dkimRegistry.isDKIMPublicKeyHashValid(domain, dkimPublicKeyHashInCircuit), "invalid dkim signature");
+```
+
+It also contains a function that uses the `verifier` contract to check the validity of the provided proof:
+
+```solidity
+    require(
+        verifier.verifyProof(
+            [proof[0], proof[1]],
+            [[proof[2], proof[3]], [proof[4], proof[5]]],
+            [proof[6], proof[7]],
+            signals
+        ),
+        "Invalid Proof"
+    );
+```
+
+Additionally, the contract includes logic to extract the Twitter username from the packed signals array. Although currently, a Twitter username can fit within a single signal, the code is designed to handle longer usernames that may span multiple signals:
+
+```solidity
+    // Extract the username chunks from the signals. 
+    // Note that this is not relevant now as username can fit in one signal
+    // TODO: Simplify signal uint to string conversion
+    uint256[] memory usernamePack = new uint256[](usernameLengthInSignals);
+    for (uint256 i = usernameIndexInSignals; i < (usernameIndexInSignals + usernameLengthInSignals); i++) {
+        usernamePack[i - usernameIndexInSignals] = signals[i];
+    }
+```
+
+Understanding these components is essential for anyone looking to build a system that leverages this contract for Twitter account verification using zk-SNARKs. The full contract code is available at the GitHub repository:
+[ProofOfTwitter.sol](https://github.com/zkemail/proof-of-twitter/blob/main/packages/contracts/src/ProofOfTwitter.sol)
+
+
 
 ## Conclusion
 
