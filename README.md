@@ -1,4 +1,29 @@
+## Running Notes For Eesha  
+
+- Story Book Tutorial https://youtu.be/i5tvZ9f7gJw  
+- Another Story Book Tutorial https://www.youtube.com/watch?v=FUKpWgRyPlU  
+- Build better UIs with Storybook Args | 5min Tutorial https://www.youtube.com/watch?v=0gOfS6K0x0E
+- Shubhams's Example Design System Repo https://github.com/wryonik/design-system  
+
+
+Materila Ui  
+-  Learn MUI (Material UI) in under 10 min https://www.youtube.com/watch?v=FB-sKY63AWo
+
+## To Do For Eesha
+- Fix font discrepency globally
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+
+## Things I added  
+- npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx         https://nextjs.org/docs/pages/building-your-application/configuring/mdx 
+- npm install @mui/material @emotion/react @emotion/styled              https://mui.com/material-ui/   
+- npm install @mdx-js/react gray-matter   
+- npm i next-mdx-remote         https://www.youtube.com/watch?v=n2CV6f0vFr4  for the blog
+
+
 
 ## Getting Started
 
