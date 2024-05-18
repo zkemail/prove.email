@@ -56,22 +56,22 @@ export default function Home() {
 
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px]">
-        <div className="text-center py-10">
-          <h1 className="text-5xl pb-24">Our Libraries</h1>
+        <div className="text-center py-10 px-4">
+          <h1 className="text-4xl sm:text-5xl pb-16 sm:pb-24">Our Libraries</h1>
           <div className="grid grid-cols-2">
             <div>
-              <h1 className="text-4xl">ZK Email Libraries</h1>
-              <p className="w-1/2 justify-center justify-self-center mx-auto py-6">
+              <h1 className="text-3xl sm:text-4xl">ZK Email Libraries</h1>
+              <p className="w-1/2 justify-center justify-self-center mx-auto py-6 text-[11px]  sm:text-[14px] h-[190px] md:h-[120px]">
                 We have several repos within the ZK Email ecosystem. Developers can use these libraries to build their own custom email verification circuits.
               </p>
               <PopOut cards={PopOutZKEmailLibraryCards} toggleName="ZK Email Specific Libraries" />
             </div>
             <div>
-              <h1 className="text-4xl">ZK Libraries</h1>
-              <p className="w-1/2 justify-center justify-self-center mx-auto py-6">
+              <h1 className="text-3xl sm:text-4xl">ZK Libraries</h1>
+              <p className="w-1/2 justify-center justify-self-center mx-auto py-6 text-[11px]  sm:text-[14px] h-[190px]  md:h-[120px]">
                 While developing ZK Email we also built these libraries for general use, that can be applied outside of the ZK Email ecosystem
               </p>
-              <PopOut cards={PopOutZKLibraryCards} toggleName="Our General Zero Knowledge Libraries" />
+              <PopOut cards={PopOutZKLibraryCards} toggleName='General ZK Libraries'/>
             </div>
           </div>
         </div>

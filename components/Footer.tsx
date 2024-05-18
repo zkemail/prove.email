@@ -6,8 +6,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import SvgIcon from '@mui/material/SvgIcon';
 import Image from 'next/image';
-import SocialIconLink from './SocialIconLink'; // Import the new component
-import zkEmailFooter from '.././public/zkEmailFooter.svg'; // Adjust the path as necessary
+import SocialIconLink from './SocialIconLink';
+import zkEmailFooter from '.././public/zkEmailFooter.svg'; 
 import Link from 'next/link';
 
 function DiscordIcon(props) {

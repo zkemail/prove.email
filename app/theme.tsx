@@ -74,8 +74,13 @@ const theme = createTheme({
         fontSize: '12px',
       },
     }
+  },
 
-    
+  Button: {
+    fontSize: '12px',
+    '@media (min-width:1000px)': {
+      fontSize: '5px',
+    },
   },
 
   palette: {
@@ -103,6 +108,20 @@ const theme = createTheme({
     },
   },
 
+
+
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: '10px',
+          '@media (min-width:1000px)': {
+            fontSize: '16px',
+          },
+        },
+      },
+    },
+  },
 
   // components: {
   //   MuiTypography: {
