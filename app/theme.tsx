@@ -65,6 +65,14 @@ const theme = createTheme({
       '@media (min-width:1000px)': {
         fontSize: '16px',
       },
+    },
+
+    videoCardSubText: {
+      color:'grey',
+      fontSize: '12px',
+      '@media (min-width:1000px)': {
+        fontSize: '12px',
+      },
     }
 
     

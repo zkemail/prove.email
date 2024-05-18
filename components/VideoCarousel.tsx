@@ -45,10 +45,10 @@ const VideoCarousel = () => {
                 <Typography variant="h5" className="text-black col-span-2 h-[70px]">
                   {video.title}
                 </Typography>
-                <Typography  variant="h6" className="text-gray-600 text-grey-500 text-xs">
+                <Typography  variant="videoCardSubText" className="text-gray-600 text-grey-500 text-xs">
                   {video.where}
                 </Typography>
-                <Typography variant="h6" className="text-gray-600 text-grey-500 text-xs text-right">
+                <Typography variant="videoCardSubText" className="text-gray-600 text-grey-500 text-xs text-right">
                   {video.date}
                 </Typography>
               </CardContent>
