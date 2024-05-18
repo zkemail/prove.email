@@ -53,8 +53,21 @@ const theme = createTheme({
     },
 
     h6: {
-      fontSize: '9.0 rem',
+      fontSize: '12px',
+      '@media (min-width:1000px)': {
+        fontSize: '16px',
+      },
+    },
+
+    footerLink: {
+      color:'grey',
+      fontSize: '12px',
+      '@media (min-width:1000px)': {
+        fontSize: '16px',
+      },
     }
+
+    
   },
 
   palette: {

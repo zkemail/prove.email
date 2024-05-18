@@ -33,9 +33,9 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           lg: '960px', // For large screens
           xl: '1140px', // For extra large screens
         },
-         }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important' }}>
-          <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
+        }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
+          <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', pl:'30px', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
             {title}
           </Typography>
           <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>
