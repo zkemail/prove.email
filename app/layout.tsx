@@ -9,9 +9,25 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../app/theme'
+import { AppBarProps } from '.././types'; // Adjust the import path as needed
+
+const pages = [
+  { label: 'Projects', link: '/projects' },
+  { label: 'Docs', link: '/docs' },
+  { label: 'Blog', link: '/posts' },
+  { label: 'Learn', link: '/learn' }
+];
+
+const appBarProps: AppBarProps = {
+  title: 'ZK Email',
+  pages: pages
+};
+
+
 
 // Apply the Google font
 const inter = Inter({ subsets: ["latin"] });
+
 
 const RootLayout = ({ children }) => {
   return (
@@ -24,9 +40,11 @@ const RootLayout = ({ children }) => {
       <body>
         <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
-              <Header/>
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Header {...appBarProps} />
                 <main>{children}</main>
               <Footer/>
+            </div>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

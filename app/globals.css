@@ -28,6 +28,23 @@ body {
     /* font-family: 'Space Grotesk'; */
 }
 
+
+
+/* globals.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root, #__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

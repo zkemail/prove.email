@@ -3,6 +3,11 @@ import Accordion from '../components/Accordion';
 import PopOut from '../components/PopOut';
 import VideoCarousel from '../components/VideoCarousel';
 
+
+
+
+
+
 const faqs = [
   {
     title: '01. Cryptography for People',
@@ -34,6 +39,8 @@ let PopOutZKEmailLibraryCards = [
 
 
 
+
+  
 export default function Home() {
   return (
     <main className="flex bg-white min-h-screen flex-col">

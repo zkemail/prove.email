@@ -44,7 +44,7 @@ const theme = createTheme({
       fontSize: '1.75rem',
       fontWeight: 500,
       lineHeight: 1.3,
-      fontFamily: "spaceGrotesk.style.fontFamily",
+      fontFamily: spaceGrotesk.style.fontFamily,
     },
 
     h5:{
@@ -71,8 +71,9 @@ const theme = createTheme({
       contrastText: '#ffffff',
     },
     background: {
-      default: '#f5f5f5',
+      default: '#F6F5F5',
       paper: '#ffffff',
+
     },
     text: {
       primary: '#000000',

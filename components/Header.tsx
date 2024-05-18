@@ -3,71 +3,69 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Grid } from '@mui/material';
+import Container from '@mui/material/Container';
+import Link from 'next/link';
+import IconButton from '@mui/material/IconButton';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import { Typography } from '@mui/material';
+import { AppBarProps } from '../types'; // Adjust the import path as needed
 
-const pages = ['Docs', 'Projects', 'Learn', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
+// Header takes in props for the title name, and pages links. We call the header in the layout.
+const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Grid container alignItems="center">
-            <Grid item xs={4} className="flex items-center">
-              {/* Name in Header */}
-              <Typography variant="h2" fontFamily="" textAlign="center" fontWeight="700">
-                ZK Email
-              </Typography>
-            </Grid>
-
-
-            <Grid item xs={8} className="flex justify-center">
-              {/* Links for each page in Header*/}
-              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-                {pages.map((page) => (
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                  >
-                    {page}
-                  </Button>
-                ))}
-              </Box>
-            </Grid>
-          </Grid>
+    <AppBar position="static" 
+      sx={{ backgroundColor: 'white', paddingY: '12px', boxShadow: '0px 1px 10.8px rgba(0, 0, 0, 0.05)', zIndex: '10' 
+    }}>
+      <Container
+      sx={{ 
+        backgroundColor: 'white', 
+        boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.09)', 
+        borderRadius: '20px',
+        maxWidth: {
+          xs: '430px', // For extra small screens
+          sm: '540px', // For small screens
+          md: '720px', // For medium screens
+          lg: '960px', // For large screens
+          xl: '1140px', // For extra large screens
+        },
+         }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important' }}>
+          <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
+            {title}
+          </Typography>
+          <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>
+            {pages.map((page) => (
+              <Link href={page.link} key={page.label} passHref>
+                <Button sx={{ 
+                  color: 'black', 
+                  textTransform: 'capitalize', 
+                  fontSize: { xs: '0.7rem', sm:'0.9rem', md: '1 rem'}, '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.04)' }, 
+                  paddingX: { xs: '1px', md: '6px' },
+                  padding: { xs: '2px 4px', md: '6px 16px' }, // Reduced padding
+                  minWidth: 'auto', // Ensure buttons shrink to fit content
+                  }}>
+                  {page.label}
+                </Button>
+              </Link>
+            ))}
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <IconButton sx={{ color: 'black' }} aria-label="GitHub link">
+              <GitHubIcon />
+            </IconButton>
+            <IconButton sx={{ color: 'black' }} aria-label="Toggle theme">
+              <Brightness4Icon />
+            </IconButton>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

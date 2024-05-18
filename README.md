@@ -1,20 +1,17 @@
-## Running Notes For Eesha  
+## Notes For Eesha  
 
 - Story Book Tutorial https://youtu.be/i5tvZ9f7gJw  
 - Another Story Book Tutorial https://www.youtube.com/watch?v=FUKpWgRyPlU  
 - Build better UIs with Storybook Args | 5min Tutorial https://www.youtube.com/watch?v=0gOfS6K0x0E
 - Shubhams's Example Design System Repo https://github.com/wryonik/design-system  
+- All components should take props from their parent when it makes sense, use theme for global styles
 
 
 Materila Ui  
 -  Learn MUI (Material UI) in under 10 min https://www.youtube.com/watch?v=FB-sKY63AWo
 
 ## To Do For Eesha
-- Fix font discrepency globally
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+- Fix font discrepency globally  
 
 
 ## Things I added  
