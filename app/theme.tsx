@@ -59,6 +59,10 @@ const theme = createTheme({
       },
     },
 
+    p: {
+      color: "black"
+    },
+
     footerLink: {
       color:'grey',
       fontSize: '12px',

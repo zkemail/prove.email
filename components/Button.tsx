@@ -73,6 +73,7 @@ const Button = styled(BaseButton, {
   background-color: ${filledIn ? grey[0] : white[0]};
   color: ${filledIn ? white[0] : grey[0]};
   padding: 8px 16px;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 17.16px;
   transition: all 150ms ease;
   cursor: pointer;
