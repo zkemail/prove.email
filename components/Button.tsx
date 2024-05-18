@@ -1,48 +1,43 @@
 import * as React from 'react';
 import { Button as BaseButton, buttonClasses } from '@mui/base/Button';
-import { prepareForSlot } from '@mui/base/utils';
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
-import { inherits } from 'util';
+import theme from '@/app/theme';
 
-const LinkSlot = prepareForSlot(Link);
-
-
-
-/* 
-    Component props information:
-    - buttonLabel is the name of the button
-    - filledIn indicates wether the button is filled in or not, useful for styling
-*/
+const LinkSlot = Link;
 
 interface ButtonProps {
     buttonLabel: string,
-    filledIn?: boolean
+    filledIn?: boolean,
+    url?: string; // Add the URL prop
 }
 
-export default function UnstyledLinkButton({filledIn, buttonLabel}) {
+export default function UnstyledLinkButton({ filledIn, buttonLabel, url }: ButtonProps) {
   return (
     <Stack spacing={2} direction="row">
-      {/* <Button href="https://mui.com/">Standard link</Button> */}
-      {/* <Button href="https://mui.com/" slots={{ root: LinkSlot }}>
-        {buttonLabel}
-      </Button> */}
-        <Button className={`flex justify-between items-center gap-4 py-[5px] px-[20px]  rounded-full ${filledIn ? 'bg-darkGrey-0 text-white': 'text-darkGrey-0 bg-white border-2 border-darkGrey-0'}`}>
-            {buttonLabel}
+      {url ? (
+        <Link href={url} target='blank' passHref>
+            <Button filledIn={filledIn}>
+              {buttonLabel}
+            </Button>
+        </Link>
+      ) : (
+        <Button filledIn={filledIn}>
+          {buttonLabel}
         </Button>
+      )}
     </Stack>
   );
 }
 
-
 const darkGrey = {
-0: '#353535'
-}
+  0: '#353535',
+};
 
 const white = {
-    0: '#FFFFFF'
-}
+  0: '#FFFFFF',
+};
 
 const blue = {
   200: '#99CCFF',
@@ -67,17 +62,18 @@ const grey = {
   900: '#1C2025',
 };
 
-const Button = styled(BaseButton)(
-  ({ theme }) => `
-  font-family: inherit;
+const Button = styled(BaseButton, {
+  shouldForwardProp: (prop) => prop !== 'filledIn',
+})<ButtonProps>(({ theme, filledIn }) => `
+  font-family: ${theme.typography.fontFamily};
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.5;
   text-decoration: none;
-  background-color: ${white[0]};
+  background-color: ${filledIn ? grey[0] : white[0]};
+  color: ${filledIn ? white[0] : grey[0]};
   padding: 8px 16px;
   border-radius: 17.16px;
-  color: ${grey[0]};
   transition: all 150ms ease;
   cursor: pointer;
   border: 2px solid ${grey[0]};
@@ -106,5 +102,4 @@ const Button = styled(BaseButton)(
     box-shadow: none;
     transform: scale(1);
   }
-  `,
-);
+`);

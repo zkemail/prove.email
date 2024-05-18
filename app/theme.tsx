@@ -81,6 +81,7 @@ const theme = createTheme({
     '@media (min-width:1000px)': {
       fontSize: '5px',
     },
+    fontFamily: spaceGrotesk.style.fontFamily,
   },
 
   palette: {

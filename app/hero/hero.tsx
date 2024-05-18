@@ -12,8 +12,8 @@ export default function Hero() {
         <p className='pb-3'>Prove who sent an email & any of it’s contents. Anonmously. On or Offchain.</p>
           <div className='content-center items-center flex justify-center'>
             <Stack spacing={2} direction="row" sx={{paddingTop:"16px"}}>
-              <UnstyledLinkButton buttonLabel="Docs" filledIn={true}>material ui button</UnstyledLinkButton>
-              <UnstyledLinkButton buttonLabel="Projects" filledIn={true}>material ui button</UnstyledLinkButton>
+              <UnstyledLinkButton buttonLabel="Docs" filledIn={true} url='https://zkemail.gitbook.io/zk-email'>material ui button</UnstyledLinkButton>
+              <UnstyledLinkButton buttonLabel="Projects" filledIn={false}>material ui button</UnstyledLinkButton>
             </Stack>
           </div>
 
