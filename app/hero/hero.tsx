@@ -25,7 +25,7 @@ export default function Hero() {
       }}
     >
       <div className='z-50 relative'>
-        <h1 className="text-black text-9xl">ZKEmail</h1>
+        <h1 className="text-black text-7xl lg:text-9xl">ZKEmail</h1>
         <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
