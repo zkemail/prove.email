@@ -1,7 +1,7 @@
 'use client'
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Image from 'next/image';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Typography} from '@mui/material';
 import rectangleEnvelope from '../../public/rectangleEnvelope.svg'; 
 import triangleEnvelope from '../../public/triangleEnvelope.svg';
 import backgroundHero from '../../public/backgroundHero.svg'; 
@@ -25,7 +25,18 @@ export default function Hero() {
       }}
     >
       <div className='z-50 relative'>
-        <h1 className="text-black text-7xl lg:text-9xl">ZKEmail</h1>
+        <Typography variant='h1'
+          sx={{
+            fontSize: {
+              xs: '3rem',  // font size for extra small screens
+              sm: '3.5rem',    // font size for small screens
+              md: '3.5rem',  // font size for medium screens
+              lg: '9rem',    // font size for large screens
+              xl: '9rem',  // font size for extra large screens
+            },
+          }}
+        >
+          ZKEmail</Typography>
         <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>

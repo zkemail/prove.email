@@ -29,7 +29,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
           <Link href='/'>          
-            <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', pl:'30px', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
+            <Typography variant="h5" sx={{ fontSize: {xxs:'0.3rem', sm: '0.7rem', md:'1rem'}, fontWeight: 'bold', color: 'black', pl: {xs:'10px', sm:'15px', md:'30px'} }}>
               {title}
             </Typography>
           </Link>
@@ -51,10 +51,28 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
             ))}
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <IconButton sx={{ color: 'black' }} aria-label="GitHub link">
+          <IconButton
+              sx={{
+                color: 'black',
+                padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
+                '& .MuiSvgIcon-root': {
+                  fontSize: { xs: '12px', sm: '20px', md: '24px' } // Adjust icon size based on screen size
+                }
+              }}
+              aria-label="GitHub link"
+            >
               <GitHubIcon />
             </IconButton>
-            <IconButton sx={{ color: 'black' }} aria-label="Toggle theme">
+            <IconButton
+              sx={{
+                color: 'black',
+                padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
+                '& .MuiSvgIcon-root': {
+                  fontSize: { xs: '12px', sm: '20px', md: '24px' } // Adjust icon size based on screen size
+                }
+              }}
+              aria-label="Toggle theme"
+            >
               <Brightness4Icon />
             </IconButton>
           </Box>
