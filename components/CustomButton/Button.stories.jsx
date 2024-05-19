@@ -3,11 +3,11 @@ import CustomButton from "./CustomButton";
 
 export default {
     title: "Button",
-    component: Button,
+    component: CustomButton,
 }
 
 
-export const ButtonTest = (args) => <Button {...args} />
+export const ButtonTest = (args) => <CustomButton {...args} />
 ButtonTest.args = {
     buttonLabel: "Test",
     filledIn: false,
