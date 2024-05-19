@@ -145,7 +145,7 @@ export default function Home() {
           <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
             Frequently Asked Questions
           </Typography>
-          <div className="relative" style={{ width: '850px', margin: '0 auto', padding: '20px', zIndex:'100' }}>
+          <div className="relative" style={{ width: '80%', margin: '0 auto', padding: '20px', zIndex:'100' }}>
             {faqs.map((faq, index) => (
               <Accordion key={index} title={faq.title} contents={faq.contents} />
             ))}
