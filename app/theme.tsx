@@ -94,6 +94,7 @@ const theme = createTheme({
       xl: 1140,
     },
   },
+  
   components: {
     MuiButton: {
       styleOverrides: {

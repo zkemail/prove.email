@@ -28,9 +28,12 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           maxWidth: theme.breakpoints.values, // Use theme breakpoints for maxWidth
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
-          <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', pl:'30px', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
-            {title}
-          </Typography>
+          <Link href='/'>          
+            <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', pl:'30px', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
+              {title}
+            </Typography>
+          </Link>
+
           <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>
             {pages.map((page) => (
               <Link href={page.link} key={page.label} passHref>

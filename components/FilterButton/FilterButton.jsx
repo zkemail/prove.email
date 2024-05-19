@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 
 const FilterButton = ({ label = 'Filter', active = false, onToggle }) => {
   const handleClick = () => {
@@ -8,10 +8,9 @@ const FilterButton = ({ label = 'Filter', active = false, onToggle }) => {
 
   return (
     <Button
-      onClick={handleClick}
-      className={`btn ${active ? 'btn-active' : ''}`}
-      variant={active ? 'contained' : 'outlined'}
-      color={active ? 'primary' : 'default'}
+      // onClick={handleClick}
+      // variant={active ? 'contained' : 'outlined'}
+      // color={active ? 'primary' : 'default'}
     >
       {label}
     </Button>
