@@ -1,10 +1,10 @@
-'use client';
-
-import UnstyledLinkButton from '../../components/Button';
+'use client'
+import CustomButton from '../../components/CustomButton/CustomButton';
 import Image from 'next/image';
 import { Box, Stack } from '@mui/material';
-import rectangleEnvelope from '../.././public/rectangleEnvelope.svg'; // Adjust the path as necessary
-import triangleEnvelope from '../.././public/triangleEnvelope.svg'; // Adjust the path as necessary
+import rectangleEnvelope from '../../public/rectangleEnvelope.svg'; 
+import triangleEnvelope from '../../public/triangleEnvelope.svg';
+import backgroundHero from '../../public/backgroundHero.svg'; 
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import { useState } from 'react';
 
@@ -16,18 +16,28 @@ export default function Hero() {
   };
 
   return (
-    <main className="px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center">
+    <main 
+      className="px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center"
+      style={{
+        backgroundImage: `url(${backgroundHero.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className='z-50 relative'>
         <h1 className="text-black text-9xl">ZKEmail</h1>
         <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-            <UnstyledLinkButton buttonLabel="Docs" filledIn={true} url='https://zkemail.gitbook.io/zk-email'>material ui button</UnstyledLinkButton>
-            <UnstyledLinkButton buttonLabel="Projects" filledIn={false}>material ui button</UnstyledLinkButton>
+            <CustomButton buttonLabel="Docs" filledIn={true} url='https://zkemail.gitbook.io/zk-email'>
+              material ui button
+            </CustomButton>
+            <CustomButton buttonLabel="Projects" filledIn={false}>
+              material ui button
+            </CustomButton>
           </Stack>
         </div>
       </div>
-
 
       {/* ENVELOPE MAIL STUFF */}
       <div className="relative w-fit flex justify-center mt-16 cursor-pointer" onClick={handleToggle}>

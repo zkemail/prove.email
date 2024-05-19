@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,29 +10,22 @@ import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { Typography } from '@mui/material';
-import { AppBarProps } from '../types'; // Adjust the import path as needed
+import { AppBarProps } from '../../types'; // Adjust the import path as needed
+import { useTheme } from '@mui/material/styles';
 
-
-
-
-// Header takes in props for the title name, and pages links. We call the header in the layout.
 const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
+  const theme = useTheme();
+
   return (
     <AppBar position="static" 
       sx={{ backgroundColor: 'white', paddingY: '12px', boxShadow: '0px 1px 10.8px rgba(0, 0, 0, 0.05)', zIndex: '10' 
     }}>
       <Container
-      sx={{ 
-        backgroundColor: 'white', 
-        boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.09)', 
-        borderRadius: '20px',
-        maxWidth: {
-          xs: '430px', // For extra small screens
-          sm: '540px', // For small screens
-          md: '720px', // For medium screens
-          lg: '960px', // For large screens
-          xl: '1140px', // For extra large screens
-        },
+        sx={{ 
+          backgroundColor: 'white', 
+          boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.09)', 
+          borderRadius: '20px',
+          maxWidth: theme.breakpoints.values, // Use theme breakpoints for maxWidth
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
           <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'black', pl:'30px', fontSize: { xs: '0.7rem', sm: '0.9rem', md: '1rem'} }}>
@@ -48,7 +41,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
                   paddingX: { xs: '1px', md: '6px' },
                   padding: { xs: '2px 4px', md: '6px 16px' }, // Reduced padding
                   minWidth: 'auto', // Ensure buttons shrink to fit content
-                  }}>
+                }}>
                   {page.label}
                 </Button>
               </Link>

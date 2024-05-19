@@ -16,7 +16,7 @@ const Accordion = ({ title, contents }) => {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography color="black">{title}</Typography>
+        <Typography color="black" fontWeight="500" fontSize="19px">{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>{contents}</Typography>

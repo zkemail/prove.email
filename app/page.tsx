@@ -96,19 +96,24 @@
 
 
 import Hero from './hero/hero'
-import Accordion from '../components/Accordion';
-import PopOut from '../components/PopOut';
-import VideoCarousel from '../components/VideoCarousel';
+import Accordion from '../components/Accordion/Accordion';
+import PopOut from '../components/PopOut/PopOut';
+import VideoCarousel from '../components/VideoCarousel/VideoCarousel';
+import { Typography } from '@mui/material';
 
 const faqs = [
   {
-    title: '01. Cryptography for People',
+    title: 'How do you selectively reveal content in an email ?',
     contents: 'Cryptography is everywhere: every time you connect to a secure site...'
   },
   {
-    title: '02. Prioritizing Privacy',
+    title: 'How can I do this anonymously',
     contents: 'Authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy.'
-  }
+  },
+  {
+    title: 'Why don’t I need to trust you?',
+    contents: 'Cryptography is everywhere: every time you connect to a secure site...'
+  },
 ];
 
 const PopOutZKLibraryCards = [
@@ -135,13 +140,19 @@ export default function Home() {
       <Hero/>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='z-50 bg-white w-full min-h-[200px]'>
-        <div className="relative" style={{ width: '500px', margin: '0 auto', padding: '20px', zIndex:'100' }}>
-          {faqs.map((faq, index) => (
-            <Accordion key={index} title={faq.title} contents={faq.contents} />
-          ))}
+      <div className='px-[20px] pt-[100px] z-50 bg-white w-full'>
+        <div className='min-h-[200px]'>
+          <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
+            Frequently Asked Questions
+          </Typography>
+          <div className="relative" style={{ width: '850px', margin: '0 auto', padding: '20px', zIndex:'100' }}>
+            {faqs.map((faq, index) => (
+              <Accordion key={index} title={faq.title} contents={faq.contents} />
+            ))}
+          </div>
         </div>
       </div>
+
 
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px] relative z-10">

@@ -58,10 +58,7 @@ const theme = createTheme({
         fontSize: '16px',
       },
     },
-
-    p: {
-      color: "black"
-    },
+    
 
     footerLink: {
       color:'grey',
@@ -113,6 +110,25 @@ const theme = createTheme({
     },
   },
 
+  maxWidth: {
+    xs: '430px', // For extra small screens
+    sm: '540px', // For small screens
+    md: '720px', // For medium screens
+    lg: '960px', // For large screens
+    xl: '1140px', // For extra large screens
+},
+
+
+
+breakpoints: {
+  values: {
+    xs: 430,
+    sm: 540,
+    md: 720,
+    lg: 960,
+    xl: 1140,
+  },
+},
 
 
   components: {

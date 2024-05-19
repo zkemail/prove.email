@@ -1,12 +1,17 @@
+'use client'
+
 import React from 'react';
 import { Link, SvgIconProps } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
-interface SocialIconLinkProps {
+interface IconLinkProps {
   href: string;
   IconComponent: React.ComponentType<SvgIconProps>;
 }
 
-const SocialIconLink: React.FC<SocialIconLinkProps> = ({ href, IconComponent }) => {
+const IconLink: React.FC<IconLinkProps> = ({ href, IconComponent }) => {
+  const theme = useTheme();
+
   return (
     <Link
       href={href}
@@ -15,7 +20,7 @@ const SocialIconLink: React.FC<SocialIconLinkProps> = ({ href, IconComponent }) 
       underline="none"
       sx={{
         fontSize: '24px',
-        '@media (max-width:600px)': {
+        [theme.breakpoints.down('sm')]: {
           fontSize: '20px',
         },
       }}
@@ -25,4 +30,4 @@ const SocialIconLink: React.FC<SocialIconLinkProps> = ({ href, IconComponent }) 
   );
 };
 
-export default SocialIconLink;
+export default IconLink;

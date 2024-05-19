@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Button from "../components/Button";
+import CustomButton from "./CustomButton";
 
 export default {
     title: "Button",

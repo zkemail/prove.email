@@ -1,5 +1,14 @@
 import Link from 'next/link'
 import { getAllPostsMeta } from '../lib/index'
+// import FilterButton from './FilterButton';
+
+
+// const [filters, setFilters] = useState([
+//   { label: 'Filter 1', active: false },
+//   { label: 'Filter 2', active: false },
+//   { label: 'Filter 3', active: false },
+// ])
+
 
 const Page = async () => {
   const posts = await getAllPostsMeta()
@@ -29,3 +38,6 @@ const Page = async () => {
 }
 
 export default Page
+
+
+
