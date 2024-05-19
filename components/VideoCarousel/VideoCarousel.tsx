@@ -80,6 +80,9 @@
 // };
 
 // export default VideoCarousel;
+
+
+
 'use client'
 import React, { useState } from 'react';
 import { Box, Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
@@ -88,6 +91,7 @@ const videos = [
   { title: "ZK Email: Novel ZK Applications Unlocked by Portable Provenance", where: "ZK Summit 11", url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE", date: "2024-04-19" },
   { title: "ZK Email: Email Wallet and Identity Attestations", where: "Proof Singularity Denver", url: "https://www.youtube.com/embed/GEWuGtsjATw?si=ApokIEW2h8KYYAYO", date: "2024-03-15" },
   { title: "ZK Email: Email Wallets and Provenant Identity", where: "PROGCRYPTO", url: "https://www.youtube.com/embed/qUYBja0glio?si=MuVP2sgVo9y7egLd", date: "2024-01-26" },
+  { title: "Vitalik @ Ethcon Korea 2023", where: "Ethcon Korea", url: "https://www.youtube.com/embed/gsrtxq0xYxs?si=twKpt5bfFzmZVi21&amp;start=939", date: "2023-11-15" },
   { title: "Universal Recovery: A Social Recovery Solution Utilizes ZK-Email", where: "Clave", url: "https://www.youtube.com/embed/iMAaHEYyuxA?si=aUdeSJ60Dv57TjQI", date: "2023-01-26" },
   { title: "ZK for web2 interop with zkLogin & ZK Email", where: "ZK Podcast", url: "https://www.youtube.com/embed/vFYUWRks7Kg?si=CDU7Ks4Bq5WgngAN", date: "2023-12-06" },
   { title: "Zuconnect 2023 ZK Day: ZK Email", where: "Zuconnect", url: "https://www.youtube.com/embed/3jCKdxQ9Pfw?si=Q4jVStBCmntXnOfO", date: "2023-12-03" },  
@@ -143,7 +147,7 @@ const VideoCarousel = () => {
           color="primary"
           onClick={previous}
           disabled={currentIndex === 0}
-          background 
+          // background 
         >
           Previous
         </Button>

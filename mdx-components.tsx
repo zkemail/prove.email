@@ -10,14 +10,15 @@
 // Import any custom components you want to use in MDX files
 // Example:
 import React from 'react';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 
 const components = {
-  img: (props) => <Image {...props} alt="" />,
+  img: (props: ImageProps) => <Image {...props} alt="" />,
   // Add more components as needed
 };
 
 export default components;
+
 
 
 

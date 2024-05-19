@@ -1,12 +1,21 @@
 'use client'
-// components/PopOut.js
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { Button, Collapse, Box } from '@mui/material';
 
-const PopOut = ({ cards, toggleName }) => {
+interface Card {
+  label: string;
+  url: string;
+}
+
+interface PopOutProps {
+  cards: Card[];
+  toggleName: string;
+}
+
+const PopOut: FC<PopOutProps> = ({ cards, toggleName }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleCardClick = (url) => {
+  const handleCardClick = (url: string) => {
     window.open(url, '_blank');
   };
 

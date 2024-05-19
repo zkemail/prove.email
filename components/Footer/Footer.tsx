@@ -50,14 +50,14 @@ const Footer = () => {
                 </Typography>
                 <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">
                   <Grid item>
-                    <Link href="https://zkemail.gitbook.io/zk-email" color="inherit" target="_blank" underline="none">
+                    <Link href="https://zkemail.gitbook.io/zk-email" color="inherit" target="_blank">
                       <Typography variant='footerLink'>
                         Docs
                       </Typography>
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="/projects" target="_blank" color="inherit" underline="none">
+                    <Link href="/projects" target="_blank" color="inherit">
                       <Typography variant='footerLink'>
                         Projects
                       </Typography>
@@ -72,21 +72,21 @@ const Footer = () => {
                 </Typography>
                 <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">
                   <Grid item>
-                    <Link href="/blog" target="_blank" color="inherit" underline="none">
+                    <Link href="/blog" target="_blank" color="inherit" >
                       <Typography variant='footerLink'>
                         Blog
                       </Typography>
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="/projects" target="_blank" color="inherit" underline="none">
+                    <Link href="/projects" target="_blank" color="inherit">
                       <Typography variant='footerLink'>
                         Learn
                       </Typography>
                     </Link>
                   </Grid>
                   <Grid item>
-                    <Link href="/projects" target="_blank" color="inherit" underline="none">
+                    <Link href="/projects" target="_blank" color="inherit">
                       <Typography variant='footerLink'>
                         Partner
                       </Typography>
