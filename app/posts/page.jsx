@@ -41,7 +41,7 @@ const Page = async () => {
   const posts = await getAllPostsMeta();
 
   return (
-      <div>
+      <div className='bg-white h-fit'>
         <FilterablePostList initialPosts={posts} />
       </div>
   );

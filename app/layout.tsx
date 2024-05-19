@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 import Head from 'next/head';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer'
@@ -29,7 +29,7 @@ const appBarProps: AppBarProps = {
 const inter = Inter({ subsets: ["latin"] });
 
 
-const RootLayout = ({ children }) => {
+const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   return (
     <html lang="en">
       <Head>
