@@ -15,7 +15,7 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        pt: 2,
+        pt: 6,
         textAlign: 'center',
         borderTop: 1,
         borderColor: 'divider',

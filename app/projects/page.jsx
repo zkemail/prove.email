@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Button, InputBase, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ActionCard from '../../components/ActionCard/ActionCard'
+import { Container } from 'postcss';
+import Flipper from '../../components/Flipper/Flipper'
 
 const projects = [
   { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works...', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true },
@@ -12,6 +15,14 @@ const projects = [
   { name: 'Proof of Organization', tagline: '', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false },
   { name: 'Email Wallet', tagline: '', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true }
 ];
+
+const texts = [
+  'Proof Of Personhood',
+  'KYC',
+  'Whistle Blowing',
+];
+
+
 
 const ProjectsPage = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -119,7 +130,12 @@ const ProjectsPage = () => {
           )}
         </div>
       </div>
-    </section>
+
+      <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/>
+      <ActionCard title='Build Proof of Twitter Tutorial' text='Check out our How to Set Up Proof of Twitter Example' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/>
+
+      <Flipper texts={texts} />
+   </section>
   );
 };
 

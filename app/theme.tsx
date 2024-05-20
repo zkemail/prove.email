@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 // Define breakpoints
 const breakpoints = {
   values: {
-    xs: 350,
+    xs: 320,
     sm: 540,
     md: 720,
     lg: 960,

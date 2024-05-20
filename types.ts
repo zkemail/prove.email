@@ -9,6 +9,22 @@ export interface AppBarProps {
   pages: Page[];
 }
 
+
+export interface ActionCardProps {
+  title: string;
+  text: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+
+
+export interface FlipTextProps {
+  texts: string[];
+}
+
+
+
 import { TypographyVariants } from '@mui/material/styles';
 
 // Extend the MUI theme to include custom typography variants
