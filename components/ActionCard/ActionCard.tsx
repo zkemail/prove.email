@@ -28,12 +28,12 @@ import { ActionCardProps } from '../.././types';
             fontSize: {
                 sm: '50px',
                 md:'60px',
-                lg:'80px'
+                lg:'70px'
             },
             lineHeight: {
                 sm: '50px',
                 md:'60px',
-                lg:'75px',
+                lg:'70px',
             }
         }} 
         
