@@ -26,7 +26,10 @@ const Footer = () => {
     >
       <Box
         sx={{
-          px: 6,
+          px: {
+            xs:3,
+            md: 6
+          },
           height: "100%",
           display: "flex",
           flexDirection: "column",
