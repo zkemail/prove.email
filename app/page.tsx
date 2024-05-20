@@ -3,7 +3,7 @@ import Hero from './hero/hero'
 import Accordion from '../components/Accordion/Accordion';
 import PopOut from '../components/PopOut/PopOut';
 import VideoCarousel from '../components/VideoCarousel/VideoCarousel';
-import { Box, Stack, Typography} from '@mui/material';
+import { Box, Stack, Typography, Grid} from '@mui/material';
 import CustomButton from '.././components/CustomButton/CustomButton';
 import ActionCard from '.././components/ActionCard/ActionCard'
 import { Span } from 'next/dist/trace';
@@ -80,7 +80,7 @@ export default function Home() {
 
 
       {/* PROJECTS USING ZK EMAIL SECTION*/}
-      <div>
+      <div className='px-[10%]'>
         <Typography variant='h1'
           sx={{
             textAlign:'center',
@@ -90,11 +90,17 @@ export default function Home() {
           Projects Using ZK Email
         </Typography>
 
-        <Stack spacing={2} direction="row" sx={{ paddingTop: "16px", marginX: 'auto', justifyContent:'center' }}>
-          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
-          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
-          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
-        </Stack>
+        <Grid container spacing={2} direction="row" sx={{ paddingTop: "16px",  justifyContent:'center' }}>
+          <Grid item xs={4}>
+            <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
+          </Grid>
+          <Grid item xs={4}>
+            <ProjectCardHighlight projectTitle="Email Wallet" url='https://emailwallet.org/' projectDescription="Email a relayer in order to transfer money or transact on Ethereum, anonymously." projectTag="Protocol Kit"/>
+          </Grid>
+          <Grid item xs={4}>
+            <ProjectCardHighlight projectTitle="Proof of Twitter" url='https://twitter.prove.email/' projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter." projectTag="Protocol Kit"/>
+          </Grid>
+        </Grid>
       </div>
 
 

@@ -1,104 +1,94 @@
-// 'use client'
-// import React from 'react';
-// import { Card, CardContent, Typography, Box, IconButton, Grid } from '@mui/material';
-// import ArrowOutward from '@mui/icons-material/ArrowOutward';
-
-// interface ProjectCardProps {
-//   projectTitle: string;
-//   projectDescription: string;
-//   projectTag: string;
-// }
-
-// const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescription, projectTag }) => {
-//   return (
-//     <Card
-//       sx={{
-//         maxWidth: 345,
-//         backgroundColor: '#181818',
-//         color: 'white',
-//         borderRadius: '8px',
-//         position: 'relative',
-//         overflow: 'visible',
-//         padding: '16px',
-//       }}
-//     >
-//       <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
-//         <IconButton aria-label="open" sx={{ color: 'white' }}>
-//           <ArrowOutward />
-//         </IconButton>
-//       </Box>
-//       <CardContent sx={{ padding: 0 }}>
-//         <Grid container direction="column" spacing={2}>
-//           <Grid item >
-//             <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: '0.75rem', textTransform: 'uppercase' }}>
-//               {projectTag}
-//             </Typography>
-//           </Grid>
-//           <Grid item>
-//             <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', marginTop: 1 }}>
-//               {projectTitle}
-//             </Typography>
-//           </Grid>
-//           <Grid item>
-//             <Typography variant="body2" sx={{ marginTop: 2 }}>
-//               {projectDescription}
-//             </Typography>
-//           </Grid>
-//         </Grid>
-//       </CardContent>
-//     </Card>
-//   );
-// };
-
-// export default ProjectCard;
-
-
 'use client'
 import React from 'react';
 import { Card, CardContent, Typography, Box, IconButton } from '@mui/material';
 import ArrowOutward from '@mui/icons-material/ArrowOutward';
+import { useTheme } from '@mui/material/styles';
 
 interface ProjectCardProps {
   projectTitle: string;
   projectDescription: string;
   projectTag: string;
+  url: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescription, projectTag }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescription, projectTag, url }) => {
+  const theme = useTheme();
+
   return (
-    <Card
-      sx={{
-        maxWidth: 345,
-        backgroundColor: '#181818',
-        color: 'white',
-        borderRadius: '8px',
-        position: 'relative',
-        overflow: 'visible',
-        height: '200px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-      }}
-    >
-      <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
-        <IconButton aria-label="open" sx={{ color: 'white' }}>
-          <ArrowOutward />
-        </IconButton>
+    <a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', cursor: 'pointer' }}>
+      <Box
+        sx={{
+          '&:hover .arrow-icon': {
+            color: theme.palette.secondary.main,
+            transform: 'translate(2px, -2px)',
+          },
+          '&:hover .card': {
+            borderColor: theme.palette.secondary.main,
+          },
+          '&:hover .title': {
+            '&::after': {
+              width: '100%',
+            },
+          },
+        }}
+      >
+        <Card
+          className="card"
+          sx={{
+            maxWidth: '100%',
+            backgroundColor: '#181818',
+            color: 'white',
+            borderRadius: '8px',
+            position: 'relative',
+            overflow: 'visible',
+            height: '200px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            border: '2px solid transparent',
+            transition: 'border-color 0.3s ease, transform 0.3s ease, color 0.3s ease',
+          }}
+        >
+          <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
+            <IconButton aria-label="open" sx={{ color: 'white' }} className="arrow-icon">
+              <ArrowOutward />
+            </IconButton>
+          </Box>
+          <CardContent sx={{ padding: '16px' }}>
+            <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem' }, textTransform: 'uppercase' }}>
+              {projectTag}
+            </Typography>
+            <Typography
+              variant="h5"
+              component="div"
+              className="title"
+              sx={{
+                fontWeight: 'bold',
+                fontSize: { xs: '0.95rem', sm: '1rem', md: '1.5rem' },
+                marginTop: 1,
+                position: 'relative',
+                '&::after': {
+                  content: '""',
+                  position: 'absolute',
+                  left: 0,
+                  bottom: '-4px',
+                  width: '0',
+                  height: '2px',
+                  backgroundColor: theme.palette.secondary.main,
+                  transition: 'width 0.3s ease',
+                },
+              }}
+            >
+              {projectTitle}
+            </Typography>
+            <Typography variant="body2" sx={{ marginTop: 1, fontSize: { xs: '0.4rem', sm: '0.5rem', md: '0.8rem' } }}>
+              {projectDescription}
+            </Typography>
+          </CardContent>
+        </Card>
       </Box>
-      <CardContent sx={{ padding: '16px' }}>
-        <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: '0.75rem', textTransform: 'uppercase' }}>
-          {projectTag}
-        </Typography>
-        <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', fontSize: '1.5rem', marginTop: 1 }}>
-          {projectTitle}
-        </Typography>
-        <Typography variant="body2" sx={{ marginTop: 1, fontSize: '1rem' }}>
-          {projectDescription}
-        </Typography>
-      </CardContent>
-    </Card>
+    </a>
   );
 };
 
 export default ProjectCard;
-

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Button, InputBase, Paper } from '@mui/material';
+import { Button, InputBase, Paper, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ActionCard from '../../components/ActionCard/ActionCard'
 import { Container } from 'postcss';
@@ -57,9 +57,9 @@ const ProjectsPage = () => {
   return (
     <section className="min-h-screen bg-white">
       <div className="bg-blue-400 py-16 text-center">
-        <h1 className="text-6xl py-6">Projects using our ZK Libraries</h1>
+        <Typography variant='h1'>Projects using our ZK Libraries</Typography>
         <p className="text-black">
-          While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries.
+          While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. <br></br>
           This repository contains both our own projects and community projects using our libraries. What will you build?
         </p>
         <div className="relative mt-8 mx-auto w-2/3 max-w-2xl">

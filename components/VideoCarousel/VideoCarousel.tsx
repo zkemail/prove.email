@@ -51,19 +51,23 @@ const VideoCarousel = () => {
               />
               <CardContent className="p-4 grid grid-cols-2 bg-black relative">
                 <Stack spacing={2} direction="row" alignItems='center' sx={{ paddingTop: "16px", paddingY:'12px', justifyItems:'center'}}>
-                  <FiberManualRecord sx={{ color: 'yellow', fontSize: '10px', position: 'relative' }} />
+                  <FiberManualRecord sx={{ color: theme.palette.secondary.main, fontSize: '10px', position: 'relative' }} />
                   <p className='text-white text-xs'>Talks</p>
                 </Stack>
                 <ArrowOutward sx={{ color: 'white', fontSize: '10px', top: '10px', right: '10px', alignSelf:'center', justifySelf:'end' }} />
                 <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', height: '70px', fontSize: {xs:'12px', sm: '14px', md: '15px', lg:'17px'} }}>
                   {video.title}
                 </Typography>
-                <Typography sx={{ color: 'grey', fontSize: {xs:'8px', sm: '10px', md: '12px', columnSpan:"2"}}}>
-                  {video.where}
-                </Typography>
-                <Typography sx={{ color: 'grey', textAlign: 'right', fontSize: {xs:'8px', sm: '10px', md: '12px'} }}>
-                  {video.date}
-                </Typography>
+                <Grid item xs={12} sx={{ gridColumn: 'span 2' }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Typography sx={{ color: 'grey', fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
+                      {video.where}
+                    </Typography>
+                    <Typography sx={{ color: 'grey', textAlign: 'right', fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
+                      {video.date}
+                    </Typography>
+                  </Box>
+                </Grid>
               </CardContent>
             </Card>
           </Grid>

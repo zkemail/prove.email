@@ -56,8 +56,12 @@ const theme = createTheme({
 
   typography: {
     fontFamily: spaceGrotesk.style.fontFamily,
+    // something is wrong with the way im doing breakpoints for font size?
     h1: {
-      fontSize: '2.5rem',
+      fontSize: "3rem",
+        [breakpoints.values.md]: {
+          fontSize: "4rem"
+        },
       fontWeight: 500,
       lineHeight: 1.2,
       fontFamily: spaceGrotesk.style.fontFamily,
@@ -97,19 +101,19 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#1976d2',
+      main: '#FFBB6B',
       light: '#63a4ff',
       dark: '#004ba0',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#dc004e',
+      main: '#FFBB6B',
       light: '#ff616f',
       dark: '#9a0036',
       contrastText: '#ffffff',
     },
     background: {
-      default: '#F6F5F5',
+      default: '#ffffff',
       paper: '#ffffff',
     },
     text: {
