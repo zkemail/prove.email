@@ -64,7 +64,7 @@ export default function Home() {
           <h1 className="text-4xl sm:text-5xl pb-16 sm:pb-24">Our Libraries</h1>
           <div className="grid grid-cols-2">
             <div>
-              <h1 className="text-3xl sm:text-4xl">ZK Email Libraries</h1>
+              <Typography variant='h1' sx={{textAlign:'center'}}>ZK Email Libraries</Typography>
               <p className="w-1/2 justify-center justify-self-center mx-auto py-6 text-[11px]  sm:text-[14px] h-[190px] md:h-[120px]">
                 We have several repos within the ZK Email ecosystem. Developers can use these libraries to build their own custom email verification circuits.
               </p>
