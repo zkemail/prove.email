@@ -5,6 +5,9 @@ import PopOut from '../components/PopOut/PopOut';
 import VideoCarousel from '../components/VideoCarousel/VideoCarousel';
 import { Box, Stack, Typography} from '@mui/material';
 import CustomButton from '.././components/CustomButton/CustomButton';
+import ActionCard from '.././components/ActionCard/ActionCard'
+import { Span } from 'next/dist/trace';
+import ProjectCardHighlight from '@/components/ProjectCardHighlight/ProjectCardHighlight';
 
 
 const faqs = [
@@ -50,18 +53,18 @@ export default function Home() {
       <Hero/>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='px-[20px] py-[100px] z-50 bg-white w-full'>
+      <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
         <div className='min-h-[200px] pl-20'>
           <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
             Frequently Asked Questions
           </Typography>
           <div className='grid grid-cols-3'>
             <div className=''>
-              <Typography variant='h5'>
+              <Typography variant='h5' paddingTop="10px">
                   Have a Question that isn’t answered <br></br> We would like to chat with you!
               </Typography>
               <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-                <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
+                <CustomButton buttonLabel="Drop Us a Line " filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
               </Stack>
             </div>
             <div className="relative col-span-2" style={{ width: '100%', margin: '0 auto', padding: '20px', zIndex:'100' }}>
@@ -73,6 +76,33 @@ export default function Home() {
         </div>
       </div>
 
+
+
+
+      {/* PROJECTS USING ZK EMAIL SECTION*/}
+      <div>
+        <Typography variant='h1'
+          sx={{
+            textAlign:'center',
+            paddingBottom: {xs:4, sm:10},
+          }}
+        >
+          Projects Using ZK Email
+        </Typography>
+
+        <Stack spacing={2} direction="row" sx={{ paddingTop: "16px", marginX: 'auto', justifyContent:'center' }}>
+          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
+          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
+          <ProjectCardHighlight projectTitle="Safe Smart Account" projectDescription="Use the most secure and modular Smart Account" projectTag="Protocol Kit"/>
+        </Stack>
+      </div>
+
+
+
+
+
+      {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
+      <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/>
 
 
 
