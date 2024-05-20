@@ -27,8 +27,8 @@ const Footer = () => {
       <Box
         sx={{
           px: {
-            xs:3,
-            md: 6
+            xs: 3,
+            md: 6,
           },
           height: "100%",
           display: "flex",
@@ -38,14 +38,14 @@ const Footer = () => {
       >
         {/* FOOTER TAGLINE */}
         <Grid container spacing={2}>
-          <Grid item xs={6} justifyContent="flex-start">
+          <Grid item xs={4} justifyContent="flex-start">
             <Typography color="white" textAlign="left">
               transfer truth with the freedom of privacy
             </Typography>
           </Grid>
 
           {/* FOOTER SITE LINKS */}
-          <Grid item xs={6} justifyContent="flex-end">
+          <Grid item xs={8} justifyContent="flex-end">
             <Grid container spacing={6} justifyContent="flex-end">
               <Grid item>
                 <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center">
