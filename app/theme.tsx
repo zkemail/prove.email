@@ -57,7 +57,7 @@ const theme = createTheme({
   typography: {
     fontFamily: spaceGrotesk.style.fontFamily,
     h1: {
-      fontSize: '2.125rem',
+      fontSize: '2.5rem',
       fontWeight: 500,
       lineHeight: 1.2,
       fontFamily: spaceGrotesk.style.fontFamily,

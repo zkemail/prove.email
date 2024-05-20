@@ -20,20 +20,23 @@ import { ActionCardProps } from '../.././types';
         p: {xs:2, md:4}, 
         width: '80%', 
         marginX:'auto', 
-        marginY:'10px',
+        marginY: {xs: '30px', md:'40px', lg:'60px'},
     }}>
       <CardContent>
         <Typography gutterBottom variant="h4" 
         sx={{
             fontSize: {
-                sm: '50px',
-                md:'60px',
-                lg:'70px'
+                sm: '30px',
+                md:'40px',
+                lg:'50px',
+                xl:'65px',
+
             },
             lineHeight: {
-                sm: '50px',
-                md:'60px',
-                lg:'70px',
+                sm: '30px',
+                md:'40px',
+                lg:'50px',
+                xl:'65px',
             }
         }} 
         
@@ -43,11 +46,13 @@ import { ActionCardProps } from '../.././types';
         <Typography variant="body1" gutterBottom
             sx={{
                 fontSize: {
-                    sm: '12px',
-                    md:'22px'},
+                    sm: '10px',
+                    md: '12px',
+                    lg:'22px'},
                 lineHeight: {
-                    sm: '14px',
-                    md:'30px',
+                    sm: '10px',
+                    md: '14px',
+                    lg:'30px',
                 }
             }}
         >
