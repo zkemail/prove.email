@@ -1,9 +1,11 @@
-
+'use client'
 import Hero from './hero/hero'
 import Accordion from '../components/Accordion/Accordion';
 import PopOut from '../components/PopOut/PopOut';
 import VideoCarousel from '../components/VideoCarousel/VideoCarousel';
-import { Typography } from '@mui/material';
+import { Box, Stack, Typography} from '@mui/material';
+import CustomButton from '.././components/CustomButton/CustomButton';
+
 
 const faqs = [
   {
@@ -17,6 +19,10 @@ const faqs = [
   {
     title: 'Why don’t I need to trust you?',
     contents: 'Cryptography is everywhere: every time you connect to a secure site...'
+  },
+  {
+    title: 'How can I do this anonymously',
+    contents: 'Authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy.'
   },
 ];
 
@@ -44,18 +50,32 @@ export default function Home() {
       <Hero/>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='px-[20px] pt-[100px] z-50 bg-white w-full'>
-        <div className='min-h-[200px]'>
-          <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
+      <div className='px-[20px] py-[100px] z-50 bg-white w-full'>
+        <div className='min-h-[200px] pl-20'>
+          <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
             Frequently Asked Questions
           </Typography>
-          <div className="relative" style={{ width: '80%', margin: '0 auto', padding: '20px', zIndex:'100' }}>
-            {faqs.map((faq, index) => (
-              <Accordion key={index} title={faq.title} contents={faq.contents} />
-            ))}
+          <div className='grid grid-cols-3'>
+            <div className=''>
+              <Typography variant='h5'>
+                  Have a Question that isn’t answered <br></br> We would like to chat with you!
+              </Typography>
+              <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
+                <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
+              </Stack>
+            </div>
+            <div className="relative col-span-2" style={{ width: '100%', margin: '0 auto', padding: '20px', zIndex:'100' }}>
+              {faqs.map((faq, index) => (
+                <Accordion key={index} title={faq.title} contents={faq.contents} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+
+
+
 
 
       {/* LIBRARIES ON MAIN PAGE */}
@@ -87,6 +107,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-24">
