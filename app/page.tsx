@@ -47,6 +47,8 @@ let PopOutZKEmailLibraryCards = [
   { label: "Ether Email Auth", url: "https://example.com/3" },
 ];
 
+
+
 export default function Home() {
   return (
     <main className="flex bg-white min-h-screen flex-col">
@@ -126,20 +128,39 @@ export default function Home() {
               Our Libraries
           </Typography>
           <div className="grid grid-cols-2">
-            <div>
-              <Typography variant='h2' sx={{textAlign:'center'}}>ZK Email Libraries</Typography>
-              <p className="w-4/5 sm:w-1/2 justify-center justify-self-center mx-auto py-6 text-[11px]  sm:text-[14px] h-[190px] md:h-[120px]">
-                We have several repos within the ZK Email ecosystem. Developers can use these libraries to build their own custom email verification circuits.
-              </p>
-              <PopOut cards={PopOutZKEmailLibraryCards} toggleName="ZK Email Specific Libraries" />
+          <div>
+            <PopOut
+                topText="ZK Email Specific Libraries"
+                mainText="ZKEmail Libraries"
+                descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                toggleName="Show Libraries"
+                cards={[
+                  { label: 'Zk Email', url: 'https://example.com/zkemail' },
+                  { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
+                  { label: 'DKIM Archive', url: 'https://example.com/dkim' },
+                  { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
+                  { label: 'Regex Registry', url: 'https://example.com/regex' },
+                  { label: 'Ether Email Auth', url: 'https://example.com/ether' },
+                ]}
+              />
             </div>
             <div>
-            <Typography variant='h2' sx={{textAlign:'center'}}>ZK Libraries</Typography>
-              <p className=" w-4/5 sm:w-1/2 justify-center justify-self-center mx-auto py-6 text-[11px]  sm:text-[14px] h-[190px] md:h-[120px]">
-                While developing ZK Email we also built these libraries for general use, that can be applied outside of the ZK Email ecosystem
-              </p>
-              <PopOut cards={PopOutZKLibraryCards} toggleName='General ZK Libraries'/>
+              <PopOut
+                topText="General ZK Libraries"
+                mainText="ZK Libraries"
+                descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                toggleName="Show Libraries"
+                cards={[
+                  { label: "ZK Regex Library", url: "https://example.com/1" },
+                  { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
+                  { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
+                  { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
+                  { label: "zk rsa", url: "https://example.com/3" },
+                  { label: "zk variable length sha256", url: "https://example.com/3" },
+                ]}
+              />
             </div>
+          
           </div>
         </div>
       </div>
