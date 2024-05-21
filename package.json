@@ -21,6 +21,7 @@
     "@mui/material": "^5.15.17",
     "@mui/material-nextjs": "^5.15.11",
     "@next/mdx": "^14.2.3",
+    "@svgr/webpack": "^8.1.0",
     "@types/mdx": "^2.0.13",
     "gray-matter": "^4.0.3",
     "next": "14.2.3",

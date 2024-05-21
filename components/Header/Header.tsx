@@ -12,6 +12,9 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { Typography } from '@mui/material';
 import { AppBarProps } from '../../types'; // Adjust the import path as needed
 import { useTheme } from '@mui/material/styles';
+import IconLink from '../../components/IconLink/IconLink';
+import ZKEIcon from '../../components/ZKEIcon/ZKEIcon'; // Import the ZKEIcon component
+
 
 const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
   const theme = useTheme();
@@ -26,14 +29,13 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.09)', 
           borderRadius: '20px',
           maxWidth: {xs: '80%', md:'50%'}
-          // theme.breakpoints.values, // Use theme breakpoints for maxWidth
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
-          <Link href='/'>          
-            <Typography variant="h5" sx={{ fontSize: {xs:'0.2rem', sm: '0.4rem', md:'1rem'}, fontWeight: 'bold', color: 'black', pl: {xs:'10px', sm:'15px', md:'30px'} }}>
-              {title}
-            </Typography>
-          </Link>
+          <Box sx={{justifyContent:"center", alignContent:"center"}}>
+            <IconLink href="/" IconComponent={ZKEIcon} />
+          </Box>
+          
+
 
           <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>
             {pages.map((page) => (
@@ -52,7 +54,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
             ))}
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <IconButton
+            <IconButton
               sx={{
                 color: 'black',
                 padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
