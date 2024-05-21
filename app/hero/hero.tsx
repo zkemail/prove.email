@@ -1,15 +1,27 @@
 'use client'
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Image from 'next/image';
-import { Box, Stack, Typography} from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import rectangleEnvelope from '../../public/rectangleEnvelope.svg'; 
 import triangleEnvelope from '../../public/triangleEnvelope.svg';
-import backgroundHero from '../../public/backgroundHero.svg'; 
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import rectangle1 from '../.././public/rectangle1.svg'
+import rectangle2 from '../.././public/rectangle2.svg'
+import rectangle3 from '../.././public/rectangle3.svg'
+
+const backgrounds = [rectangle1, rectangle2, rectangle3];
 
 export default function Hero() {
   const [isEmailOpen, setIsEmailOpen] = useState(false);
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleToggle = () => {
     setIsEmailOpen(!isEmailOpen);
@@ -19,7 +31,7 @@ export default function Hero() {
     <main 
       className="px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center"
       style={{
-        backgroundImage: `url(${backgroundHero.src})`,
+        backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -88,22 +100,22 @@ export default function Hero() {
         </div>
         {/* TRIANGLE PART OF ENVELOPE */}
         <Box className={`translate-y-[100px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[150px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
-            <Image
-              src={triangleEnvelope}
-              alt='Triangle Envelope'
-              className='w-full h-full'
-              style={{ zIndex: 0 }}
-            />
-          </Box>
-          {/* RECTANGULAR ENVELOPE */}
-          <Box className={`translate-y-[100px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[150px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
-            <Image
-              src={rectangleEnvelope}
-              alt='Rectangle Envelope'
-              className='w-full h-full'
-              style={{ zIndex: 1 }}
-            />
-          </Box>
+          <Image
+            src={triangleEnvelope}
+            alt='Triangle Envelope'
+            className='w-full h-full'
+            style={{ zIndex: 0 }}
+          />
+        </Box>
+        {/* RECTANGULAR ENVELOPE */}
+        <Box className={`translate-y-[100px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[150px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+          <Image
+            src={rectangleEnvelope}
+            alt='Rectangle Envelope'
+            className='w-full h-full'
+            style={{ zIndex: 1 }}
+          />
+        </Box>
       </div>
     </main>
   );
