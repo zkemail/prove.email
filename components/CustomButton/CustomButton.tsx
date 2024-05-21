@@ -18,6 +18,7 @@ const white = {
   0: '#FFFFFF',
 };
 
+
 const blue = {
   200: '#99CCFF',
   300: '#66B2FF',
@@ -48,11 +49,11 @@ const StyledButton = styled(MuiButton, {
   fontSize: '1rem',
   lineHeight: 1.5,
   textDecoration: 'none',
-  backgroundColor: filledIn ? grey[0] : white[0],
+  backgroundColor: filledIn ? grey[0] : 'transparent',
   color: filledIn ? white[0] : grey[0],
   padding: '8px 16px',
   transition: 'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-  borderRadius: tag ? '32px' : '17.16px',
+  borderRadius: tag ? '32px' : '5px',
   border: tag ? '1px solid black' : `2px solid ${grey[0]}`,
   cursor: 'pointer',
   whiteSpace: 'nowrap',

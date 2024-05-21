@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import FilterButton from '../FilterButton/FilterButton';
 
 const FilterablePostList = ({ initialPosts }) => {
   const [posts, setPosts] = useState(initialPosts);

@@ -8,7 +8,10 @@ import CustomButton from '.././components/CustomButton/CustomButton';
 import ActionCard from '.././components/ActionCard/ActionCard'
 import { Span } from 'next/dist/trace';
 import ProjectCardHighlight from '@/components/ProjectCardHighlight/ProjectCardHighlight';
-
+import RedactedText from '@/components/RedactedText/RedactedText'
+import Link from 'next/link';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import theme from './theme';
 
 const faqs = [
   {
@@ -60,6 +63,12 @@ export default function Home() {
 
       {/* HOW WE DO THIS */}
       <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
+
+        <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
+            <RedactedText text='Redact Text' />
+            <RedactedText text='Fast Proofs' />
+            <RedactedText text='Open Source' />
+        </Stack>
         <div className='text-center'>
             <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
                 How do we do this ?
@@ -116,6 +125,7 @@ export default function Home() {
 
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%]'>
+        <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
         <Typography variant='h1'
           sx={{
             textAlign:'center',
@@ -125,7 +135,7 @@ export default function Home() {
           Projects Using ZK Email
         </Typography>
 
-        <Grid container spacing={2} direction="row" sx={{ paddingTop: "16px",  justifyContent:'center' }}>
+        <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
           <Grid item xs={4}>
             <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
           </Grid>
@@ -136,6 +146,31 @@ export default function Home() {
             <ProjectCardHighlight projectTitle="Proof of Twitter" url='https://twitter.prove.email/' projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter." projectTag="Protocol Kit"/>
           </Grid>
         </Grid>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
+          <Typography>Serverless, Anonymous Proof Of Personhood ??</Typography>
+          <Box 
+          sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            textDecoration: 'none',
+            '&:hover .arrowIcon': {
+              color: theme.palette.secondary.main,
+              transform: 'translateX(5px)'
+            }
+          }}
+          component='a' 
+          href='/'
+        >
+          <Typography>See all our projects library</Typography>
+          <ArrowForwardIcon
+            className='arrowIcon'
+            sx={{
+              transition: 'color 0.3s, transform 0.3s',
+              ml: 1 // add some margin to the left for spacing
+            }}
+          />
+        </Box>
+        </Box>
       </div>
 
 
@@ -143,24 +178,29 @@ export default function Home() {
 
 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
-      <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/>
-
+      {/* <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/> */}
+      <Box height='400px' sx={{backgroundColor: theme.palette.secondary.main, paddingX:'10%', paddingY:'8%'}}>
+        <Typography variant='h5'>For Developers</Typography>
+        <Typography variant='h1'>Build Your Own</Typography>
+        <Typography sx={{paddingRight:'10%', paddingTop:'20px', paddingBottom: '10px', fontSize:'20px'}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
+        <CustomButton sx={{marginBottom: '30px'}} buttonLabel='Docs'>Docs</CustomButton>
+      </Box>
 
 
 
 
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px] relative z-10">
-        <div className="text-center py-10 px-4">
+        <div className="text-center py-10 px-[10%]">
           <Typography variant='h1' 
             sx={{
               textAlign:'center',
-              paddingBottom: {xs:4, sm:10},
+              paddingY: {xs:4, sm:8},
             }}
           >
               Our Libraries
           </Typography>
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 gap-6">
           <div>
             <PopOut
                 topText="ZK Email Specific Libraries"

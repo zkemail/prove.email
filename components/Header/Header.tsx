@@ -21,13 +21,13 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
 
   return (
     <AppBar position="static" 
-      sx={{ backgroundColor: 'white', paddingY: '12px', boxShadow: '0px 1px 10.8px rgba(0, 0, 0, 0.05)', zIndex: '10' 
+      sx={{ backgroundColor: 'white', paddingY: '22px', boxShadow: '0px 1px 10.8px rgba(0, 0, 0, 0.05)', zIndex: '10' 
     }}>
       <Container
         sx={{ 
           backgroundColor: 'white', 
           boxShadow: '0px 1px 8px rgba(0, 0, 0, 0.09)', 
-          borderRadius: '20px',
+          borderRadius: '5px',
           maxWidth: {xs: '80%', md:'50%'}
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>

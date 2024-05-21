@@ -41,23 +41,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             borderRadius: '8px',
             position: 'relative',
             overflow: 'visible',
-            height: '200px',
+            height: '300px',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'space-between', // Adjust to space-between for top and bottom alignment
             border: '2px solid transparent',
             transition: 'border-color 0.3s ease, transform 0.3s ease, color 0.3s ease',
           }}
         >
-          <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px' }}>
+            <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem' }, textTransform: 'uppercase' }}>
+              {projectTag}
+            </Typography>
             <IconButton aria-label="open" sx={{ color: 'white' }} className="arrow-icon">
               <ArrowOutward />
             </IconButton>
           </Box>
-          <CardContent sx={{ padding: '16px' }}>
-            <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem' }, textTransform: 'uppercase' }}>
-              {projectTag}
-            </Typography>
+          <CardContent sx={{ padding: '16px', flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
             <Typography
               variant="h5"
               component="div"
