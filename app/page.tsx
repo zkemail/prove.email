@@ -54,6 +54,39 @@ export default function Home() {
     <main className="flex bg-white min-h-screen flex-col">
       <Hero/>
 
+
+
+
+
+      {/* HOW WE DO THIS */}
+      <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
+        <div className='text-center'>
+            <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
+                How do we do this ?
+            </Typography>
+            <p>
+              We leverage what emails already do....
+            </p>
+        </div>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <p>Regex (Hasing & Regex)</p>
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container direction="column">
+              <Grid item xs={6}>
+                <p>Zero Knowledge Circuits</p>
+              </Grid>
+              <Grid item xs={6}>
+                <p>DKIM Scheme Status Quo of Your Email</p>
+              </Grid>
+            </Grid>
+           
+          </Grid>
+        </Grid>
+      </div>
+
+
       {/* FAQ ACCORDION ON MAIN PAGE */}
       <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
         <div className='min-h-[200px] pl-20'>

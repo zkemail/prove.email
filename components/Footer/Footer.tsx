@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import XIcon from '@mui/icons-material/X';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -21,7 +21,7 @@ const Footer = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBackground(prev => (prev + 1) % backgrounds.length);
-    }, 2000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
@@ -126,7 +126,7 @@ const Footer = () => {
                 <Grid item>
                   <Grid container justifyContent="center" spacing={2}>
                     <Grid item>
-                      <IconLink href="https://twitter.com/zkemail?lang=en" IconComponent={TwitterIcon} />
+                      <IconLink href="https://twitter.com/zkemail?lang=en" IconComponent={XIcon} />
                     </Grid>
                     <Grid item>
                       <IconLink href="https://t.me/zkemail" IconComponent={TelegramIcon} />

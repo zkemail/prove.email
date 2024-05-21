@@ -31,10 +31,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           maxWidth: {xs: '80%', md:'50%'}
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
-          <Box sx={{justifyContent:"center", alignContent:"center"}}>
             <IconLink href="/" IconComponent={ZKEIcon} />
-          </Box>
-          
 
 
           <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>

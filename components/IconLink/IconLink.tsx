@@ -7,10 +7,24 @@ import { useTheme } from '@mui/material/styles';
 interface IconLinkProps {
   href: string;
   IconComponent: React.ComponentType<SvgIconProps>;
+  dark?: boolean;
+  size?: 'small' | 'medium' | 'large';
 }
 
-const IconLink: React.FC<IconLinkProps> = ({ href, IconComponent }) => {
+const IconLink: React.FC<IconLinkProps> = ({ href, IconComponent, dark, size = 'medium' }) => {
   const theme = useTheme();
+
+  const getSize = () => {
+    switch (size) {
+      case 'small':
+        return '16px';
+      case 'large':
+        return '32px';
+      case 'medium':
+      default:
+        return '24px';
+    }
+  };
 
   return (
     <Link
@@ -19,13 +33,13 @@ const IconLink: React.FC<IconLinkProps> = ({ href, IconComponent }) => {
       color="inherit"
       underline="none"
       sx={{
-        fontSize: '24px',
+        fontSize: getSize(),
         [theme.breakpoints.down('sm')]: {
-          fontSize: '20px',
+          fontSize: getSize(),
         },
       }}
     >
-      <IconComponent style={{ color: 'white', fontSize: 'inherit' }} />
+      <IconComponent style={{ color: dark ? 'black' : 'white', fontSize: 'inherit' }} />
     </Link>
   );
 };

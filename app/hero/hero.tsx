@@ -1,3 +1,4 @@
+
 'use client'
 import CustomButton from '../../components/CustomButton/CustomButton';
 import Image from 'next/image';
@@ -19,7 +20,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 2000);
+    }, 500);
     return () => clearInterval(interval);
   }, []);
 
@@ -63,7 +64,7 @@ export default function Hero() {
       </div>
 
       {/* ENVELOPE MAIL STUFF */}
-      <div className="relative w-fit flex justify-center mt-16 cursor-pointer" onClick={handleToggle}>
+      <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
         {/* MAIL LETTER PAPER */}
         <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-5 sm:p-16 sm:p-20 text-left text-[8px] sm:text-[12px] md:text-[18px]" style={{ zIndex: 1 }}>
           <div className='font-semibold'>
@@ -99,7 +100,7 @@ export default function Hero() {
           </div>
         </div>
         {/* TRIANGLE PART OF ENVELOPE */}
-        <Box className={`translate-y-[100px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[150px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
+        <Box className={` md:translate-y-[100px] lg:translate-y-[100px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[200px] md:translate-y-[200px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
           <Image
             src={triangleEnvelope}
             alt='Triangle Envelope'
@@ -108,7 +109,7 @@ export default function Hero() {
           />
         </Box>
         {/* RECTANGULAR ENVELOPE */}
-        <Box className={`translate-y-[100px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[150px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+        <Box className={`md:translate-y-[100px] lg:translate-y-[100px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[200px] md:translate-y-[200px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
           <Image
             src={rectangleEnvelope}
             alt='Rectangle Envelope'
