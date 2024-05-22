@@ -125,6 +125,9 @@ export default function Home() {
             <RedactedText text='Redact Text' />
             <RedactedText text='Fast Proofs' />
             <RedactedText text='Open Source' />
+            <RedactedText text='Redact Text' />
+            <RedactedText text='Fast Proofs' />
+            <RedactedText text='Open Source' />
         </Stack>
 
 
