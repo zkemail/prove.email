@@ -121,14 +121,7 @@ export default function Home() {
       </div>
 
 
-      <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
-            <RedactedText text='Redact Text' />
-            <RedactedText text='Fast Proofs' />
-            <RedactedText text='Open Source' />
-            <RedactedText text='Redact Text' />
-            <RedactedText text='Fast Proofs' />
-            <RedactedText text='Open Source' />
-        </Stack>
+
 
 
 
@@ -187,7 +180,14 @@ export default function Home() {
       </div>
 
 
-
+      <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
+            <RedactedText text='Redact Text' />
+            <RedactedText text='Fast Proofs' />
+            <RedactedText text='Open Source' />
+            <RedactedText text='Redact Text' />
+            <RedactedText text='Fast Proofs' />
+            <RedactedText text='Open Source' />
+        </Stack>
 
 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}

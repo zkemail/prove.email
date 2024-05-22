@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem' }, textTransform: 'uppercase' }}>
               {projectTag}
             </Typography>
-            <IconButton aria-label="open" sx={{ color: 'white' }} className="arrow-icon">
+            <IconButton aria-label="open" sx={{ color: 'grey' }} className="arrow-icon">
               <ArrowOutward />
             </IconButton>
           </Box>
