@@ -104,23 +104,23 @@ const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, to
   return (
     <Container>
       <Box onClick={() => setIsOpen(!isOpen)}>
-        <Header sx={{ bgcolor: 'black' }}>
-          <Typography variant="h6" sx={{ color: 'white' }}>{topText}</Typography>
+        <Header sx={{ bgcolor: 'black', }}>
+          <Typography variant="h6" sx={{ color: 'white', paddingLeft:'25px' }}>{topText}</Typography>
           <IconButton sx={{ color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
             <ExpandMoreStyledIcon className="expand-more-icon" />
           </IconButton>
         </Header>
-        <Box p={2}>
-          <MainText variant="h4" sx={{ textAlign: "left" }}>{mainText}</MainText>
-          <DescriptionText sx={{ textAlign: "left" }}>{descriptionText}</DescriptionText>
+        <Box p={2} sx={{height:'170px', }}>
+          <MainText variant="h4" sx={{ textAlign: "left", fontSize:'33px',  paddingLeft:'25px', paddingTop:'15px'}}>{mainText}</MainText>
+          <DescriptionText sx={{ textAlign: "left",  paddingLeft:'25px' }}>{descriptionText}</DescriptionText>
         </Box>
       </Box>
 
       <Collapse in={isOpen}>
         <Box>
           {cards.map((card, index) => (
-            <StyledCard key={index} sx={{ borderRadius: '0px' }} onClick={() => handleCardClick(card.url)}>
-              <Typography variant="body1">{card.label}</Typography>
+            <StyledCard key={index} sx={{ borderRadius: '0px',}} onClick={() => handleCardClick(card.url)}>
+              <Typography variant="body1" sx={{ paddingLeft:'25px' }}>{card.label}</Typography>
               <ArrowIcon className="arrow-icon" />
             </StyledCard>
           ))}

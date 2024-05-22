@@ -13,6 +13,8 @@ import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import theme from './theme';
 import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
+import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
+
 
 const faqs = [
   {
@@ -63,38 +65,35 @@ export default function Home() {
 
 
       {/* HOW WE DO THIS */}
-      <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
+      <div className='py-[100px] z-50 bg-white w-full'>
 
-        <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
-            <RedactedText text='Redact Text' />
-            <RedactedText text='Fast Proofs' />
-            <RedactedText text='Open Source' />
-        </Stack>
-        <div className='text-center'>
-            <Typography paddingY='20px' variant='h1' sx={{textAlign:'center'}}>
-                How do we do this ?
-            </Typography>
-            <p>
-              We leverage what emails already do....
-            </p>
-        </div>
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <p>Regex (Hasing & Regex)</p>
+        <Box sx={{height:'650px', background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
+          <Box sx={{textAlign:'center'}}>
+            <Typography paddingY='20px' variant='h1' sx={{textAlign:'center', color:'white'}}>
+                  How do we do this ?
+              </Typography>
+              <Typography sx={{color:'white', paddingBottom:'30px'}}>
+                We leverage what emails already do... <br></br>but using regex & zero knowledge
+              </Typography>
+          </Box>
+
+          <Grid container spacing={2} sx={{ padding: '20px' }}>
+          <Grid item xs={12} sm={6} md={4}>
+            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
           </Grid>
-          <Grid item xs={6}>
-            <Grid container direction="column">
-              <Grid item xs={6}>
-                <p>Zero Knowledge Circuits</p>
-              </Grid>
-              <Grid item xs={6}>
-                <p>DKIM Scheme Status Quo of Your Email</p>
-              </Grid>
-            </Grid>
-           
+          <Grid item xs={12} sm={6} md={4}>
+            <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
           </Grid>
         </Grid>
+
+        </Box>
+
+
       </div>
+
 
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
@@ -121,6 +120,12 @@ export default function Home() {
         </div>
       </div>
 
+
+      <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
+            <RedactedText text='Redact Text' />
+            <RedactedText text='Fast Proofs' />
+            <RedactedText text='Open Source' />
+        </Stack>
 
 
 

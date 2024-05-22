@@ -20,6 +20,11 @@ export interface ActionCardProps {
 }
 
 
+export interface CustomCardProps {
+  url: string;
+  title: string;
+  description: string;
+}
 
 export interface FlipTextProps {
   texts: string[];
