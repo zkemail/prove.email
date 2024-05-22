@@ -66,7 +66,7 @@ const RedactedText: React.FC<RedactedTextProps> = ({ text }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-//    <Typography variant='h4' className="relative z-10 ">{text}</Typography>
+    <Typography variant='h4' className="relative z-10 ">{text}</Typography>
       <RedactedBox
         style={{
           transform: isHovered ? 'translateX(100%)' : 'translateX(0)',

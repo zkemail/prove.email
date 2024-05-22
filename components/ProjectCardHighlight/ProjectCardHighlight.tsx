@@ -36,8 +36,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
           className="card"
           sx={{
             maxWidth: '100%',
-            backgroundColor: '#181818',
-            color: 'white',
+            backgroundColor: 'white',
+            color: 'black',
             borderRadius: '8px',
             position: 'relative',
             overflow: 'visible',

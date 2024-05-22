@@ -101,13 +101,15 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: '#FFBB6B',
+      main: '#FFBB6B', 
+      // main: '#FFBB6B', 
       light: '#63a4ff',
       dark: '#004ba0',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#FFBB6B',
+      main: '#FFC3A0', 
+      // main: '#FFBB6B',E5EAFA,CCD5F5
       light: '#ff616f',
       dark: '#9a0036',
       contrastText: '#ffffff',

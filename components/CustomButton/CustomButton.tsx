@@ -102,6 +102,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ filledIn, buttonLabel, url,
       filledIn={filledIn}
       tag={tag}
       {...props}
+      buttonLabel={buttonLabel}
     >
       {buttonLabel}
     </StyledButton>
