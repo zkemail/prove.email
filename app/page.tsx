@@ -124,7 +124,7 @@ export default function Home() {
 
 
       {/* PROJECTS USING ZK EMAIL SECTION*/}
-      <div className='px-[10%]'>
+      <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
         <Typography variant='h1'
           sx={{

@@ -8,6 +8,7 @@ interface CustomButtonProps extends MuiButtonProps {
   filledIn?: boolean;
   url?: string;
   tag?: boolean;
+  light?: boolean; // Add light prop
 }
 
 const darkGrey = {
@@ -17,7 +18,6 @@ const darkGrey = {
 const white = {
   0: '#FFFFFF',
 };
-
 
 const blue = {
   200: '#99CCFF',
@@ -43,18 +43,18 @@ const grey = {
 };
 
 const StyledButton = styled(MuiButton, {
-  shouldForwardProp: (prop) => prop !== 'filledIn' && prop !== 'tag',
-})<CustomButtonProps>(({ theme, filledIn, tag }) => ({
+  shouldForwardProp: (prop) => prop !== 'filledIn' && prop !== 'tag' && prop !== 'light',
+})<CustomButtonProps>(({ theme, filledIn, tag, light }) => ({
   fontWeight: 500,
   fontSize: '1rem',
   lineHeight: 1.5,
   textDecoration: 'none',
   backgroundColor: filledIn ? grey[0] : 'transparent',
-  color: filledIn ? white[0] : grey[0],
+  color: light ? white[0] : filledIn ? white[0] : grey[0], // Adjust text color based on light prop
   padding: '8px 16px',
   transition: 'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)',
   borderRadius: tag ? '32px' : '5px',
-  border: tag ? '1px solid black' : `2px solid ${grey[0]}`,
+  border: tag ? '1px solid black' : `2px solid ${light ? white[0] : grey[0]}`, // Adjust border color based on light prop
   cursor: 'pointer',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
@@ -95,12 +95,13 @@ const StyledButton = styled(MuiButton, {
   },
 }));
 
-const CustomButton: React.FC<CustomButtonProps> = ({ filledIn, buttonLabel, url, onClick, tag, ...props }) => {
+const CustomButton: React.FC<CustomButtonProps> = ({ filledIn, buttonLabel, url, onClick, tag, light, ...props }) => {
   const ButtonContent = (
     <StyledButton
       onClick={onClick}
       filledIn={filledIn}
       tag={tag}
+      light={light} // Pass light prop to StyledButton
       {...props}
       buttonLabel={buttonLabel}
     >

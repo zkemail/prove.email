@@ -15,6 +15,8 @@ export interface ActionCardProps {
   text: string;
   buttonText: string;
   buttonLink: string;
+  topText?: string;
+  light?: boolean; // Add light prop
 }
 
 
