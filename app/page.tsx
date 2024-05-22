@@ -12,6 +12,7 @@ import RedactedText from '@/components/RedactedText/RedactedText'
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import theme from './theme';
+import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
 
 const faqs = [
   {
@@ -156,6 +157,10 @@ export default function Home() {
             '&:hover .arrowIcon': {
               color: theme.palette.secondary.main,
               transform: 'translateX(5px)'
+            },
+            '&:hover': {
+              textDecoration:'underline',
+              textDecorationColor:theme.palette.secondary.main,
             }
           }}
           component='a' 
@@ -179,11 +184,15 @@ export default function Home() {
 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       {/* <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/> */}
-      <Box height='400px' sx={{backgroundColor: theme.palette.secondary.main, paddingX:'10%', paddingY:'8%'}}>
+      <Box height='500px' sx={{
+        backgroundColor: 'white', 
+        backgroundImage: `url(${buildYourOwnBackground.src})`,
+        paddingX:'10%', 
+        paddingY:'8%'}}>
         <Typography variant='h5'>For Developers</Typography>
         <Typography variant='h1'>Build Your Own</Typography>
-        <Typography sx={{paddingRight:'10%', paddingTop:'20px', paddingBottom: '10px', fontSize:'20px'}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
-        <CustomButton sx={{marginBottom: '30px'}} buttonLabel='Docs'>Docs</CustomButton>
+        <Typography sx={{paddingRight:'10%', width:'70%', paddingTop:'20px', paddingBottom: '10px', fontSize:'20px'}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
+        <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
       </Box>
 
 

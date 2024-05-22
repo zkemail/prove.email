@@ -34,6 +34,11 @@ const Header = styled(Box)(({ theme }) => ({
   justifyContent: 'space-between',
   alignItems: 'center',
   borderBottom: `1px solid ${theme.palette.divider}`,
+  cursor: 'pointer',
+  transition: 'color 0.3s ease',
+  '&:hover .expand-more-icon': {
+    color: theme.palette.secondary.main,
+  },
 }));
 
 const MainText = styled(Typography)(({ theme }) => ({
@@ -85,6 +90,10 @@ const StyledCard = styled(Card)(({ theme }) => ({
   },
 }));
 
+const ExpandMoreStyledIcon = styled(ExpandMoreIcon)(({ theme }) => ({
+  transition: 'color 0.3s ease',
+}));
+
 const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, toggleName }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -94,24 +103,24 @@ const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, to
 
   return (
     <Container>
-      <Box onClick={() => setIsOpen(!isOpen)} sx={{cursor:'pointer'}}>
-        <Header sx={{bgcolor:'black'}} >
-          <Typography variant="h6" sx={{color:'white'}}>{topText}</Typography>
-          <IconButton sx={{color:'white'}} onClick={() => setIsOpen(!isOpen)}>
-            <ExpandMoreIcon />
+      <Box onClick={() => setIsOpen(!isOpen)}>
+        <Header sx={{ bgcolor: 'black' }}>
+          <Typography variant="h6" sx={{ color: 'white' }}>{topText}</Typography>
+          <IconButton sx={{ color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
+            <ExpandMoreStyledIcon className="expand-more-icon" />
           </IconButton>
         </Header>
         <Box p={2}>
-          <MainText variant="h4" sx={{textAlign:"left"}}>{mainText}</MainText>
-          <DescriptionText sx={{textAlign:"left"}}>{descriptionText}</DescriptionText>
+          <MainText variant="h4" sx={{ textAlign: "left" }}>{mainText}</MainText>
+          <DescriptionText sx={{ textAlign: "left" }}>{descriptionText}</DescriptionText>
         </Box>
       </Box>
 
       <Collapse in={isOpen}>
         <Box>
           {cards.map((card, index) => (
-            <StyledCard key={index} sx={{borderRadius:'0px'}} onClick={() => handleCardClick(card.url)}>
-              <Typography variant="body1" >{card.label}</Typography>
+            <StyledCard key={index} sx={{ borderRadius: '0px' }} onClick={() => handleCardClick(card.url)}>
+              <Typography variant="body1">{card.label}</Typography>
               <ArrowIcon className="arrow-icon" />
             </StyledCard>
           ))}
