@@ -109,7 +109,7 @@ export default function Hero() {
           />
         </Box>
         {/* RECTANGULAR ENVELOPE */}
-        <Box className={`translate-y-[50px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+        <Box className={`translate-y-[30px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
           <Image
             src={rectangleEnvelope}
             alt='Rectangle Envelope'
