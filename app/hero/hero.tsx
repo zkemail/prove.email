@@ -100,7 +100,7 @@ export default function Hero() {
           </div>
         </div>
         {/* TRIANGLE PART OF ENVELOPE */}
-        <Box className={` md:translate-y-[100px] lg:translate-y-[100px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[200px] md:translate-y-[200px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
+        <Box className={`translate-y-[50px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[350px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
           <Image
             src={triangleEnvelope}
             alt='Triangle Envelope'
@@ -109,7 +109,7 @@ export default function Hero() {
           />
         </Box>
         {/* RECTANGULAR ENVELOPE */}
-        <Box className={`md:translate-y-[100px] lg:translate-y-[100px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[200px] md:translate-y-[200px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+        <Box className={`translate-y-[50px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[350px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
           <Image
             src={rectangleEnvelope}
             alt='Rectangle Envelope'
