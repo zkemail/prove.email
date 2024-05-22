@@ -190,7 +190,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Box, Tabs, Tab, Typography, Paper, InputBase, Stack } from '@mui/material';
+import { Box, Tabs, Tab, TabPanel, Typography, Paper, InputBase, Stack } from '@mui/material';
 import CustomButton from '@/components/CustomButton/CustomButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -308,20 +308,23 @@ const ProjectsPage = () => {
         ))}
       </div>
       <Box sx={{ display: 'flex', pt: 12, textAlign:'left'}}>
+        <div className='w-[50%]'>
         <Tabs
           orientation="vertical"
           variant="scrollable"
           
           value={selectedProjectIndex}
           onChange={handleTabChange}
-          sx={{ borderRight: 1, borderColor: 'divider', width: '50%' }}
+          sx={{ borderRight: 1, borderColor: 'divider', width: '100%' }}
         >
           {filteredProjects.map((project, index) => (
             <Tab
               key={project.name}
+              fullWidth={true}
+              
               sx={{ alignItems: 'start', borderBottom: 1, borderBottomColor: 'black' }}
               label={(
-                <Box sx={{ borderBottom: 'black' }}>
+                <Box sx={{ borderBottom: 'black', }}>
                   <Typography variant='h5' sx={{ fontSize: '25px', fontWeight: 'bold', marginBottom: '2px', textAlign: 'left' }}>
                     {project.name}
                   </Typography>
@@ -331,6 +334,7 @@ const ProjectsPage = () => {
             />
           ))}
         </Tabs>
+        </div>
         <Box sx={{ p: 3, width: '50%' }}>
           {filteredProjects[selectedProjectIndex] ? (
             <>
@@ -383,8 +387,8 @@ const ProjectsPage = () => {
                     Try it out
                   </CustomButton>
                 </Link>
-                <IconLink href="https://github.com/zkemail" dark='true' IconComponent={GitHubIcon} size='large' />
-                <IconLink href="https://github.com/zkemail" dark='true' IconComponent={XIcon} size='large' />
+                <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={GitHubIcon} size='large' />
+                <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={XIcon} size='large' />
               </Stack>
             </>
           ) : (

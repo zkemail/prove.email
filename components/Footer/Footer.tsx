@@ -126,19 +126,19 @@ const Footer = () => {
                 <Grid item>
                   <Grid container justifyContent="center" spacing={2}>
                     <Grid item>
-                      <IconLink href="https://twitter.com/zkemail?lang=en" IconComponent={XIcon} />
+                      <IconLink target={false} href="https://twitter.com/zkemail?lang=en" IconComponent={XIcon} />
                     </Grid>
                     <Grid item>
-                      <IconLink href="https://t.me/zkemail" IconComponent={TelegramIcon} />
+                      <IconLink target={false} href="https://t.me/zkemail" IconComponent={TelegramIcon} />
                     </Grid>
                     <Grid item>
-                      <IconLink href="https://discord.com/invite/yourlink" IconComponent={DiscordIcon} />
+                      <IconLink target={false} href="https://discord.com/invite/yourlink" IconComponent={DiscordIcon} />
                     </Grid>
                     <Grid item>
-                      <IconLink href="https://www.youtube.com/yourchannel" IconComponent={YouTubeIcon} />
+                      <IconLink target={false} href="https://www.youtube.com/yourchannel" IconComponent={YouTubeIcon} />
                     </Grid>
                     <Grid item>
-                      <IconLink href="https://github.com/zkemail" IconComponent={GitHubIcon} />
+                      <IconLink target={false} href="https://github.com/zkemail" IconComponent={GitHubIcon} />
                     </Grid>
                   </Grid>
                 </Grid>
