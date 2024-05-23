@@ -217,7 +217,7 @@ export default function Home() {
           component='a' 
           href='/'
         >
-          <Typography>See all our projects library</Typography>
+          <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
           <ArrowForwardIcon
             className='arrowIcon'
             sx={{

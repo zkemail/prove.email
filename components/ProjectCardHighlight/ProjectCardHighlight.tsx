@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between', // Adjust to space-between for top and bottom alignment
-            border: '2px solid transparent',
+            border: '2px solid grey',
             transition: 'border-color 0.3s ease, transform 0.3s ease, color 0.3s ease',
           }}
         >
@@ -57,7 +57,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
               <ArrowOutward />
             </IconButton>
           </Box>
-          <CardContent sx={{ padding: '16px', flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
+          <CardContent sx={{ padding: '16px', flex: '1 1 auto', minHeight: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Typography
               variant="h5"
               component="div"
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             >
               {projectTitle}
             </Typography>
-            <Typography variant="body2" sx={{ marginTop: 1, fontSize: { xs: '10px', sm: '0.5rem', md: '0.8rem' } }}>
+            <Typography variant="body2" sx={{ marginTop: 1, paddingBottom:'10px', fontSize: { xs: '10px', sm: '0.5rem', md: '0.8rem' } }}>
               {projectDescription}
             </Typography>
           </CardContent>
