@@ -42,7 +42,7 @@ const FilterablePostList = ({ initialPosts }) => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <div className="h-[450px] w-full bg-gradient-to-t to-[#F2F2F2] from-[#F5F5F5] flex flex-col justify-end">
-        <div className="pb-[100px] text-left px-20">
+        <div className="pb-[100px] text-left px-[8%]">
           <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'30px', marginTop:'80px' }}>Blog</Typography>
           {/* <p className="text-black w-1/2">
             While building the Zk Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. This repository contains both our own projects and community projects using our libraries.

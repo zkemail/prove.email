@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Box, Tabs, Tab, Typography, Paper, InputBase, Stack, useTheme } from '@mui/material';
+import { Box, Tabs, Tab, Typography, Paper, InputBase, useTheme, Stack } from '@mui/material';
 import CustomButton from '@/components/CustomButton/CustomButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -88,21 +88,28 @@ const ProjectsPage = () => {
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. 
             This repository contains both our own projects and community projects using our libraries. What will you build?
           </p>
-          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px]">
-             <Paper
-              sx={{borderRadius:'5px'}}
-              component="form"
-              className="flex items-center px-4 py-2 bg-[#F4F4F4] stickyz-10"
-            >
+          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px] rounded-[10px] bg-white px-3 py-1  border-2 border-[#797878]">
               <InputBase
-                className="flex-grow"
+                className="flex-grow form-input focus:outline-none px-3 py-2 rounded-[16px] bg-white  w-full"
                 placeholder="Search projects..."
                 inputProps={{ 'aria-label': 'search projects' }}
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-              <SearchIcon className="text-gray-400" />
-            </Paper>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-4.35-4.35m0 0a9 9 0 110-12.7 9 9 0 010 12.7z"
+                />
+              </svg>
           </div>
         </div>
       </div>
@@ -164,33 +171,92 @@ const ProjectsPage = () => {
               <Typography className="py-4">
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>
-              <Stack spacing={2} direction="row" sx={{ fontSize: '10px' }}>
+              <Box 
+                sx={{ 
+                  display: 'flex', 
+                  flexWrap: 'wrap', 
+                  gap: 1,
+                  justifyContent: 'flex-start',
+                  maxWidth: '500px',
+                  '& > *': {
+                    flex: '1 1 calc(50% - 8px)', // Adjust based on the gap
+                    [theme.breakpoints.up('sm')]: {
+                      flex: '1 1 calc(20% - 8px)', // 5 columns
+                    },
+                  }
+                }}
+              >
                 {filteredProjects[selectedProjectIndex].zk_email_lib && (
-                  <CustomButton variant="outlined" tag='true' color="primary" buttonLabel='ZK Email Library'>
+                  <CustomButton 
+                    variant="outlined" 
+                    tag
+                    color="primary" 
+                    buttonLabel='ZK Email Library'
+                    sx={{
+                      padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
+                      fontSize: { xs: '8px', sm: '10px', md: '12px' },
+                    }}
+                  >
                     ZK Email Library
                   </CustomButton>
                 )}
                 {filteredProjects[selectedProjectIndex].zk_lib && (
-                  <CustomButton variant="outlined" tag='true' color="primary" buttonLabel='ZK Library'>
+                  <CustomButton 
+                    variant="outlined" 
+                    tag
+                    color="primary" 
+                    buttonLabel='ZK Library'
+                    sx={{
+                      padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
+                      fontSize: { xs: '8px', sm: '10px', md: '12px' },
+                    }}
+                  >
                     ZK Library
                   </CustomButton>
                 )}
                 {filteredProjects[selectedProjectIndex].off_chain && (
-                  <CustomButton variant="outlined" tag='true' color="primary" buttonLabel='Off Chain'>
+                  <CustomButton 
+                    variant="outlined" 
+                    tag
+                    color="primary" 
+                    buttonLabel='Off Chain'
+                    sx={{
+                      padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
+                      fontSize: { xs: '8px', sm: '10px', md: '12px' },
+                    }}
+                  >
                     Off Chain
                   </CustomButton>
                 )}
                 {filteredProjects[selectedProjectIndex].on_chain && (
-                  <CustomButton variant="outlined" tag='true' color="primary" buttonLabel='On Chain'>
+                  <CustomButton 
+                    variant="outlined" 
+                    tag
+                    color="primary" 
+                    buttonLabel='On Chain'
+                    sx={{
+                      padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
+                      fontSize: { xs: '8px', sm: '10px', md: '12px' },
+                    }}
+                  >
                     On Chain
                   </CustomButton>
                 )}
                 {filteredProjects[selectedProjectIndex].made_by_us && (
-                  <CustomButton variant="outlined" tag='true' color="primary" buttonLabel='Made By Us'>
+                  <CustomButton 
+                    variant="outlined" 
+                    tag
+                    color="primary" 
+                    buttonLabel='Made By Us'
+                    sx={{
+                      padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
+                      fontSize: { xs: '8px', sm: '10px', md: '12px' },
+                    }}
+                  >
                     Made By Us
                   </CustomButton>
                 )}
-              </Stack>
+              </Box>
               <Stack spacing={2} direction="row" className="mt-6" sx={{ alignItems: 'center' }}>
                 <Link href="https://twitter.prove.email/">
                   <CustomButton

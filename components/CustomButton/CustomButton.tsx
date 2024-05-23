@@ -55,7 +55,8 @@ const StyledButton = styled(MuiButton, {
   transition: 'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)',
   borderRadius: tag ? '32px' : '5px',
   border: tag ? '1px solid black' : `2px solid ${light ? white[0] : grey[0]}`, // Adjust border color based on light prop
-  cursor: 'pointer',
+  cursor: tag ? 'default' : 'pointer',
+  pointerEvents: tag ? 'none' : 'auto', // Prevent clicking when tag is true
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
@@ -74,9 +75,9 @@ const StyledButton = styled(MuiButton, {
     outline: 'none',
   },
   '&.Mui-disabled': {
-    backgroundColor: theme.palette.mode === 'dark' ? grey[700] : grey[200],
-    color: theme.palette.mode === 'dark' ? grey[200] : grey[700],
-    border: 0,
+    backgroundColor: 'transparent',
+    color: grey[0],
+    border: '1px solid black', // Maintain border when disabled
     cursor: 'default',
     boxShadow: 'none',
     transform: 'scale(1)',
@@ -102,6 +103,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({ filledIn, buttonLabel, url,
       filledIn={filledIn}
       tag={tag}
       light={light} // Pass light prop to StyledButton
+      disabled={tag} // Disable button if tag is true
       {...props}
       buttonLabel={buttonLabel}
     >
