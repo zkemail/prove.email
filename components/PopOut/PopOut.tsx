@@ -48,6 +48,7 @@ const MainText = styled(Typography)(({ theme }) => ({
 
 const DescriptionText = styled(Typography)(({ theme }) => ({
   marginTop: '8px',
+  fontSize: '1rem',
   color: theme.palette.text.secondary,
 }));
 

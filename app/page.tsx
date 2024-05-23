@@ -84,7 +84,7 @@ export default function Home() {
       {/* HOW WE DO THIS */}
       <div className='py-[100px] z-50 bg-white w-full'>
 
-        <Box sx={{height:'650px', background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
+        <Box sx={{ background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
           <Box sx={{textAlign:'center'}}>
             <Typography paddingY='20px' variant='h1' sx={{textAlign:'center', color:'white'}}>
                   How do we do this ?
@@ -96,7 +96,7 @@ export default function Home() {
 
           <Grid container spacing={2} sx={{ padding: '20px' }}>
           <Grid item xs={12} sm={6} md={4}>
-            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/'/>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
@@ -114,7 +114,7 @@ export default function Home() {
 
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
+      <div className='py-[100px] z-50 bg-white w-full'>
         <div className='min-h-[200px] pl-20'>
           <div className='relative '>
             <motion.div
@@ -154,7 +154,7 @@ export default function Home() {
 
 
       {/* PROJECTS USING ZK EMAIL SECTION*/}
-      <div className='px-[10%] py-[6%]'>
+      <div className='px-[10%] py-[6%] w-full'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
 
 
@@ -168,7 +168,7 @@ export default function Home() {
             Projects Using ZK Email
           </Typography>
 
-        <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
+        <Grid container spacing={2} direction="column" sx={{ justifyContent:'center' }}>
           <Grid item xs={4}>
             <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
           </Grid>

@@ -69,7 +69,7 @@ export default function Hero() {
       {/* ENVELOPE MAIL STUFF */}
       <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
         {/* MAIL LETTER PAPER */}
-        <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-5 sm:p-16 sm:p-20 text-left text-[8px] sm:text-[12px] md:text-[18px]" style={{ zIndex: 1 }}>
+        <div className="absolute inset-0 rounded-lg bg-white m:w-3/4 sm:w-4/5 mx-auto p-5 sm:p-16 text-left text-[8px] xs:text-[6px] sm:text-[12px] md:text-[18px]" style={{ zIndex: 1 }}>
           <div className='font-semibold'>
             <div className='grid grid-cols-2'>
               <div>
