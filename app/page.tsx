@@ -39,6 +39,23 @@ const faqs = [
   },
 ];
 
+
+const emails = [
+  {
+    to: "Anonymous",
+    from: "Zk Email",
+    subject: "email 1",
+    mainText: 'For example, you can prove you have an email from <span>you@gov.com</span> without disclosing your full address.<br />Best,<br />Zk Email',
+  },
+  {
+    to: "<span>Bob</span>@apple.com",
+    from: "Zk Email",
+    subject: "email 2",
+    mainText: 'For example, you can prove you have an email from <span>you@edu.com</span> without disclosing <span>your full</span> address.<br />Best,<br />Zk Email',
+  },
+];
+
+
 const PopOutZKLibraryCards = [
   { label: "ZK Regex Library", url: "https://example.com/1" },
   { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
@@ -79,22 +96,19 @@ export default function Home() {
       {/*ABOUT SECTION*/}
       <div className='px-[10%] pt-[10%] z-30 bg-white'>
         <div>
-          <Typography variant='h3'>Our Goals </Typography>
-          <Typography sx={{width:'80%', textAlign:'left', paddingTop:'15px', fontSize:{sm:'15px', md:'16px', lg:'20px'}}}>With zk Email, you can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email. </Typography>
+          <Typography variant='h3'>Our Goals</Typography>
+          <Typography sx={{width:'80%', textAlign:'left', paddingTop:'15px', fontSize:{sm:'15px', md:'16px', lg:'20px'}}}>With ZK Email, you can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email. </Typography>
           </div>
-          <Grid container sx={{paddingTop:'50px'}}   direction='row'  justifyContent='space-between'>
+          <Grid container sx={{paddingY:'50px'}}   direction='row'  justifyContent='space-between'>
             <Grid item xs={4}>
               <Typography>Redact Information <br/> Fast Proofs <br/> Open Source</Typography>
             </Grid>
             
-            <Grid item xs={8}>
-              <AboutModal
-                to="Anonymous"
-                from="Zk Email"
-                mainText={
-                  'For example, you can prove you have an email from <span>you@gov.com</span> without disclosing your full address.<br />Best,<br />Zk Email'
-                }
-              />
+            <Grid item xs={8} justifySelf="right">
+              <Box display='flex' justifyContent='end'>
+                <AboutModal emails={emails}/>
+              </Box>
+              
             </Grid>
           </Grid>
       </div>
