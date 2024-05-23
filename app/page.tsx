@@ -85,33 +85,48 @@ export default function Home() {
 
       {/* HOW WE DO THIS */}
       <div className='py-[100px] z-50 bg-white w-full'>
-
-        <Box sx={{height:{xs:'800px', sm:'650px'}, background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
-          <Box sx={{textAlign:'center', paddingX:'5%'}}>
-            <Typography paddingY='20px' variant='h1' sx={{textAlign:'center', color:'white'}}>
-                  How do we do this?
-              </Typography>
-              <Typography sx={{color:'white', paddingBottom:'30px'}}>
-                We leverage what emails already do... <br></br>but using regex & zero knowledge
-              </Typography>
-          </Box>
-
-          <Grid container spacing={2} sx={{ padding: '20px' }}>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
-            </Grid>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
-            </Grid>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
-            </Grid>
-          </Grid>
-
+      <Box sx={{
+        height: { xs: '830px', sm: '650px' },
+        background: 'black',
+        paddingY: '80px',
+        width: '90%',
+        borderRadius: '14.85px',
+        marginX: 'auto',
+        position: 'relative',
+        overflow: 'hidden',
+        '::before': {
+          content: '""',
+          position: 'absolute',
+          bottom: '-50px',
+          left: '0',
+          width: '100%',
+          height: '100px',
+          background: 'black',
+          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
+        }
+      }}>
+        <Box sx={{ textAlign: 'center', paddingX: '5%' }}>
+          <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
+            How do we do this?
+          </Typography>
+          <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize:{xs:'13px', sm:'15px', md:'19px' }}}>
+            We leverage what emails already do... <br></br>but using regex & zero knowledge
+          </Typography>
         </Box>
+        <Grid container spacing={2} sx={{ padding: '20px' }}>
+          <Grid item xs={12} sm={4} md={4}>
+            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+          </Grid>
+          <Grid item xs={12} sm={4} md={4}>
+            <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
+          </Grid>
+          <Grid item xs={12} sm={4} md={4}>
+            <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
+          </Grid>
+        </Grid>
+      </Box>
+    </div>
 
-
-      </div>
 
 
 
@@ -132,21 +147,21 @@ export default function Home() {
             </Typography>
           </div>
 
-          <div className='grid grid-cols-3'>
-            <div className=''>
-              <Typography variant='h5' paddingTop="10px">
-                  Have a Question that isn’t answered <br></br> We would like to chat with you!
+          <Grid container>
+            <Grid item xs={12} sm={4} className=''>
+              <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px' }}}>
+                  Have a Question that isn’t answered?<br></br> We would like to chat with you!
               </Typography>
               <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-                <CustomButton buttonLabel="Drop Us a Line " filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
+                <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
               </Stack>
-            </div>
-            <div className="relative col-span-2" style={{ width: '100%', margin: '0 auto', padding: '20px', zIndex:'100' }}>
+            </Grid>
+            <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] pr-[10%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
               {faqs.map((faq, index) => (
                 <Accordion key={index} title={faq.title} contents={faq.contents} />
               ))}
-            </div>
-          </div>
+            </Grid>
+          </Grid>
         </div>
       </div>
 

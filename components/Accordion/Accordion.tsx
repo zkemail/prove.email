@@ -53,10 +53,10 @@ const Accordion: FC<AccordionProps> = ({ title, contents }) => {
         aria-controls="panel-content"
         id="panel-header"
       >
-        <Typography color="black" fontWeight="500" sx={{fontSize: {xs:"10px", sm:"15px", md:"19px"} }}>{title}</Typography>
+        <Typography color="black" fontWeight="500" sx={{fontSize: {xs:"12px", sm:"15px", md:"19px"} }}>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>{contents}</Typography>
+        <Typography sx={{fontSize: {xs:'11px'}}}>{contents}</Typography>
       </AccordionDetails>
     </CustomAccordion>
   );
