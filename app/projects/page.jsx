@@ -19,11 +19,11 @@ import pixelSectionBackground2 from '@/public/pixelSectionBackground2.svg';
 const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
 
 const projects = [
-  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true },
-  { name: 'ZK P2P', tagline: 'decentralized messaging', description: 'P2P communication using zero-knowledge proofs', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false },
-  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false },
-  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false },
-  { name: 'Email Wallet', tagline: 'prove you own a twitter account', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true }
+  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'ZK P2P', tagline: 'decentralized messaging', description: 'P2P communication using zero-knowledge proofs', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'Email Wallet', tagline: 'prove you own a twitter account', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://zkp2p.xyz/logo512.png' }
 ];
 
 const texts = [
@@ -148,7 +148,6 @@ const ProjectsPage = () => {
             <Tab
               key={project.name}
               fullWidth={true}
-              style={{height: "200px"}}
               
               sx={{ alignItems: 'start', borderBottom: 1, borderBottomColor: 'black', }}
               label={(
@@ -166,12 +165,17 @@ const ProjectsPage = () => {
         <Box sx={{ p: 3, width: '50%' }}>
           {filteredProjects[selectedProjectIndex] && (
             <>
-              <Typography variant='h2' sx={{ fontWeight: 'bold' }}>
-                {filteredProjects[selectedProjectIndex].name}
-              </Typography>
-              <Typography className="text-[#7A7A7A]">
-                {filteredProjects[selectedProjectIndex].tagline}
-              </Typography>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                <img src={filteredProjects[selectedProjectIndex].logo} alt={`${filteredProjects[selectedProjectIndex].name} logo`} style={{ width: '50px', height: '50px', marginRight: '20px' }} />
+                <div>
+                  <Typography variant='h2' sx={{ fontWeight: 'bold' }}>
+                    {filteredProjects[selectedProjectIndex].name}
+                  </Typography>
+                  <Typography className="text-[#7A7A7A]">
+                    {filteredProjects[selectedProjectIndex].tagline}
+                  </Typography>
+                </div>
+              </div>
               <Typography className="py-4">
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>

@@ -61,8 +61,11 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
               }}
               aria-label="GitHub link"
             >
-              <GitHubIcon />
+
+            {/* NEED to link these icons https://github.com/zkemail/ */}
+            <GitHubIcon />
             </IconButton>
+
             <IconButton
               sx={{
                 color: 'black',
