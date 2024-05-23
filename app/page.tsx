@@ -11,15 +11,14 @@ import ProjectCardHighlight from '@/components/ProjectCardHighlight/ProjectCardH
 import RedactedText from '@/components/RedactedText/RedactedText'
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-// import theme from './theme';
 import { useTheme } from '@mui/material/styles';
 import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
 import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
+import AboutModal from '.././components/AboutModal/AboutModal'
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-
 
 const faqs = [
   {
@@ -58,8 +57,6 @@ let PopOutZKEmailLibraryCards = [
   { label: "Ether Email Auth", url: "https://example.com/3" },
 ];
 
-
-
 export default function Home() {
     const theme = useTheme();
 
@@ -67,68 +64,89 @@ export default function Home() {
     const [ref, inView] = useInView({
       triggerOnce: true,
     });
-  
+
     useEffect(() => {
       if (inView) {
         controls.start({ x: 100, opacity: 0 });
       }
     }, [controls, inView]);
 
-
   return (
     <main className="flex bg-white min-h-screen flex-col">
       <Hero/>
 
+
+      {/*ABOUT SECTION*/}
+      <div className='px-[10%] pt-[10%] z-30 bg-white'>
+        <div>
+          <Typography variant='h3'>Our Goals </Typography>
+          <Typography sx={{width:'80%', textAlign:'left', paddingTop:'15px', fontSize:{sm:'15px', md:'16px', lg:'20px'}}}>With zk Email, you can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email. </Typography>
+          </div>
+          <Grid container sx={{paddingTop:'50px'}}   direction='row'  justifyContent='space-between'>
+            <Grid item xs={4}>
+              <Typography>Redact Information <br/> Fast Proofs <br/> Open Source</Typography>
+            </Grid>
+            
+            <Grid item xs={8}>
+              <AboutModal
+                to="Anonymous"
+                from="Zk Email"
+                mainText={
+                  'For example, you can prove you have an email from <span>you@gov.com</span> without disclosing your full address.<br />Best,<br />Zk Email'
+                }
+              />
+            </Grid>
+          </Grid>
+      </div>
 
 
 
 
       {/* HOW WE DO THIS */}
       <div className='py-[100px] z-50 bg-white w-full'>
-      <Box sx={{
-        height: { xs: '830px', sm: '650px' },
-        background: 'black',
-        paddingY: '80px',
-        width: '90%',
-        borderRadius: '14.85px',
-        marginX: 'auto',
-        position: 'relative',
-        overflow: 'hidden',
-        '::before': {
-          content: '""',
-          position: 'absolute',
-          bottom: '-50px',
-          left: '0',
-          width: '100%',
-          height: '100px',
+        <Box sx={{
+          height: { xs: '830px', sm: '650px' },
           background: 'black',
-          clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
-        }
-      }}>
-        <Box sx={{ textAlign: 'center', paddingX: '5%' }}>
-          <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
-            How do we do this?
-          </Typography>
-          <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize:{xs:'13px', sm:'15px', md:'19px' }}}>
-            We leverage what emails already do... <br></br>but using regex & zero knowledge
-          </Typography>
+          paddingY: '80px',
+          width: '90%',
+          borderRadius: '14.85px',
+          marginX: 'auto',
+          position: 'relative',
+          overflow: 'hidden',
+          '::after': {
+            content: '""',
+            position: 'absolute',
+            bottom: '-50px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '0',
+            height: '0',
+            borderLeft: '50px solid transparent',
+            borderRight: '50px solid transparent',
+            borderTop: '50px solid black',
+          }
+        }}>
+          <Box sx={{ textAlign: 'center', paddingX: '5%' }}>
+            <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
+              How do we do this?
+            </Typography>
+            <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
+              We leverage what emails already do... <br></br>but using regex & zero knowledge
+            </Typography>
+          </Box>
+          <Grid container spacing={2} sx={{ padding: '20px' }}>
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+            </Grid>
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
+            </Grid>
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
+            </Grid>
+          </Grid>
         </Box>
-        <Grid container spacing={2} sx={{ padding: '20px' }}>
-          <Grid item xs={12} sm={4} md={4}>
-            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
-          </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
-          </Grid>
-          <Grid item xs={12} sm={4} md={4}>
-            <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
-          </Grid>
-        </Grid>
-      </Box>
-    </div>
-
-
-
+      </div>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
       <div className='pl-[10%] py-[100px] z-50 bg-white w-full'>
@@ -138,7 +156,6 @@ export default function Home() {
               initial={{opacity:1}} 
               whileInView={{opacity:0}}
               viewport={{amount:'all', once:true}}
-              
               className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black'
             >
             </motion.div>
@@ -165,27 +182,12 @@ export default function Home() {
         </div>
       </div>
 
-
-
-
-
-
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
-
-
-
-          <Typography variant='h1'
-            sx={{
-              textAlign:'center',
-              paddingBottom: {xs:4, sm:10},
-              
-            }}
-          >
+          <Typography variant='h1' sx={{ textAlign:'center', paddingBottom: {xs:4, sm:10}, }}>
             Projects Using ZK Email
           </Typography>
-
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
           <Grid item xs={12} sm={4}>
             <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
@@ -201,35 +203,33 @@ export default function Home() {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
           <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography>
           <Box 
-          sx={{ 
-            display: 'flex', 
-            alignItems: 'center',
-            textDecoration: 'none',
-            '&:hover .arrowIcon': {
-              color: theme.palette.secondary.main,
-              transform: 'translateX(5px)'
-            },
-            '&:hover': {
-              textDecoration:'underline',
-              textDecorationColor:theme.palette.secondary.main,
-            }
-          }}
-          component='a' 
-          href='/'
-        >
-          <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
-          <ArrowForwardIcon
-            className='arrowIcon'
-            sx={{
-              transition: 'color 0.3s, transform 0.3s',
-              ml: 1 // add some margin to the left for spacing
+            sx={{ 
+              display: 'flex', 
+              alignItems: 'center',
+              textDecoration: 'none',
+              '&:hover .arrowIcon': {
+                color: theme.palette.secondary.main,
+                transform: 'translateX(5px)'
+              },
+              '&:hover': {
+                textDecoration:'underline',
+                textDecorationColor:theme.palette.secondary.main,
+              }
             }}
-          />
-        </Box>
+            component='a' 
+            href='/'
+          >
+            <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
+            <ArrowForwardIcon
+              className='arrowIcon'
+              sx={{
+                transition: 'color 0.3s, transform 0.3s',
+                ml: 1 // add some margin to the left for spacing
+              }}
+            />
+          </Box>
         </Box>
       </div>
-    
-
 
     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
       <Grid container sx={{ marginX: 'auto', py: '60px', width: '100%', justifyContent: 'space-between' }}>
@@ -254,7 +254,6 @@ export default function Home() {
       </Grid>
     </Box>
 
-
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box height='500px' sx={{
         backgroundColor: 'white', 
@@ -267,23 +266,15 @@ export default function Home() {
         <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
       </Box>
 
-
-
-
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px] relative z-10">
         <div className="text-center py-10 px-[10%]">
-          <Typography variant='h1' 
-            sx={{
-              textAlign:'center',
-              paddingY: {xs:4, sm:8},
-            }}
-          >
-              Our Libraries
+          <Typography variant='h1' sx={{ textAlign:'center', paddingY: {xs:4, sm:8}, }}>
+            Our Libraries
           </Typography>
           <div className="grid grid-cols-2 gap-6">
-          <div>
-            <PopOut
+            <div>
+              <PopOut
                 topText="ZK Email Specific Libraries"
                 mainText="ZKEmail Libraries"
                 descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
@@ -314,13 +305,9 @@ export default function Home() {
                 ]}
               />
             </div>
-          
           </div>
         </div>
       </div>
-
-
-
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-24">
@@ -336,4 +323,3 @@ export default function Home() {
     </main>
   );
 }
-

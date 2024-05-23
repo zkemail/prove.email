@@ -4,6 +4,15 @@ export interface Page {
   link: string;
 }
 
+
+// types.ts
+export type AboutModalProps = {
+  to: string;
+  from: string;
+  mainText: string;
+};
+
+
 export interface AppBarProps {
   title: string;
   pages: Page[];

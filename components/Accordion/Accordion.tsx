@@ -20,10 +20,11 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   '&:before': {
     display: 'none',
   },
+  background:'#FAFAFA',
   boxShadow: 'none',
   borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
   '& .MuiAccordionSummary-root': {
-    backgroundColor: 'rgba(0, 0, 0, 0.0)',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     '&:hover .MuiAccordionSummary-expandIconWrapper': {
       color:  theme.palette.secondary.main,
     },
