@@ -50,9 +50,9 @@ const VideoCarousel = () => {
                 onClick={() => window.open(video.url, '_blank')}
               />
               <CardContent className="p-4 grid grid-cols-2 bg-black relative">
-                <Stack spacing={1} direction="row" alignItems='center' sx={{ paddingTop: "16px", paddingY:'12px', justifyItems:'center'}}>
+                <Stack direction="row" alignItems='center' sx={{ paddingTop: "16px", paddingY:'12px', justifyItems:'center'}}>
                   <FiberManualRecord sx={{ color: theme.palette.secondary.main, fontSize: '10px', position: 'relative' }} />
-                  <p className='text-white text-xs'>Talks</p>
+                  <Typography sx={{fontSize: {xs:'10px', md:'14px'}, color:'grey',paddingLeft: {xs:'1px', sm:'3px' }}}>Talk</Typography>
                 </Stack>
                 <ArrowOutward sx={{ color: 'white', fontSize: '10px', top: '10px', right: '10px', alignSelf:'center', justifySelf:'end' }} />
                 <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', height: '70px', fontSize: {xs:'11px', sm: '14px', md: '15px', lg:'17px'} }}>
