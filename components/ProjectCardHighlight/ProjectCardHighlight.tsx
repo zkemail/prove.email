@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             borderRadius: '8px',
             position: 'relative',
             overflow: 'visible',
-            height: '300px',
+            height: {xs:'170px', sm:'300px'},
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between', // Adjust to space-between for top and bottom alignment
@@ -50,14 +50,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
           }}
         >
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px' }}>
-            <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem' }, textTransform: 'uppercase' }}>
+            <Typography variant="subtitle2" sx={{ opacity: 0.6, fontSize: { xs: '0.5rem', sm: '0.8rem', md: '1rem',  }, textTransform: 'uppercase' }}>
               {projectTag}
             </Typography>
             <IconButton aria-label="open" sx={{ color: 'grey' }} className="arrow-icon">
               <ArrowOutward />
             </IconButton>
           </Box>
-          <CardContent sx={{ padding: '16px', flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+          <CardContent sx={{ padding: '16px', flex: '1 1 auto', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
             <Typography
               variant="h5"
               component="div"
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             >
               {projectTitle}
             </Typography>
-            <Typography variant="body2" sx={{ marginTop: 1, fontSize: { xs: '0.4rem', sm: '0.5rem', md: '0.8rem' } }}>
+            <Typography variant="body2" sx={{ marginTop: 1, fontSize: { xs: '10px', sm: '0.5rem', md: '0.8rem' } }}>
               {projectDescription}
             </Typography>
           </CardContent>

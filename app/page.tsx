@@ -187,16 +187,17 @@ export default function Home() {
           </Typography>
 
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <ProjectCardHighlight projectTitle="Email Wallet" url='https://emailwallet.org/' projectDescription="Email a relayer in order to transfer money or transact on Ethereum, anonymously." projectTag="Protocol Kit"/>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <ProjectCardHighlight projectTitle="Proof of Twitter" url='https://twitter.prove.email/' projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter." projectTag="Protocol Kit"/>
           </Grid>
         </Grid>
+
         <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
           <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography>
           <Box 
