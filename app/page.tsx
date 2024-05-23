@@ -1,5 +1,5 @@
 'use client'
-import Hero from './hero/hero'
+import Hero from '../components/Hero/Hero'
 import Accordion from '../components/Accordion/Accordion';
 import PopOut from '../components/PopOut/PopOut';
 import VideoCarousel from '../components/VideoCarousel/VideoCarousel';
@@ -14,6 +14,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import theme from './theme';
 import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
 import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
+
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 
 const faqs = [
@@ -56,6 +60,19 @@ let PopOutZKEmailLibraryCards = [
 
 
 export default function Home() {
+
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+      triggerOnce: true,
+    });
+  
+    useEffect(() => {
+      if (inView) {
+        controls.start({ x: 100, opacity: 0 });
+      }
+    }, [controls, inView]);
+
+
   return (
     <main className="flex bg-white min-h-screen flex-col">
       <Hero/>
@@ -99,9 +116,20 @@ export default function Home() {
       {/* FAQ ACCORDION ON MAIN PAGE */}
       <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
         <div className='min-h-[200px] pl-20'>
-          <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
-            Frequently Asked Questions
-          </Typography>
+          <div className='relative '>
+            <motion.div
+              initial={{opacity:1}} 
+              whileInView={{opacity:0}}
+              viewport={{amount:'all', once:true}}
+              
+              className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black'
+            >
+            </motion.div>
+            <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
+              Frequently Asked Questions
+            </Typography>
+          </div>
+
           <div className='grid grid-cols-3'>
             <div className=''>
               <Typography variant='h5' paddingTop="10px">
@@ -128,14 +156,17 @@ export default function Home() {
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
-        <Typography variant='h1'
-          sx={{
-            textAlign:'center',
-            paddingBottom: {xs:4, sm:10},
-          }}
-        >
-          Projects Using ZK Email
-        </Typography>
+
+
+
+          <Typography variant='h1'
+            sx={{
+              textAlign:'center',
+              paddingBottom: {xs:4, sm:10},
+            }}
+          >
+            Projects Using ZK Email
+          </Typography>
 
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
           <Grid item xs={4}>
@@ -178,16 +209,31 @@ export default function Home() {
         </Box>
         </Box>
       </div>
+    
 
 
-      <Stack spacing={10} direction='row' sx={{marginX: 'auto', justifyContent:'center', py:'60px'}}>
-            <RedactedText text='Redact Text' />
-            <RedactedText text='Fast Proofs' />
-            <RedactedText text='Open Source' />
-            <RedactedText text='Redact Text' />
-            <RedactedText text='Fast Proofs' />
-            <RedactedText text='Open Source' />
-        </Stack>
+    <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <Grid container sx={{ marginX: 'auto', py: '60px', width: '100%', justifyContent: 'space-between' }}>
+        <Grid item>
+          <RedactedText text="Redact Text" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Fast Proofs" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Open Source" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Redact Text" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Fast Proofs" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Open Source" />
+        </Grid>
+      </Grid>
+    </Box>
 
 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}

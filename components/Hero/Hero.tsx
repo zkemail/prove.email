@@ -1,6 +1,6 @@
 
 'use client'
-import CustomButton from '../../components/CustomButton/CustomButton';
+import CustomButton from '../CustomButton/CustomButton';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
 import rectangleEnvelope from '../../public/rectangleEnvelope.svg'; 
@@ -27,6 +27,9 @@ export default function Hero() {
   const handleToggle = () => {
     setIsEmailOpen(!isEmailOpen);
   };
+
+
+  
 
   return (
     <main 

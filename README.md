@@ -29,7 +29,8 @@ Materila Ui
 - npm install @mui/material @emotion/react @emotion/styled              https://mui.com/material-ui/   
 - npm install @mdx-js/react gray-matter   
 - npm i next-mdx-remote         https://www.youtube.com/watch?v=n2CV6f0vFr4  for the blog
-
+- npm install framer-motion    https://www.youtube.com/watch?v=PczQ0qSwe1E for scroll animations  
+- npm install react-intersection-observer   for scroll animations  
 
 
 ## Getting Started
