@@ -117,10 +117,10 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
           fontSize: '3rem',
         },
         [`@media (min-width:${breakpoints.values.lg}px)`]: {
-          fontSize: '4rem',
+          fontSize: '3.5rem',
         },
         [`@media (min-width:${breakpoints.values.xl}px)`]: {
-          fontSize: '5rem',
+          fontSize: '4rem',
         },
         fontWeight: 500,
         lineHeight: 1.2,

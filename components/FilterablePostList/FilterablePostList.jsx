@@ -2,11 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import CustomButton from '.././CustomButton/CustomButton'
+import { useTheme } from '@mui/material/styles';
+import { InputBase, Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const FilterablePostList = ({ initialPosts }) => {
   const [posts, setPosts] = useState(initialPosts);
   const [searchInput, setSearchInput] = useState('');
   const [selectedButton, setSelectedButton] = useState('Newest');
+
+
+  const theme = useTheme();
 
   useEffect(() => {
     // Fetch posts from your API if initialPosts are not provided
@@ -34,20 +41,24 @@ const FilterablePostList = ({ initialPosts }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <div className="h-1/2 w-full bg-blue-500 flex flex-col justify-end">
+      <div className="h-[450px] w-full bg-gradient-to-t to-[#F2F2F2] from-[#F5F5F5] flex flex-col justify-end">
         <div className="pb-[100px] text-left px-20">
-          <h1 className="text-6xl text-left py-3 align-middle mt-10">Blog</h1>
-          <p className="text-black w-1/2">
+          <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'30px', marginTop:'80px' }}>Blog</Typography>
+          {/* <p className="text-black w-1/2">
             While building the Zk Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. This repository contains both our own projects and community projects using our libraries.
-          </p>
+          </p> */}
         </div>
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black p-6 rounded-[20px] w-[90%] px-12">
+        <div className="absolute left-1/2 top-[560px] transform -translate-x-1/2 -translate-y-1/2  p-6 rounded-[20px] w-[90%]">
           <div className="flex justify-between items-center space-x-4">
-            <div className="relative w-1/2 bg-[#F4F4F4] rounded-[16px] px-6 py-1">
-              <input
+            <div className="relative  w-1/2 bg-white rounded-[10px] px-3 py-1 border-[1px] border-[#797878]">
+              <InputBase
+                sx={{            
+
+                  fontSize: { xs: '10px', sm: '12px', md: '14px' }
+                }}
                 type="text"
                 placeholder="Search blogs..."
-                className="form-input focus:outline-none px-4 py-2 rounded-[16px] bg-[#F4F4F4] w-full"
+                className="form-input focus:outline-none px-3 py-2 rounded-[16px] bg-white  w-full"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
@@ -67,18 +78,46 @@ const FilterablePostList = ({ initialPosts }) => {
               </svg>
             </div>
             <div className="flex space-x-2">
-              <button
-                className={`px-6 py-2 rounded-[20px] ${selectedButton === 'Newest' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border-2 border-solid border-blue-500'}`}
+              <CustomButton
+                size="small"
+                buttonLabel='Newest'
+                filledIn={selectedButton.includes('Newest') ? true : false}
+
+                sx={{
+                  padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
+                  fontSize: { xs: '10px', sm: '12px', md: '14px' },
+                }}
+                className={`rounded-[5px] ${selectedButton === 'Newest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
                 onClick={() => setSelectedButton('Newest')}
               >
                 Newest
-              </button>
-              <button
-                className={`px-6 py-2 rounded-[20px] ${selectedButton === 'Oldest' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border-2 border-solid border-blue-500'}`}
+              </CustomButton>
+              <CustomButton
+                size="small"
+                buttonLabel='Oldest'
+                filledIn={selectedButton.includes('Oldest') ? true : false}
+                sx={{
+                  padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
+                  fontSize: { xs: '10px', sm: '12px', md: '14px' },
+                }}
+                className={`rounded-[5px] ${selectedButton === 'Oldest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
                 onClick={() => setSelectedButton('Oldest')}
               >
                 Oldest
-              </button>
+              </CustomButton>
+              <CustomButton
+                size="small"
+                buttonLabel='Recommended'
+                filledIn={selectedButton.includes('Recommended') ? true : false}
+                sx={{
+                  padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
+                  fontSize: { xs: '10px', sm: '12px', md: '14px' },
+                }}
+                className={`rounded-[5px] ${selectedButton === 'Recommended' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
+                onClick={() => setSelectedButton('Recommended')}
+              >
+                Recommended
+              </CustomButton>
               {/* Add more buttons if needed */}
             </div>
           </div>
@@ -89,14 +128,15 @@ const FilterablePostList = ({ initialPosts }) => {
           <div className="">
             {filteredPosts.map((post) => (
               <Link href={`/posts/${post.slug}`} key={post.title}>
-                <div className="grid grid-cols-4 mb-4">
-                  <div className="w-full h-[130px] bg-white border-2 py-6 grid grid-cols-2 p-6 px-12 col-span-3">
+                <div className="grid grid-cols-4 mb-4 group">
+                  <div className="w-full h-[150px] bg-white border-2 py-6 grid grid-cols-2 p-6 px-12 col-span-3">
                     <p className="text-xs py-2">{new Date(post.date).toISOString().split('T')[0]}</p>
                     <p className="text-right text-xs py-2">{post.category}</p>
-                    <h1 className="col-span-2 font-bold">{post.title}</h1>
+                    <h1 className="col-span-2 font-bold group-hover:underline">{post.title}</h1>
                     <p className="text-xs col-span-2">{post.description}</p>
                   </div>
-                  <img className="h-[130px] w-full" alt="Blog card" src={post.image} />
+                  <div className="h-[150px] w-full bg-black" alt="Blog card"/>
+                  {/* <img className="h-[150px] w-full" alt="Blog card" src={post.image} /> */}
                 </div>
               </Link>
             ))}

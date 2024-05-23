@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardContent, Typography, Box, Button } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { CardContent, Typography, Box } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 
 const SpanWithBg = styled('span')({
@@ -21,6 +21,7 @@ type AboutModalProps = {
 };
 
 const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
+  const theme = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleRemixClick = () => {
@@ -29,7 +30,6 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
 
   const currentEmail = emails[currentIndex];
 
-  // Function to render text with spans having black background and handling <br> tags
   const renderText = (text: string) => {
     const parts = text.split(/(<span>.*?<\/span>|<br \/>|<br>)/g).filter(Boolean);
     return parts.map((part, index) => {
@@ -43,28 +43,74 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
     });
   };
 
+  const StyledCard = styled(Box)({
+    position: 'relative',
+    display: 'inline-block',
+    maxWidth: 670,
+    cursor: 'pointer',
+    marginTop: '30px',
+    '&:hover .icon': {
+      color: theme.palette.secondary.main,
+      transform: 'translate(3px, -3px)',
+    },
+    '&:hover .bg-box': {
+      backgroundColor: theme.palette.secondary.main,
+    },
+  });
+
+  const StyledIcon = styled(ShuffleIcon)({
+    transition: 'color 0.3s, transform 0.3s',
+  });
+
   return (
-    <Card sx={{ maxWidth: 400, boxShadow: 3, padding: { xs: '12px', sm: '20px' } }}>
-      <CardContent>
-        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-          To: {renderText(currentEmail.to)}
-        </Typography>
-        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-          From: {renderText(currentEmail.from)}
-        </Typography>
-        <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-          Subject: {renderText(currentEmail.subject)}
-        </Typography>
-        <Box mt={2}>
-          <Typography variant="body2">{renderText(currentEmail.mainText)}</Typography>
-        </Box>
-        <Box mt={2} display="flex" justifyContent="end">
-          <Button variant="contained" color="primary" onClick={handleRemixClick}>
-            <ShuffleIcon />
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
+    <StyledCard onClick={handleRemixClick}>
+      <Box
+        className="bg-box"
+        sx={{
+          position: 'absolute',
+          top: 8,
+          left: 8,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'black',
+          borderRadius: '7.85px',
+          zIndex: -1,
+          transition: 'background-color 0.3s',
+        }}
+      />
+      <Box
+        sx={{
+          backgroundColor: 'white',
+          borderColor: '#DCDBDB',
+          borderWidth: 1,
+          borderRadius: '7.85px',
+          boxShadow: 3,
+          padding: { xs: '12px', sm: '20px' },
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        <CardContent sx={{ padding: '33px' }}>
+          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+            To: {renderText(currentEmail.to)}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+            From: {renderText(currentEmail.from)}
+          </Typography>
+          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+            Subject: {renderText(currentEmail.subject)}
+          </Typography>
+          <Box mt={2}>
+            <Typography variant="body2" sx={{ width: '85%' }}>
+              {renderText(currentEmail.mainText)}
+            </Typography>
+          </Box>
+          <Box mt={2} display="flex" justifyContent="end" color="black">
+            <StyledIcon className="icon" />
+          </Box>
+        </CardContent>
+      </Box>
+    </StyledCard>
   );
 };
 
