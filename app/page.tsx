@@ -11,7 +11,8 @@ import ProjectCardHighlight from '@/components/ProjectCardHighlight/ProjectCardH
 import RedactedText from '@/components/RedactedText/RedactedText'
 import Link from 'next/link';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import theme from './theme';
+// import theme from './theme';
+import { useTheme } from '@mui/material/styles';
 import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
 import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
 
@@ -60,7 +61,8 @@ let PopOutZKEmailLibraryCards = [
 
 
 export default function Home() {
-
+    const theme = useTheme();
+    
     const controls = useAnimation();
     const [ref, inView] = useInView({
       triggerOnce: true,
@@ -163,6 +165,7 @@ export default function Home() {
             sx={{
               textAlign:'center',
               paddingBottom: {xs:4, sm:10},
+              
             }}
           >
             Projects Using ZK Email
