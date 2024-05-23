@@ -43,14 +43,14 @@ const FilterablePostList = ({ initialPosts }) => {
     <div className="min-h-screen flex flex-col bg-white">
       <div className="h-[450px] w-full bg-gradient-to-t to-[#F2F2F2] from-[#F5F5F5] flex flex-col justify-end">
         <div className="pb-[100px] text-left px-[8%]">
-          <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'30px', marginTop:'80px' }}>Blog</Typography>
+          <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'20px', marginTop:'80px' }}>Blog</Typography>
           {/* <p className="text-black w-1/2">
             While building the Zk Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. This repository contains both our own projects and community projects using our libraries.
           </p> */}
         </div>
         <div className="absolute left-1/2 top-[560px] transform -translate-x-1/2 -translate-y-1/2  p-6 rounded-[20px] w-[90%]">
           <div className="flex justify-between items-center space-x-4">
-            <div className="relative  w-1/2 bg-white rounded-[10px] px-3 py-1 border-[1px] border-[#797878]">
+            <div className="relative  w-1/2 bg-white rounded-[10px] px-3 border-[1px] border-[#797878]">
               <InputBase
                 sx={{            
 
@@ -82,6 +82,7 @@ const FilterablePostList = ({ initialPosts }) => {
                 size="small"
                 buttonLabel='Newest'
                 filledIn={selectedButton.includes('Newest') ? true : false}
+    
 
                 sx={{
                   padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
@@ -123,13 +124,13 @@ const FilterablePostList = ({ initialPosts }) => {
           </div>
         </div>
       </div>
-      <div className="p-20 mt-10 bg-white flex-grow">
+      <div className="p-[8%] mt-10 bg-white flex-grow">
         <div className="overflow-hidden relative w-full">
           <div className="">
             {filteredPosts.map((post) => (
               <Link href={`/posts/${post.slug}`} key={post.title}>
                 <div className="grid grid-cols-4 mb-4 group">
-                  <div className="w-full h-[150px] bg-white border-2 py-6 grid grid-cols-2 p-6 px-12 col-span-3">
+                  <div className="w-full h-[150px] bg-white border-2 grid grid-cols-2 p-6 col-span-3">
                     <p className="text-xs py-2">{new Date(post.date).toISOString().split('T')[0]}</p>
                     <p className="text-right text-xs py-2">{post.category}</p>
                     <h1 className="col-span-2 font-bold group-hover:underline">{post.title}</h1>
