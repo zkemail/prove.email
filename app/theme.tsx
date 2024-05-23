@@ -58,7 +58,7 @@ const lightPalette = {
     contrastText: '#ffffff',
   },
   secondary: {
-    main: '#FF6F61',
+    main: '#FFBB6B',
     light: '#FF8A80',
     dark: '#B23C3C',
     contrastText: '#ffffff',
@@ -81,7 +81,7 @@ const darkPalette = {
     contrastText: '#ffffff',
   },
   secondary: {
-    main: '#FF6F61',
+    main: '#FFBB6B',
     light: '#FF8A80',
     dark: '#B23C3C',
     contrastText: '#ffffff',

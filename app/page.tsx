@@ -62,7 +62,7 @@ let PopOutZKEmailLibraryCards = [
 
 export default function Home() {
     const theme = useTheme();
-    
+
     const controls = useAnimation();
     const [ref, inView] = useInView({
       triggerOnce: true,
@@ -97,13 +97,13 @@ export default function Home() {
           </Box>
 
           <Grid container spacing={2} sx={{ padding: '20px' }}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={4} sm={4} md={4}>
             <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={4} sm={4} md={4}>
             <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={4} sm={4} md={4}>
             <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
           </Grid>
         </Grid>
@@ -116,8 +116,8 @@ export default function Home() {
 
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='pl-[20px] py-[100px] z-50 bg-white w-full'>
-        <div className='min-h-[200px] pl-20'>
+      <div className='pl-[10%] py-[100px] z-50 bg-white w-full'>
+        <div className='min-h-[200px]'>
           <div className='relative '>
             <motion.div
               initial={{opacity:1}} 
@@ -183,7 +183,7 @@ export default function Home() {
           </Grid>
         </Grid>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
-          <Typography>Serverless, Anonymous Proof Of Personhood ??</Typography>
+          <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography>
           <Box 
           sx={{ 
             display: 'flex', 
