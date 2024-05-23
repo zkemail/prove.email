@@ -106,7 +106,7 @@ const FilterablePostList = ({ initialPosts }) => {
               >
                 Oldest
               </CustomButton>
-              <CustomButton
+              {/* <CustomButton
                 size="small"
                 buttonLabel='Recommended'
                 filledIn={selectedButton.includes('Recommended') ? true : false}
@@ -118,7 +118,7 @@ const FilterablePostList = ({ initialPosts }) => {
                 onClick={() => setSelectedButton('Recommended')}
               >
                 Recommended
-              </CustomButton>
+              </CustomButton> */}
               {/* Add more buttons if needed */}
             </div>
           </div>
