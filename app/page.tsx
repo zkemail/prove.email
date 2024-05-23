@@ -43,8 +43,8 @@ const faqs = [
 const emails = [
   {
     to: "Anonymous",
-    from: "Zk Email",
-    subject: "email 1",
+    from: "Zk <span>Email</span>",
+    subject: "email 1, <span>hidden text</span>",
     mainText: 'For example, you can prove you have an email from <span>you@gov.com</span> without disclosing your full address.<br />Best,<br />Zk Email',
   },
   {

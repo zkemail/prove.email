@@ -53,7 +53,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
           From: {renderText(currentEmail.from)}
         </Typography>
         <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-          Subject: {currentEmail.subject}
+          Subject: {renderText(currentEmail.subject)}
         </Typography>
         <Box mt={2}>
           <Typography variant="body2">{renderText(currentEmail.mainText)}</Typography>
