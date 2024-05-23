@@ -219,7 +219,8 @@ export default function Home() {
         </Grid>
 
         <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
-          <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography>
+          {/* <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography> */}
+          <div></div>
           <Box 
             sx={{ 
               display: 'flex', 

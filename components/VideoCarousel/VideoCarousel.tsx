@@ -37,7 +37,7 @@ const VideoCarousel = () => {
   };
 
   return (
-    <Box className="relative w-full" sx={{ height: '100%', paddingX: {xs:'10px', md: '30px'} }}>
+    <Box className="relative w-full" sx={{ height: {xs:'900px',md:'100%'}, paddingX: {xs:'10px', md: '30px'} }}>
       <Grid container spacing={2} className="overflowX-hidden">
         {videos.slice(currentIndex, currentIndex + visibleCards).map((video) => (
           <Grid item xs={12 / visibleCards} key={video.url}>
@@ -55,18 +55,18 @@ const VideoCarousel = () => {
                   <Typography sx={{fontSize: {xs:'10px', md:'14px'}, color:'grey',paddingLeft: {xs:'1px', sm:'3px' }}}>Talk</Typography>
                 </Stack>
                 <ArrowOutward sx={{ color: 'white', fontSize: '10px', top: '10px', right: '10px', alignSelf:'center', justifySelf:'end' }} />
-                <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', height: '70px', fontSize: {xs:'11px', sm: '14px', md: '15px', lg:'17px'} }}>
+                <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', height: '70px', fontSize: {xs:'8px', sm: '14px', md: '15px', lg:'17px'} }}>
                   {video.title}
                 </Typography>
                 <Grid item xs={12} sx={{ gridColumn: 'span 2' }}>
                   <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                     <Grid item xs={12} sm={8}>
-                      <Typography sx={{ color: 'grey', textAlign: {xs:'right', sm:'left'}, fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
+                      <Typography sx={{ color: 'grey', textAlign: {xs:'right', sm:'left'}, fontSize: { xs: '5px', sm: '10px', md: '12px' } }}>
                         {video.where}
                       </Typography>
                     </Grid>
                     <Grid item xs={12} sm={4}>
-                      <Typography sx={{ color: 'grey', textAlign: 'right', fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
+                      <Typography sx={{ color: 'grey', textAlign: 'right', fontSize: { xs: '5px', sm: '10px', md: '12px' } }}>
                         {video.date}
                       </Typography>
                     </Grid>
