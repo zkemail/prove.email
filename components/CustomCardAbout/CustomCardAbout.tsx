@@ -32,7 +32,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ title, description, url }) => {
             borderRadius: '8px',
             position: 'relative',
             overflow: 'visible',
-            height: '270px',
+            height: {xs:'150px', sm:'270px'},
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -66,7 +66,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ title, description, url }) => {
               className="title"
               sx={{
                 fontWeight: 'bold',
-                fontSize: { xs: '0.95rem', sm: '1rem', md: '1.5rem' },
+                // fontSize: { xs: '10px', sm: '15px', md: '20px' },
                 marginTop: 1,
                 position: 'relative',
               }}

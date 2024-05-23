@@ -86,10 +86,10 @@ export default function Home() {
       {/* HOW WE DO THIS */}
       <div className='py-[100px] z-50 bg-white w-full'>
 
-        <Box sx={{height:'650px', background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
-          <Box sx={{textAlign:'center'}}>
+        <Box sx={{height:{xs:'800px', sm:'650px'}, background:'black', paddingY:'80px', width:'90%', borderRadius:'14.85px', marginX:'auto'}}>
+          <Box sx={{textAlign:'center', paddingX:'5%'}}>
             <Typography paddingY='20px' variant='h1' sx={{textAlign:'center', color:'white'}}>
-                  How do we do this ?
+                  How do we do this?
               </Typography>
               <Typography sx={{color:'white', paddingBottom:'30px'}}>
                 We leverage what emails already do... <br></br>but using regex & zero knowledge
@@ -97,16 +97,16 @@ export default function Home() {
           </Box>
 
           <Grid container spacing={2} sx={{ padding: '20px' }}>
-          <Grid item xs={4} sm={4} md={4}>
-            <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+            </Grid>
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
+            </Grid>
+            <Grid item xs={12} sm={4} md={4}>
+              <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
+            </Grid>
           </Grid>
-          <Grid item xs={4} sm={4} md={4}>
-            <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
-          </Grid>
-          <Grid item xs={4} sm={4} md={4}>
-            <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
-          </Grid>
-        </Grid>
 
         </Box>
 
@@ -240,7 +240,6 @@ export default function Home() {
 
 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
-      {/* <ActionCard title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email'/> */}
       <Box height='500px' sx={{
         backgroundColor: 'white', 
         backgroundImage: `url(${buildYourOwnBackground.src})`,
@@ -248,7 +247,7 @@ export default function Home() {
         paddingY:'8%'}}>
         <Typography variant='h5'>For Developers</Typography>
         <Typography variant='h1'>Build Your Own</Typography>
-        <Typography sx={{paddingRight:'10%', width:'70%', paddingTop:'20px', paddingBottom: '10px', fontSize:'20px'}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
+        <Typography sx={{paddingRight:'10%', width:{xs:'85%',md:'70%'}, paddingTop:'20px', paddingBottom: '10px', fontSize:{xs:'12px',sm:'15px', md:'20px'}}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
         <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
       </Box>
 
@@ -309,10 +308,10 @@ export default function Home() {
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-24">
-        <div className="text-center py-10">
-          <Typography variant='h1' className="text-5xl">Upcoming & Past Talks</Typography>
-          <p className="py-4">Meet the team <span className="font-bold">Aayush, Sora, Saleel, Wataru, Aditya and Elo</span>  <br/>
-            at one of our upcoming talks or message us if you have any questions!</p>
+        <div className="text-center py-10 px-[10%]">
+          <Typography variant='h1' className="text-5xl">Upcoming & <br/>Past Talks</Typography>
+          <Typography sx={{fontSize:{xs:'12px', sm:'15px', md:'20px'}}} className="py-4">Meet the team <span className="font-bold">Aayush, Sora, Saleel, Wataru, Aditya and Elo </span> <br/>
+            at one of our upcoming talks or message us if you have any questions!</Typography>
         </div>
         <div className="h-[430px] w-full mb-10">
           <VideoCarousel />

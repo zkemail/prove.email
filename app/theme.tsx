@@ -109,7 +109,7 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
     typography: {
       fontFamily: spaceGrotesk.style.fontFamily,
       h1: {
-        fontSize: '2rem', // Default font size for the smallest screens (xs)
+        fontSize: '1.9rem', // Default font size for the smallest screens (xs)
         [`@media (min-width:${breakpoints.values.sm}px)`]: {
           fontSize: '2.5rem',
         },
