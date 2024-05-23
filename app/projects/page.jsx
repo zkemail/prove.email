@@ -131,11 +131,14 @@ const ProjectsPage = () => {
           </CustomButton>
         ))}
       </div>
+
+      {/* SELECTED PROJECT SECTION */}
       <Box sx={{ display: 'flex', pt: 12, textAlign:'left'}}>
         <div className='w-[50%]'>
         <Tabs
           orientation="vertical"
-          variant="scrollable"
+          // variant="scrollable"
+          variant='fullWidth'
           
           value={selectedProjectIndex}
           onChange={handleTabChange}
@@ -145,10 +148,11 @@ const ProjectsPage = () => {
             <Tab
               key={project.name}
               fullWidth={true}
+              style={{height: "200px"}}
               
-              sx={{ alignItems: 'start', borderBottom: 1, borderBottomColor: 'black' }}
+              sx={{ alignItems: 'start', borderBottom: 1, borderBottomColor: 'black', }}
               label={(
-                <Box sx={{ borderBottom: 'black', }}>
+                <Box sx={{ borderBottom: 'black'}}>
                   <Typography variant='h5' sx={{ fontSize: '25px', fontWeight: 'bold', marginBottom: '2px', textAlign: 'left' }}>
                     {project.name}
                   </Typography>
@@ -160,7 +164,7 @@ const ProjectsPage = () => {
         </Tabs>
         </div>
         <Box sx={{ p: 3, width: '50%' }}>
-          {filteredProjects[selectedProjectIndex] ? (
+          {filteredProjects[selectedProjectIndex] && (
             <>
               <Typography variant='h2' sx={{ fontWeight: 'bold' }}>
                 {filteredProjects[selectedProjectIndex].name}
@@ -274,8 +278,6 @@ const ProjectsPage = () => {
                 <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={XIcon} size='large' />
               </Stack>
             </>
-          ) : (
-            <Typography>Select a project to see details here.</Typography>
           )}
         </Box>
       </Box>
