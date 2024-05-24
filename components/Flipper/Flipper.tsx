@@ -4,8 +4,25 @@ import { FlipTextProps } from '../.././types';
 import pixelSectionBackground1 from '../.././public/pixelSectionBackground1.svg'
 import pixelSectionBackground2 from '../.././public/pixelSectionBackground2.svg'
 
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
+
+
+// Define Fade-in animation variants
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: {
+    opacity:1,
+    y:0
+  }
+}
+
+
 
 const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
   const [index, setIndex] = useState(0);
@@ -48,17 +65,25 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
       <Typography variant="subtitle1" sx={{ color: '#989898', paddingBottom: '25px', fontSize:'20px'}}>
         ZKEmail Enables
       </Typography>
-      <Typography
-        variant="h2"
-        sx={{
-          fontSize: { xs: '30px', md: '50px' },
-          fontWeight: 'regular',
-          color: 'white',
-        }}
+
+      <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
       >
-        Serverless, Anonymous <br></br>
-        {texts[index]}
-      </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { xs: '30px', md: '50px' },
+            fontWeight: 'regular',
+            color: 'white',
+          }}
+        >
+          Serverless, Anonymous <br></br>
+          {texts[index]}
+        </Typography>
+      </motion.div>
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
         {texts.map((_, i) => (
           <Box

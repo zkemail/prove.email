@@ -333,14 +333,7 @@ const ProjectsPage = () => {
           )}
         </Box>
       </Box>
-      <motion.div
-            variants={fadeInAnimationVariants}
-            initial='initial'
-            whileInView='animate'
-            viewport={{once: true}}
-      >
-        <Flipper texts={texts} />
-      </motion.div>
+      <Flipper texts={texts} />
       <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'
