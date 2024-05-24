@@ -137,9 +137,7 @@ const ProjectsPage = () => {
         <div className='w-[50%]'>
         <Tabs
           orientation="vertical"
-          // variant="scrollable"
           variant='fullWidth'
-          
           value={selectedProjectIndex}
           onChange={handleTabChange}
           sx={{ borderRight: 1, borderColor: 'divider', width: '100%' }}
@@ -148,17 +146,30 @@ const ProjectsPage = () => {
             <Tab
               key={project.name}
               fullWidth={true}
-              
-              sx={{ alignItems: 'start', borderBottom: 1, borderBottomColor: 'black', }}
+              sx={{ 
+                alignItems: 'start', 
+                borderBottom: 1, 
+                borderBottomColor: 'black', 
+                backgroundColor: selectedProjectIndex === index ? 'black' : 'inherit', 
+                color: selectedProjectIndex === index ? 'white' : 'inherit',
+                minHeight: '90px',  // Increased height
+                '& .MuiTab-wrapper': {
+                  textTransform: 'none',  // Prevent text from being all uppercase
+                  color: selectedProjectIndex === index ? 'white' : 'inherit'
+                }
+              }}
               label={(
-                <Box sx={{ borderBottom: 'black'}}>
-                  <Typography variant='h5' sx={{ fontSize: '25px', fontWeight: 'bold', marginBottom: '2px', textAlign: 'left' }}>
+                <Box sx={{ borderBottom: 'black', paddingLeft:'10px',}}>
+                  <Typography variant='h5' sx={{ fontSize: {xs:'15px', sm:'20px', md:'25px'} ,fontWeight: 'bold', marginBottom: '2px', textAlign: 'left', textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
                     {project.name}
                   </Typography>
-                  <Typography sx={{}}>{project.tagline}</Typography>
+                  <Typography sx={{ fontSize: {xs:'10px', sm:'15px', md:'15px'}, textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
+                    {project.tagline}
+                  </Typography>
                 </Box>
               )}
             />
+
           ))}
         </Tabs>
         </div>
