@@ -1,4 +1,3 @@
-
 'use client'
 import CustomButton from '../CustomButton/CustomButton';
 import Image from 'next/image';
@@ -24,21 +23,35 @@ const backgrounds = [rectangle1, rectangle2, rectangle3];
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-
-
 // Define Fade-in animation variants
 const fadeInAnimationVariants = {
   initial: {
-    opacity:0,
-    y:100,
+    opacity: 0,
+    y: 100,
   },
   animate: {
-    opacity:1,
-    y:0
-  }
-}
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.35,  // duration of the animation
+    },
+  },
+};
 
-
+const delayedFadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,  // duration of the animation
+      delay: 0.5,  // delay before the animation starts
+    },
+  },
+};
 
 export default function Hero() {
   const [isEmailOpen, setIsEmailOpen] = useState(false);
@@ -55,9 +68,6 @@ export default function Hero() {
     setIsEmailOpen(!isEmailOpen);
   };
 
-
-  
-
   return (
     <main 
       className="px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center"
@@ -69,13 +79,14 @@ export default function Hero() {
     >
       <div className='z-50 relative'>
         <motion.div
-              variants={fadeInAnimationVariants}
-              initial='initial'
-              whileInView='animate'
-              viewport={{once: true}}
-          >
+          variants={fadeInAnimationVariants}
+          initial='initial'
+          whileInView='animate'
+          viewport={{ once: true }}
+        >
           <Typography variant='h1'
             sx={{
+              lineHeight: '90%',
               fontSize: {
                 xs: '3rem',  // font size for extra small screens
                 sm: '3.5rem',    // font size for small screens
@@ -100,69 +111,68 @@ export default function Hero() {
         </div>
       </div>
 
-
       <motion.div
-            variants={fadeInAnimationVariants}
-            initial='initial'
-            whileInView='animate'
-            viewport={{once: true}}
+        variants={delayedFadeInAnimationVariants}
+        initial='initial'
+        whileInView='animate'
+        viewport={{ once: true }}
       >
-      {/* ENVELOPE MAIL STUFF */}
-      <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
-        {/* MAIL LETTER PAPER */}
-        <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[7px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
-          <div className='font-semibold'>
-            <div className='grid grid-cols-2'>
-              <div>
-                <p>From: zkEmail.com</p>
-                <p>To: Developers</p>
+        {/* ENVELOPE MAIL STUFF */}
+        <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
+          {/* MAIL LETTER PAPER */}
+          <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[7px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
+            <div className='font-semibold'>
+              <div className='grid grid-cols-2'>
+                <div>
+                  <p>From: zkEmail.com</p>
+                  <p>To: Developers</p>
+                </div>
+                <LabelImportantIcon
+                  className='justify-self-end'
+                  sx={{
+                    color: '#FFBB6B',
+                    fontSize: {
+                      xs: '16px',  // default size for extra-small screens
+                      sm: '24px',  // size for small screens and above
+                      md: '32px',  // size for medium screens and above
+                    },
+                  }}
+                />
               </div>
-              <LabelImportantIcon
-                className='justify-self-end'
-                sx={{
-                  color: '#FFBB6B',
-                  fontSize: {
-                    xs: '16px',  // default size for extra-small screens
-                    sm: '24px',  // size for small screens and above
-                    md: '32px',  // size for medium screens and above
-                  },
-                }}
-              />
+              <p className='pt-8 pb-4'>Subject: prove any content for any email, sent or received </p>
             </div>
-            <p className='pt-8 pb-4'>Subject: prove any content for any email, sent or received </p>
+            <div>
+              <p>
+                we built a primitive that allows you to prove only what content you want from an email. hide what you don’t want known. + Prove who sent the email.
+                <br />
+                Excited to see what you build : )
+                <br />
+                <br></br>
+                <span className='font-semibold'>The Zk team</span>
+                <br />
+                Aayush, Sora, Saleel, Wataru, Aditya and Elo
+              </p>
+            </div>
           </div>
-          <div>
-            <p>
-              we built a primitive that allows you to prove only what content you want from an email. hide what you don’t want known. + Prove who sent the email.
-              <br />
-              Excited to see what you build : )
-              <br />
-              <br></br>
-              <span className='font-semibold'>The Zk team</span>
-              <br />
-              Aayush, Sora, Saleel, Wataru, Aditya and Elo
-            </p>
-          </div>
+          {/* TRIANGLE PART OF ENVELOPE */}
+          <Box className={`translate-y-[30px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
+            <Image
+              src={triangleEnvelope}
+              alt='Triangle Envelope'
+              className='w-full h-full'
+              style={{ zIndex: 0 }}
+            />
+          </Box>
+          {/* RECTANGULAR ENVELOPE */}
+          <Box className={`translate-y-[30px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+            <Image
+              src={rectangleEnvelope}
+              alt='Rectangle Envelope'
+              className='w-full h-full'
+              style={{ zIndex: 1 }}
+            />
+          </Box>
         </div>
-        {/* TRIANGLE PART OF ENVELOPE */}
-        <Box className={`translate-y-[30px] absolute transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 0, top: '-40%', width: '100%', height: 'auto' }}>
-          <Image
-            src={triangleEnvelope}
-            alt='Triangle Envelope'
-            className='w-full h-full'
-            style={{ zIndex: 0 }}
-          />
-        </Box>
-        {/* RECTANGULAR ENVELOPE */}
-        <Box className={`translate-y-[30px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
-          <Image
-            src={rectangleEnvelope}
-            alt='Rectangle Envelope'
-            className='w-full h-full'
-            style={{ zIndex: 1 }}
-          />
-        </Box>
-      </div>
       </motion.div>
     </main>
   );
