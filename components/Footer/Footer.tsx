@@ -13,8 +13,26 @@ import backgroundFooter2 from '../../public/backgroundFooter2.svg';
 import zkEmailFooter from '../../public/zkEmailFooter.svg'; 
 import Link from 'next/link';
 import DiscordIcon from '../DiscordIcon/DiscordIcon'; // Import the DiscordIcon component
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Footer = () => {
+
+  const fadeInAnimationVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5, // Adjust the duration to slow down the animation
+        ease: 'easeInOut' // Optional, you can change the easing function as needed
+      }
+    }
+  };
+  
   const backgrounds = [backgroundFooter, backgroundFooter2];
   const [currentBackground, setCurrentBackground] = useState(0);
 
@@ -148,11 +166,18 @@ const Footer = () => {
 
           {/* BOTTOM FOOTER ZK EMAIL BIG TEXT*/}
           <Box sx={{ marginTop: 'auto' }}>
-            <Image
-              src={zkEmailFooter}
-              alt='checkbox'
-              className='w-full h-full fill-white pt-24'
-            />
+            <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+            >
+              <Image
+                src={zkEmailFooter}
+                alt='checkbox'
+                className='w-full h-full fill-white pt-24'
+              />
+            </motion.div>
           </Box>
         </Box>
       </Box>

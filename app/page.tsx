@@ -17,9 +17,22 @@ import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
 import AboutModal from '.././components/AboutModal/AboutModal'
 import ourGoalsBackground from '.././public/ourGoalsBackground.svg'
 
-import { motion, useAnimation } from 'framer-motion';
+import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+
+
+
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: {
+    opacity:1,
+    y:0
+  }
+}
 
 const faqs = [
   {
@@ -97,7 +110,14 @@ export default function Home() {
       {/*ABOUT SECTION*/}
       <div className='px-[10%] pt-[10%] z-30 bg-white' style={{ backgroundImage: 'url(/path/to/ourGoalsBackground.svg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
       <div>
-        <Typography variant='h3'>Our Goals</Typography>
+        <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+        >
+          <Typography variant='h3'>Our Goals</Typography>
+        </motion.div>
         <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
           With ZK Email, you can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
         </Typography>
@@ -142,9 +162,16 @@ export default function Home() {
           }
         }}>
           <Box sx={{ textAlign: 'center', paddingX: '5%' }}>
-            <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
-              How do we do this?
-            </Typography>
+            <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}>
+                <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
+                  How do we do this?
+                </Typography>
+              </motion.div>
+
             <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
               We leverage what emails already do... <br></br>but using regex & zero knowledge
             </Typography>
@@ -171,15 +198,19 @@ export default function Home() {
         <div className='min-h-[200px]'>
           <div className='relative '>
             <motion.div
-              initial={{opacity:1}} 
-              whileInView={{opacity:0}}
-              viewport={{amount:'all', once:true}}
-              className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black'
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+              // initial={{opacity:1}} 
+              // whileInView={{opacity:0}}
+              // viewport={{amount:'all', once:true}}
+              // className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black'
             >
+              <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
+                Frequently Asked Questions
+              </Typography>            
             </motion.div>
-            <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
-              Frequently Asked Questions
-            </Typography>
           </div>
 
           <Grid container>
@@ -203,9 +234,16 @@ export default function Home() {
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
-          <Typography variant='h1' sx={{ textAlign:'center', paddingBottom: {xs:4, sm:10}, }}>
-            Projects Using ZK Email
-          </Typography>
+          <motion.div
+                variants={fadeInAnimationVariants}
+                initial='initial'
+                whileInView='animate'
+                viewport={{once: true}}
+          >
+            <Typography variant='h1' sx={{ textAlign:'center', paddingBottom: {xs:4, sm:10}, }}>
+              Projects Using ZK Email
+            </Typography>
+          </motion.div>
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
           <Grid item xs={12} sm={4}>
             <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
@@ -279,65 +317,87 @@ export default function Home() {
         backgroundImage: `url(${buildYourOwnBackground.src})`,
         paddingX:'10%', 
         paddingY:'8%'}}>
-        <Typography variant='h5'>For Developers</Typography>
-        <Typography variant='h1'>Build Your Own</Typography>
-        <Typography sx={{paddingRight:'10%', width:{xs:'85%',md:'70%'}, paddingTop:'20px', paddingBottom: '10px', fontSize:{xs:'12px',sm:'15px', md:'20px'}}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
-        <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
+
+        <motion.div
+          variants={fadeInAnimationVariants}
+          initial='initial'
+          whileInView='animate'
+          viewport={{once: true}}
+        >
+          <Typography variant='h5'>For Developers</Typography>
+          <Typography variant='h1'>Build Your Own</Typography>
+          <Typography sx={{paddingRight:'10%', width:{xs:'85%',md:'70%'}, paddingTop:'20px', paddingBottom: '10px', fontSize:{xs:'12px',sm:'15px', md:'20px'}}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
+          <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
+        </motion.div>
       </Box>
 
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px] relative z-10">
-        <div className="text-center py-10 px-[10%]">
-          <Typography variant='h1' sx={{ textAlign:'center', paddingY: {xs:4, sm:8}, }}>
-            Our Libraries
-          </Typography>
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-              <PopOut
-                topText="ZK Email Specific Libraries"
-                mainText="ZKEmail Libraries"
-                descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                toggleName="Show Libraries"
-                cards={[
-                  { label: 'Zk Email', url: 'https://example.com/zkemail' },
-                  { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
-                  { label: 'DKIM Archive', url: 'https://example.com/dkim' },
-                  { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
-                  { label: 'Regex Registry', url: 'https://example.com/regex' },
-                  { label: 'Ether Email Auth', url: 'https://example.com/ether' },
-                ]}
-              />
-            </div>
-            <div>
-              <PopOut
-                topText="General ZK Libraries"
-                mainText="ZK Libraries"
-                descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                toggleName="Show Libraries"
-                cards={[
-                  { label: "ZK Regex Library", url: "https://example.com/1" },
-                  { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
-                  { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
-                  { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
-                  { label: "zk rsa", url: "https://example.com/3" },
-                  { label: "zk variable length sha256", url: "https://example.com/3" },
-                ]}
-              />
+          <div className="text-center py-10 px-[10%]">
+            <motion.div
+                  variants={fadeInAnimationVariants}
+                  initial='initial'
+                  whileInView='animate'
+                  viewport={{once: true}}
+            >
+              <Typography variant='h1' sx={{ textAlign:'center', paddingY: {xs:4, sm:8}, }}>
+                Our Libraries
+              </Typography>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <PopOut
+                  topText="ZK Email Specific Libraries"
+                  mainText="ZKEmail Libraries"
+                  descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                  toggleName="Show Libraries"
+                  cards={[
+                    { label: 'Zk Email', url: 'https://example.com/zkemail' },
+                    { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
+                    { label: 'DKIM Archive', url: 'https://example.com/dkim' },
+                    { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
+                    { label: 'Regex Registry', url: 'https://example.com/regex' },
+                    { label: 'Ether Email Auth', url: 'https://example.com/ether' },
+                  ]}
+                />
+              </div>
+              <div>
+                <PopOut
+                  topText="General ZK Libraries"
+                  mainText="ZK Libraries"
+                  descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                  toggleName="Show Libraries"
+                  cards={[
+                    { label: "ZK Regex Library", url: "https://example.com/1" },
+                    { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
+                    { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
+                    { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
+                    { label: "zk rsa", url: "https://example.com/3" },
+                    { label: "zk variable length sha256", url: "https://example.com/3" },
+                  ]}
+                />
+              </div>
             </div>
           </div>
-        </div>
       </div>
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-24">
-        <div className="text-center py-10 px-[10%]">
-          <Typography variant='h1' className="text-5xl">Upcoming & <br/>Past Talks</Typography>
-          <Typography sx={{fontSize:{xs:'12px', sm:'15px', md:'20px'}}} className="py-4">Meet the team <span className="font-bold">Aayush, Sora, Saleel, Wataru, Aditya and Elo </span> <br/>
-            at one of our upcoming talks or message us if you have any questions!</Typography>
-        </div>
-        <div className="h-[430px] w-full mb-10">
-          <VideoCarousel />
-        </div>
+          <div className="text-center py-10 px-[10%]">
+            <motion.div
+                  variants={fadeInAnimationVariants}
+                  initial='initial'
+                  whileInView='animate'
+                  viewport={{once: true}
+            }>
+              <Typography variant='h1' className="text-5xl">Upcoming & <br/>Past Talks</Typography>
+              <Typography sx={{fontSize:{xs:'12px', sm:'15px', md:'20px'}}} className="py-4">Meet the team <span className="font-bold">Aayush, Sora, Saleel, Wataru, Aditya and Elo </span> <br/>
+                at one of our upcoming talks or message us if you have any questions!</Typography>
+            </motion.div>
+          </div>
+          <div className="h-[430px] w-full mb-10">
+            <VideoCarousel />
+          </div>
       </div>
     </main>
   );
