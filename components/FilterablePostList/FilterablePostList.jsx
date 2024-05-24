@@ -13,6 +13,25 @@ import sectionBackgroundBlog3 from '../../public/sectionBackgroundBlog3.svg'
 
 const backgrounds = [sectionBackgroundBlog1, sectionBackgroundBlog2, sectionBackgroundBlog3];
 
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+// Define Fade-in animation variants
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: {
+    opacity:1,
+    y:0
+  }
+}
+
+
+
+
 const FilterablePostList = ({ initialPosts }) => {
   const [posts, setPosts] = useState(initialPosts);
   const [searchInput, setSearchInput] = useState('');
@@ -55,14 +74,21 @@ const FilterablePostList = ({ initialPosts }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <div className="h-[450px] w-full bg-gradient-to-t to-[#F2F2F2] from-[#F5F5F5] flex flex-col justify-end"
+      <div className="h-[450px] w-full bg-[#F5F5F5] flex flex-col justify-end"
         style={{
           backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center, center', backgroundSize: 'cover, contain', backgroundRepeat: 'no-repeat, no-repeat'
           }}
       >
         
         <div className="pb-[100px] text-left px-[8%]">
-          <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'20px', marginTop:'80px' }}>Blog</Typography>
+          <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+          >
+            <Typography variant='h1' sx={{fontSize: { xs:'70px', sm:'90px',md:'120px'} ,textAlign:'left', paddingTop:'20px', marginTop:'80px' }}>Blog</Typography>
+          </motion.div>
           {/* <p className="text-black w-1/2">
             While building the Zk Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. This repository contains both our own projects and community projects using our libraries.
           </p> */}

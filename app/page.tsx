@@ -16,6 +16,7 @@ import buildYourOwnBackground from '.././public/buildYourOwnBackground.svg'
 import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
 import AboutModal from '.././components/AboutModal/AboutModal'
 import ourGoalsBackground from '.././public/ourGoalsBackground.svg'
+import '.././types'
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

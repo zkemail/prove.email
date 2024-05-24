@@ -17,6 +17,24 @@ import pixelSectionBackground1 from '@/public/pixelSectionBackground1.svg';
 import pixelSectionBackground2 from '@/public/pixelSectionBackground2.svg';
 
 const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+
+// Define Fade-in animation variants
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: {
+    opacity:1,
+    y:0
+  }
+}
+
+
 
 const projects = [
   { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://zkp2p.xyz/logo512.png' },
@@ -83,7 +101,14 @@ const ProjectsPage = () => {
             backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center, center', backgroundSize: 'cover, contain', backgroundRepeat: 'no-repeat, no-repeat'
            }}>
           <Typography sx={{color:'white'}}>ZKEmail supports</Typography>
-          <Typography variant='h1' sx={{paddingBottom:'20px', color:'white'}} >Projects using our ZK Libraries</Typography>
+          <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+          >
+            <Typography variant='h1' sx={{paddingBottom:'20px', color:'white'}} >Projects using our ZK Libraries</Typography>
+          </motion.div>
           <p className="text-white w-[50%] md:w-[35%] mx-auto">
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. 
             This repository contains both our own projects and community projects using our libraries. What will you build?
@@ -194,6 +219,8 @@ const ProjectsPage = () => {
               <Typography sx={{paddingY:'20px', width:{xs:'100%', sm:'90%', md:'83%'}, fontSize:{xs:'11px', sm:'13px', md:'15px'}}}>
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>
+
+              
               <Box 
                 sx={{ 
                   display: 'flex', 
@@ -297,9 +324,30 @@ const ProjectsPage = () => {
           )}
         </Box>
       </Box>
-      <Flipper texts={texts} />
-      <ActionCard topText='For Developers' light={true} title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
-      <ActionCard topText='For Developers' title='Build Proof of Twitter Tutorial' text='Check out our How to Set Up Proof of Twitter Example' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
+      <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+      >
+        <Flipper texts={texts} />
+      </motion.div>
+      <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+      >
+        <ActionCard topText='For Developers' light={true} title='Build Your Own' text='No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All open source MIT libraries.' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
+      </motion.div>
+      <motion.div
+          variants={fadeInAnimationVariants}
+          initial='initial'
+          whileInView='animate'
+          viewport={{once: true}}
+      >
+        <ActionCard topText='For Developers' title='Build Proof of Twitter Tutorial' text='Check out our How to Set Up Proof of Twitter Example' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
+      </motion.div>
     </section>
   );
 };

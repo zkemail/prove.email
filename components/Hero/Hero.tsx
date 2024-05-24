@@ -12,6 +12,24 @@ import rectangle2 from '../.././public/rectangle2.svg'
 import rectangle3 from '../.././public/rectangle3.svg'
 
 const backgrounds = [rectangle1, rectangle2, rectangle3];
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+
+
+// Define Fade-in animation variants
+const fadeInAnimationVariants = {
+  initial: {
+    opacity:0,
+    y:100,
+  },
+  animate: {
+    opacity:1,
+    y:0
+  }
+}
+
+
 
 export default function Hero() {
   const [isEmailOpen, setIsEmailOpen] = useState(false);
@@ -41,18 +59,25 @@ export default function Hero() {
       }}
     >
       <div className='z-50 relative'>
-        <Typography variant='h1'
-          sx={{
-            fontSize: {
-              xs: '3rem',  // font size for extra small screens
-              sm: '3.5rem',    // font size for small screens
-              md: '3.5rem',  // font size for medium screens
-              lg: '9rem',    // font size for large screens
-              xl: '9rem',  // font size for extra large screens
-            },
-          }}
-        >
-          ZKEmail</Typography>
+        <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+          >
+          <Typography variant='h1'
+            sx={{
+              fontSize: {
+                xs: '3rem',  // font size for extra small screens
+                sm: '3.5rem',    // font size for small screens
+                md: '3.5rem',  // font size for medium screens
+                lg: '9rem',    // font size for large screens
+                xl: '9rem',  // font size for extra large screens
+              },
+            }}
+          >
+            ZKEmail</Typography>
+        </motion.div>
         <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
@@ -66,6 +91,13 @@ export default function Hero() {
         </div>
       </div>
 
+
+      <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+      >
       {/* ENVELOPE MAIL STUFF */}
       <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
         {/* MAIL LETTER PAPER */}
@@ -121,6 +153,7 @@ export default function Hero() {
           />
         </Box>
       </div>
+      </motion.div>
     </main>
   );
 }
