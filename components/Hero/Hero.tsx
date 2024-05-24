@@ -18,8 +18,8 @@ import heroBackground1 from '../.././public/heroBackground1.svg'
 import heroBackground2 from '../.././public/heroBackground2.svg'
 import heroBackground3 from '../.././public/heroBackground3.svg'
 
-// const backgrounds = [rectangle1, rectangle2, rectangle3];
-const backgrounds = [heroBackground1, heroBackground2, heroBackground3];
+const backgrounds = [rectangle1, rectangle2, rectangle3];
+// const backgrounds = [heroBackground1, heroBackground2, heroBackground3];
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
