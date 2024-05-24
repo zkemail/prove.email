@@ -177,17 +177,22 @@ const ProjectsPage = () => {
           {filteredProjects[selectedProjectIndex] && (
             <>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                <img src={filteredProjects[selectedProjectIndex].logo} alt={`${filteredProjects[selectedProjectIndex].name} logo`} style={{ width: '50px', height: '50px', marginRight: '20px' }} />
+                {/* <img src={filteredProjects[selectedProjectIndex].logo} alt={`${filteredProjects[selectedProjectIndex].name} logo`} style={{ width: '50px', height: '50px', marginRight: '20px' }} /> */}
+                <img
+                  src={filteredProjects[selectedProjectIndex].logo}
+                  alt={`${filteredProjects[selectedProjectIndex].name} logo`}
+                  className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] mr-[20px]"
+                />
                 <div>
-                  <Typography variant='h2' sx={{ fontWeight: 'bold' }}>
+                  <Typography variant='h2' sx={{ fontWeight: 'bold',  fontSize:{xs:'12px', sm:'15px', md:'25px'} }}>
                     {filteredProjects[selectedProjectIndex].name}
                   </Typography>
-                  <Typography className="text-[#7A7A7A]">
+                  <Typography sx={{color:'#7A7A7A', fontSize:{xs:'11px', sm:'13px', md:'15px'}}}>
                     {filteredProjects[selectedProjectIndex].tagline}
                   </Typography>
                 </div>
               </div>
-              <Typography className="py-4 w-[83%]">
+              <Typography sx={{paddingY:'20px', width:{xs:'100%', sm:'90%', md:'83%'}, fontSize:{xs:'11px', sm:'13px', md:'15px'}}}>
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>
               <Box 
