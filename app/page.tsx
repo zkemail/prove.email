@@ -24,6 +24,13 @@ import { useEffect } from 'react';
 
 
 
+ interface SlideInDivProps {
+  direction: 'left' | 'right';
+  children: React.ReactNode;
+}
+
+
+
 // Define Fade-in animation variants
 const fadeInAnimationVariants = {
   initial: {
@@ -58,8 +65,9 @@ const slideInAnimationVariants = {
 };
 
 
+
 // Functional component to handle the slide-in animation
-const SlideInDiv = ({ direction, children }) => {
+const SlideInDiv: React.FC<SlideInDivProps> = ({ direction, children }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -70,6 +78,8 @@ const SlideInDiv = ({ direction, children }) => {
       controls.start('animate');
     }
   }, [controls, inView]);
+
+
 
   return (
     <motion.div
