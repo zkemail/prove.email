@@ -46,9 +46,8 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
   const StyledCard = styled(Box)({
     position: 'relative',
     display: 'inline-block',
-    maxWidth: 670,
+    maxWidth: '500px',
     cursor: 'pointer',
-    marginTop: '30px',
     '&:hover .icon': {
       color: theme.palette.secondary.main,
       transform: 'translate(3px, -3px)',

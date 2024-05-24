@@ -17,6 +17,7 @@ import CustomCardAbout from '.././components/CustomCardAbout/CustomCardAbout';
 import AboutModal from '.././components/AboutModal/AboutModal'
 import ourGoalsBackground from '.././public/ourGoalsBackground.svg'
 import '.././types'
+import waveBackground from '.././public/waveBackground.svg'
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -167,7 +168,15 @@ export default function Home() {
 
 
       {/*ABOUT SECTION*/}
-      <div className='px-[10%] pt-[10%] z-30 bg-white' style={{ backgroundImage: 'url(/path/to/ourGoalsBackground.svg)', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+
+      <Box width='100%' sx={{
+        backgroundColor: 'white', 
+        backgroundImage: `url(${waveBackground.src})`,
+        background: 'cover',
+        paddingX:'10%', 
+        paddingTop:'10%',
+        zIndex:'30'
+      }}>
       <div>
         <motion.div
             variants={fadeInAnimationVariants}
@@ -175,17 +184,17 @@ export default function Home() {
             whileInView='animate'
             viewport={{once: true}}
         >
-          <Typography variant='h3'>Our Goals</Typography>
+          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With ZK Email</Typography>
         </motion.div>
         <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
-          With ZK Email, you can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
+          You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
         </Typography>
       </div>
-      <Grid container sx={{ paddingY: '50px' }} direction='row' justifyContent='space-between'>
-        <Grid item xs={4}>
-          <Typography>Redact Information <br /> Fast Proofs <br /> Open Source</Typography>
+      <Grid container sx={{ paddingY: '50px', paddingBottom:'70px'}} direction='row' justifyContent='space-between'>
+        <Grid item xs={4} sx={{display: { xs:'none', md: 'block' }}}>
+          <Typography sx={{fontSize: { sm: '15px', md: '16px', lg: '20px' } }}> {'<>'} Redact Information <br /> {'<>'} Fast Proofs <br /> {'<>'} Open Source</Typography>
         </Grid>
-        <Grid item xs={8} justifySelf="right">
+        <Grid item xs={12} md={8} justifySelf="right">
           <Box display='flex' justifyContent='end'>
             <SlideInDiv direction="right">
               <AboutModal emails={emails} />
@@ -193,13 +202,13 @@ export default function Home() {
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </Box>
 
 
 
 
       {/* HOW WE DO THIS */}
-      <div className='py-[100px] z-50 bg-white w-full'>
+      <div className='pb-[100px] z-50 bg-white w-full'>
         <Box sx={{
           height: { xs: '830px', sm: '650px' },
           background: 'black',
