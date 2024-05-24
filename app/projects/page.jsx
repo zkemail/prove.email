@@ -133,7 +133,7 @@ const ProjectsPage = () => {
       </div>
 
       {/* SELECTED PROJECT SECTION */}
-      <Box sx={{ display: 'flex', pt: 12, textAlign:'left'}}>
+      <Box sx={{ display: 'flex', pt: '40px', textAlign:'left'}}>
         <div className='w-[50%]'>
         <Tabs
           orientation="vertical"
@@ -187,7 +187,7 @@ const ProjectsPage = () => {
                   </Typography>
                 </div>
               </div>
-              <Typography className="py-4">
+              <Typography className="py-4 w-[83%]">
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>
               <Box 
@@ -197,12 +197,6 @@ const ProjectsPage = () => {
                   gap: 1,
                   justifyContent: 'flex-start',
                   maxWidth: '500px',
-                  '& > *': {
-                    flex: '1 1 calc(50% - 8px)', // Adjust based on the gap
-                    [theme.breakpoints.up('sm')]: {
-                      flex: '1 1 calc(20% - 8px)', // 5 columns
-                    },
-                  }
                 }}
               >
                 {filteredProjects[selectedProjectIndex].zk_email_lib && (
@@ -276,6 +270,7 @@ const ProjectsPage = () => {
                   </CustomButton>
                 )}
               </Box>
+
               <Stack spacing={2} direction="row" className="mt-6" sx={{ alignItems: 'center' }}>
                 <Link href="https://twitter.prove.email/">
                   <CustomButton
