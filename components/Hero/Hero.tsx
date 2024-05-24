@@ -2,8 +2,9 @@
 import CustomButton from '../CustomButton/CustomButton';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
-import rectangleEnvelope from '../../public/rectangleEnvelope.svg'; 
-import triangleEnvelope from '../../public/triangleEnvelope.svg';
+import rectangleEnvelope from '../../public/rectangleEnvelope.svg';   //LAST rectangle
+
+import triangleEnvelope from '../../public/triangleEnvelope.svg';   
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import { useState, useEffect } from 'react';
 
