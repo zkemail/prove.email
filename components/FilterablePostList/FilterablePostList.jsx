@@ -149,13 +149,13 @@ const FilterablePostList = ({ initialPosts }) => {
             {filteredPosts.map((post) => (
               <Link href={`/posts/${post.slug}`} key={post.title}>
                 <div className="grid grid-cols-4 mb-4 group">
-                  <div className="w-full h-[150px] bg-white border-2 grid grid-cols-2 p-6 col-span-3">
+                  <div className="w-full h-[150px] bg-white border-2 grid grid-cols-2 p-6 col-span-4 sm:col-span-3">
                     <p className="text-xs py-2">{new Date(post.date).toISOString().split('T')[0]}</p>
                     <p className="text-right text-xs py-2">{post.category}</p>
-                    <h1 className="col-span-2 font-bold group-hover:underline">{post.title}</h1>
-                    <p className="text-xs col-span-2">{post.description}</p>
+                    <h1 className="text-[12px] sm:text-md col-span-2 font-bold group-hover:underline">{post.title}</h1>
+                    <p className="text-[10px] sm:text-xs col-span-2">{post.description}</p>
                   </div>
-                  <div className="h-[150px] w-full bg-black" alt="Blog card"/>
+                  <div className="h-[150px] w-full bg-black hidden sm:block" alt="Blog card"/>
                   {/* <img className="h-[150px] w-full" alt="Blog card" src={post.image} /> */}
                 </div>
               </Link>
