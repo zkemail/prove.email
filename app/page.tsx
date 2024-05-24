@@ -23,6 +23,7 @@ import { useEffect } from 'react';
 
 
 
+// Define Fade-in animation variants
 const fadeInAnimationVariants = {
   initial: {
     opacity:0,
@@ -33,6 +34,53 @@ const fadeInAnimationVariants = {
     y:0
   }
 }
+
+
+// Define slide-in animation variants
+const slideInAnimationVariants = {
+  initialLeft: {
+    opacity: 0,
+    x: -100,
+  },
+  initialRight: {
+    opacity: 0,
+    x: 100,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1, // Adjust duration as needed
+      ease: 'easeInOut'
+    }
+  }
+};
+
+
+// Functional component to handle the slide-in animation
+const SlideInDiv = ({ direction, children }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('animate');
+    }
+  }, [controls, inView]);
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={slideInAnimationVariants}
+      initial={direction === 'left' ? 'initialLeft' : 'initialRight'}
+      animate={controls}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const faqs = [
   {
@@ -128,7 +176,9 @@ export default function Home() {
         </Grid>
         <Grid item xs={8} justifySelf="right">
           <Box display='flex' justifyContent='end'>
-            <AboutModal emails={emails} />
+            <SlideInDiv direction="right">
+              <AboutModal emails={emails} />
+            </SlideInDiv>
           </Box>
         </Grid>
       </Grid>
@@ -214,19 +264,21 @@ export default function Home() {
           </div>
 
           <Grid container>
-            <Grid item xs={12} sm={4} className=''>
-              <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px' }}}>
-                  Have a Question that isn’t answered?<br></br> We would like to chat with you!
-              </Typography>
-              <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-                <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
-              </Stack>
-            </Grid>
-            <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] pr-[10%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
-              {faqs.map((faq, index) => (
-                <Accordion key={index} title={faq.title} contents={faq.contents} />
-              ))}
-            </Grid>
+              <Grid item xs={12} sm={4} className=''>
+                <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px' }}}>
+                    Have a Question that isn’t answered?<br></br> We would like to chat with you!
+                </Typography>
+                <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
+                  <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
+                </Stack>
+              </Grid>
+              <SlideInDiv direction="right">
+              <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] pr-[10%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
+                {faqs.map((faq, index) => (
+                  <Accordion key={index} title={faq.title} contents={faq.contents} />
+                ))}
+              </Grid>
+            </SlideInDiv>
           </Grid>
         </div>
       </div>
@@ -259,32 +311,34 @@ export default function Home() {
         <Box sx={{ display: 'flex', justifyContent: 'space-between', paddingY: '30px' }}>
           {/* <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography> */}
           <div></div>
-          <Box 
-            sx={{ 
-              display: 'flex', 
-              alignItems: 'center',
-              textDecoration: 'none',
-              '&:hover .arrowIcon': {
-                color: theme.palette.secondary.main,
-                transform: 'translateX(5px)'
-              },
-              '&:hover': {
-                textDecoration:'underline',
-                textDecorationColor:theme.palette.secondary.main,
-              }
-            }}
-            component='a' 
-            href='/'
-          >
-            <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
-            <ArrowForwardIcon
-              className='arrowIcon'
-              sx={{
-                transition: 'color 0.3s, transform 0.3s',
-                ml: 1 // add some margin to the left for spacing
+          <SlideInDiv direction="right">
+            <Box 
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center',
+                textDecoration: 'none',
+                '&:hover .arrowIcon': {
+                  color: theme.palette.secondary.main,
+                  transform: 'translateX(5px)'
+                },
+                '&:hover': {
+                  textDecoration:'underline',
+                  textDecorationColor:theme.palette.secondary.main,
+                }
               }}
-            />
-          </Box>
+              component='a' 
+              href='/'
+            >
+              <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
+              <ArrowForwardIcon
+                className='arrowIcon'
+                sx={{
+                  transition: 'color 0.3s, transform 0.3s',
+                  ml: 1 // add some margin to the left for spacing
+                }}
+              />
+            </Box>
+          </SlideInDiv>
         </Box>
       </div>
 
@@ -346,36 +400,40 @@ export default function Home() {
             </motion.div>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <PopOut
-                  topText="ZK Email Specific Libraries"
-                  mainText="ZKEmail Libraries"
-                  descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                  toggleName="Show Libraries"
-                  cards={[
-                    { label: 'Zk Email', url: 'https://example.com/zkemail' },
-                    { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
-                    { label: 'DKIM Archive', url: 'https://example.com/dkim' },
-                    { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
-                    { label: 'Regex Registry', url: 'https://example.com/regex' },
-                    { label: 'Ether Email Auth', url: 'https://example.com/ether' },
-                  ]}
-                />
+                <SlideInDiv direction="left">
+                  <PopOut
+                    topText="ZK Email Specific Libraries"
+                    mainText="ZKEmail Libraries"
+                    descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                    toggleName="Show Libraries"
+                    cards={[
+                      { label: 'Zk Email', url: 'https://example.com/zkemail' },
+                      { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
+                      { label: 'DKIM Archive', url: 'https://example.com/dkim' },
+                      { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
+                      { label: 'Regex Registry', url: 'https://example.com/regex' },
+                      { label: 'Ether Email Auth', url: 'https://example.com/ether' },
+                    ]}
+                  />
+                </SlideInDiv>
               </div>
               <div>
-                <PopOut
-                  topText="General ZK Libraries"
-                  mainText="ZK Libraries"
-                  descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                  toggleName="Show Libraries"
-                  cards={[
-                    { label: "ZK Regex Library", url: "https://example.com/1" },
-                    { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
-                    { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
-                    { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
-                    { label: "zk rsa", url: "https://example.com/3" },
-                    { label: "zk variable length sha256", url: "https://example.com/3" },
-                  ]}
-                />
+                <SlideInDiv direction="right">
+                  <PopOut
+                    topText="General ZK Libraries"
+                    mainText="ZK Libraries"
+                    descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                    toggleName="Show Libraries"
+                    cards={[
+                      { label: "ZK Regex Library", url: "https://example.com/1" },
+                      { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
+                      { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
+                      { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
+                      { label: "zk rsa", url: "https://example.com/3" },
+                      { label: "zk variable length sha256", url: "https://example.com/3" },
+                    ]}
+                  />
+                  </SlideInDiv>
               </div>
             </div>
           </div>
@@ -396,7 +454,9 @@ export default function Home() {
             </motion.div>
           </div>
           <div className="h-[430px] w-full mb-10">
-            <VideoCarousel />
+            <SlideInDiv direction="right">
+              <VideoCarousel />
+            </SlideInDiv>
           </div>
       </div>
     </main>
