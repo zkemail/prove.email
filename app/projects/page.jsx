@@ -177,7 +177,6 @@ const ProjectsPage = () => {
           {filteredProjects[selectedProjectIndex] && (
             <>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                {/* <img src={filteredProjects[selectedProjectIndex].logo} alt={`${filteredProjects[selectedProjectIndex].name} logo`} style={{ width: '50px', height: '50px', marginRight: '20px' }} /> */}
                 <img
                   src={filteredProjects[selectedProjectIndex].logo}
                   alt={`${filteredProjects[selectedProjectIndex].name} logo`}
@@ -276,21 +275,23 @@ const ProjectsPage = () => {
                 )}
               </Box>
 
-              <Stack spacing={2} direction="row" className="mt-6" sx={{ alignItems: 'center' }}>
+              <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }} className="mt-6" sx={{ alignItems: { xs: 'flex-start', sm: 'center' } }}>
                 <Link href="https://twitter.prove.email/">
                   <CustomButton
-                    sx={{ paddingX: { xs: '15px', sm: '20px', md: '30px' }, paddingY: { xs: '8px', sm: '10px', md: '15px' }, bgcolor: 'black' }}
+                    sx={{ paddingX: { xs: '10px', sm: '15px', md: '30px' }, paddingY: { xs: '2px', sm: '8px', md: '15px' }, bgcolor: 'black' }}
                     variant="contained"
                     filledIn='true'
                     color="primary"
                     buttonLabel='Try it out'
-                    endIcon={<ArrowForwardIcon />}
+                    endIcon={<ArrowForwardIcon sx={{ fontSize: { xs: '16px', sm: '20px', md: '24px' } }} />}
                   >
                     Try it out
                   </CustomButton>
                 </Link>
-                <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={GitHubIcon} size='large' />
-                <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={XIcon} size='large' />
+                <Stack direction="row" spacing={2}>
+                  <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={GitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href="https://github.com/zkemail" dark='true' IconComponent={XIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                </Stack>
               </Stack>
             </>
           )}
