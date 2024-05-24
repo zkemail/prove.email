@@ -85,7 +85,7 @@ export default function Hero() {
               },
             }}
           >
-            ZKEmail</Typography>
+            ZK Email</Typography>
         </motion.div>
         <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
         <div className='content-center items-center flex justify-center'>
@@ -110,7 +110,7 @@ export default function Hero() {
       {/* ENVELOPE MAIL STUFF */}
       <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
         {/* MAIL LETTER PAPER */}
-        <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-5 sm:p-16 sm:p-20 text-left text-[8px] sm:text-[12px] md:text-[18px]" style={{ zIndex: 1 }}>
+        <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[7px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
           <div className='font-semibold'>
             <div className='grid grid-cols-2'>
               <div>
@@ -137,6 +137,7 @@ export default function Hero() {
               <br />
               Excited to see what you build : )
               <br />
+              <br></br>
               <span className='font-semibold'>The Zk team</span>
               <br />
               Aayush, Sora, Saleel, Wataru, Aditya and Elo
