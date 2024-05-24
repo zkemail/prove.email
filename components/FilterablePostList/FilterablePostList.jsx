@@ -7,11 +7,16 @@ import { useTheme } from '@mui/material/styles';
 import { InputBase, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-import sectionBackgroundBlog1 from '../../public/sectionBackgroundBlog1.svg'
-import sectionBackgroundBlog2 from '../../public/sectionBackgroundBlog2.svg'
-import sectionBackgroundBlog3 from '../../public/sectionBackgroundBlog3.svg'
+// import sectionBackgroundBlog1 from '../../public/sectionBackgroundBlog1.svg'
+// import sectionBackgroundBlog2 from '../../public/sectionBackgroundBlog2.svg'
+// import sectionBackgroundBlog3 from '../../public/sectionBackgroundBlog3.svg'
 
-const backgrounds = [sectionBackgroundBlog1, sectionBackgroundBlog2, sectionBackgroundBlog3];
+import blogBackground1 from '../../public/blogBackground1.svg'
+import blogBackground2 from '../../public/blogBackground2.svg'
+import blogBackground3 from '../../public/blogBackground3.svg'
+
+// const backgrounds = [sectionBackgroundBlog1, sectionBackgroundBlog2, sectionBackgroundBlog3];
+const backgrounds = [blogBackground1, blogBackground2, blogBackground3];
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
