@@ -7,11 +7,20 @@ import rectangleEnvelope from '../../public/rectangleEnvelope.svg';
 import triangleEnvelope from '../../public/triangleEnvelope.svg';
 import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import { useState, useEffect } from 'react';
+
+// grey scale
 import rectangle1 from '../.././public/rectangle1.svg'
 import rectangle2 from '../.././public/rectangle2.svg'
 import rectangle3 from '../.././public/rectangle3.svg'
 
-const backgrounds = [rectangle1, rectangle2, rectangle3];
+// colored
+import heroBackground1 from '../.././public/heroBackground1.svg'
+import heroBackground2 from '../.././public/heroBackground2.svg'
+import heroBackground3 from '../.././public/heroBackground3.svg'
+
+// const backgrounds = [rectangle1, rectangle2, rectangle3];
+const backgrounds = [heroBackground1, heroBackground2, heroBackground3];
+
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 

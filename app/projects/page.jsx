@@ -13,10 +13,19 @@ import IconLink from '@/components/IconLink/IconLink';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
 import sectionBackground from '@/public/sectionBackground.svg';
+
 import pixelSectionBackground1 from '@/public/pixelSectionBackground1.svg';
 import pixelSectionBackground2 from '@/public/pixelSectionBackground2.svg';
 
-const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
+import projectBackground1 from '@/public/projectBackground1.svg'
+import projectBackground2 from '@/public/projectBackground2.svg'
+import projectBackground3 from '@/public/projectBackground3.svg'
+
+
+// const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
+const backgrounds = [projectBackground1, projectBackground2, projectBackground3];
+
+
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -37,11 +46,11 @@ const fadeInAnimationVariants = {
 
 
 const projects = [
-  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png' },
   { name: 'ZK P2P', tagline: 'decentralized messaging', description: 'P2P communication using zero-knowledge proofs', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
-  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
-  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
-  { name: 'Email Wallet', tagline: 'prove you own a twitter account', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://zkp2p.xyz/logo512.png' }
+  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png' },
+  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117' },
+  { name: 'Email Wallet', tagline: 'prove you own a twitter account', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg' }
 ];
 
 const texts = [
@@ -109,9 +118,9 @@ const ProjectsPage = () => {
           >
             <Typography variant='h1' sx={{paddingBottom:'20px', color:'white'}} >Projects using our ZK Libraries</Typography>
           </motion.div>
-          <p className="text-white w-[50%] md:w-[35%] mx-auto">
+          <p className="text-white w-[50%] md:w-[40%] mx-auto">
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. 
-            This repository contains both our own projects and community projects using our libraries. What will you build?
+            This repository contains both our own projects and community projects using our libraries.
           </p>
           <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px] rounded-[10px] bg-white px-3 py-1  border-2 border-[#797878]">
               <InputBase
