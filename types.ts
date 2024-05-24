@@ -6,6 +6,32 @@ export interface Page {
 
 
 // types.ts
+
+
+export interface AnimationVariants {
+  initial: {
+    opacity: number;
+    y?: number;
+    x?: number;
+  };
+  animate: {
+    opacity: number;
+    y?: number;
+    x?: number;
+    transition?: {
+      duration: number;
+      ease: string;
+    };
+  };
+}
+
+export interface SlideInDivProps {
+  direction: 'left' | 'right';
+  children: React.ReactNode;
+}
+
+
+// types.ts
 export type AboutModalProps = {
   to: string;
   from: string;
