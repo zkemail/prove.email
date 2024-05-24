@@ -272,10 +272,6 @@ export default function Home() {
               initial='initial'
               whileInView='animate'
               viewport={{once: true}}
-              // initial={{opacity:1}} 
-              // whileInView={{opacity:0}}
-              // viewport={{amount:'all', once:true}}
-              // className='absolute bottom-0 left-0 right-0 top-0 z-10 bg-black'
             >
               <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
                 Frequently Asked Questions
@@ -284,8 +280,8 @@ export default function Home() {
           </div>
 
           <Grid container>
-              <Grid item xs={12} sm={4} className=''>
-                <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px' }}}>
+              <Grid item xs={12} sm={4}>
+                <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px'}}}>
                     Have a Question that isn’t answered?<br></br> We would like to chat with you!
                 </Typography>
                 <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
@@ -293,7 +289,7 @@ export default function Home() {
                 </Stack>
               </Grid>
               <SlideInDiv direction="right">
-              <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] pr-[10%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
+              <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] w-[100%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
                 {faqs.map((faq, index) => (
                   <Accordion key={index} title={faq.title} contents={faq.contents} />
                 ))}

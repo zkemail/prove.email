@@ -20,7 +20,7 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   '&:before': {
     display: 'none',
   },
-  background:'#FAFAFA',
+  background:'white',
   boxShadow: 'none',
   borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
   '& .MuiAccordionSummary-root': {
@@ -36,7 +36,7 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   },
   '& .MuiAccordionSummary-expandIconWrapper': {
     order: -1,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(180deg)',
