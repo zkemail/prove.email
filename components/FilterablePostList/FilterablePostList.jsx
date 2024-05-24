@@ -98,7 +98,7 @@ const FilterablePostList = ({ initialPosts }) => {
             While building the Zk Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. This repository contains both our own projects and community projects using our libraries.
           </p> */}
         </div>
-        <div className="absolute left-1/2 top-[560px] transform -translate-x-1/2 -translate-y-1/2  p-6 rounded-[20px] w-[90%]">
+        <div className="absolute left-1/2 top-[560px] transform -translate-x-1/2 -translate-y-1/2  px-[8%] rounded-[20px] w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className="relative  w-1/2 bg-white rounded-[10px] px-3 border-[1px] border-[#797878]">
               <InputBase
