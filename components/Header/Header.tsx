@@ -66,7 +66,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
             <GitHubIcon />
             </IconButton>
 
-            <IconButton
+            {/* <IconButton
               sx={{
                 color: 'black',
                 padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
@@ -77,7 +77,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
               aria-label="Toggle theme"
             >
               <Brightness4Icon />
-            </IconButton>
+            </IconButton> */}
           </Box>
         </Toolbar>
       </Container>
