@@ -3,6 +3,10 @@ import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/materia
 import { styled } from '@mui/system';
 import Stack from '@mui/material/Stack';
 
+
+// ALSO EDIT THE MUI STANDARD VARIANTS, THEY PROVIDE THE COLOUR PROPS
+//add onclick type b/c it is passed as a props
+//MAKE A SEPERATE COMPONENT FOR TAGS, for differnt colours etc use the base mui tag component
 interface CustomButtonProps extends MuiButtonProps {
   buttonLabel: string;
   filledIn?: boolean;
@@ -10,6 +14,7 @@ interface CustomButtonProps extends MuiButtonProps {
   tag?: boolean;
   light?: boolean; // Add light prop
 }
+//onclick
 
 const darkGrey = {
   0: '#353535',
@@ -99,6 +104,8 @@ const StyledButton = styled(MuiButton, {
 const CustomButton: React.FC<CustomButtonProps> = ({ filledIn, buttonLabel, url, onClick, tag, light, ...props }) => {
   const ButtonContent = (
     <StyledButton
+      href='https://github.com/wryonik/design-system/blob/master/components/ZButton/index.tsx'
+      target="_blank" //WORKS change the props for this tho
       onClick={onClick}
       filledIn={filledIn}
       tag={tag}
