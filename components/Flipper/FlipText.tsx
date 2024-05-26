@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-import { FlipTextProps } from '../.././types';
+import { FlipTextProps } from '../../types';
 import pixelSectionBackground1 from '../.././public/pixelSectionBackground1.svg'
 import pixelSectionBackground2 from '../.././public/pixelSectionBackground2.svg'
 

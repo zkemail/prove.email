@@ -1,5 +1,7 @@
-## Notes For Eesha  
+## Storybook  
+npm run storybook  
 
+## Notes For Eesha  
 - Story Book Tutorial https://youtu.be/i5tvZ9f7gJw  
 - Another Story Book Tutorial https://www.youtube.com/watch?v=FUKpWgRyPlU  
 - Build better UIs with Storybook Args | 5min Tutorial https://www.youtube.com/watch?v=0gOfS6K0x0E
@@ -11,13 +13,6 @@ Materila Ui
 -  Learn MUI (Material UI) in under 10 min https://www.youtube.com/watch?v=FB-sKY63AWo
 
 ## To Do For Eesha
-- Fix font discrepency globally   
-
-- Warnings to fix on vercel
-
-38:9  Warning: Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
-
-
 212:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
 
