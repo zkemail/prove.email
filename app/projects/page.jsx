@@ -7,7 +7,7 @@ import CustomButton from '@/components/CustomButton/CustomButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ActionCard from '@/components/ActionCard/ActionCard';
-import Flipper from '@/components/Flipper/Flipper';
+import FlipText from '@/components/FlipText/FlipText';
 import SortIcon from '@mui/icons-material/Sort';
 import IconLink from '@/components/IconLink/IconLink';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -333,7 +333,7 @@ const ProjectsPage = () => {
           )}
         </Box>
       </Box>
-      <Flipper texts={texts} />
+      <FlipText texts={texts} />
       <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'
