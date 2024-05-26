@@ -200,4 +200,8 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
 const lightTheme = createCustomTheme('light');
 const darkTheme = createCustomTheme('dark');
 
-export { lightTheme, darkTheme };
+// Export a function to get the theme based on a parameter
+const getTheme = (mode: 'light' | 'dark') => (mode === 'light' ? lightTheme : darkTheme);
+
+export { lightTheme, darkTheme, getTheme };
+export default getTheme;  // Export getTheme as default for Storybook
