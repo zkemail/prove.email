@@ -22,6 +22,7 @@
     "@mui/material-nextjs": "^5.15.11",
     "@next/mdx": "^14.2.3",
     "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/mdx": "^2.0.13",
     "framer-motion": "^11.2.6",
     "gray-matter": "^4.0.3",

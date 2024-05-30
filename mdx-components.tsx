@@ -1,14 +1,4 @@
-// import type { MDXComponents } from 'mdx/types'
- 
-// export function useMDXComponents(components: MDXComponents): MDXComponents {
-//   return {
-//     ...components,
-//   }
-// }
 
-
-// Import any custom components you want to use in MDX files
-// Example:
 import React from 'react';
 import Image, { ImageProps } from 'next/image';
 

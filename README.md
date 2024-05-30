@@ -26,6 +26,7 @@ Materila Ui
 - npm i next-mdx-remote         https://www.youtube.com/watch?v=n2CV6f0vFr4  for the blog
 - npm install framer-motion    https://www.youtube.com/watch?v=PczQ0qSwe1E for scroll animations  
 - npm install react-intersection-observer   for scroll animations  
+- npm install  @tailwindcss/typography    for styling mdx blog        https://www.youtube.com/watch?v=n2CV6f0vFr4
 
 
 ## Getting Started
