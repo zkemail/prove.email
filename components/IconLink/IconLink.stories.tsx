@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import IconLink from './IconLink';
 import HomeIcon from '@mui/icons-material/Home'; // Example icon
 import { SvgIconProps } from '@mui/material';
@@ -31,7 +31,7 @@ export default {
   },
 } as Meta<typeof IconLink>;
 
-const Template: Story<IconLinkProps> = (args: IconLinkProps) => <IconLink {...args} />;
+const Template: StoryFn<IconLinkProps> = (args: IconLinkProps) => <IconLink {...args} />;
 
 export const DefaultIconLink = Template.bind({});
 DefaultIconLink.args = {

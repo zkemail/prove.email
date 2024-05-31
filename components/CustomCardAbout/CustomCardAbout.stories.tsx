@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import CustomCardAbout from './CustomCardAbout';
 import { CustomCardProps } from '../../types';
 
@@ -13,7 +13,7 @@ export default {
   },
 } as Meta<typeof CustomCardAbout>;
 
-const Template: Story<CustomCardProps> = (args: React.JSX.IntrinsicAttributes & CustomCardProps) => <CustomCardAbout {...args} />;
+const Template: StoryFn<CustomCardProps> = (args: React.JSX.IntrinsicAttributes & CustomCardProps) => <CustomCardAbout {...args} />;
 
 export const DefaultCustomCardAbout = Template.bind({});
 DefaultCustomCardAbout.args = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Hero from './Hero';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: Hero,
 } as Meta<typeof Hero>;
 
-const Template: Story = (args: React.JSX.IntrinsicAttributes) => <Hero {...args} />;
+const Template: StoryFn = (args: React.JSX.IntrinsicAttributes) => <Hero {...args} />;
 
 export const DefaultHero = Template.bind({});
 DefaultHero.args = {};

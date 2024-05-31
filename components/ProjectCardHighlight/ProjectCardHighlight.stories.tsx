@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import ProjectCardHighlight from './ProjectCardHighlight';
 
 interface ProjectCardHighlightProps {
@@ -20,7 +20,7 @@ export default {
   },
 } as Meta<typeof ProjectCardHighlight>;
 
-const Template: Story<ProjectCardHighlightProps> = (args) => <ProjectCardHighlight {...args} />;
+const Template: StoryFn<ProjectCardHighlightProps> = (args) => <ProjectCardHighlight {...args} />;
 
 export const DefaultProjectCardHighlight = Template.bind({});
 DefaultProjectCardHighlight.args = {

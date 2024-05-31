@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import AboutModal, { AboutModalProps } from './AboutModal';
+import { StoryFn, Meta } from '@storybook/react';
+import AboutModal from './AboutModal';
+import { AboutModalProps } from '../../types'; // Assuming your types are in a separate file
 
 export default {
   title: 'AboutModal',
@@ -8,9 +9,9 @@ export default {
   argTypes: {
     emails: { control: 'object' },
   },
-} as ComponentMeta<typeof AboutModal>;
+} as Meta<typeof AboutModal>;
 
-const Template: ComponentStory<typeof AboutModal> = (args: AboutModalProps) => <AboutModal {...args} />;
+const Template: StoryFn<AboutModalProps> = (args) => <AboutModal {...args} />;
 
 export const AboutModalTest = Template.bind({});
 AboutModalTest.args = {

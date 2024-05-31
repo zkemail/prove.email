@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import VideoCarousel from './VideoCarousel';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: VideoCarousel,
 } as Meta<typeof VideoCarousel>;
 
-const Template: Story = (args) => <VideoCarousel {...args} />;
+const Template: StoryFn = (args) => <VideoCarousel {...args} />;
 
 export const DefaultVideoCarousel = Template.bind({});
 DefaultVideoCarousel.args = {};

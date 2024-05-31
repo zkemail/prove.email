@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import ActionCard from './ActionCard';
 import { ActionCardProps } from '../../types';
 
@@ -16,7 +16,7 @@ export default {
   },
 } as Meta<typeof ActionCard>;
 
-const Template: Story<ActionCardProps> = (args: React.JSX.IntrinsicAttributes & ActionCardProps) => <ActionCard {...args} />;
+const Template: StoryFn<ActionCardProps> = (args: React.JSX.IntrinsicAttributes & ActionCardProps) => <ActionCard {...args} />;
 
 export const LightActionCard = Template.bind({});
 LightActionCard.args = {

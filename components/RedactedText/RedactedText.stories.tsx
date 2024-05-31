@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import RedactedText from './RedactedText';
 
 interface RedactedTextProps {
@@ -14,7 +14,7 @@ export default {
   },
 } as Meta<typeof RedactedText>;
 
-const Template: Story<RedactedTextProps> = (args) => <RedactedText {...args} />;
+const Template: StoryFn<RedactedTextProps> = (args) => <RedactedText {...args} />;
 
 export const DefaultRedactedText = Template.bind({});
 DefaultRedactedText.args = {

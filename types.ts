@@ -32,10 +32,15 @@ export interface SlideInDivProps {
 
 
 // types.ts
-export type AboutModalProps = {
+export type Email = {
   to: string;
   from: string;
   mainText: string;
+  subject: string;
+};
+
+export type AboutModalProps = {
+  emails: Email[];
 };
 
 

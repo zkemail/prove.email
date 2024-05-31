@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import PopOut from './PopOut';
 
 interface Card {
@@ -27,7 +27,7 @@ export default {
   },
 } as Meta<typeof PopOut>;
 
-const Template: Story<PopOutProps> = (args) => <PopOut {...args} />;
+const Template: StoryFn<PopOutProps> = (args) => <PopOut {...args} />;
 
 export const DefaultPopOut = Template.bind({});
 DefaultPopOut.args = {
