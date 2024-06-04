@@ -131,21 +131,21 @@ const emails = [
 
 
 const PopOutZKLibraryCards = [
-  { label: "ZK Regex Library", url: "https://example.com/1" },
-  { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
-  { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
-  { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
-  { label: "zk rsa", url: "https://example.com/3" },
-  { label: "zk variable length sha256", url: "https://example.com/3" },
+  { label: "ZK Regex Library", url: "https://github.com/zkemail/zk-regex" },
+  { label: "Halo2 benchmarking browser code", url: "https://github.com/zkemail/halo2-benchmark-wasm" },
+  { label: "Zk psi with grumpkin and hash to curve", url: "https://github.com/zkemail/circom-grumpkin" },
+  { label: "Zk strings (base64 + pack)", url: "https://github.com/zkemail/halo2-base64" },
+  { label: "Zk rsa", url: "https://github.com/zkemail/halo2-rsa" },
+  { label: "Zk variable length sha256", url: "https://github.com/zkemail/halo2-dynamic-sha256" },
 ];
 
 let PopOutZKEmailLibraryCards = [
-  { label: "zk-email", url: "https://example.com/1" },
-  { label: "ZK Regex UI Tools", url: "https://example.com/2" },
-  { label: "DKIM Archive", url: "https://example.com/3" },
-  { label: "ZK JWTs", url: "https://example.com/3" },
-  { label: "Regex Registry", url: "https://example.com/3" },
-  { label: "Ether Email Auth", url: "https://example.com/3" },
+  { label: "Zk-email", url: "https://github.com/zkemail/zk-email-verify" },
+  { label: "ZK Regex UI Tools", url: "https://tool.zkregex.com/" },
+  { label: "DKIM Archive", url: "https://github.com/zkemail/dkim-registry" },
+  { label: "ZK JWTs", url: "https://github.com/zkemail/zk-jwt" },
+  { label: "Regex Registry", url: "https://github.com/zkemail/zkregex.com" },
+  { label: "Ether Email Auth", url: "https://github.com/zkemail/ether-email-auth" },
 ];
 
 export default function Home() {
@@ -289,7 +289,7 @@ export default function Home() {
                 </Stack>
               </Grid>
               <SlideInDiv direction="right">
-              <Grid item xs={12} sm={8} className="relative col-span-2 py-[30px] w-[100%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
+              <Grid item xs={12} sm={10} className="relative col-span-2 py-[30px] w-[100%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
                 {faqs.map((faq, index) => (
                   <Accordion key={index} title={faq.title} contents={faq.contents} />
                 ))}

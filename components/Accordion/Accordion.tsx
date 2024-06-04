@@ -8,6 +8,7 @@ import {
   Box,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Padding } from '@mui/icons-material';
 
 // Define the props types
 interface AccordionProps {

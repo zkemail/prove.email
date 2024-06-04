@@ -147,8 +147,8 @@ const ProjectsPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center space-x-2 pt-12">
-        <SortIcon/>
+      <div className="flex items-center justify-center  space-x-2 pt-12">
+        <SortIcon className='inline-block align-middle'/>
         {['ZK Email Library', 'ZK Library', 'On Chain', 'Off Chain', 'Made by Us'].map((label) => (
           <CustomButton
             key={label}
@@ -157,7 +157,7 @@ const ProjectsPage = () => {
             color="primary"
             onClick={() => toggleSelection(label)}
             sx={{
-              padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
+              padding: { xs: '3px 6px', sm: '4px 10px', md: '5px 10px' },
               fontSize: { xs: '10px', sm: '12px', md: '14px' },
             }}
           >

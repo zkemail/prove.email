@@ -71,6 +71,7 @@ const ArrowIcon = styled(ArrowOutward)(({ theme }) => ({
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
+  backgroundColor:'white',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
@@ -105,12 +106,12 @@ const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, to
       <Box onClick={() => setIsOpen(!isOpen)} sx={{cursor:'pointer'}}>
         <Header sx={{ bgcolor: 'black', }}>
           <Typography variant="h6" sx={{ color: 'white', paddingLeft:'8%', textAlign:'left',fontSize: {xs:'9px', sm:'11px', md:'15px'}}}>{topText}</Typography>
-          <IconButton sx={{ color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
+          {/* <IconButton sx={{ color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
             <ExpandMoreStyledIcon className="expand-more-icon" />
-          </IconButton>
+          </IconButton> */}
         </Header>
-        <Box p={2} sx={{height:'170px', }}>
-          <MainText variant="h4" sx={{ textAlign: "left", paddingLeft:'8%', paddingTop:{xs:'5px',md:'15px'}, fontSize: {xs:'18px', sm:'20px', md:'30px'}}}>{mainText}</MainText>
+        <Box p={2} sx={{height:{xs:'140px', sm:'170px'} }}>
+          <MainText variant="h4" sx={{ fontWeight:'medium', textAlign: "left", paddingLeft:'8%', paddingTop:{xs:'5px',md:'15px'}, fontSize: {xs:'18px', sm:'20px', md:'30px', lg:'40px'}}}>{mainText}</MainText>
           <DescriptionText sx={{ textAlign: "left",  paddingLeft:'8%', fontSize: {xs:'7.5px', sm:'10px', md:'15px'}}}>{descriptionText}</DescriptionText>
         </Box>
       </Box>
@@ -119,8 +120,8 @@ const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, to
         <Box>
           {cards.map((card, index) => (
             <StyledCard key={index} sx={{ borderRadius: '0px',}} onClick={() => handleCardClick(card.url)}>
-              <Typography variant="body1" sx={{ paddingLeft:'25px' }}>{card.label}</Typography>
-              <ArrowIcon className="arrow-icon" />
+              <Typography variant="body1" sx={{ textAlign:'left', paddingLeft:{xs:'10px',sm:'25px'}, fontSize: {xs:'9px', sm:'11px', md:'15px'} }}>{card.label}</Typography>
+              <ArrowIcon className="arrow-icon" sx={{width:{xs:'10px', sm:'15px'}}}/>
             </StyledCard>
           ))}
         </Box>

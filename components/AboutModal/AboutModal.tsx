@@ -5,7 +5,7 @@ import ShuffleIcon from '@mui/icons-material/Shuffle';
 
 const SpanWithBg = styled('span')({
   backgroundColor: 'black',
-  color: 'white',
+  color: 'black',
   padding: '0 4px',
 });
 
@@ -90,17 +90,17 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
         }}
       >
         <CardContent sx={{ padding: '33px' }}>
-          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px'}}>
             To: {renderText(currentEmail.to)}
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px'}}>
             From: {renderText(currentEmail.from)}
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px' }}>
             Subject: {renderText(currentEmail.subject)}
           </Typography>
           <Box mt={2}>
-            <Typography variant="body2" sx={{ width: '85%' }}>
+            <Typography variant="body2" sx={{ width: '85%', fontSize: '15px'}}>
               {renderText(currentEmail.mainText)}
             </Typography>
           </Box>
