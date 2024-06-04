@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import { Typography } from '@mui/material';
-import { AppBarProps } from '../../types'; // Adjust the import path as needed
+import { AppBarProps } from '../../types'; 
 import { useTheme } from '@mui/material/styles';
 import IconLink from '../../components/IconLink/IconLink';
 import ZKEIcon from '../../components/ZKEIcon/ZKEIcon'; // Import the ZKEIcon component
