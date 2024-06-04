@@ -15,10 +15,10 @@ Materila Ui
 ## To Do For Eesha
 212:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
 
+  
+add the math lib for blogs that have math symbols  
 
-
-
-
+  
 ## Things I added  
 - npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx         https://nextjs.org/docs/pages/building-your-application/configuring/mdx 
 - npm install @mui/material @emotion/react @emotion/styled              https://mui.com/material-ui/   
