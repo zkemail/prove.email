@@ -163,7 +163,7 @@ export default function FullScreenDialog({ open, onClose, pages }: FullScreenDia
             href="/"
             aria-label="home"
           >
-            <ZKEIcon sx={{ color: 'white' }} />
+            <ZKEIcon sx={{ color: 'white' }} mode={'dark'} />
           </IconButton>
 
           <IconButton
