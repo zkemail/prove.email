@@ -46,12 +46,14 @@ const fadeInAnimationVariants = {
 
 
 const projects = [
-  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png' },
-  { name: 'ZK P2P', tagline: 'decentralized messaging', description: 'P2P communication using zero-knowledge proofs', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
-  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png' },
-  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117' },
-  { name: 'Email Wallet', tagline: 'prove you own a twitter account', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg' }
+  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', url:'https://twitter.prove.email/', description: 'about proof of twitter and how it works. about proof of twitter and how it works about proof of twitter and how it works', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png' },
+  { name: 'ZK P2P', tagline: 'decentralized messaging', url:'https://zkp2p.xyz/', description: 'P2P communication using zero-knowledge proofs', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png' },
+  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', url:'https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png' },
+  { name: 'Proof of Organization', tagline: 'prove you own a twitter account', url:'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117' },
+  { name: 'Email Wallet', tagline: 'prove you own a twitter account',  url:'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg' }
 ];
+
+
 
 const texts = [
   'Proof Of Personhood',
@@ -312,7 +314,7 @@ const ProjectsPage = () => {
               </Box>
 
               <Stack spacing={2} direction={{ xs: 'column', sm: 'row' }} className="mt-6" sx={{ alignItems: { xs: 'flex-start', sm: 'center' } }}>
-                <Link href="https://twitter.prove.email/">
+                <Link target='_blank' href={filteredProjects[selectedProjectIndex].url}>
                   <CustomButton
                     sx={{ paddingX: { xs: '10px', sm: '15px', md: '30px' }, paddingY: { xs: '2px', sm: '8px', md: '15px' }, bgcolor: 'black' }}
                     variant="contained"

@@ -32,7 +32,17 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           maxWidth: {xs: '80%', md:'50%'}
         }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', padding: '0 !important'}}>
-            <IconLink target={true} href="/" IconComponent={ZKEIcon} />
+            <IconButton
+             href='/'
+              sx={{
+                color: 'black',
+                padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
+                '& .MuiSvgIcon-root': {
+                  fontSize: { xs: '16px', sm: '20px', md: '24px' } // Adjust icon size based on screen size
+                }
+              }}
+              aria-label="GitHub link"
+            ><ZKEIcon/></IconButton>
 
 
           <Box sx={{ display: 'flex', gap: {xs: 0.5, sm: 1, md:2}}}>
@@ -41,7 +51,7 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
                 <Button sx={{ 
                   color: 'black', 
                   textTransform: 'capitalize', 
-                  fontSize: { xs: '0.7rem', sm:'0.9rem', md: '1 rem'}, 
+                  fontSize: { xs: '0.6rem', sm:'0.9rem', md: '1 rem'}, 
                   '&:hover': { backgroundColor: theme.palette.secondary.main}, // swapped rgba(0, 0, 0, 0.04) with yellow
                   paddingX: { xs: '1px', md: '6px' },
                   padding: { xs: '2px 4px', md: '6px 16px' }, 
@@ -54,18 +64,20 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <IconButton
+             href='https://github.com/zkemail/'
+             target='_blank'
               sx={{
                 color: 'black',
                 padding: { xs: '4px', sm: '6px', md: '8px' }, // Adjust padding based on screen size
                 '& .MuiSvgIcon-root': {
-                  fontSize: { xs: '12px', sm: '20px', md: '24px' } // Adjust icon size based on screen size
+                  fontSize: { xs: '16px', sm: '20px', md: '24px' } // Adjust icon size based on screen size
                 }
               }}
               aria-label="GitHub link"
             >
 
             {/* NEED to link these icons https://github.com/zkemail/ */}
-            <GitHubIcon />
+            <GitHubIcon/>
             </IconButton>
 
             {/* <IconButton
