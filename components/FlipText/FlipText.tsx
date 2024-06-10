@@ -57,12 +57,12 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
         display: 'flex', 
         flexDirection: 'column', 
         justifyContent: 'center',
-        height: { xs: '200px', sm: '300px', md: '350px', lg: '500px' }
+        height: { xs: '250px', sm: '300px', md: '350px', lg: '500px' }
       }}
     >
 
       
-      <Typography variant="subtitle1" sx={{ color: '#989898', paddingBottom: '25px', fontSize:'20px'}}>
+      <Typography variant="subtitle1" sx={{ color: '#989898', paddingBottom: {xs:'10px', md:'25px'}, fontSize:{xs:'12px', md:'20px'}}}>
         ZKEmail Enables
       </Typography>
 
@@ -75,7 +75,7 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: '30px', md: '50px' },
+            fontSize: { xs: '25px', sm: '30px', md: '50px' },
             fontWeight: 'regular',
             color: 'white',
           }}
@@ -89,8 +89,8 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
           <Box
             key={i}
             sx={{
-              width: 10,
-              height: 10,
+              width: {xs:4, md:10},
+              height: {xs:4, md:10},
               borderRadius: '50%',
               backgroundColor: i === index ? '#000' : '#c4c4c4',
               mx: 0.5,

@@ -80,17 +80,17 @@ const Footer = () => {
         >
           {/* FOOTER TAGLINE */}
           <Grid container spacing={2}>
-            <Grid item xs={4} justifyContent="flex-start">
+            <Grid item xs={3} sm={4} justifyContent="flex-start">
               <Typography color="white" textAlign="left" sx={{fontSize:{xs:"10px", sm:"15px", md:"20px"}}}>
                 transfer truth with the freedom of privacy
               </Typography>
             </Grid>
 
             {/* FOOTER SITE LINKS */}
-            <Grid item xs={8} justifyContent="flex-end">
+            <Grid item xs={9} sm={8} justifyContent="flex-end">
               <Grid container spacing={6} justifyContent="flex-end">
                 <Grid item>
-                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center">
+                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center" sx={{fontSize:{xs:'10px', md:'14px'}}}>
                     DEVELOPERS
                   </Typography>
                   <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">
@@ -112,7 +112,7 @@ const Footer = () => {
                 </Grid>
 
                 <Grid item>
-                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center">
+                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center" sx={{fontSize:{xs:'10px', md:'14px'}}}>
                     COMMUNITY
                   </Typography>
                   <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">

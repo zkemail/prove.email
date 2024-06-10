@@ -2,8 +2,12 @@ import React from 'react';
 import { Card, CardContent, Typography } from '@mui/material';
 import { ActionCardProps } from '../../types';
 import CustomButton from '../CustomButton/CustomButton';
+import { useTheme } from '@mui/material/styles';
 
 const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, buttonLink, topText, light = false }) => {
+
+  const theme = useTheme();
+
   const cardStyles = light
     ? {
         background: 'linear-gradient(0deg, #FFFFFF 0%, #EAEAEA 100%)',
@@ -23,16 +27,23 @@ const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, button
         width: '80%',
         marginX: 'auto',
         marginY: { xs: '30px', md: '40px', lg: '60px' },
+        '&:hover .top-text': {
+          color: theme.palette.secondary.main,
+        },
       }}
     >
       <CardContent>
         {topText && (
-          <Typography variant="h4" gutterBottom 
-          sx={{
-            fontSize:{xs:'15px', md:'20px'}, 
-            paddingBottom:'30px', 
-            color:'#797979',
-          }}>
+          <Typography 
+            variant="h4" 
+            gutterBottom 
+            className="top-text"
+            sx={{
+              fontSize: { xs: '13px', md: '20px' },
+              paddingBottom: {xs:'15px', sm:'20px', md:'30px'},
+              color: '#797979',
+            }}
+          >
             {topText}
           </Typography>
         )}
@@ -41,10 +52,11 @@ const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, button
           variant="h4"
           sx={{
             fontSize: {
+              xs: '25px',
               sm: '30px',
               md: '40px',
               lg: '50px',
-              xl: '65px',
+              xl: '60px',
             },
             lineHeight: {
               sm: '30px',
@@ -61,18 +73,20 @@ const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, button
           gutterBottom
           sx={{
             fontSize: {
-              sm: '10px',
-              md: '12px',
+              xs: '10px',
+              sm: '11px',
+              md: '15px',
               lg: '22px',
             },
             lineHeight: {
-              sm: '10px',
-              md: '14px',
-              lg: '30px',
+              xs: '13px',
+              sm: '15px',
+              md: '16px',
+              lg: '28px',
             },
-            paddingBottom:'10px',
+            paddingBottom: '10px',
             paddingRight: '10px',
-            width:'80%'
+            width: {xs:'93%', md:'80%'},
           }}
         >
           {text}
@@ -80,7 +94,7 @@ const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, button
         <CustomButton
           variant="contained"
           light={!light} // Set the opposite of light for the button
-          sx={{ marginTop: 3, paddingX:'30px'}}
+          sx={{ marginTop: {xs:1, md:3}, paddingX: '30px' }}
           href={buttonLink}
           buttonLabel={buttonText}
         >
@@ -92,3 +106,4 @@ const ActionCard: React.FC<ActionCardProps> = ({ title, text, buttonText, button
 };
 
 export default ActionCard;
+

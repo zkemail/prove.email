@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Box, Tabs, Tab, Typography, Paper, InputBase, useTheme, Stack } from '@mui/material';
+import { Box, Tabs, Tab, Typography, Paper, InputBase, useTheme, Stack, Hidden } from '@mui/material';
 import CustomButton from '@/components/CustomButton/CustomButton';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -111,7 +111,7 @@ const ProjectsPage = () => {
           style={{
             backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center, center', backgroundSize: 'cover, contain', backgroundRepeat: 'no-repeat, no-repeat'
            }}>
-          <Typography sx={{color:'white'}}>ZKEmail supports</Typography>
+          <Typography sx={{color:'white', fontsize:{xs:'7px', md:'10px'}}}>ZKEmail supports</Typography>
           <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'
@@ -120,17 +120,25 @@ const ProjectsPage = () => {
           >
             <Typography variant='h1' sx={{paddingBottom:'20px', color:'white'}} >Projects using our ZK Libraries</Typography>
           </motion.div>
-          <p className="text-white w-[50%] md:w-[40%] mx-auto">
+          <Typography
+            sx={{
+              color: 'white',
+              width: { xs: '60%', md: '40%' },
+              marginX: 'auto',
+              fontSize: { xs: '10px', sm:'12px',md: '14px' }
+            }}
+          >
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. 
             This repository contains both our own projects and community projects using our libraries.
-          </p>
+          </Typography>
           <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px] rounded-[10px] bg-white px-3 py-1  border-2 border-[#797878]">
               <InputBase
-                className="flex-grow form-input focus:outline-none px-3 py-2 rounded-[16px] bg-white  w-full"
+                className="flex-grow form-input focus:outline-none px-3 py-1 md:py-2 rounded-[16px] bg-white  w-full"
                 placeholder="Search projects..."
                 inputProps={{ 'aria-label': 'search projects' }}
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
+                sx={{fontSize:{xs:'10px', md:'12px'}, py:{xs:'2px', md:'5px'}}}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,8 +157,10 @@ const ProjectsPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center  space-x-2 pt-12">
-        <SortIcon className='inline-block align-middle'/>
+      <div className="flex items-center justify-center  space-x-1 sm:space-x-2 pt-12">
+        <Hidden smDown>
+          <SortIcon className='inline-block align-middle' />
+        </Hidden>
         {['ZK Email Library', 'ZK Library', 'On Chain', 'Off Chain', 'Made by Us'].map((label) => (
           <CustomButton
             key={label}
@@ -159,8 +169,8 @@ const ProjectsPage = () => {
             color="primary"
             onClick={() => toggleSelection(label)}
             sx={{
-              padding: { xs: '3px 6px', sm: '4px 10px', md: '5px 10px' },
-              fontSize: { xs: '10px', sm: '12px', md: '14px' },
+              padding: { xs: '2px 5px', sm: '4px 10px', md: '5px 10px' },
+              fontSize: { xs: '7px', sm: '12px', md: '14px' },
             }}
           >
             {label}
@@ -195,11 +205,11 @@ const ProjectsPage = () => {
                 }
               }}
               label={(
-                <Box sx={{ borderBottom: 'black', paddingLeft:'10px',}}>
-                  <Typography variant='h5' sx={{ fontSize: {xs:'15px', sm:'20px', md:'25px'} ,fontWeight: 'bold', marginBottom: '2px', textAlign: 'left', textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
+                <Box sx={{ borderBottom: 'black', paddingLeft:'2%', textAlign:'left'}}>
+                  <Typography variant='h5' sx={{ fontSize: {xs:'14px', sm:'20px', md:'25px'} ,fontWeight: 'bold', marginBottom: '2px', textAlign: 'left', textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
                     {project.name}
                   </Typography>
-                  <Typography sx={{ fontSize: {xs:'10px', sm:'15px', md:'15px'}, textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
+                  <Typography sx={{ fontSize: {xs:'8px', sm:'15px', md:'15px'}, textTransform: 'none', color: selectedProjectIndex === index ? 'white' : 'inherit' }}>
                     {project.tagline}
                   </Typography>
                 </Box>
