@@ -81,7 +81,7 @@ const Footer = () => {
           {/* FOOTER TAGLINE */}
           <Grid container spacing={2}>
             <Grid item xs={4} justifyContent="flex-start">
-              <Typography color="white" textAlign="left">
+              <Typography color="white" textAlign="left" sx={{fontSize:{xs:"10px", sm:"15px", md:"20px"}}}>
                 transfer truth with the freedom of privacy
               </Typography>
             </Grid>
@@ -140,6 +140,7 @@ const Footer = () => {
                   </Grid>
                 </Grid>
 
+
                 {/* FOOTER SOCIAL ICONS  */}
                 <Grid item>
                   <Grid container justifyContent="center" spacing={2}>
@@ -163,6 +164,7 @@ const Footer = () => {
               </Grid>
             </Grid>
           </Grid>
+
 
           {/* BOTTOM FOOTER ZK EMAIL BIG TEXT*/}
           <Box sx={{ marginTop: 'auto' }}>

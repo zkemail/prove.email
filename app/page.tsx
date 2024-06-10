@@ -168,7 +168,6 @@ export default function Home() {
 
 
       {/*ABOUT SECTION*/}
-
       <Box width='100%' sx={{
         backgroundColor: 'white', 
         backgroundImage: `url(${waveBackground.src})`,
@@ -248,10 +247,10 @@ export default function Home() {
           </Box>
           <Grid container spacing={2} sx={{ padding: '20px' }}>
             <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='/' />
+              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='/' />
+              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
               <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
@@ -285,7 +284,7 @@ export default function Home() {
                     Have a Question that isn’t answered?<br></br> We would like to chat with you!
                 </Typography>
                 <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-                  <CustomButton buttonLabel="Drop Us a Line" filledIn={true} url='https://zkemail.gitbook.io/zk-email'/>
+                  <CustomButton buttonLabel="Drop Us a Line" filledIn={true} target='true' url='https://t.me/zkemail'/>
                 </Stack>
               </Grid>
               <SlideInDiv direction="right">
@@ -298,6 +297,9 @@ export default function Home() {
           </Grid>
         </div>
       </div>
+
+
+
 
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
@@ -343,14 +345,14 @@ export default function Home() {
                 }
               }}
               component='a' 
-              href='/'
+              href='/projects'
             >
               <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
               <ArrowForwardIcon
                 className='arrowIcon'
                 sx={{
                   transition: 'color 0.3s, transform 0.3s',
-                  ml: 1 // add some margin to the left for spacing
+                  ml: 1 
                 }}
               />
             </Box>
@@ -381,6 +383,10 @@ export default function Home() {
       </Grid>
     </Box>
 
+
+
+
+
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box height='500px' sx={{
         backgroundColor: 'white', 
@@ -397,9 +403,13 @@ export default function Home() {
           <Typography variant='h5'>For Developers</Typography>
           <Typography variant='h1'>Build Your Own</Typography>
           <Typography sx={{paddingRight:'10%', width:{xs:'85%',md:'70%'}, paddingTop:'20px', paddingBottom: '10px', fontSize:{xs:'12px',sm:'15px', md:'20px'}}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
-          <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs'>Docs</CustomButton>
+          <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs' target='true' url='https://zkemail.gitbook.io/zk-email'>Docs</CustomButton>
         </motion.div>
       </Box>
+
+
+
+
 
       {/* LIBRARIES ON MAIN PAGE */}
       <div className="w-full min-h-[400px] relative z-10">
@@ -422,14 +432,7 @@ export default function Home() {
                     mainText="ZKEmail Libraries"
                     descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
                     toggleName="Show Libraries"
-                    cards={[
-                      { label: 'Zk Email', url: 'https://example.com/zkemail' },
-                      { label: 'Zk Regex UI Tools', url: 'https://example.com/zkregex' },
-                      { label: 'DKIM Archive', url: 'https://example.com/dkim' },
-                      { label: 'Zk Regex ZK JWTs', url: 'https://example.com/zkjwt' },
-                      { label: 'Regex Registry', url: 'https://example.com/regex' },
-                      { label: 'Ether Email Auth', url: 'https://example.com/ether' },
-                    ]}
+                    cards={PopOutZKEmailLibraryCards}
                   />
                 </SlideInDiv>
               </div>
@@ -440,20 +443,16 @@ export default function Home() {
                     mainText="ZK Libraries"
                     descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
                     toggleName="Show Libraries"
-                    cards={[
-                      { label: "ZK Regex Library", url: "https://example.com/1" },
-                      { label: "halo2 benchmarking browser code", url: "https://example.com/2" },
-                      { label: "zk psi with grumpkin and hash to curve", url: "https://example.com/3" },
-                      { label: "zk strings (base64 + pack)", url: "https://example.com/3" },
-                      { label: "zk rsa", url: "https://example.com/3" },
-                      { label: "zk variable length sha256", url: "https://example.com/3" },
-                    ]}
+                    cards={PopOutZKLibraryCards}
                   />
                   </SlideInDiv>
               </div>
             </div>
           </div>
       </div>
+
+
+
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-24">

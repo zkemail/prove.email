@@ -14,6 +14,7 @@ import { AppBarProps } from '../../types';
 import { useTheme } from '@mui/material/styles';
 import IconLink from '../../components/IconLink/IconLink';
 import ZKEIcon from '../../components/ZKEIcon/ZKEIcon'; // Import the ZKEIcon component
+import { color } from 'framer-motion';
 
 
 const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
@@ -40,10 +41,11 @@ const ResponsiveAppBar: React.FC<AppBarProps> = ({ title, pages }) => {
                 <Button sx={{ 
                   color: 'black', 
                   textTransform: 'capitalize', 
-                  fontSize: { xs: '0.7rem', sm:'0.9rem', md: '1 rem'}, '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.04)' }, 
+                  fontSize: { xs: '0.7rem', sm:'0.9rem', md: '1 rem'}, 
+                  '&:hover': { backgroundColor: theme.palette.secondary.main}, // swapped rgba(0, 0, 0, 0.04) with yellow
                   paddingX: { xs: '1px', md: '6px' },
-                  padding: { xs: '2px 4px', md: '6px 16px' }, // Reduced padding
-                  minWidth: 'auto', // Ensure buttons shrink to fit content
+                  padding: { xs: '2px 4px', md: '6px 16px' }, 
+                  minWidth: 'auto', 
                 }}>
                   {page.label}
                 </Button>

@@ -105,7 +105,7 @@ export default function Hero() {
             <CustomButton buttonLabel="Docs" filledIn={true} url='https://zkemail.gitbook.io/zk-email'>
               material ui button
             </CustomButton>
-            <CustomButton buttonLabel="Projects" filledIn={false}>
+            <CustomButton buttonLabel="Projects" filledIn={false} url='/projects'>
               material ui button
             </CustomButton>
           </Stack>
@@ -133,9 +133,9 @@ export default function Hero() {
                   sx={{
                     color: '#FFBB6B',
                     fontSize: {
-                      xs: '16px',  // default size for extra-small screens
-                      sm: '24px',  // size for small screens and above
-                      md: '32px',  // size for medium screens and above
+                      xs: '16px',  
+                      sm: '24px',
+                      md: '32px',  
                     },
                   }}
                 />

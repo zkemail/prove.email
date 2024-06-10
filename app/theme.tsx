@@ -142,9 +142,9 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
       },
       footerLink: {
         color: 'grey',
-        fontSize: '12px',
+        fontSize: '10px',
         [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '16px',
+          fontSize: '15px',
         },
       },
       videoCardSubText: {
