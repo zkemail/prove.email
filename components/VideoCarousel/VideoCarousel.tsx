@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Card, CardContent, CardMedia, Typography, Grid, useMediaQuery, useTheme, Stack } from '@mui/material';
 import { ArrowOutward, FiberManualRecord } from '@mui/icons-material';
+import CustomButton from '../CustomButton/CustomButton';
 
 const videos = [
   { title: "ZK Email: Novel ZK Applications Unlocked by Portable Provenance", where: "ZK Summit 11", url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE", date: "2024/04/19", thumbnail: "https://img.youtube.com/vi/rZTNzvLXB14/0.jpg" },
@@ -78,23 +79,22 @@ const VideoCarousel = () => {
         ))}
       </Grid>
       <Box className="flex justify-center space-x-4 mt-12">
-        <Button
-          variant="outlined"
-          color="primary"
+        <CustomButton
+          buttonLabel='Previous'
           onClick={previous}
           disabled={currentIndex === 0}
+          filledIn={currentIndex !== 0}
         >
           Previous
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
+        </CustomButton>
+        <CustomButton
+          buttonLabel='Next'
           onClick={next}
+          filledIn={!(currentIndex >= videos.length - visibleCards)}
           disabled={currentIndex >= videos.length - visibleCards}
-          sx={{backgroundColor: "black"}}
         >
           Next
-        </Button>
+        </CustomButton>
       </Box>
     </Box>
   );
