@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             maxWidth: '100%',
             backgroundColor: 'white',
             color: 'black',
-            borderRadius: '8px',
+            borderRadius: '7.77px',
             position: 'relative',
             overflow: 'visible',
             height: {xs:'170px', sm:'300px'},
@@ -74,7 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
                   bottom: '-4px',
                   width: '0',
                   height: '2px',
-                  backgroundColor: theme.palette.secondary.main,
+                  // backgroundColor: theme.palette.secondary.main,
                   transition: 'width 0.3s ease',
                 },
               }}

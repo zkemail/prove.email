@@ -19,6 +19,8 @@ import ourGoalsBackground from '.././public/ourGoalsBackground.svg'
 import '.././types'
 import waveBackground from '.././public/waveBackground.svg'
 
+
+
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
@@ -132,15 +134,15 @@ const emails = [
 
 const PopOutZKLibraryCards = [
   { label: "ZK Regex Library", url: "https://github.com/zkemail/zk-regex" },
-  { label: "Halo2 benchmarking browser code", url: "https://github.com/zkemail/halo2-benchmark-wasm" },
-  { label: "Zk psi with grumpkin and hash to curve", url: "https://github.com/zkemail/circom-grumpkin" },
-  { label: "Zk strings (base64 + pack)", url: "https://github.com/zkemail/halo2-base64" },
-  { label: "Zk rsa", url: "https://github.com/zkemail/halo2-rsa" },
-  { label: "Zk variable length sha256", url: "https://github.com/zkemail/halo2-dynamic-sha256" },
+  { label: "Halo2 Benchmarking Browser Code", url: "https://github.com/zkemail/halo2-benchmark-wasm" },
+  { label: "ZK PSI with Grumpkin and Hash to Curve", url: "https://github.com/zkemail/circom-grumpkin" },
+  { label: "ZK Strings (base64 + pack)", url: "https://github.com/zkemail/halo2-base64" },
+  { label: "ZK RSA", url: "https://github.com/zkemail/halo2-rsa" },
+  { label: "ZK Variable Length SHA256", url: "https://github.com/zkemail/halo2-dynamic-sha256" },
 ];
 
 let PopOutZKEmailLibraryCards = [
-  { label: "Zk-email", url: "https://github.com/zkemail/zk-email-verify" },
+  { label: "ZK-Email", url: "https://github.com/zkemail/zk-email-verify" },
   { label: "ZK Regex UI Tools", url: "https://tool.zkregex.com/" },
   { label: "DKIM Archive", url: "https://github.com/zkemail/dkim-registry" },
   { label: "ZK JWTs", url: "https://github.com/zkemail/zk-jwt" },
@@ -206,58 +208,65 @@ export default function Home() {
 
 
 
-      {/* HOW WE DO THIS */}
-      <div className='pb-[100px] z-50 bg-white w-full'>
-        <Box sx={{
-          height: { xs: '830px', sm: '650px' },
-          background: 'black',
-          paddingY: '80px',
-          width: '90%',
-          borderRadius: '14.85px',
-          marginX: 'auto',
-          position: 'relative',
-          overflow: 'hidden',
-          '::after': {
-            content: '""',
-            position: 'absolute',
-            bottom: '-50px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '0',
-            height: '0',
-            borderLeft: '50px solid transparent',
-            borderRight: '50px solid transparent',
-            borderTop: '50px solid black',
-          }
-        }}>
-          <Box sx={{ textAlign: 'center', paddingX: '5%' }}>
-            <motion.div
-              variants={fadeInAnimationVariants}
-              initial='initial'
-              whileInView='animate'
-              viewport={{once: true}}>
-                <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
-                  How do we do this?
-                </Typography>
-              </motion.div>
 
-            <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
-              We leverage what emails already do... <br></br>but using regex & zero knowledge
-            </Typography>
-          </Box>
-          <Grid container spacing={2} sx={{ padding: '20px' }}>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
-            </Grid>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
-            </Grid>
-            <Grid item xs={12} sm={4} md={4}>
-              <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
-            </Grid>
-          </Grid>
-        </Box>
-      </div>
+
+{/* HOW WE DO THIS */}
+<div className='pb-[100px] z-50 w-full' style={{ background: 'white' }}>
+  <Box sx={{
+    height: { xs: '830px', sm: '650px' },
+    background: 'black',
+    paddingY: '80px',
+    width: '90%',
+    borderRadius: '14.85px 14.85px 0px 0px ',
+    marginX: 'auto',
+    position: 'relative',
+    overflow: 'hidden'
+  }}>
+    <Box sx={{ textAlign: 'center', paddingX: '5%', position: 'relative', zIndex: 3 }}>
+      <motion.div
+        variants={fadeInAnimationVariants}
+        initial='initial'
+        whileInView='animate'
+        viewport={{ once: true }}>
+        <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
+          How do we do this?
+        </Typography>
+      </motion.div>
+
+      <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
+        We leverage what emails already do... <br />but using regex & zero knowledge
+      </Typography>
+    </Box>
+    <Grid container spacing={2} sx={{ padding: '20px' }}>
+      <Grid item xs={12} sm={4} md={4}>
+        <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
+      </Grid>
+      <Grid item xs={12} sm={4} md={4}>
+        <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
+      </Grid>
+      <Grid item xs={12} sm={4} md={4}>
+        <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
+      </Grid>
+    </Grid>
+  </Box>
+  <div style={{
+    width: '0',
+    height: '0',
+    borderLeft: '45vw solid transparent',
+    borderRight: '45vw solid transparent',
+    borderTop: '50px solid black',
+    margin: '0 auto',
+    transform: 'translateY(-1px)'
+  }}></div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -281,7 +290,7 @@ export default function Home() {
           <Grid container>
               <Grid item xs={12} sm={4}>
                 <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px'}}}>
-                    Have a Question that isn’t answered?<br></br> We would like to chat with you!
+                    Have a Question that isn’t answered?<br></br> Reach out!
                 </Typography>
                 <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
                   <CustomButton buttonLabel="Drop Us a Line" filledIn={true} target='true' url='https://t.me/zkemail'/>
@@ -316,13 +325,13 @@ export default function Home() {
           </motion.div>
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
           <Grid item xs={12} sm={4}>
-            <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Protocol Kit"/>
+            <ProjectCardHighlight projectTitle="ZKP2P" url='https://zkp2p.xyz/' projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more." projectTag="Off Ramp"/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <ProjectCardHighlight projectTitle="Email Wallet" url='https://emailwallet.org/' projectDescription="Email a relayer in order to transfer money or transact on Ethereum, anonymously." projectTag="Protocol Kit"/>
+            <ProjectCardHighlight projectTitle="Email Wallet" url='https://emailwallet.org/' projectDescription="Email a relayer in order to transfer money or transact on Ethereum, anonymously." projectTag="Wallet"/>
           </Grid>
           <Grid item xs={12} sm={4}>
-            <ProjectCardHighlight projectTitle="Proof of Twitter" url='https://twitter.prove.email/' projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter." projectTag="Protocol Kit"/>
+            <ProjectCardHighlight projectTitle="Proof of Twitter" url='https://twitter.prove.email/' projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter." projectTag="Identity"/>
           </Grid>
         </Grid>
 

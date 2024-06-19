@@ -48,7 +48,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ title, description, url }) => {
               zIndex: 1,
               borderRadius: 'inherit',
               padding: '2px',
-              background: 'linear-gradient(45deg, white 0%, grey 100%)',
+              background: 'linear-gradient(25deg, white 0%, #121312 100%)',
               WebkitMask: 'linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)',
               WebkitMaskComposite: 'xor',
               maskComposite: 'exclude',

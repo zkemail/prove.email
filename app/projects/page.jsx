@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Box, Tabs, Tab, Typography, Paper, InputBase, useTheme, Stack, Hidden } from '@mui/material';
 import CustomButton from '@/components/CustomButton/CustomButton';
+import CustomInputBase from '@/components/CustomInputBase/CustomInputBase'
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ActionCard from '@/components/ActionCard/ActionCard';
@@ -28,6 +29,7 @@ const backgrounds = [projectBackground1, projectBackground2, projectBackground3]
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
 
 
 
@@ -131,29 +133,13 @@ const ProjectsPage = () => {
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries. 
             This repository contains both our own projects and community projects using our libraries.
           </Typography>
-          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px] rounded-[10px] bg-white px-3 py-1  border-2 border-[#797878]">
-              <InputBase
-                className="flex-grow form-input focus:outline-none px-3 py-1 md:py-2 rounded-[16px] bg-white  w-full"
-                placeholder="Search projects..."
-                inputProps={{ 'aria-label': 'search projects' }}
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                sx={{fontSize:{xs:'10px', md:'12px'}, py:{xs:'2px', md:'5px'}}}
-              />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-4.35-4.35m0 0a9 9 0 110-12.7 9 9 0 010 12.7z"
-                />
-              </svg>
+          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px]">
+              <CustomInputBase
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  placeholder="Search projects..."
+                  sx={{width:'50%'}}
+              ></CustomInputBase>
           </div>
         </div>
       </div>

@@ -26,7 +26,8 @@ add the math lib for blogs that have math symbols
 - npm i next-mdx-remote         https://www.youtube.com/watch?v=n2CV6f0vFr4  for the blog
 - npm install framer-motion    https://www.youtube.com/watch?v=PczQ0qSwe1E for scroll animations  
 - npm install react-intersection-observer   for scroll animations  
-- npm install  @tailwindcss/typography    for styling mdx blog        https://www.youtube.com/watch?v=n2CV6f0vFr4
+- npm install  @tailwindcss/typography    for styling mdx blog        https://www.youtube.com/watch?v=n2CV6f0vFr4  
+- npm install remark-gfm remark-math rehype-katex rehype-pretty-code   for blog math and code parts   
 
 
 ## Getting Started

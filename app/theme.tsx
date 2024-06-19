@@ -110,6 +110,7 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
       fontFamily: spaceGrotesk.style.fontFamily,
       h1: {
         fontSize: '1.9rem', // Default font size for the smallest screens (xs)
+        letterSpacing: -2,
         [`@media (min-width:${breakpoints.values.sm}px)`]: {
           fontSize: '2.5rem',
         },
@@ -117,10 +118,10 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
           fontSize: '3rem',
         },
         [`@media (min-width:${breakpoints.values.lg}px)`]: {
-          fontSize: '3.5rem',
+          fontSize: '3.1rem',
         },
         [`@media (min-width:${breakpoints.values.xl}px)`]: {
-          fontSize: '4rem',
+          fontSize: '3.2rem',
         },
         fontWeight: 500,
         lineHeight: 1.2,

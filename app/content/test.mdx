@@ -1,13 +1,25 @@
 ---
 title: "Test Post"
+description: 'test post description'
 date: 2024-01-01
 category: "Test Category"
 next: "/next-slug"  
 before: "/before-slug"  
 ---
 
-# Test Post
+## Test Post
 
 HELLLOOOOOO This is a test post.
+
+This is a sample MDX content with **math** and \`code\`.
+
+$$
+E = mc^2
+$$
+
+\`\`\`javascript
+console.log('Hello, world!');
+\`\`\`
+`
 
 export default ({ children }) => <div className='prose'>{children}</div>
