@@ -100,10 +100,12 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
                   <Button
                     sx={{
                       color: 'black',
+                      fontWeight: 'regular',
                       textTransform: 'capitalize',
                       fontSize: { xs: '0.6rem', sm: '0.9rem', md: '1rem' },
                       position: 'relative',
                       '&:hover': {
+                        color: 'grey',
                         backgroundColor: 'transparent', // No background color on hover
                         '&::after': {
                           transform: 'scaleX(1)',
@@ -119,7 +121,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
                         left: 0,
                         width: '100%',
                         height: '2px',
-                        backgroundColor: theme.palette.secondary.main, // Underline color
+                        // backgroundColor: theme.palette.secondary.main, // Underline color
                         transform: 'scaleX(0)',
                         transformOrigin: 'bottom right',
                         transition: 'transform 0.3s ease-out',

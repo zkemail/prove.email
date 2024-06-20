@@ -85,14 +85,16 @@ const SlideInDiv: React.FC<SlideInDivProps> = ({ direction, children }) => {
 
 
   return (
-    <motion.div
-      ref={ref}
-      variants={slideInAnimationVariants}
-      initial={direction === 'left' ? 'initialLeft' : 'initialRight'}
-      animate={controls}
-    >
-      {children}
-    </motion.div>
+    <Box sx={{overflow:'hidden'}}>
+      <motion.div
+        ref={ref}
+        variants={slideInAnimationVariants}
+        initial={direction === 'left' ? 'initialLeft' : 'initialRight'}
+        animate={controls}
+      >
+          {children}
+      </motion.div>
+    </Box>
   );
 };
 
@@ -412,7 +414,7 @@ export default function Home() {
           <Typography variant='h5'>For Developers</Typography>
           <Typography variant='h1'>Build Your Own</Typography>
           <Typography sx={{paddingRight:'10%', width:{xs:'85%',md:'70%'}, paddingTop:'20px', paddingBottom: '10px', fontSize:{xs:'12px',sm:'15px', md:'20px'}}}>No trusted hardware. No trusted attestation servers. Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure. All MIT open source libraries.</Typography>
-          <CustomButton sx={{marginBottom: '30px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs' target='true' url='https://zkemail.gitbook.io/zk-email'>Docs</CustomButton>
+          <CustomButton sx={{marginTop: '10px', fontWeight:'light'}} filledIn={true} buttonLabel='Docs' target='true' url='https://zkemail.gitbook.io/zk-email'>Docs</CustomButton>
         </motion.div>
       </Box>
 
@@ -433,7 +435,7 @@ export default function Home() {
                 Our Libraries
               </Typography>
             </motion.div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2 sm:gap-6">
               <div>
                 <SlideInDiv direction="left">
                   <PopOut

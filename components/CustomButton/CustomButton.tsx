@@ -50,8 +50,8 @@ const StyledButton = styled(MuiButton, {
   textOverflow: 'ellipsis',
   maxWidth: '100%',
   '&:hover': {
-    background: filledIn ? 'linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(53,53,53,0.9) 100%)' : grey[0],
-    color: filledIn ? '#FFFFFF' : grey[50],
+    background: filledIn ? 'linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(53,53,53,0.9) 100%)' : '#F1EEEE',
+    color: filledIn ? '#FFFFFF' : grey[0],
     transition: 'background 600ms ease-in-out',
   },
   '&:not(:hover)': {
