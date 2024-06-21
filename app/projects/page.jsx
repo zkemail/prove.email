@@ -136,7 +136,8 @@ const ProjectsPage = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center  space-x-1 sm:space-x-2 pt-12">
+      
+      <div className="flex items-center justify-center  space-x-0.5 sm:space-x-2 pt-12">
         <Hidden smDown>
           <SortIcon className='inline-block align-middle' />
         </Hidden>
@@ -148,14 +149,18 @@ const ProjectsPage = () => {
             color="primary"
             onClick={() => toggleSelection(label)}
             sx={{
-              padding: { xs: '2px 5px', sm: '4px 10px', md: '5px 10px' },
-              fontSize: { xs: '7px', sm: '12px', md: '14px' },
+              padding: { xs: '3px 3px', sm: '4px 10px', md: '5px 10px' },
+              fontSize: { xs: '6px', sm: '12px', md: '14px' },
             }}
           >
             {label}
           </CustomButton>
         ))}
       </div>
+
+
+
+
 
       {/* SELECTED PROJECT SECTION */}
       <Box sx={{ display: 'flex', pt: '40px', textAlign: 'left' }}>

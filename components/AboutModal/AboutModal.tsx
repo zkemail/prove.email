@@ -48,6 +48,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
     display: 'inline-block',
     maxWidth: '500px',
     cursor: 'pointer',
+    marginRight: '10px',
     '&:hover .icon': {
       color: theme.palette.secondary.main,
       transform: 'translate(3px, -3px)',
@@ -68,13 +69,14 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
         sx={{
           position: 'absolute',
           top: 8,
-          left: 8,
+          left: 10,
           width: '100%',
           height: '100%',
-          backgroundColor: 'black',
+          backgroundColor: '#595959',
           borderRadius: '7.85px',
           zIndex: -1,
           transition: 'background-color 0.3s',
+          overflow: 'visable',
         }}
       />
       <Box
@@ -87,6 +89,8 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
           padding: { xs: '12px', sm: '20px' },
           position: 'relative',
           zIndex: 1,
+          overflow: 'hidden',
+          // marginRight: '20px'
         }}
       >
         <CardContent sx={{ padding: '33px' }}>
@@ -100,7 +104,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
             Subject: {renderText(currentEmail.subject)}
           </Typography>
           <Box mt={2}>
-            <Typography variant="body2" sx={{ width: '85%', fontSize: '15px'}}>
+            <Typography variant="body2" sx={{ fontWeight: 'light', width: '85%', fontSize: '15px'}}>
               {renderText(currentEmail.mainText)}
             </Typography>
           </Box>

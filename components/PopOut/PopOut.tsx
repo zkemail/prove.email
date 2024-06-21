@@ -110,7 +110,7 @@ const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, to
             <ExpandMoreStyledIcon className="expand-more-icon" />
           </IconButton> */}
         </Header>
-        <Box p={2} sx={{height:{xs:'140px', sm:'170px'} }}>
+        <Box p={2} sx={{height:{xs:'140px', sm:'170px'}, backgroundColor:'white' }}>
           <MainText variant="h4" sx={{ fontWeight:'medium', textAlign: "left", paddingX:'8%', paddingTop:{xs:'5px',md:'15px'}, fontSize: {xs:'18px', sm:'20px', md:'30px', lg:'40px'}}}>{mainText}</MainText>
           <DescriptionText sx={{ textAlign: "left",  paddingX:'8%', fontSize: {xs:'6px', sm:'10px', md:'12px'}}}>{descriptionText}</DescriptionText>
         </Box>

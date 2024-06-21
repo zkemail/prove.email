@@ -193,12 +193,12 @@ export default function Home() {
           You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
         </Typography>
       </div>
-      <Grid container sx={{ paddingY: '50px', paddingBottom:'70px'}} direction='row' justifyContent='space-between'>
+      <Grid container sx={{ paddingY: '50px', paddingBottom:'70px',  overflow:'visable'}} direction='row' justifyContent='space-between' >
         <Grid item xs={4} sx={{display: { xs:'none', md: 'block' }}}>
           <Typography sx={{fontSize: { sm: '15px', md: '16px', lg: '20px' } }}> {'<>'} Redact Information <br /> {'<>'} Fast Proofs <br /> {'<>'} Open Source</Typography>
         </Grid>
-        <Grid item xs={12} md={8} justifySelf="right">
-          <Box display='flex' justifyContent='end'>
+        <Grid item xs={12} md={8} justifySelf="right"  overflow='visable'>
+          <Box display='flex' justifyContent='end' overflow='visable'>
             <SlideInDiv direction="right">
               <AboutModal emails={emails} />
             </SlideInDiv>
@@ -422,51 +422,52 @@ export default function Home() {
 
 
 
-      {/* LIBRARIES ON MAIN PAGE */}
-      <div className="w-full min-h-[400px] relative z-10">
-          <div className="text-center py-10 px-[10%]">
-            <motion.div
-                  variants={fadeInAnimationVariants}
-                  initial='initial'
-                  whileInView='animate'
-                  viewport={{once: true}}
-            >
-              <Typography variant='h1' sx={{ textAlign:'center', paddingY: {xs:4, sm:8}, }}>
+{/* LIBRARIES ON MAIN PAGE */}
+<div className="w-full min-h-[400px] relative z-10 pb-24" style={{ background: 'linear-gradient(to top, #FBFBFB, #FFFFFF)' }}>
+    <div className="text-center py-10 px-[10%]">
+        <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{once: true}}
+        >
+            <Typography variant='h1' sx={{ textAlign:'center', paddingY: {xs:4, sm:8}, }}>
                 Our Libraries
-              </Typography>
-            </motion.div>
-            <div className="grid grid-cols-2 gap-2 sm:gap-6">
-              <div>
+            </Typography>
+        </motion.div>
+        <div className="grid grid-cols-2 gap-2 sm:gap-6">
+            <div>
                 <SlideInDiv direction="left">
-                  <PopOut
-                    topText="ZK Email Specific Libraries"
-                    mainText="ZKEmail Libraries"
-                    descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                    toggleName="Show Libraries"
-                    cards={PopOutZKEmailLibraryCards}
-                  />
+                    <PopOut
+                        topText="ZK Email Specific Libraries"
+                        mainText="ZKEmail Libraries"
+                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                        toggleName="Show Libraries"
+                        cards={PopOutZKEmailLibraryCards}
+                    />
                 </SlideInDiv>
-              </div>
-              <div>
-                <SlideInDiv direction="right">
-                  <PopOut
-                    topText="General ZK Libraries"
-                    mainText="ZK Libraries"
-                    descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
-                    toggleName="Show Libraries"
-                    cards={PopOutZKLibraryCards}
-                  />
-                  </SlideInDiv>
-              </div>
             </div>
-          </div>
-      </div>
+            <div>
+                <SlideInDiv direction="right">
+                    <PopOut
+                        topText="General ZK Libraries"
+                        mainText="ZK Libraries"
+                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                        toggleName="Show Libraries"
+                        cards={PopOutZKLibraryCards}
+                    />
+                </SlideInDiv>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
-      <div className="w-full py-24">
+      <div className="w-full py-10">
           <div className="text-center py-10 px-[10%]">
             <motion.div
                   variants={fadeInAnimationVariants}
@@ -475,8 +476,7 @@ export default function Home() {
                   viewport={{once: true}
             }>
               <Typography variant='h1' className="text-5xl">Upcoming & <br/>Past Talks</Typography>
-              <Typography sx={{fontSize:{xs:'12px', sm:'15px', md:'20px'}}} className="py-4">Meet the team <span className="font-bold">Aayush, Sora, Saleel, Wataru, Aditya and Elo </span> <br/>
-                at one of our upcoming talks or message us if you have any questions!</Typography>
+              <Typography sx={{fontSize:{xs:'12px', sm:'15px', md:'20px'}}} className="py-4">Meet the team at one of our upcoming talks or message us if you have any questions!</Typography>
             </motion.div>
           </div>
           <div className="h-[430px] w-full mb-10">

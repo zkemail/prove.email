@@ -119,9 +119,9 @@ export default function Hero() {
         viewport={{ once: true }}
       >
         {/* ENVELOPE MAIL STUFF */}
-        <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer" onClick={handleToggle}>
-          {/* MAIL LETTER PAPER */}
-          <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[7px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
+        <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer " onClick={handleToggle}>
+          {/* ENVELOPE MAIL PAPER */}
+          <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[5px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
             <div className='font-semibold'>
               <div className='grid grid-cols-2'>
                 <div>
@@ -133,14 +133,14 @@ export default function Hero() {
                   sx={{
                     color: '#FFBB6B',
                     fontSize: {
-                      xs: '16px',  
+                      xs: '10px',  
                       sm: '24px',
                       md: '32px',  
                     },
                   }}
                 />
               </div>
-              <p className='pt-8 pb-4'>Subject: prove any content for any email, sent or received </p>
+              <p className='pt-2 pb-2 sm:pt-8 sm:pb-4'>Subject: prove any content for any email, sent or received </p>
             </div>
             <div>
               <p>

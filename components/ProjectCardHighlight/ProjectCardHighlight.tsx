@@ -45,7 +45,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectTitle, projectDescript
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between', // Adjust to space-between for top and bottom alignment
-            border: '2px solid grey',
+            border: '1px solid grey',
             transition: 'border-color 0.3s ease, transform 0.3s ease, color 0.3s ease',
           }}
         >
