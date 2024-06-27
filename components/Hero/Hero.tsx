@@ -120,7 +120,7 @@ export default function Hero() {
               },
             }}
           >
-            Prove who sent an email <br></br> & any of it's contents.</Typography>
+            Prove who sent an email <br></br> & any of it&apos;s contents.</Typography>
         </motion.div>
         {/* <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p> */}
         <p className='pb-3 pt-3 text-sm md:text-lg'>Anonymously prove any subset of any email you sent or received. On or Offchain. </p>
