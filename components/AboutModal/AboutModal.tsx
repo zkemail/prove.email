@@ -93,18 +93,18 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
           overflow: 'hidden',
         }}
       >
-        <CardContent sx={{ padding: '33px' }}>
-          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px'}}>
+        <CardContent sx={{ padding: '33px', }}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium',  fontSize: {xs:'8px', sm: '10px', md:'15px'}}}>
             To: {renderText(currentEmail.to)}
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px'}}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium',  fontSize: {xs:'8px', sm: '10px', md:'15px'}}}>
             From: {renderText(currentEmail.from)}
           </Typography>
-          <Typography variant="body1" sx={{ fontWeight: 'medium', fontSize: '15px' }}>
+          <Typography variant="body1" sx={{ fontWeight: 'medium',  fontSize: {xs:'8px', sm: '10px', md:'15px'} }}>
             Subject: {renderText(currentEmail.subject)}
           </Typography>
           <Box mt={2}>
-            <Typography variant="body2" sx={{ fontWeight: 'light', width: '85%', fontSize: '15px'}}>
+            <Typography variant="body2" sx={{ fontWeight: 'light', width: '85%', fontSize: {xs:'8px', sm: '10px', md:'15px'}}}>
               {renderText(currentEmail.mainText)}
             </Typography>
           </Box>

@@ -48,7 +48,7 @@ const videos = [
                 sx={{
                   cursor: 'pointer',
                   position: 'relative',
-                  height: '300px', // Set a fixed height for the card
+                  height: '260px', // Set a fixed height for the card
                   overflow: 'hidden',
                   transition: 'transform 0.3s ease-in-out',
                   '&:hover .MuiCardMedia-root': {
@@ -75,7 +75,7 @@ const videos = [
                   component="img"
                   image={video.thumbnail}
                   title={video.title}
-                  sx={{ width: '100%', height:'50%', position: 'absolute', top: 0, left: 0 }}
+                  sx={{ width: '100%', height:'60%', position: 'absolute', top: 0, left: 0 }}
                   className="MuiCardMedia-root"
                 />
                 <CardContent 
@@ -89,17 +89,20 @@ const videos = [
                     background: 'black',
                   }}
                 >
-                  <Stack direction="row" alignItems='center' sx={{ paddingTop: "16px", paddingY:'12px', justifyItems:'center'}}>
-                    <FiberManualRecord sx={{ color: theme.palette.secondary.main, fontSize: '10px', position: 'relative' }} />
-                    <Typography sx={{fontSize: {xs:'10px', md:'14px'}, color:'grey',paddingLeft: {xs:'1px', sm:'3px' }}}>Talks</Typography>
-                  </Stack>
-                  <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', fontSize: {xs:'12px', sm: '14px', md: '15px', lg:'17px'} }}>
-                    {video.title}
-                  </Typography>
-                  <Grid item xs={12} sx={{ gridColumn: 'span 2' }}>
+                  <Box sx={{gridColumn: 'span 2'}}>
+                    <Stack direction="row" alignItems='center' sx={{ paddingTop: "16px", paddingY:'12px', justifyItems:'center'}}>
+                      <FiberManualRecord sx={{ color: theme.palette.secondary.main, fontSize: '10px', position: 'relative' }} />
+                      <Typography sx={{fontSize: {xs:'10px', md:'14px'}, color:'grey',paddingLeft: {xs:'1px', sm:'3px' }}}>Talks</Typography>
+                    </Stack>
+                    <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', fontSize: {xs:'12px', sm: '14px', md: '15px', lg:'17px'} }}>
+                      {video.title}
+                    </Typography>
+                  </Box>
+
+                  <Grid item xs={12} sx={{ gridColumn: 'span 2', display: 'flex', alignItems: 'flex-end' }}>
                     <Grid container sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
                       <Grid item xs={12} sm={8}>
-                        <Typography sx={{ color: 'grey', textAlign: {xs:'right', sm:'left'}, fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
+                        <Typography sx={{ color: 'grey', textAlign: { xs: 'right', sm: 'left' }, fontSize: { xs: '8px', sm: '10px', md: '12px' } }}>
                           {video.where}
                         </Typography>
                       </Grid>
@@ -134,6 +137,9 @@ const videos = [
   };
   
   export default VideoCarousel;
+
+
+
   
 
 
