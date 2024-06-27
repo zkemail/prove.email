@@ -290,7 +290,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
         position="static"
         sx={{
           backgroundColor: 'white',
-          paddingY: '13px',
+          paddingY: '15px',
           boxShadow: {
             xs: 'none', // No box shadow on small screens
             md: '0px 1px 7px rgba(0, 0, 0, 0.02)', // Box shadow on medium and larger screens
@@ -304,7 +304,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
             backgroundColor: 'white',
             boxShadow: {
               xs: 'none', // No box shadow on small screens
-              md: '0px 1px 6px rgba(0, 0, 0, 0.09)', // Box shadow on medium and larger screens
+              md: '0px 1px 5px rgba(0, 0, 0, 0.09)', // Box shadow on medium and larger screens
             },
             borderRadius: '15px',
             maxWidth: { xs:'100%', sm: '80%', md: '50%' },
@@ -315,7 +315,6 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
-              paddingY: '3px',
             }}
           >
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
@@ -352,7 +351,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
                         },
                       },
                       paddingX: { xs: '1px', md: '6px' },
-                      padding: { xs: '2px 4px', md: '6px 10px' },
+                      padding: { xs: '2px 4px', md: '8px 10px' }, //change 0 to 8px medium
                       minWidth: 'auto',
                       '&::after': {
                         content: '""',
@@ -379,7 +378,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
                 target="_blank"
                 sx={{
                   color: 'black',
-                  padding: { xs: '4px', sm: '6px', md: '8px' }, 
+                  padding: { xs: '4px', sm: '6px', md: '0px' }, 
                   '& .MuiSvgIcon-root': {
                     fontSize: { xs: '16px', sm: '20px', md: '24px' }, 
                   },

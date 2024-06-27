@@ -101,35 +101,47 @@ const SlideInDiv: React.FC<SlideInDivProps> = ({ direction, children }) => {
 const faqs = [
   {
     title: 'How do you selectively reveal content in an email ?',
-    contents: 'Cryptography is everywhere: every time you connect to a secure site...'
+    contents: 'We can hide any information or selectively reveal any text, wether that’s the sender, receiver, subject, body etc using Regex. Regex is short for regular expression, this term represents sequence of characters that forms a search pattern, commonly used for string matching within text.  It consists of a sequence of characters that define a search pattern, enabling complex searches, substitutions, and string manipulations. For example, in programming and text processing, regex can identify, extract, or replace specific text patterns, such as email addresses, dates, or phone numbers, by defining these patterns through a combination of literal characters and special symbols. In the context of zkEmail it is used to parse email headers and extract relevant information.'
   },
   {
     title: 'How can I do this anonymously',
-    contents: 'Authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy.'
+    contents: 'zkEmail leverages the principles of Zero Knowledge proofs and serverless execution within the browser to provide a verifiable yet anonymous way to confirm an emails contents and recipents . Zero Knowledge proofs allow provers to prove that they know or possess certain information without revealing the information itself to a verifer. In zkEmail, this technology is used to verify user identity and email content without exposing sensitive data to a server or other users. The serverless architecture means that all proof generation is executed entirely within the user`s browser.'
   },
   {
     title: 'Why don’t I need to trust you?',
-    contents: 'Cryptography is everywhere: every time you connect to a secure site...'
+    contents: 'The DKIM email signitures do not contain information we can use to sign other emails, all our code is open source and being audited'
   },
   {
-    title: 'How can I do this anonymously',
-    contents: 'Authenticate themselves, make confidential transactions on the blockchain, and respect and preserve user privacy.'
+    title: 'How do you verify the email contents and recipents',
+    contents: 'We use the existing DKIM Signiture, almost all emails are signed by the sending domain server using an algorithm called DKIM. It can be summarized as this rsa_sign(sha256(from:..., to:..., subject:..., <body hash>,...), private key). Every time an email is sent we can verify the sender, receiver, the subject, the body by checking if the corresponding public key of the email address applied on the DKIM signiture returns the sha256(from:..., to:..., subject:..., <body hash>,...) a hash of the from, to subject, email details which we can check by rehashing'
   },
 ];
 
 
 const emails = [
   {
-    to: "Anonymous",
-    from: "Zk <span>Email</span>",
-    subject: "email 1, <span>hidden text</span>",
-    mainText: 'For example, you can prove you have an email from <span>you@gov.com</span> without disclosing your full address.<br /> <br />Best,<br />Zk Email',
+    to: "potus@gov.com",
+    from: "<span>Email</span>@gov.com",
+    subject: "Whistle Blowing",
+    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />Zk Email',
   },
   {
-    to: "<span>Bob</span>@apple.com",
-    from: "Zk Email",
-    subject: "email 2",
-    mainText: 'For example, you can prove you have an email from <span>you@edu.com</span> without disclosing <span>your full</span> address.<br /> <br />Best,<br />Zk Email',
+    to: "<span>Bob</span>@gmail.com",
+    from: "github.com",
+    subject: "Github Contribution to X Repo",
+    mainText: 'For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
+  },
+  {
+    to: "<span>Bob</span>@gmail.com",
+    from: "Venmo.com",
+    subject: "Payment confirmation to X Person",
+    mainText: 'For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
+  },
+  {
+    to: "<span>Bob</span>@gmail.com",
+    from: "citizenships@gov.com",
+    subject: "Nationality",
+    mainText: 'For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
   },
 ];
 
@@ -210,6 +222,15 @@ export default function Home() {
 
 
 
+{/* TEST ENVELOPE BLUR
+<div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="relative w-80 h-48 bg-white rounded-lg shadow">
+        <div className="absolute inset-0 bg-white" style={{ clipPath: 'polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%)' }}></div>
+      </div>
+  </div> */}
+
+
+
 
 
 {/* HOW WE DO THIS */}
@@ -236,18 +257,18 @@ export default function Home() {
       </motion.div>
 
       <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
-        We leverage what emails already do... <br />but using regex & zero knowledge
+        We leverage what emails already do... <br />but using Regex & Zero Knowledge
       </Typography>
     </Box>
     <Grid container spacing={2} sx={{ padding: '20px' }}>
       <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
+        <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails ' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
       </Grid>
       <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='Regex (Hasing & Regex)' description='Part of your current emails' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
+        <CustomCardAbout title='Regex (Hashing & Regex)' description='Checks if a text contains a string' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
       </Grid>
       <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='Zero Knowledge Circuits' description='Part of your current emails' url='/' />
+        <CustomCardAbout title='Zero Knowledge Circuits' description='Prove DKIM & Regex calculations are correct, without revealing extra info' url='/' />
       </Grid>
     </Grid>
   </Box>
@@ -256,7 +277,7 @@ export default function Home() {
     height: '0',
     borderLeft: '45vw solid transparent',
     borderRight: '45vw solid transparent',
-    borderTop: '50px solid black',
+    borderTop: '100px solid black',
     margin: '0 auto',
     transform: 'translateY(-1px)'
   }}></div>
@@ -441,7 +462,7 @@ export default function Home() {
                     <PopOut
                         topText="ZK Email Specific Libraries"
                         mainText="ZKEmail Libraries"
-                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits"
                         toggleName="Show Libraries"
                         cards={PopOutZKEmailLibraryCards}
                     />
@@ -452,7 +473,7 @@ export default function Home() {
                     <PopOut
                         topText="General ZK Libraries"
                         mainText="ZK Libraries"
-                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits."
+                        descriptionText="While developing  ZK Email we built these libraries for general use, that can be applied outside of the ZK Email ecosystem"
                         toggleName="Show Libraries"
                         cards={PopOutZKLibraryCards}
                     />
@@ -488,3 +509,5 @@ export default function Home() {
     </main>
   );
 }
+
+

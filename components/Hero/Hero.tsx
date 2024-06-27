@@ -2,27 +2,41 @@
 import CustomButton from '../CustomButton/CustomButton';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
-import rectangleEnvelope from '../../public/rectangleEnvelope.svg';   //LAST rectangle
-
-import triangleEnvelope from '../../public/triangleEnvelope.svg';   
-import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 import { useState, useEffect } from 'react';
+import localFont from 'next/font/local';
 
-// grey scale
+// for animations
+import { animate, motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+// for envelope svgs that will get stacked on each other
+import rectangleEnvelope from '../../public/rectangleEnvelope.svg';  
+import triangleEnvelope from '../../public/triangleEnvelope.svg';  
+import LabelImportantIcon from '@mui/icons-material/LabelImportant';
+import EnvelopeBlurEffect from '../../public/EnvelopeBlurEffect.svg'
+
+// grey scale backgrounds with the blocks
 import rectangle1 from '../.././public/rectangle1.svg'
 import rectangle2 from '../.././public/rectangle2.svg'
 import rectangle3 from '../.././public/rectangle3.svg'
 
-// colored
+// colored scale backgrounds with the blocks
 import heroBackground1 from '../.././public/heroBackground1.svg'
 import heroBackground2 from '../.././public/heroBackground2.svg'
 import heroBackground3 from '../.././public/heroBackground3.svg'
+import { Rectangle } from '@mui/icons-material';
 
+// array for different backgrouns to flip bettween  
 const backgrounds = [rectangle1, rectangle2, rectangle3];
 // const backgrounds = [heroBackground1, heroBackground2, heroBackground3];
 
-import { animate, motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+
+// Import the local Berkeley Old Style font
+const berkeleyOldStyle = localFont({
+  src: '../.././font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley',
+});
+
 
 // Define Fade-in animation variants
 const fadeInAnimationVariants = {
@@ -87,22 +101,33 @@ export default function Hero() {
         >
           <Typography variant='h1'
             sx={{
+              fontFamily: berkeleyOldStyle.style.fontFamily,
               lineHeight: '90%',
+              paddingTop: {xs:'10px', sm:'30px'},
+              // fontSize: {
+              //   xs: '3rem',  // font size for extra small screens
+              //   sm: '3.5rem',    // font size for small screens
+              //   md: '3.5rem',  // font size for medium screens
+              //   lg: '9rem',    // font size for large screens
+              //   xl: '9rem',  // font size for extra large screens
+              // },
               fontSize: {
-                xs: '3rem',  // font size for extra small screens
-                sm: '3.5rem',    // font size for small screens
-                md: '3.5rem',  // font size for medium screens
-                lg: '9rem',    // font size for large screens
-                xl: '9rem',  // font size for extra large screens
+                xs: '2.3rem',  // font size for extra small screens
+                sm: '2.5rem',    // font size for small screens
+                md: '3rem',  // font size for medium screens
+                lg: '4.5rem',    // font size for large screens
+                xl: '5rem',  // font size for extra large screens
               },
             }}
           >
-            ZK Email</Typography>
+            Prove who sent an email <br></br> & any of it's contents.</Typography>
         </motion.div>
-        <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p>
+        {/* <p className='pb-3'>Prove who sent an email & any of its contents. Anonymously. On or Offchain.</p> */}
+        <p className='pb-3 pt-3 text-sm md:text-lg'>Anonymously prove any subset of any email you sent or received. On or Offchain. </p>
+        
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-            <CustomButton buttonLabel="Docs" filledIn={true} url='https://zkemail.gitbook.io/zk-email'>
+            <CustomButton buttonLabel="Docs" filledIn={true} target='_blank' url='https://zkemail.gitbook.io/zk-email'>
               material ui button
             </CustomButton>
             <CustomButton buttonLabel="Projects" filledIn={false} url='/projects'>
@@ -121,11 +146,11 @@ export default function Hero() {
         {/* ENVELOPE MAIL STUFF */}
         <div className="relative w-fit flex justify-center mx-auto mt-16 cursor-pointer " onClick={handleToggle}>
           {/* ENVELOPE MAIL PAPER */}
-          <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[5px] sm:text-[12px] md:text-[15px]" style={{ zIndex: 1 }}>
+          <div className="absolute inset-0 rounded-lg bg-white w-3/4 mx-auto p-3 sm:p-16 sm:p-20 text-left text-[5px] sm:text-[10px] md:text-[13px] lg:text-[15px]" style={{ zIndex: 1 }}>
             <div className='font-semibold'>
               <div className='grid grid-cols-2'>
                 <div>
-                  <p>From: zkEmail.com</p>
+                  <p>From: zkEmail</p>
                   <p>To: Developers</p>
                 </div>
                 <LabelImportantIcon
@@ -165,7 +190,7 @@ export default function Hero() {
             />
           </Box>
           {/* RECTANGULAR ENVELOPE */}
-          <Box className={`translate-y-[30px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'inset(-50% 0 0 0)' }}>
+          <Box className={`translate-y-[30px] transition-transform duration-500 ${isEmailOpen ? 'transform translate-y-[355px]' : ''}`} sx={{ zIndex: 1, clipPath: 'M 10 90 Q 0 90 0 80 L 0 10 Q 0 0 10 0 L 90 0 Q 100 0 100 10 L 100 80 Q 100 90 90 90 Z M 10 10 L 50 50 L 90 10 Z'}}>
             <Image
               src={rectangleEnvelope}
               alt='Rectangle Envelope'

@@ -1,6 +1,7 @@
 'use client';
 import { createTheme } from '@mui/material/styles';
 import { Roboto, Space_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local'
 
 // Import the Roboto font
 const roboto = Roboto({
@@ -13,6 +14,12 @@ const roboto = Roboto({
 const spaceGrotesk = Space_Grotesk({
   weight: ['400', '500', '700'],
   subsets: ['latin'],
+});
+
+// Import the local font
+const berkeleyOldStyle = localFont({
+  src: '.././font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley'
 });
 
 // Define breakpoints
@@ -109,6 +116,7 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
     typography: {
       fontFamily: spaceGrotesk.style.fontFamily,
       h1: {
+        // fontFamily: berkeleyOldStyle.style.fontFamily, // Use Berkeley Old Style for h1
         fontSize: '1.9rem', // Default font size for the smallest screens (xs)
         letterSpacing: -2,
         [`@media (min-width:${breakpoints.values.sm}px)`]: {

@@ -51,7 +51,7 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
     marginRight: '10px',
     '&:hover .icon': {
       color: theme.palette.secondary.main,
-      transform: 'translate(3px, -3px)',
+      transform: 'translate(2px, -2px)',
     },
     '&:hover .bg-box': {
       backgroundColor: theme.palette.secondary.main,
@@ -84,13 +84,13 @@ const AboutModal: React.FC<AboutModalProps> = ({ emails }) => {
           backgroundColor: 'white',
           borderColor: '#DCDBDB',
           borderWidth: 1,
+          marginBottom: '5px',
           borderRadius: '7.85px',
           boxShadow: 3,
           padding: { xs: '12px', sm: '20px' },
           position: 'relative',
           zIndex: 1,
           overflow: 'hidden',
-          // marginRight: '20px'
         }}
       >
         <CardContent sx={{ padding: '33px' }}>
