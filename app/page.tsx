@@ -98,6 +98,8 @@ const SlideInDiv: React.FC<SlideInDivProps> = ({ direction, children }) => {
   );
 };
 
+
+
 const faqs = [
   {
     title: 'How do you selectively reveal content in an email ?',
@@ -118,32 +120,36 @@ const faqs = [
 ];
 
 
+
+//emails for email modal
 const emails = [
   {
     to: "potus@gov.com",
     from: "<span>Email</span>@gov.com",
     subject: "Whistle Blowing",
-    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />Zk Email',
+    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />zk Email',
   },
   {
     to: "<span>Bob</span>@gmail.com",
     from: "github.com",
     subject: "Github Contribution to X Repo",
-    mainText: 'For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
+    mainText: 'For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address <br /> <br /><br />Github.com',
   },
   {
     to: "<span>Bob</span>@gmail.com",
     from: "Venmo.com",
     subject: "Payment confirmation to X Person",
-    mainText: 'For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
+    mainText: 'For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address <br /> <br /> <br />Venmo.com',
   },
   {
     to: "<span>Bob</span>@gmail.com",
     from: "citizenships@gov.com",
     subject: "Nationality",
-    mainText: 'For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address <br /> <br />Best,<br />Zk Email',
+    mainText: 'For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address <br /> <br />regards<br />Citizenships@gov.com',
   },
 ];
+
+
 
 
 const PopOutZKLibraryCards = [
@@ -156,7 +162,7 @@ const PopOutZKLibraryCards = [
 ];
 
 let PopOutZKEmailLibraryCards = [
-  { label: "ZK-Email", url: "https://github.com/zkemail/zk-email-verify" },
+  { label: "zkEmail", url: "https://github.com/zkemail/zk-email-verify" },
   { label: "ZK Regex UI Tools", url: "https://tool.zkregex.com/" },
   { label: "DKIM Archive", url: "https://github.com/zkemail/dkim-registry" },
   { label: "ZK JWTs", url: "https://github.com/zkemail/zk-jwt" },
@@ -199,7 +205,7 @@ export default function Home() {
             whileInView='animate'
             viewport={{once: true}}
         >
-          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With ZK Email</Typography>
+          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With zk Email</Typography>
         </motion.div>
         <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
           You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
@@ -207,7 +213,7 @@ export default function Home() {
       </div>
       <Grid container sx={{ paddingY: '50px', paddingBottom:'70px',  overflow:'visable'}} direction='row' justifyContent='space-between' >
         <Grid item xs={4} sx={{display: { xs:'none', md: 'block' }}}>
-          <Typography sx={{fontSize: { sm: '15px', md: '16px', lg: '20px' } }}> {'<>'} Redact Information <br /> {'<>'} Fast Proofs <br /> {'<>'} Open Source</Typography>
+          {/* <Typography sx={{fontSize: { sm: '15px', md: '16px', lg: '20px' } }}> {'<>'} Redact Information <br /> {'<>'} Fast Proofs <br /> {'<>'} Open Source</Typography> */}
         </Grid>
         <Grid item xs={12} md={8} justifySelf="right"  overflow='visable'>
           <Box display='flex' justifyContent='end' overflow='visable'>
@@ -292,47 +298,6 @@ export default function Home() {
 
 
 
-
-
-      {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className='pl-[10%] py-[100px] z-50 bg-white w-full'>
-        <div className='min-h-[200px]'>
-          <div className='relative '>
-            <motion.div
-              variants={fadeInAnimationVariants}
-              initial='initial'
-              whileInView='animate'
-              viewport={{once: true}}
-            >
-              <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
-                Frequently Asked Questions
-              </Typography>            
-            </motion.div>
-          </div>
-
-          <Grid container>
-              <Grid item xs={12} sm={4}>
-                <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px'}}}>
-                    Have a Question that isn’t answered?<br></br> Reach out!
-                </Typography>
-                <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
-                  <CustomButton buttonLabel="Drop Us a Line" filledIn={true} target='true' url='https://t.me/zkemail'/>
-                </Stack>
-              </Grid>
-              <SlideInDiv direction="right">
-              <Grid item xs={12} sm={10} className="relative col-span-2 py-[30px] w-[100%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
-                {faqs.map((faq, index) => (
-                  <Accordion key={index} title={faq.title} contents={faq.contents} />
-                ))}
-              </Grid>
-            </SlideInDiv>
-          </Grid>
-        </div>
-      </div>
-
-
-
-
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
@@ -343,7 +308,7 @@ export default function Home() {
                 viewport={{once: true}}
           >
             <Typography variant='h1' sx={{ textAlign:'center', paddingBottom: {xs:4, sm:10}, }}>
-              Projects Using ZK Email
+              Projects Using zk Email
             </Typography>
           </motion.div>
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
@@ -366,14 +331,15 @@ export default function Home() {
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center',
-                textDecoration: 'none',
+                textDecoration:'underline',
+                textDecorationColor:theme.palette.secondary.main,
                 '&:hover .arrowIcon': {
                   color: theme.palette.secondary.main,
-                  transform: 'translateX(5px)'
+                  transform: 'translateX(5px)',
                 },
                 '&:hover': {
-                  textDecoration:'underline',
-                  textDecorationColor:theme.palette.secondary.main,
+                  // textDecoration:'underline',
+                  // textDecorationColor:theme.palette.secondary.main,
                 }
               }}
               component='a' 
@@ -460,9 +426,9 @@ export default function Home() {
             <div>
                 <SlideInDiv direction="left">
                     <PopOut
-                        topText="ZK Email Specific Libraries"
+                        topText="ZKEmail Specific Libraries"
                         mainText="ZKEmail Libraries"
-                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits"
+                        descriptionText="We have several repos within the zkEmail ecosystem. Developers can use these to build their own custom email verification circuits"
                         toggleName="Show Libraries"
                         cards={PopOutZKEmailLibraryCards}
                     />
@@ -473,7 +439,7 @@ export default function Home() {
                     <PopOut
                         topText="General ZK Libraries"
                         mainText="ZK Libraries"
-                        descriptionText="While developing  ZK Email we built these libraries for general use, that can be applied outside of the ZK Email ecosystem"
+                        descriptionText="While developing  zk Email we built these libraries for general use, that can be applied outside of the zk Email ecosystem"
                         toggleName="Show Libraries"
                         cards={PopOutZKLibraryCards}
                     />
@@ -482,6 +448,42 @@ export default function Home() {
         </div>
     </div>
 </div>
+
+      {/* FAQ ACCORDION ON MAIN PAGE */}
+      <div className='pl-[10%] py-[100px] z-50 bg-white w-full'>
+        <div className='min-h-[200px]'>
+          <div className='relative '>
+            <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+            >
+              <Typography paddingY='20px' variant='h1' sx={{textAlign:'left'}}>
+                Frequently Asked Questions
+              </Typography>            
+            </motion.div>
+          </div>
+
+          <Grid container>
+              <Grid item xs={12} sm={4}>
+                <Typography variant='h5' paddingTop="10px" sx={{fontSize:{xs:'12px', md:'15px'}}}>
+                    Have a Question that isn’t answered?<br></br> Reach out!
+                </Typography>
+                <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
+                  <CustomButton buttonLabel="Drop Us a Line" filledIn={true} target='true' url='https://t.me/zkemail'/>
+                </Stack>
+              </Grid>
+              <SlideInDiv direction="right">
+              <Grid item xs={12} sm={10} className="relative col-span-2 py-[30px] w-[100%]" style={{ width: '100%', margin: '0 auto', zIndex:'100' }}>
+                {faqs.map((faq, index) => (
+                  <Accordion key={index} title={faq.title} contents={faq.contents} />
+                ))}
+              </Grid>
+            </SlideInDiv>
+          </Grid>
+        </div>
+      </div>
 
 
 

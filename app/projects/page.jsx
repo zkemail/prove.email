@@ -126,7 +126,7 @@ const ProjectsPage = () => {
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries.
             This repository contains both our own projects and community projects using our libraries.
           </Typography>
-          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[30px]">
+          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[20px]">
             <CustomInputBase
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
@@ -137,7 +137,7 @@ const ProjectsPage = () => {
         </div>
       </div>
       
-      <div className="flex items-center justify-center  space-x-0.5 sm:space-x-2 pt-12">
+      <div className="flex items-center justify-center  space-x-0.5 sm:space-x-2 pt-10">
         <Hidden smDown>
           <SortIcon className='inline-block align-middle' />
         </Hidden>

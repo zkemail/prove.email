@@ -58,7 +58,7 @@ const Accordion: FC<AccordionProps> = ({ title, contents }) => {
         <Typography color="black" fontWeight="500" sx={{fontSize: {xs:"12px", sm:"15px", md:"19px"} }}>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography sx={{fontSize: {xs:'11px'}}}>{contents}</Typography>
+        <Typography sx={{ paddingLeft: '30px', color: '#666363',fontSize: {xs:'11px', sm:'14px', md:'16px'}}}>{contents}</Typography>
       </AccordionDetails>
     </CustomAccordion>
   );

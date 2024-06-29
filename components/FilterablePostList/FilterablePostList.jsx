@@ -81,7 +81,7 @@ const FilterablePostList = ({ initialPosts }) => {
             <Typography variant='h1' sx={{ fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
           </motion.div>
         </div>
-        <div className="absolute left-1/2 top-[560px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
+        <div className="absolute left-1/2 top-[545px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className='w-[50%]'>
               <CustomInputBase
