@@ -60,7 +60,7 @@ export default function FullScreenDialog({ open, onClose, pages }: FullScreenDia
         </Toolbar>
       </AppBar>
 
-      <Grid container direction="column" spacing={1} sx={{ padding: '2%' }} >
+      <Grid container direction="column" spacing={1} sx={{ padding: '1.5%', paddingTop: '40px' }} >
         {pages.map((page) => (
           <Grid item key={page.label}>
             <Typography
@@ -109,8 +109,8 @@ export default function FullScreenDialog({ open, onClose, pages }: FullScreenDia
       <Box
         sx={{
           position: 'absolute',
-          bottom: 16,
-          right: 16,
+          bottom: 60,
+          right: {xs:50, md:70, lg: 100},
           display: 'flex',
           gap: 2,
         }}

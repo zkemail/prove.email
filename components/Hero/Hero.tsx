@@ -204,7 +204,6 @@
 //   );
 // }
 
-
 'use client';
 import CustomButton from '../CustomButton/CustomButton';
 import Image from 'next/image';
@@ -240,7 +239,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
