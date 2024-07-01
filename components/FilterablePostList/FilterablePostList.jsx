@@ -10,8 +10,14 @@ import blogBackground1 from '../../public/blogBackground1.svg'
 import blogBackground2 from '../../public/blogBackground2.svg'
 import blogBackground3 from '../../public/blogBackground3.svg'
 import { motion } from 'framer-motion';
+import localFont from 'next/font/local';
 
 const backgrounds = [blogBackground1, blogBackground2, blogBackground3];
+
+const berkeleyOldStyle = localFont({
+  src: '../.././font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley',
+});
 
 // Define Fade-in animation variants
 const fadeInAnimationVariants = {
@@ -78,7 +84,7 @@ const FilterablePostList = ({ initialPosts }) => {
             whileInView='animate'
             viewport={{ once: true }}
           >
-            <Typography variant='h1' sx={{ fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
+            <Typography variant='h1' sx={{  fontFamily: berkeleyOldStyle.style.fontFamily, fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
           </motion.div>
         </div>
         <div className="absolute left-1/2 top-[545px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
@@ -125,7 +131,7 @@ const FilterablePostList = ({ initialPosts }) => {
         <div className="overflow-hidden relative w-full">
           <div className="">
             {filteredPosts.map((post) => (
-              <Link href={`/posts/${post.slug}`} key={post.title}>
+              <Link href={`/blog/${post.slug}`} key={post.title}>
                 <div className="grid grid-cols-4 mb-4 group">
                   <div className="w-full h-[150px] bg-white border-2 grid grid-cols-2 p-6 col-span-4  group-hover:bg-black">
                     <p className="text-xs py-2 group-hover:text-white">{new Date(post.date).toISOString().split('T')[0]}</p>

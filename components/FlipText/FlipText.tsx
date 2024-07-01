@@ -3,12 +3,18 @@ import { Box, Typography } from '@mui/material';
 import { FlipTextProps } from '../../types';
 import pixelSectionBackground1 from '../.././public/pixelSectionBackground1.svg'
 import pixelSectionBackground2 from '../.././public/pixelSectionBackground2.svg'
+import localFont from 'next/font/local';
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const backgrounds = [pixelSectionBackground1, pixelSectionBackground2];
 
+
+const berkeleyOldStyle = localFont({
+  src: '../../font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley',
+});
 
 // Define Fade-in animation variants
 const fadeInAnimationVariants = {
@@ -75,13 +81,17 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
         <Typography
           variant="h2"
           sx={{
+            fontFamily: berkeleyOldStyle.style.fontFamily,
             fontSize: { xs: '25px', sm: '30px', md: '50px' },
             fontWeight: 'regular',
             color: 'white',
           }}
         >
           Serverless, Anonymous <br></br>
-          {texts[index]}
+          <span className='font-bold'>
+             {texts[index]}
+          </span>
+         
         </Typography>
       </motion.div>
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>

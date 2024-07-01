@@ -5,15 +5,14 @@ import {
   AccordionDetails,
   Typography,
   styled,
-  Box,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Padding } from '@mui/icons-material';
 
 // Define the props types
 interface AccordionProps {
   title: string;
   contents: string;
+  alignment?: 'left' | 'right';
 }
 
 const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
@@ -21,23 +20,24 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   '&:before': {
     display: 'none',
   },
-  background:'white',
+  background: 'white',
   boxShadow: 'none',
   borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
   '& .MuiAccordionSummary-root': {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     '&:hover .MuiAccordionSummary-expandIconWrapper': {
-      color:  theme.palette.secondary.main,
+      color: theme.palette.secondary.main,
     },
   },
   '& .MuiAccordionSummary-content': {
     margin: 0,
     display: 'flex',
     alignItems: 'center',
+    width: '100%',
   },
   '& .MuiAccordionSummary-expandIconWrapper': {
-    order: -1,
     marginRight: theme.spacing(1),
+    transition: 'transform 0.2s',
   },
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(180deg)',
@@ -47,18 +47,48 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   },
 }));
 
-const Accordion: FC<AccordionProps> = ({ title, contents }) => {
+const Accordion: FC<AccordionProps> = ({ title, contents, alignment = 'left' }) => {
   return (
     <CustomAccordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel-content"
         id="panel-header"
+        sx={{
+          flexDirection: alignment === 'right' ? 'row-reverse' : 'row',
+          justifyContent: alignment === 'right' ? 'space-between' : 'flex-start',
+          '& .MuiAccordionSummary-expandIconWrapper': {
+            order: alignment === 'right' ? 2 : 1,
+            marginRight: alignment === 'right' ? 0 : 1,
+            marginLeft: alignment === 'right' ? 1 : 0,
+          },
+          width: '100%',
+        }}
       >
-        <Typography color="black" fontWeight="500" sx={{fontSize: {xs:"12px", sm:"15px", md:"19px"} }}>{title}</Typography>
+        <Typography
+          color="black"
+          fontWeight="500"
+          sx={{
+            fontSize: { xs: '12px', sm: '15px', md: '19px' },
+            textAlign: alignment === 'right' ? 'right' : 'left',
+            flexGrow: 1,
+          }}
+        >
+          {title}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography sx={{ paddingLeft: '30px', color: '#666363',fontSize: {xs:'11px', sm:'14px', md:'16px'}}}>{contents}</Typography>
+        <Typography
+          sx={{
+            paddingLeft: alignment === 'right' ? '0px' : '30px',
+            paddingRight: alignment === 'right' ? '30px' : '0px',
+            color: '#666363',
+            fontSize: { xs: '11px', sm: '14px', md: '16px' },
+            textAlign: alignment === 'right' ? 'right' : 'left',
+          }}
+        >
+          {contents}
+        </Typography>
       </AccordionDetails>
     </CustomAccordion>
   );

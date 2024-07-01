@@ -286,21 +286,21 @@ export default function Hero() {
             variant='h1'
             sx={{
               fontFamily: berkeleyOldStyle.style.fontFamily,
-              lineHeight: '90%',
-              paddingTop: { xs: '10px', sm: '30px' },
+              lineHeight: '105%',
+              paddingTop: { xs: '10px', sm: '30px', md: '50px'},
               fontSize: {
                 xs: '2.3rem',
                 sm: '2.5rem',
                 md: '3rem',
                 lg: '4.5rem',
-                xl: '5rem',
+                xl: '4.5rem',
               },
             }}
           >
             Prove who sent an email <br /> & any of it&apos;s contents.
           </Typography>
         </motion.div>
-        <p className='pb-3 pt-3 text-sm md:text-lg'>Anonymously prove any subset of any email you sent or received. On or Offchain. </p>
+        <p className='pb-3 pt-3 sm:pt-4 md:pt-6 lg:pt-7 text-sm md:text-[20px] text-[#828282] leading-[140%]'>Anonymously prove any subset of any email <br></br>you sent or received. On or Offchain. </p>
         <div className='content-center items-center flex justify-center'>
           <Stack spacing={2} direction='row' sx={{ paddingTop: '16px' }}>
             <CustomButton buttonLabel='Docs' filledIn={true} target='_blank' url='https://zkemail.gitbook.io/zk-email'>

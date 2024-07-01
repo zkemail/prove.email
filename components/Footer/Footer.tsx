@@ -15,6 +15,12 @@ import Link from 'next/link';
 import DiscordIcon from '../DiscordIcon/DiscordIcon'; // Import the DiscordIcon component
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
+import localFont from 'next/font/local';
+
+const berkeleyOldStyle = localFont({
+  src: '../../font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley',
+});
 
 const Footer = () => {
   const theme = useTheme();
@@ -82,8 +88,8 @@ const Footer = () => {
           {/* FOOTER TAGLINE */}
           <Grid container spacing={2}>
             <Grid item xs={3} sm={4} justifyContent="flex-start">
-              <Typography color="white" textAlign="left" sx={{fontSize:{xs:"10px", sm:"15px", md:"20px"}}}>
-                transfer truth with the freedom of privacy
+              <Typography color="white" textAlign="left" sx={{fontFamily: berkeleyOldStyle.style.fontFamily, fontSize:{xs:"10px", sm:"15px", md:"20px"}}}>
+                ZK Email transfers <span className='italic font-bold'>truth</span> with the freedom of <span className='italic font-bold'>privacy</span>
               </Typography>
             </Grid>
 
@@ -91,10 +97,10 @@ const Footer = () => {
             <Grid item xs={9} sm={8} justifyContent="flex-end">
               <Grid container spacing={6} justifyContent="flex-end">
                 <Grid item>
-                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center" sx={{fontSize:{xs:'10px', md:'14px'}}}>
+                  <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="left" sx={{fontSize:{xs:'10px', md:'14px'}}}>
                     DEVELOPERS
                   </Typography>
-                  <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">
+                  <Grid container direction="column" spacing={1} textAlign="left" color="text.secondary">
                     <Grid item>
                       <Link href="https://zkemail.gitbook.io/zk-email" color="inherit" target="_blank">
                         <Typography 
@@ -162,7 +168,7 @@ const Footer = () => {
                   <Typography variant="h6" component="h3" color="white" fontWeight="bold" pb={2} textAlign="center" sx={{fontSize:{xs:'10px', md:'14px'}}}>
                     COMMUNITY
                   </Typography>
-                  <Grid container direction="column" spacing={1} textAlign="center" color="text.secondary">
+                  <Grid container direction="column" spacing={1} textAlign="left" color="text.secondary">
                     <Grid item>
                       <Link href="/blog" target="_blank" color="inherit" >
                         <Typography 
@@ -258,7 +264,7 @@ const Footer = () => {
 
                 {/* FOOTER SOCIAL ICONS  */}
                 <Grid item>
-                  <Grid container justifyContent="center" spacing={2}>
+                  <Grid container justifyContent="left" spacing={2}>
                     <Grid item>
                       <IconLink target={false} href="https://twitter.com/zkemail?lang=en" IconComponent={XIcon} />
                     </Grid>

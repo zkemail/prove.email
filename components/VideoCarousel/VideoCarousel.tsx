@@ -315,10 +315,10 @@ const videos = [
   { title: "ZK Email: Email Wallet and Identity Attestations", where: "Proof Singularity Denver", url: "https://www.youtube.com/embed/GEWuGtsjATw?si=ApokIEW2h8KYYAYO", date: "2024/03/15", thumbnail: "https://img.youtube.com/vi/GEWuGtsjATw/0.jpg" },
   { title: "ZK Email: Email Wallets and Provenant Identity", where: "PROGCRYPTO", url: "https://www.youtube.com/embed/qUYBja0glio?si=MuVP2sgVo9y7egLd", date: "2024/01/26", thumbnail: "https://img.youtube.com/vi/qUYBja0glio/0.jpg" },
   { title: "Ethcon Korea ZK Email Mention", where: "Ethcon Korea", url: "https://www.youtube.com/embed/gsrtxq0xYxs?si=twKpt5bfFzmZVi21&amp;start=939", date: "2023/11/15", thumbnail: "https://img.youtube.com/vi/gsrtxq0xYxs/0.jpg" },
-  { title: "Universal Recovery: A Social Recovery Solution Utilizes ZK-Email", where: "Clave", url: "https://www.youtube.com/embed/iMAaHEYyuxA?si=aUdeSJ60Dv57TjQI", date: "2023/01/26", thumbnail: "https://img.youtube.com/vi/iMAaHEYyuxA/0.jpg" },
+  { title: "Universal Recovery: A Social Recovery Solution Utilizes ZK Email", where: "Clave", url: "https://www.youtube.com/embed/iMAaHEYyuxA?si=aUdeSJ60Dv57TjQI", date: "2023/01/26", thumbnail: "https://img.youtube.com/vi/iMAaHEYyuxA/0.jpg" },
   { title: "ZK for web2 interop with zkLogin & ZK Email", where: "ZK Podcast", url: "https://www.youtube.com/embed/vFYUWRks7Kg?si=CDU7Ks4Bq5WgngAN", date: "2023/12/06", thumbnail: "https://img.youtube.com/vi/vFYUWRks7Kg/0.jpg" },
   { title: "Zuconnect 2023 ZK Day: ZK Email", where: "Zuconnect", url: "https://www.youtube.com/embed/3jCKdxQ9Pfw?si=Q4jVStBCmntXnOfO", date: "2023/12/03", thumbnail: "https://img.youtube.com/vi/3jCKdxQ9Pfw/0.jpg" },  
-  { title: "zkemail: Decentralized ID Verification on Chain Without Servers", where: "Devcon", url: "https://www.youtube.com/embed/sPCHiUT3TmA?si=TiNLxkoj9n-0NbDl", date: "2022/11/16",
+  { title: "ZK Email: Decentralized ID Verification on Chain Without Servers", where: "Devcon", url: "https://www.youtube.com/embed/sPCHiUT3TmA?si=TiNLxkoj9n-0NbDl", date: "2022/11/16",
     thumbnail: "https://img.youtube.com/vi/sPCHiUT3TmA/0.jpg" },
   ];
   

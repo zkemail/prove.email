@@ -13,6 +13,12 @@ import { useTheme } from '@mui/material/styles';
 import ZKEIcon from '../ZKEIcon/ZKEIcon';
 import dynamic from 'next/dynamic';
 
+
+//dark mode light mode icons
+import LightModeIcon from '@mui/icons-material/LightMode'; 
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+
+
 const FullScreenMenuDialog = dynamic(() => import('../OverlayMenu/OverlayMenu'), { ssr: false });
 
 interface Page {
@@ -50,7 +56,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
         position="static"
         sx={{
           backgroundColor: 'white',
-          paddingY: '15px',
+          paddingY: '20px',
           boxShadow: {
             xs: 'none', // No box shadow on small screens
             md: '0px 1px 7px rgba(0, 0, 0, 0.02)', // Box shadow on medium and larger screens

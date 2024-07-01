@@ -14,8 +14,12 @@ import IconLink from '@/components/IconLink/IconLink';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
 
+
+
 import CustomGitHubIcon from '../../public/CustomGithubIcon';
 import CustomXIcon from '../../public/CustomXIcon';
+
+import localFont from 'next/font/local';
 
 import sectionBackground from '@/public/sectionBackground.svg';
 
@@ -30,6 +34,11 @@ const backgrounds = [projectBackground1, projectBackground2, projectBackground3]
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
+const berkeleyOldStyle = localFont({
+  src: '../.././font/BerkeleyOldStyle.ttf',
+  variable: '--berkeley',
+});
 
 const fadeInAnimationVariants = {
   initial: {
@@ -106,14 +115,18 @@ const ProjectsPage = () => {
           style={{
             backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center, center', backgroundSize: 'cover, contain', backgroundRepeat: 'no-repeat, no-repeat'
           }}>
-          <Typography sx={{ color: 'white', fontsize: { xs: '7px', md: '10px' } }}>ZKEmail supports</Typography>
+          {/* <Typography sx={{ color: 'white', fontSize: { xs: '10px', sm:'15px', md: '16px' } }}>ZKEmail supports</Typography> */}
           <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'
             whileInView='animate'
             viewport={{ once: true }}
           >
-            <Typography variant='h1' sx={{ paddingBottom: '20px', color: 'white' }} >Projects using our ZK Libraries</Typography>
+            <Typography variant='h1' 
+              sx={{fontFamily: berkeleyOldStyle.style.fontFamily, paddingBottom: '20px', color: 'white', fontSize:{xs:'30px', sm:'40px',  md:'50px', lg:'60px'} }} 
+            >
+                Projects using our ZK Libraries
+            </Typography>
           </motion.div>
           <Typography
             sx={{

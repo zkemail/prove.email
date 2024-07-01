@@ -103,11 +103,11 @@ const SlideInDiv: React.FC<SlideInDivProps> = ({ direction, children }) => {
 const faqs = [
   {
     title: 'How do you selectively reveal content in an email ?',
-    contents: 'We can hide any information or selectively reveal any text, wether that’s the sender, receiver, subject, body etc using Regex. Regex is short for regular expression, this term represents sequence of characters that forms a search pattern, commonly used for string matching within text.  It consists of a sequence of characters that define a search pattern, enabling complex searches, substitutions, and string manipulations. For example, in programming and text processing, regex can identify, extract, or replace specific text patterns, such as email addresses, dates, or phone numbers, by defining these patterns through a combination of literal characters and special symbols. In the context of zkEmail it is used to parse email headers and extract relevant information.'
+    contents: 'We can hide any information or selectively reveal any text, wether that’s the sender, receiver, subject, body etc using Regex. Regex is short for regular expression, this term represents sequence of characters that forms a search pattern, commonly used for string matching within text.  It consists of a sequence of characters that define a search pattern, enabling complex searches, substitutions, and string manipulations. For example, in programming and text processing, regex can identify, extract, or replace specific text patterns, such as email addresses, dates, or phone numbers, by defining these patterns through a combination of literal characters and special symbols. In the context of ZK Email it is used to parse email headers and extract relevant information.'
   },
   {
     title: 'How can I do this anonymously',
-    contents: 'zkEmail leverages the principles of Zero Knowledge proofs and serverless execution within the browser to provide a verifiable yet anonymous way to confirm an emails contents and recipents . Zero Knowledge proofs allow provers to prove that they know or possess certain information without revealing the information itself to a verifer. In zkEmail, this technology is used to verify user identity and email content without exposing sensitive data to a server or other users. The serverless architecture means that all proof generation is executed entirely within the user`s browser.'
+    contents: 'ZK Email leverages the principles of Zero Knowledge proofs and serverless execution within the browser to provide a verifiable yet anonymous way to confirm an emails contents and recipents . Zero Knowledge proofs allow provers to prove that they know or possess certain information without revealing the information itself to a verifer. In ZK Email, this technology is used to verify user identity and email content without exposing sensitive data to a server or other users. The serverless architecture means that all proof generation is executed entirely within the user`s browser.'
   },
   {
     title: 'Why don’t I need to trust you?',
@@ -127,7 +127,7 @@ const emails = [
     to: "potus@gov.com",
     from: "<span>Email</span>@gov.com",
     subject: "Whistle Blowing",
-    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />zk Email',
+    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />ZK Email',
   },
   {
     to: "<span>Bob</span>@gmail.com",
@@ -162,7 +162,7 @@ const PopOutZKLibraryCards = [
 ];
 
 let PopOutZKEmailLibraryCards = [
-  { label: "zkEmail", url: "https://github.com/zkemail/zk-email-verify" },
+  { label: "ZK Email", url: "https://github.com/zkemail/zk-email-verify" },
   { label: "ZK Regex UI Tools", url: "https://tool.zkregex.com/" },
   { label: "DKIM Archive", url: "https://github.com/zkemail/dkim-registry" },
   { label: "ZK JWTs", url: "https://github.com/zkemail/zk-jwt" },
@@ -205,7 +205,7 @@ export default function Home() {
             whileInView='animate'
             viewport={{once: true}}
         >
-          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With zk Email</Typography>
+          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With ZK Email</Typography>
         </motion.div>
         <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
           You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
@@ -224,6 +224,7 @@ export default function Home() {
         </Grid>
       </Grid>
     </Box>
+    
 
 
 
@@ -240,6 +241,9 @@ export default function Home() {
 
 
 {/* HOW WE DO THIS */}
+
+
+
 <div className='pb-[100px] z-50 w-full' style={{ background: 'white' }}>
   <Box sx={{
     height: { xs: '830px', sm: '650px' },
@@ -298,6 +302,8 @@ export default function Home() {
 
 
 
+
+
       {/* PROJECTS USING ZK EMAIL SECTION*/}
       <div className='px-[10%] py-[6%]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
@@ -308,7 +314,7 @@ export default function Home() {
                 viewport={{once: true}}
           >
             <Typography variant='h1' sx={{ textAlign:'center', paddingBottom: {xs:4, sm:10}, }}>
-              Projects Using zk Email
+              Projects Using ZK Email
             </Typography>
           </motion.div>
         <Grid container spacing={2} direction="row" sx={{ justifyContent:'center' }}>
@@ -358,7 +364,7 @@ export default function Home() {
         </Box>
       </div>
 
-    <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+    {/* <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
       <Grid container sx={{ marginX: 'auto', py: '60px', width: '100%', justifyContent: 'space-between' }}>
         <Grid item>
           <RedactedText text="Redact Text" />
@@ -379,7 +385,7 @@ export default function Home() {
           <RedactedText text="Open Source" />
         </Grid>
       </Grid>
-    </Box>
+    </Box> */}
 
 
 
@@ -426,9 +432,9 @@ export default function Home() {
             <div>
                 <SlideInDiv direction="left">
                     <PopOut
-                        topText="ZKEmail Specific Libraries"
-                        mainText="ZKEmail Libraries"
-                        descriptionText="We have several repos within the zkEmail ecosystem. Developers can use these to build their own custom email verification circuits"
+                        topText="ZK Email Specific Libraries"
+                        mainText="ZK Email Libraries"
+                        descriptionText="We have several repos within the ZK Email ecosystem. Developers can use these to build their own custom email verification circuits"
                         toggleName="Show Libraries"
                         cards={PopOutZKEmailLibraryCards}
                     />
@@ -439,7 +445,7 @@ export default function Home() {
                     <PopOut
                         topText="General ZK Libraries"
                         mainText="ZK Libraries"
-                        descriptionText="While developing  zk Email we built these libraries for general use, that can be applied outside of the zk Email ecosystem"
+                        descriptionText="While developing  ZK Email we built these libraries for general use, that can be applied outside of the ZK Email ecosystem"
                         toggleName="Show Libraries"
                         cards={PopOutZKLibraryCards}
                     />
@@ -487,11 +493,34 @@ export default function Home() {
 
 
 
+ <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <Grid container sx={{ marginX: 'auto', py: '60px', width: '100%', justifyContent: 'space-between' }}>
+        <Grid item>
+          <RedactedText text="Redact Text" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Fast Proofs" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Open Source" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Redact Text" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Fast Proofs" />
+        </Grid>
+        <Grid item>
+          <RedactedText text="Open Source" />
+        </Grid>
+      </Grid>
+    </Box> 
 
+    
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
-      <div className="w-full py-10">
-          <div className="text-center py-10 px-[10%]">
+      <div className="w-full py-16">
+          <div className="text-center py-10 px-[12%]">
             <motion.div
                   variants={fadeInAnimationVariants}
                   initial='initial'
