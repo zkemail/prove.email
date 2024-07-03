@@ -2,8 +2,11 @@ import { Typography, Box, Button } from '@mui/material';
 import Link from 'next/link';
 import { getPostBySlug } from '../../lib/index';
 import CustomButton from '@/components/CustomButton/CustomButton';
-
+import { MDXRemote } from 'next-mdx-remote';
 import mdxComponents from '../../../mdx-components'; /// 
+import 'highlight.js/styles/github-dark.css'
+
+
 
 const getPageContent = async (slug) => {
   const { meta, content } = await getPostBySlug(slug);
@@ -31,9 +34,11 @@ const Page = async ({ params }) => {
           {meta.description}
         </Typography>
       </Box>
+
       <article className="prose lg:prose-xl">{content}</article>
-        {console.log(content +'BREAAKKKK')}
-      {/* <article className="prose lg:prose-xl">{content}</article> */}
+
+   
+      
       <Box mt={4} display="flex" justifyContent="space-between">
         {meta.before && (
           <Link href={meta.before} passHref>
