@@ -20,7 +20,7 @@
     "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.17",
     "@mui/material-nextjs": "^5.15.11",
-    "@next/mdx": "^14.2.3",
+    "@next/mdx": "^14.2.4",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/mdx": "^2.0.13",
