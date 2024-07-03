@@ -49,15 +49,15 @@ const SearchIcon = styled('svg')(({ theme }) => ({
   top: '50%',
   transform: 'translateY(-50%)',
   color: '#000000',
-  width: '20px',
-  height: '20px',
+  width: '18px',
+  height: '18px',
   [theme.breakpoints.down('md')]: {
-    width: '18px',
-    height: '18px',
+    width: '15px',
+    height: '15px',
   },
   [theme.breakpoints.down('sm')]: {
-    width: '16px',
-    height: '16px',
+    width: '12px',
+    height: '12px',
   },
 }));
 

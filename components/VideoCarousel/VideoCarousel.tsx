@@ -303,7 +303,6 @@
 // export default VideoCarousel;
 
 
-
 'use client'
 import React, { useState } from 'react';
 import { Box, Card, CardContent, CardMedia, Typography, Grid, useMediaQuery, useTheme, Stack } from '@mui/material';
@@ -411,7 +410,7 @@ const VideoCarousel = () => {
                   width: '100%',
                   height: '100%',
                   zIndex: 2,
-                  background: 'black',
+                  background: 'linear-gradient(to bottom right, #000000, #080808, #161616, #494949)',
                 }}
               >
                 <Box sx={{gridColumn: 'span 2'}}>
@@ -419,7 +418,7 @@ const VideoCarousel = () => {
                     <FiberManualRecord sx={{ color: theme.palette.secondary.main, fontSize: '10px', position: 'relative' }} />
                     <Typography sx={{fontSize: {xs:'10px', md:'14px'}, color:'grey',paddingLeft: {xs:'1px', sm:'3px' }}}>Talks</Typography>
                   </Stack>
-                  <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', fontSize: {xs:'12px', sm: '14px', md: '15px', lg:'17px'} }}>
+                  <Typography variant="h5" sx={{ color: 'white', gridColumn: 'span 2', fontSize: {xs:'10px', sm: '14px', md: '15px', lg:'17px'} }}>
                     {video.title}
                   </Typography>
                 </Box>

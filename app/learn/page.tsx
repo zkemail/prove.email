@@ -108,7 +108,7 @@ export default function Home() {
               viewport={{once: true}}
         >
           <Box>
-          <div className="w-full min-h-[400px] relative z-10 pb-24 py-[10%]" style={{ background: 'linear-gradient(to top, #FBFBFB, #F6F5F5)' }}>
+          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] relative z-10 pb-24 py-[100px]" style={{ background: 'linear-gradient(to top, #FBFBFB, #F6F5F5)' }}>
               <Typography  variant='h1' 
                 sx={{ 
                 fontFamily: berkeleyOldStyle.style.fontFamily,
@@ -117,7 +117,7 @@ export default function Home() {
                 paddingX: '8%', 
                 color: '#666363',               
                 fontSize: {
-                  xs: '2.3rem',
+                  xs: '2.05rem',
                   sm: '2.5rem',
                   md: '3rem',
                   lg: '4.5rem',

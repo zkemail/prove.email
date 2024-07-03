@@ -18,7 +18,7 @@ import AboutModal from '.././components/AboutModal/AboutModal'
 import ourGoalsBackground from '.././public/ourGoalsBackground.svg'
 import '.././types'
 import waveBackground from '.././public/waveBackground.svg'
-
+import waveBackgroundInverted from '.././public/waveBackgroundInverted.svg'
 
 
 import { animate, motion, useAnimation } from 'framer-motion';
@@ -198,29 +198,30 @@ export default function Home() {
         paddingTop:'10%',
         zIndex:'30'
       }}>
-      <div>
-        <motion.div
-            variants={fadeInAnimationVariants}
-            initial='initial'
-            whileInView='animate'
-            viewport={{once: true}}
-        >
-          <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', }}>With ZK Email</Typography>
-        </motion.div>
-        <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
-          You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of your email.
-        </Typography>
-      </div>
-      <Grid container sx={{ paddingY: '50px', paddingBottom:'70px',  overflow:'visable'}} direction='row' justifyContent='space-between' >
-        <Grid item xs={4} sx={{display: { xs:'none', md: 'block' }}}>
-          {/* <Typography sx={{fontSize: { sm: '15px', md: '16px', lg: '20px' } }}> {'<>'} Redact Information <br /> {'<>'} Fast Proofs <br /> {'<>'} Open Source</Typography> */}
+      <Grid container>
+        <Grid item xs={12} md={6}>
+          <motion.div
+              variants={fadeInAnimationVariants}
+              initial='initial'
+              whileInView='animate'
+              viewport={{once: true}}
+          >
+            <Typography variant='h3' sx={{fontWeight:'bold', fontSize:'22px', color:'#828282' }}>With ZK Email</Typography>
+          </motion.div>
+          <Typography sx={{ width: '80%', textAlign: 'left', paddingTop: '15px', paddingBottom: '40px', fontSize: { sm: '15px', md: '16px', lg: '20px' } }}>
+            You can confidently verify the sender, receiver, subject, or any part of an email while maintaining your privacy. Selectively reveal or hide any part of any email.
+          </Typography>
         </Grid>
-        <Grid item xs={12} md={8} justifySelf="right"  overflow='visable'>
-          <Box display='flex' justifyContent='end' overflow='visable'>
-            <SlideInDiv direction="right">
-              <AboutModal emails={emails} />
-            </SlideInDiv>
-          </Box>
+        <Grid item xs={12} md={6}>
+          <Grid container sx={{ paddingBottom:'70px',  overflow:'visable'}} direction='row' justifyContent='space-between' >
+            <Grid item xs={12} md={12} justifySelf="right"  overflow='visable'>
+              <Box display='flex' justifyContent='end' overflow='visable'>
+                <SlideInDiv direction="right">
+                  <AboutModal emails={emails} />
+                </SlideInDiv>
+              </Box>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Box>
@@ -241,71 +242,68 @@ export default function Home() {
 
 
 {/* HOW WE DO THIS */}
+  <div className='pb-[50px] z-50 w-full' >
+    <Box sx={{
+      height: { xs: '830px', sm: '650px' },
+      background: 'black',
+      paddingY: '80px',
+      width: '90%',
+      borderRadius: '14.85px 14.85px 0px 0px ',
+      marginX: 'auto',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <Box sx={{ textAlign: 'center', paddingX: '5%', position: 'relative', zIndex: 3 }}>
+        <motion.div
+          variants={fadeInAnimationVariants}
+          initial='initial'
+          whileInView='animate'
+          viewport={{ once: true }}>
+          <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
+            How do we do this?
+          </Typography>
+        </motion.div>
 
-
-
-<div className='pb-[100px] z-50 w-full' style={{ background: 'white' }}>
-  <Box sx={{
-    height: { xs: '830px', sm: '650px' },
-    background: 'black',
-    paddingY: '80px',
-    width: '90%',
-    borderRadius: '14.85px 14.85px 0px 0px ',
-    marginX: 'auto',
-    position: 'relative',
-    overflow: 'hidden'
-  }}>
-    <Box sx={{ textAlign: 'center', paddingX: '5%', position: 'relative', zIndex: 3 }}>
-      <motion.div
-        variants={fadeInAnimationVariants}
-        initial='initial'
-        whileInView='animate'
-        viewport={{ once: true }}>
-        <Typography paddingY='20px' variant='h1' sx={{ textAlign: 'center', color: 'white' }}>
-          How do we do this?
+        <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
+          We leverage what emails already do... <br />but using Regex & Zero Knowledge
         </Typography>
-      </motion.div>
-
-      <Typography sx={{ color: 'white', paddingBottom: '30px', fontSize: { xs: '13px', sm: '15px', md: '19px' } }}>
-        We leverage what emails already do... <br />but using Regex & Zero Knowledge
-      </Typography>
+      </Box>
+      <Grid container spacing={2} sx={{ padding: '20px' }}>
+        <Grid item xs={12} sm={4} md={4}>
+          <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails ' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
+        </Grid>
+        <Grid item xs={12} sm={4} md={4}>
+          <CustomCardAbout title='Regex (Hashing & Regex)' description='Checks if a text contains a string' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
+        </Grid>
+        <Grid item xs={12} sm={4} md={4}>
+          <CustomCardAbout title='Zero Knowledge Circuits' description='Prove DKIM & Regex calculations are correct, without revealing extra info' url='/' />
+        </Grid>
+      </Grid>
     </Box>
-    <Grid container spacing={2} sx={{ padding: '20px' }}>
-      <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='DKIM Scheme Status Quo' description='Part of your current emails ' url='https://zkemail.gitbook.io/zk-email/frequently-asked-questions' />
-      </Grid>
-      <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='Regex (Hashing & Regex)' description='Checks if a text contains a string' url='https://zkemail.gitbook.io/zk-email/zk-regex' />
-      </Grid>
-      <Grid item xs={12} sm={4} md={4}>
-        <CustomCardAbout title='Zero Knowledge Circuits' description='Prove DKIM & Regex calculations are correct, without revealing extra info' url='/' />
-      </Grid>
-    </Grid>
-  </Box>
-  <div style={{
-    width: '0',
-    height: '0',
-    borderLeft: '45vw solid transparent',
-    borderRight: '45vw solid transparent',
-    borderTop: '100px solid black',
-    margin: '0 auto',
-    transform: 'translateY(-1px)'
-  }}></div>
-</div>
+
+    <Box width='100%' sx={{
+        backgroundColor: 'white', 
+        backgroundImage: `url(${waveBackgroundInverted.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'calc(100% - 10) center',
+        zIndex: '100',
+        height: '500px',
+    }}>
+      <div style={{
+        width: '0',
+        height: '0',
+        borderLeft: '45vw solid transparent',
+        borderRight: '45vw solid transparent',
+        borderTop: '100px solid black',
+        margin: '0 auto',
+      }}></div>
 
 
 
 
-
-
-
-
-
-
-
-
+      {/* Put this inside the end of the how do we do this section, bad coding but works fine */}
       {/* PROJECTS USING ZK EMAIL SECTION*/}
-      <div className='px-[10%] py-[6%]'>
+      <div className='px-[10%] py-[150px]'>
         <Typography sx={{textAlign:'center', paddingBottom:'15px'}}>What does this enable?</Typography>
           <motion.div
                 variants={fadeInAnimationVariants}
@@ -351,7 +349,7 @@ export default function Home() {
               component='a' 
               href='/projects'
             >
-              <Typography sx={{fontSize:{xs:'10px', sm:'14px', md:'20px'}}}>See all our projects library</Typography>
+              <Typography sx={{fontSize:{xs:'15px', sm:'15px', md:'20px'}}}>See all our projects library</Typography>
               <ArrowForwardIcon
                 className='arrowIcon'
                 sx={{
@@ -363,29 +361,16 @@ export default function Home() {
           </SlideInDiv>
         </Box>
       </div>
+      {/* end of the projects using zk email section  */}
+    </Box>
+  </div>
+  {/* end of the how do we do this section 
 
-    {/* <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-      <Grid container sx={{ marginX: 'auto', py: '60px', width: '100%', justifyContent: 'space-between' }}>
-        <Grid item>
-          <RedactedText text="Redact Text" />
-        </Grid>
-        <Grid item>
-          <RedactedText text="Fast Proofs" />
-        </Grid>
-        <Grid item>
-          <RedactedText text="Open Source" />
-        </Grid>
-        <Grid item>
-          <RedactedText text="Redact Text" />
-        </Grid>
-        <Grid item>
-          <RedactedText text="Fast Proofs" />
-        </Grid>
-        <Grid item>
-          <RedactedText text="Open Source" />
-        </Grid>
-      </Grid>
-    </Box> */}
+
+
+
+
+
 
 
 
@@ -395,8 +380,9 @@ export default function Home() {
       <Box height='500px' sx={{
         backgroundColor: 'white', 
         backgroundImage: `url(${buildYourOwnBackground.src})`,
-        paddingX:'10%', 
-        paddingY:'8%'}}>
+        paddingX:'10%',
+        paddingTop:'100px',
+        marginTop: {xs:'480px', sm:'430px', md:'370px'}}}>
 
         <motion.div
           variants={fadeInAnimationVariants}
@@ -417,7 +403,7 @@ export default function Home() {
 
 {/* LIBRARIES ON MAIN PAGE */}
 <div className="w-full min-h-[400px] relative z-10 pb-24" style={{ background: 'linear-gradient(to top, #FBFBFB, #FFFFFF)' }}>
-    <div className="text-center py-10 px-[10%]">
+    <div className="text-center py-0 px-[10%]">
         <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'

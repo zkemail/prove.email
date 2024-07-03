@@ -73,7 +73,7 @@ const ResponsiveAppBar: React.FC<ResponsiveAppBarProps> = ({ title, pages }) => 
               md: '0px 1px 5px rgba(0, 0, 0, 0.09)', // Box shadow on medium and larger screens
             },
             borderRadius: '15px',
-            maxWidth: { xs:'100%', sm: '80%', md: '50%' },
+            maxWidth: { xs:'100%', sm: '80%', md: '60%', lg:'50%' },
             zIndex: '20',
             padding: {
               xs: '0px', // Remove padding on xs screens

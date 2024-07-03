@@ -9,10 +9,15 @@ import { Typography } from '@mui/material';
 import blogBackground1 from '../../public/blogBackground1.svg'
 import blogBackground2 from '../../public/blogBackground2.svg'
 import blogBackground3 from '../../public/blogBackground3.svg'
+import blogBackground4 from '../../public/blogBackground4.svg'
+import blogBackground5 from '../../public/blogBackground5.svg'
+import blogBackground6 from '../../public/blogBackground6.svg'
+import blogBackground7 from '../../public/blogBackground7.svg'
+
 import { motion } from 'framer-motion';
 import localFont from 'next/font/local';
 
-const backgrounds = [blogBackground1, blogBackground2, blogBackground3];
+const backgrounds = [blogBackground1, blogBackground2, blogBackground3,blogBackground4,blogBackground5,blogBackground6,blogBackground7];
 
 const berkeleyOldStyle = localFont({
   src: '../.././font/BerkeleyOldStyle.ttf',
@@ -72,11 +77,14 @@ const FilterablePostList = ({ initialPosts }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <div className="h-[450px] w-full bg-[#F5F5F5] flex flex-col justify-end"
+      <div className="h-[400px] sm:h-[430px] w-full bg-[#F5F5F5] flex flex-col justify-end"
         style={{
-          backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
-        }}
-      >
+          backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
+          backgroundRepeat: 'no-repeat',
+        }}>
+      
         <div className="pb-[100px] text-left px-[8%]">
           <motion.div
             variants={fadeInAnimationVariants}
@@ -87,7 +95,7 @@ const FilterablePostList = ({ initialPosts }) => {
             <Typography variant='h1' sx={{  fontFamily: berkeleyOldStyle.style.fontFamily, fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
           </motion.div>
         </div>
-        <div className="absolute left-1/2 top-[545px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
+        <div className="absolute left-1/2 top-[495px] sm:top-[515px] md:top-[535px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className='w-[50%]'>
               <CustomInputBase

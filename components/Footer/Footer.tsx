@@ -8,8 +8,15 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
 import IconLink from '../IconLink/IconLink';
-import backgroundFooter from '../../public/backgroundFooter.svg';
-import backgroundFooter2 from '../../public/backgroundFooter2.svg'; 
+
+import footerBackground1 from '../../public/footerBackground1.svg';
+import footerBackground2 from '../../public/footerBackground2.svg'; 
+import footerBackground3 from '../../public/footerBackground3.svg';
+import footerBackground4 from '../../public/footerBackground4.svg'; 
+import footerBackground5 from '../../public/footerBackground5.svg';
+import footerBackground6 from '../../public/footerBackground6.svg'; 
+import footerBackground7 from '../../public/footerBackground7.svg';
+
 import zkEmailFooter from '../../public/zkEmailFooter.svg'; 
 import Link from 'next/link';
 import DiscordIcon from '../DiscordIcon/DiscordIcon'; // Import the DiscordIcon component
@@ -40,7 +47,7 @@ const Footer = () => {
     }
   };
   
-  const backgrounds = [backgroundFooter, backgroundFooter2];
+  const backgrounds = [footerBackground1, footerBackground2, footerBackground3, footerBackground4, footerBackground5, footerBackground6, footerBackground7];
   const [currentBackground, setCurrentBackground] = useState(0);
 
   useEffect(() => {
