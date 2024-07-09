@@ -11,7 +11,6 @@ import rehypeSlug from 'rehype-slug'
 
 const rootDirectory = path.join(process.cwd(), 'app', 'content');
 
-
 /* For selected blog gets all the content for that blog post*/
 export const getPostBySlug = async (slug) => {
   const realSlug = slug.replace(/\.mdx$/, '');

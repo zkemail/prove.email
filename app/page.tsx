@@ -127,25 +127,25 @@ const emails = [
     to: "potus@gov.com",
     from: "<span>Email</span>@gov.com",
     subject: "Whistle Blowing",
-    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com <br /> <br />Best,<br />ZK Email',
+    mainText: 'For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com',
   },
   {
     to: "<span>Bob</span>@gmail.com",
-    from: "github.com",
+    from: "Github.com",
     subject: "Github Contribution to X Repo",
-    mainText: 'For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address <br /> <br /><br />Github.com',
+    mainText: 'For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address',
   },
   {
     to: "<span>Bob</span>@gmail.com",
     from: "Venmo.com",
     subject: "Payment confirmation to X Person",
-    mainText: 'For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address <br /> <br /> <br />Venmo.com',
+    mainText: 'For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address ',
   },
   {
     to: "<span>Bob</span>@gmail.com",
-    from: "citizenships@gov.com",
+    from: "itizenships@gov.com",
     subject: "Nationality",
-    mainText: 'For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address <br /> <br />regards<br />Citizenships@gov.com',
+    mainText: 'For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address',
   },
 ];
 

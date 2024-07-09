@@ -73,7 +73,7 @@ const Footer = () => {
       <Box
         component="footer"
         sx={{
-          pt: { xs: 16, sm: 28 },
+          pt: { xs: 16, sm: 22 },
           textAlign: 'center',
           marginTop: 'auto',
           backgroundColor: 'transparent', // ensure background color doesn't override background image
