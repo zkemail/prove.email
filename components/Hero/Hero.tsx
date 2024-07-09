@@ -241,7 +241,7 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 20);
+    }, 150);
     return () => clearInterval(interval);
   }, []);
 
