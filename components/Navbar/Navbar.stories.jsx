@@ -1,14 +1,14 @@
 import { Component } from "react";
-import Header from "./Header";
+import Navbar from "./Navbar";
 
 export default {
-    title: "Header",
-    component: Header,
+    title: "Navbar",
+    component: Navbar,
 }
 
 
-export const HeaderTest = (args) => <Header {...args} />
-HeaderTest.args = {
+export const NavbarTest = (args) => <Navbar {...args} />
+NavbarTest.args = {
     title: 'ZK Email',
     pages: [
       { label: 'Projects', link: '/projects' },

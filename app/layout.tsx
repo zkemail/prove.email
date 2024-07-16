@@ -1,7 +1,7 @@
 'use client';
 import React, { PropsWithChildren, useState } from 'react';
 import Head from 'next/head';
-import Header from '../components/Header/Header';
+import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -28,10 +28,10 @@ const appBarProps: AppBarProps = {
 const inter = Inter({ subsets: ['latin'] });
 
 const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
 
   const handleThemeChange = () => {
-    setDarkMode(!darkMode);
+    setIsDarkModeEnabled(!isDarkModeEnabled);
   };
 
   return (
@@ -59,10 +59,10 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       </Head>
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <ThemeProvider theme={isDarkModeEnabled ? darkTheme : lightTheme}>
             <CssBaseline />
             <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-              <Header {...appBarProps} />
+              <Navbar {...appBarProps} isDarkModeEnabled={isDarkModeEnabled} setIsDarkModeEnabled={setIsDarkModeEnabled} />
               <main>{children}</main>
               <Footer />
             </div>
