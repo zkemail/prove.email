@@ -5,7 +5,7 @@ import Link from 'next/link';
 import CustomButton from '.././CustomButton/CustomButton'
 import CustomInputBase from '../CustomInputBase/CustomInputBase'
 import { useTheme } from '@mui/material/styles';
-import { Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import blogBackground1 from '../../public/blogBackground1.svg'
 import blogBackground2 from '../../public/blogBackground2.svg'
 import blogBackground3 from '../../public/blogBackground3.svg'
@@ -17,7 +17,7 @@ import blogBackground7 from '../../public/blogBackground7.svg'
 import { motion } from 'framer-motion';
 import localFont from 'next/font/local';
 
-const backgrounds = [blogBackground1, blogBackground2, blogBackground3,blogBackground4,blogBackground5,blogBackground6,blogBackground7];
+const backgrounds = [blogBackground1, blogBackground2, blogBackground3, blogBackground4, blogBackground5, blogBackground6, blogBackground7];
 
 const berkeleyOldStyle = localFont({
   src: '../.././font/BerkeleyOldStyle.ttf',
@@ -76,7 +76,7 @@ const FilterablePostList = ({ initialPosts }) => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <Grid container style={{background: theme.palette.background.default}}>
       <div className="h-[400px] sm:h-[430px] w-full bg-[#F5F5F5] flex flex-col justify-end"
         style={{
           backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
@@ -84,7 +84,7 @@ const FilterablePostList = ({ initialPosts }) => {
           backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
           backgroundRepeat: 'no-repeat',
         }}>
-      
+
         <div className="pb-[100px] text-left px-[8%]">
           <motion.div
             variants={fadeInAnimationVariants}
@@ -92,10 +92,10 @@ const FilterablePostList = ({ initialPosts }) => {
             whileInView='animate'
             viewport={{ once: true }}
           >
-            <Typography variant='h1' sx={{  fontFamily: berkeleyOldStyle.style.fontFamily, fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
+            <Typography variant='h1' sx={{ fontFamily: berkeleyOldStyle.style.fontFamily, fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
           </motion.div>
         </div>
-        <div className="absolute left-1/2 top-[495px] sm:top-[515px] md:top-[535px] transform -translate-x-1/2 -translate-y-1/2 px-[8%] rounded-[20px] w-[100%]">
+        <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="absolute left-1/2 top-[495px] sm:top-[515px] md:top-[535px] transform -translate-x-1/2 -translate-y-1/2 rounded-[20px] w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className='w-[50%]'>
               <CustomInputBase
@@ -133,20 +133,30 @@ const FilterablePostList = ({ initialPosts }) => {
               </CustomButton>
             </div>
           </div>
-        </div>
+        </Box>
       </div>
-      <div className="p-[8%] mt-10 bg-white flex-grow">
+      <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="mt-10 flex-grow">
         <div className="overflow-hidden relative w-full">
           <div className="">
             {filteredPosts.map((post) => (
               <Link href={`/blog/${post.slug}`} key={post.title}>
                 <div className="grid grid-cols-4 mb-4 group">
-                  <div className="w-full h-[150px] bg-white border-2 grid grid-cols-2 p-6 col-span-4  group-hover:bg-black">
-                    <p className="text-xs py-2 group-hover:text-white">{new Date(post.date).toISOString().split('T')[0]}</p>
-                    <p className="text-right text-xs py-2 group-hover:text-white">{post.category}</p>
-                    <h1 className="text-[12px] sm:text-[15px] md:text-[18px] col-span-2 font-bold group-hover:underline group-hover:text-white">{post.title}</h1>
-                    <p className="text-[10px] sm:text-xs col-span-2 group-hover:text-white">{post.description}</p>
-                  </div>
+                  <Grid container style={{background: theme.palette.background.default}} className="w-full border-2 grid grid-cols-2 p-6 col-span-4  group-hover:bg-black gap-4">
+                    <Grid item xs={12} container justifyContent={'space-between'}>
+                      <Grid item>
+                        <Typography className="group-hover:text-white font-normal" variant='h6'>{new Date(post.date).toISOString().split('T')[0]}</Typography>
+                      </Grid>
+                      <Grid item>
+                        <Typography className="group-hover:text-white text-right font-normal" variant='h6'>{post.category}</Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography className="group-hover:text-white" variant='h3' fontWeight={'bold'}>{post.title}</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography className="group-hover:text-white" variant='body2'>{post.description}</Typography>
+                    </Grid>
+                  </Grid>
                   <div className="h-[150px] w-full hidden"
                     style={{
                       backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
@@ -157,8 +167,8 @@ const FilterablePostList = ({ initialPosts }) => {
             ))}
           </div>
         </div>
-      </div>
-    </div>
+      </Box>
+    </Grid>
   );
 };
 

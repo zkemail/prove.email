@@ -329,7 +329,7 @@ const VideoCarousel = () => {
   const getVisibleCards = () => {
     if (isLargeScreen) return 4;
     if (isMediumScreen) return 3;
-    return 3;
+    return 2;
   };
 
   const visibleCards = getVisibleCards();
@@ -348,7 +348,7 @@ const VideoCarousel = () => {
   };
 
   return (
-    <Box className="relative w-full" sx={{ height: {xs:'900px',md:'100%'}, paddingX: {xs:'10px', md: '30px'} }}>
+    <Box className="relative w-full" sx={{ height: {xs:'56.25rem',md:'100%'}, paddingX: {xs:'0.625rem', md: '1.875rem'} }}>
       <Box
         className="carousel-container"
         sx={{

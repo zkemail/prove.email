@@ -116,51 +116,77 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
     typography: {
       fontFamily: spaceGrotesk.style.fontFamily,
       h1: {
-        // fontFamily: berkeleyOldStyle.style.fontFamily, // Use Berkeley Old Style for h1
-        fontSize: '1.9rem', // Default font size for the smallest screens (xs)
-        letterSpacing: -2,
-        [`@media (min-width:${breakpoints.values.sm}px)`]: {
-          fontSize: '2.5rem',
+        fontSize: '2.25em', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '2.14em', // Tablet and Mobile
         },
-        [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '3rem',
-        },
-        [`@media (min-width:${breakpoints.values.lg}px)`]: {
-          fontSize: '3.1rem',
-        },
-        [`@media (min-width:${breakpoints.values.xl}px)`]: {
-          fontSize: '3.2rem',
-        },
-        fontWeight: 500,
-        lineHeight: 1.2,
       },
       h2: {
-        fontSize: '1.75rem',
-        fontWeight: 500,
-        lineHeight: 1.3,
-      },
-      h5: {
-        fontSize: '1.0rem',
-        fontWeight: 500,
-      },
-      h6: {
-        fontSize: '12px',
-        [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '16px',
+        fontSize: '1.56em', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '1.5em', // Tablet and Mobile
         },
       },
+      h3: {
+        fontSize: '1.25rem', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '1.29rem', // Tablet and Mobile
+        },
+      },
+      h4: {
+        fontSize: '1rem', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '1rem', // Tablet and Mobile
+        },
+      },
+      h5: {
+        fontSize: '0.88rem', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '0.86rem', // Tablet and Mobile
+        },
+      },
+      h6: {
+        fontSize: '0.75rem', // Desktop
+        '@media (max-width:1280px)': {
+          fontSize: '0.79rem', // Tablet and Mobile
+        },
+      },
+      body1: {
+        fontSize: '1rem', // Desktop Paragraph-Large
+        '@media (max-width:1280px)': {
+          fontSize: '1rem', // Tablet and Mobile
+        },
+      },
+      body2: {
+        fontSize: '0.875rem', // Desktop Paragraph
+        '@media (max-width:1280px)': {
+          fontSize: '0.875rem', // Tablet and Mobile
+        },
+      },  
+      subtitle1: {
+        fontSize: '1rem', // Desktop Paragraph
+        '@media (max-width:1280px)': {
+          fontSize: '1rem', // Tablet and Mobile
+        },
+      },  
+      subtitle2: {
+        fontSize: '0.875rem', // Desktop Paragraph
+        '@media (max-width:1280px)': {
+          fontSize: '0.875rem', // Tablet and Mobile
+        },
+      },  
       footerLink: {
         color: 'grey',
-        fontSize: '10px',
+        fontSize: '0.625rem',
         [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '15px',
+          fontSize: '0.9375rem',
         },
       },
       videoCardSubText: {
         color: 'grey',
-        fontSize: '12px',
+        fontSize: '0.75rem',
         [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '12px',
+          fontSize: '0.75rem',
         },
       },
     },

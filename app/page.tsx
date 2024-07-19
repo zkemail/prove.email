@@ -668,7 +668,7 @@ export default function Home() {
             </Typography>
           </motion.div>
         </div>
-        <div className="h-[430px] w-full mb-10">
+        <div className="h-[27rem] w-full mb-10">
           <SlideInDiv direction="right">
             <VideoCarousel />
           </SlideInDiv>
