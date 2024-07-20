@@ -44,9 +44,9 @@ const HoverableLinks = ({
     <Grid item>
       <Link href={href} color="inherit" target={target ?? "_blank"}>
         <Typography
-          variant="footerLink"
+          variant="subtitle2"
           sx={{
-            position: "relative",
+            position: "relative", color: 'grey',
             "&:hover": {
               backgroundColor: "transparent", // No background color on hover
               "&::after": {
@@ -150,9 +150,10 @@ const Footer = () => {
             <Grid item xs={12} sm={4} justifyContent="flex-start">
               <Typography
                 color="white"
+                variant="h3"
                 sx={{
                   fontFamily: berkeleyOldStyle.style.fontFamily,
-                  fontSize: { xs: "10px", sm: "15px", md: "20px" },
+                  lineHeight: '2rem',
                   textAlign: { sm: "center", md: "left" },
                 }}
               >
@@ -170,16 +171,15 @@ const Footer = () => {
               container
               spacing={4}
               justifyContent="flex-end"
+              alignItems={'flex-start'}
             >
               <Grid item xs={6} sm={4} container>
                 <Typography
-                  variant="h6"
-                  component="h3"
+                  variant="h4"
                   color="white"
                   fontWeight="bold"
                   pb={2}
-                  textAlign="left"
-                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                  textAlign="left"                  
                 >
                   DEVELOPERS
                 </Typography>
@@ -205,13 +205,11 @@ const Footer = () => {
 
               <Grid item xs={6} sm={4} container>
                 <Typography
-                  variant="h6"
-                  component="h3"
+                  variant="h4"
                   color="white"
                   fontWeight="bold"
                   pb={2}
-                  textAlign="left"
-                  sx={{ fontSize: { xs: "10px", md: "14px" } }}
+                  textAlign="left"                  
                 >
                   COMMUNITY
                 </Typography>

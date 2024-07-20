@@ -175,13 +175,7 @@ const createCustomTheme = (mode: 'light' | 'dark') => {
           fontSize: '0.875rem', // Tablet and Mobile
         },
       },  
-      footerLink: {
-        color: 'grey',
-        fontSize: '0.625rem',
-        [`@media (min-width:${breakpoints.values.md}px)`]: {
-          fontSize: '0.9375rem',
-        },
-      },
+
       videoCardSubText: {
         color: 'grey',
         fontSize: '0.75rem',
