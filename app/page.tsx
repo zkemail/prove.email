@@ -455,17 +455,6 @@ export default function Home() {
         </Box>
       </div>
       {/* end of the how do we do this section 
-
-
-
-
-
-
-
-
-
-
-
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box
         height="500px"
@@ -648,19 +637,19 @@ export default function Home() {
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
       <div className="w-full py-16">
-        <div className="text-center py-10 px-[12%]">
+        <div className="text-center py-10">
           <motion.div
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <Typography variant="h1" className="text-5xl">
-              Upcoming & <br />
+            <Typography variant="h1">
+              Upcoming &
               Past Talks
             </Typography>
             <Typography
-              sx={{ fontSize: { xs: "12px", sm: "15px", md: "20px" } }}
+              variant="h4"
               className="py-4"
             >
               Meet the team at one of our upcoming talks or message us if you
