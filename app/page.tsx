@@ -546,7 +546,10 @@ export default function Home() {
       </div>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
-      <div className="pl-[10%] py-[100px] z-50 bg-white w-full">
+      <Box
+        sx={{ padding: { xs: "1rem", md: "8vw" } }}
+        className="py-[100px] z-50 bg-white w-full"
+      >
         <div className="min-h-[200px]">
           <div className="relative ">
             <motion.div
@@ -556,7 +559,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Typography
-                paddingY="20px"
+                paddingY="1.25rem"
                 variant="h1"
                 sx={{ textAlign: "left" }}
               >
@@ -567,12 +570,8 @@ export default function Home() {
 
           <Grid container>
             <Grid item xs={12} sm={4}>
-              <Typography
-                variant="h5"
-                paddingTop="10px"
-                sx={{ fontSize: { xs: "12px", md: "15px" } }}
-              >
-                Have a Question that isn’t answered?<br></br> Reach out!
+              <Typography variant="h4">
+                Have a Question that isn’t answered? Reach out!
               </Typography>
               <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
                 <CustomButton
@@ -587,7 +586,6 @@ export default function Home() {
               <Grid
                 item
                 xs={12}
-                sm={10}
                 className="relative col-span-2 py-[30px] w-[100%]"
                 style={{ width: "100%", margin: "0 auto", zIndex: "100" }}
               >
@@ -602,7 +600,7 @@ export default function Home() {
             </SlideInDiv>
           </Grid>
         </div>
-      </div>
+      </Box>
 
       <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <Grid
@@ -644,14 +642,8 @@ export default function Home() {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <Typography variant="h1">
-              Upcoming &
-              Past Talks
-            </Typography>
-            <Typography
-              variant="h4"
-              className="py-4"
-            >
+            <Typography variant="h1">Upcoming & Past Talks</Typography>
+            <Typography variant="h4" className="py-4">
               Meet the team at one of our upcoming talks or message us if you
               have any questions!
             </Typography>
