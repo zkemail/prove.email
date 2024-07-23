@@ -457,13 +457,13 @@ export default function Home() {
       {/* end of the how do we do this section 
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box
-        height="500px"
         sx={{
+          height: { xs: "300px", sm: "400px" },
+          padding: { xs: "1rem", md: "8vw" },
           backgroundColor: "white",
           backgroundImage: `url(${buildYourOwnBackground.src})`,
-          paddingX: "10%",
-          paddingTop: "100px",
-          marginTop: { xs: "480px", sm: "430px", md: "370px" },
+          paddingTop: {xs:'50px' ,sm: "6.25rem"},
+          marginTop: { xs: "30rem", sm: "26.875rem", md: "23.125rem" },
         }}
       >
         <motion.div
@@ -475,12 +475,10 @@ export default function Home() {
           <Typography variant="h5">For Developers</Typography>
           <Typography variant="h1">Build Your Own</Typography>
           <Typography
+            variant="body1"
             sx={{
-              paddingRight: "10%",
-              width: { xs: "85%", md: "70%" },
               paddingTop: "20px",
               paddingBottom: "10px",
-              fontSize: { xs: "12px", sm: "15px", md: "20px" },
             }}
           >
             No trusted hardware. No trusted attestation servers. Only trust zero
@@ -504,7 +502,10 @@ export default function Home() {
         className="w-full min-h-[400px] relative z-10 pb-24"
         style={{ background: "linear-gradient(to top, #FBFBFB, #FFFFFF)" }}
       >
-        <div className="text-center py-0 px-[10%]">
+        <Box
+          sx={{ padding: { xs: "1rem", md: "10vw" } }}
+          className="text-center py-0"
+        >
           <motion.div
             variants={fadeInAnimationVariants}
             initial="initial"
@@ -518,8 +519,8 @@ export default function Home() {
               Our Libraries
             </Typography>
           </motion.div>
-          <div className="grid grid-cols-2 gap-2 sm:gap-6">
-            <div>
+          <Grid container justifyContent={"space-between"} spacing={4}>
+            <Grid item xs={12} sm>
               <SlideInDiv direction="left">
                 <PopOut
                   topText="ZK Email Specific Libraries"
@@ -529,8 +530,8 @@ export default function Home() {
                   cards={PopOutZKEmailLibraryCards}
                 />
               </SlideInDiv>
-            </div>
-            <div>
+            </Grid>
+            <Grid item xs={12} sm>
               <SlideInDiv direction="right">
                 <PopOut
                   topText="General ZK Libraries"
@@ -540,9 +541,9 @@ export default function Home() {
                   cards={PopOutZKLibraryCards}
                 />
               </SlideInDiv>
-            </div>
-          </div>
-        </div>
+            </Grid>
+          </Grid>
+        </Box>
       </div>
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
