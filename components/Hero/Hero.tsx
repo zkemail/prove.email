@@ -91,7 +91,7 @@ export default function Hero() {
           zIndex: 10000,
         }}
       ></div>
-      <div className="z-50 relative">
+      <Box sx={{height: {xs:'70%', sm: 'auto'}}} className="z-50 relative flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ export default function Hero() {
             </CustomButton>
           </Stack>
         </div>
-      </div>
+      </Box>
       <Box sx={{height: {xs: '50%', md: '100%'}}}>
         <motion.div
           className="h-full"
