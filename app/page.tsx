@@ -342,7 +342,7 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundPosition: "calc(100% - 10) center",
             zIndex: "100",
-            height: "500px",
+            // height: "500px",
           }}
         >
           <div
@@ -353,12 +353,13 @@ export default function Home() {
               borderRight: "45vw solid transparent",
               borderTop: "100px solid black",
               margin: "0 auto",
+              marginBottom: '5rem'
             }}
           ></div>
 
           {/* Put this inside the end of the how do we do this section, bad coding but works fine */}
           {/* PROJECTS USING ZK EMAIL SECTION*/}
-          <div className="px-[10%] py-[150px]">
+          <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="py-[150px]">
             <Typography sx={{ textAlign: "center", paddingBottom: "15px" }}>
               What does this enable?
             </Typography>
@@ -450,7 +451,7 @@ export default function Home() {
                 </Box>
               </SlideInDiv>
             </Box>
-          </div>
+          </Box>
           {/* end of the projects using zk email section  */}
         </Box>
       </div>
@@ -462,8 +463,7 @@ export default function Home() {
           padding: { xs: "1rem", md: "8vw" },
           backgroundColor: "white",
           backgroundImage: `url(${buildYourOwnBackground.src})`,
-          paddingTop: {xs:'50px' ,sm: "6.25rem"},
-          marginTop: { xs: "30rem", sm: "26.875rem", md: "23.125rem" },
+          paddingTop: {xs:'3.125rem' ,sm: "6.25rem"},
         }}
       >
         <motion.div
