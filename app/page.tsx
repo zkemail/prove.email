@@ -200,9 +200,9 @@ export default function Home() {
         sx={{
           backgroundColor: "white",
           backgroundImage: `url(${waveBackground.src})`,
+          padding: { xs: "1rem", md: "8vw" },
           background: "cover",
-          paddingX: "10%",
-          paddingTop: "10%",
+          paddingTop: { xs: "4rem", sm: "10%" },
           zIndex: "30",
         }}
       >
@@ -265,7 +265,7 @@ export default function Home() {
       <div className="pb-[50px] z-50 w-full">
         <Box
           sx={{
-            height: { xs: "830px", sm: "650px" },
+            // height: { xs: "830px", sm: "650px" },
             background: "black",
             paddingY: "80px",
             width: "90%",
@@ -299,10 +299,10 @@ export default function Home() {
             </motion.div>
 
             <Typography
+              variant="h4"
               sx={{
                 color: "white",
                 paddingBottom: "30px",
-                fontSize: { xs: "13px", sm: "15px", md: "19px" },
               }}
             >
               We leverage what emails already do... <br />
@@ -353,13 +353,16 @@ export default function Home() {
               borderRight: "45vw solid transparent",
               borderTop: "100px solid black",
               margin: "0 auto",
-              marginBottom: '5rem'
+              marginBottom: "5rem",
             }}
           ></div>
 
           {/* Put this inside the end of the how do we do this section, bad coding but works fine */}
           {/* PROJECTS USING ZK EMAIL SECTION*/}
-          <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="py-[150px]">
+          <Box
+            sx={{ padding: { xs: "1rem", md: "8vw" } }}
+            className="py-[150px]"
+          >
             <Typography sx={{ textAlign: "center", paddingBottom: "15px" }}>
               What does this enable?
             </Typography>
@@ -463,7 +466,7 @@ export default function Home() {
           padding: { xs: "1rem", md: "8vw" },
           backgroundColor: "white",
           backgroundImage: `url(${buildYourOwnBackground.src})`,
-          paddingTop: {xs:'3.125rem' ,sm: "6.25rem"},
+          paddingTop: { xs: "3.125rem", sm: "6.25rem" },
         }}
       >
         <motion.div
