@@ -1,53 +1,53 @@
-import React, { FC } from 'react';
+import React, { FC } from "react";
 import {
   Accordion as MuiAccordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
   styled,
-} from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 // Define the props types
 interface AccordionProps {
   title: string;
   contents: string;
-  alignment?: 'left' | 'right';
+  alignment?: "left" | "right";
 }
 
 const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
-  marginBottom: theme.spacing(2),
-  '&:before': {
-    display: 'none',
+  "&:before": {
+    display: "none",
   },
-  background: 'white',
-  boxShadow: 'none',
-  borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-  '& .MuiAccordionSummary-root': {
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    '&:hover .MuiAccordionSummary-expandIconWrapper': {
+  background: "white",
+  boxShadow: "none",
+  borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+  "& .MuiAccordionSummary-root": {
+    backgroundColor: "rgba(0, 0, 0, 0)",
+    "&:hover .MuiAccordionSummary-expandIconWrapper": {
       color: theme.palette.secondary.main,
     },
   },
-  '& .MuiAccordionSummary-content': {
+  "& .MuiAccordionSummary-content": {
     margin: 0,
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
+    display: "flex",
+    alignItems: "center",
+    width: "100%",
   },
-  '& .MuiAccordionSummary-expandIconWrapper': {
+  "& .MuiAccordionSummary-expandIconWrapper": {
     marginRight: theme.spacing(1),
-    transition: 'transform 0.2s',
+    transition: "transform 0.2s",
   },
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(180deg)',
-  },
-  '& .MuiAccordionDetails-root': {
-    padding: theme.spacing(2),
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(180deg)",
   },
 }));
 
-const Accordion: FC<AccordionProps> = ({ title, contents, alignment = 'left' }) => {
+const Accordion: FC<AccordionProps> = ({
+  title,
+  contents,
+  alignment = "left",
+}) => {
   return (
     <CustomAccordion>
       <AccordionSummary
@@ -55,22 +55,24 @@ const Accordion: FC<AccordionProps> = ({ title, contents, alignment = 'left' }) 
         aria-controls="panel-content"
         id="panel-header"
         sx={{
-          flexDirection: alignment === 'right' ? 'row-reverse' : 'row',
-          justifyContent: alignment === 'right' ? 'space-between' : 'flex-start',
-          '& .MuiAccordionSummary-expandIconWrapper': {
-            order: alignment === 'right' ? 2 : 1,
-            marginRight: alignment === 'right' ? 0 : 1,
-            marginLeft: alignment === 'right' ? 1 : 0,
+          flexDirection: alignment === "right" ? "row-reverse" : "row",
+          justifyContent:
+            alignment === "right" ? "space-between" : "flex-start",
+          "& .MuiAccordionSummary-expandIconWrapper": {
+            order: alignment === "right" ? 2 : 1,
+            marginRight: alignment === "right" ? 0 : 1,
+            marginLeft: alignment === "right" ? 1 : 0,
           },
-          width: '100%',
+          padding: 0,
+          width: "100%",
         }}
       >
         <Typography
           color="black"
           fontWeight="500"
+          variant="h5"
           sx={{
-            fontSize: { xs: '12px', sm: '15px', md: '19px' },
-            textAlign: alignment === 'right' ? 'right' : 'left',
+            textAlign: alignment === "right" ? "right" : "left",
             flexGrow: 1,
           }}
         >
@@ -79,12 +81,10 @@ const Accordion: FC<AccordionProps> = ({ title, contents, alignment = 'left' }) 
       </AccordionSummary>
       <AccordionDetails>
         <Typography
+        variant="body2"
           sx={{
-            paddingLeft: alignment === 'right' ? '0px' : '30px',
-            paddingRight: alignment === 'right' ? '30px' : '0px',
-            color: '#666363',
-            fontSize: { xs: '11px', sm: '14px', md: '16px' },
-            textAlign: alignment === 'right' ? 'right' : 'left',
+            color: "#666363",
+            textAlign: alignment === "right" ? "right" : "left",
           }}
         >
           {contents}

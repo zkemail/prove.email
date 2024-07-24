@@ -25,6 +25,7 @@ const CustomInputContainer = styled('div')({
 
 const CustomInputBase = styled(InputBase)(({ theme }) => ({
   fontSize: '14px',
+  color: 'black',
   [theme.breakpoints.down('md')]: {
     fontSize: '12px',
   },

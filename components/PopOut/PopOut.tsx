@@ -1,9 +1,17 @@
-'use client'
-import React, { useState, FC } from 'react';
-import { Button, Collapse, Box, Typography, Card, IconButton } from '@mui/material';
-import { styled } from '@mui/system';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ArrowOutward from '@mui/icons-material/ArrowOutward';
+"use client";
+import React, { useState, FC } from "react";
+import {
+  Button,
+  Collapse,
+  Box,
+  Typography,
+  Card,
+  IconButton,
+  Grid,
+} from "@mui/material";
+import { styled } from "@mui/system";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ArrowOutward from "@mui/icons-material/ArrowOutward";
 
 interface Card {
   label: string;
@@ -20,108 +28,133 @@ interface PopOutProps {
 
 const Container = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
-  borderRadius: '4px',
-  overflow: 'hidden',
-  width: '100%',
-  maxWidth: '600px',
-  margin: '0 auto',
+  borderRadius: "4px",
+  overflow: "hidden",
+  width: "100%",
+  maxWidth: "600px",
+  margin: "0 auto",
 }));
 
 const Header = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  padding: '16px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  padding: "16px",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
   border: `1px solid ${theme.palette.divider}`,
-  cursor: 'pointer',
-  transition: 'color 0.3s ease',
-  '&:hover .expand-more-icon': {
+  cursor: "pointer",
+  transition: "color 0.3s ease",
+  "&:hover .expand-more-icon": {
     color: theme.palette.secondary.main,
   },
 }));
 
-const MainText = styled(Typography)(({ theme }) => ({
-  fontWeight: 'bold',
-}));
-
 const DescriptionText = styled(Typography)(({ theme }) => ({
-  marginTop: '8px',
+  marginTop: "8px",
   color: theme.palette.text.secondary,
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
   color: theme.palette.text.primary,
-  textTransform: 'none',
-  fontSize: '1rem',
-  padding: '8px 16px',
+  textTransform: "none",
+  fontSize: "1rem",
+  padding: "8px 16px",
   borderTop: `1px solid ${theme.palette.divider}`,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  width: '100%',
-  '&:hover': {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
+  "&:hover": {
     backgroundColor: theme.palette.background.default,
   },
 }));
 
 const ArrowIcon = styled(ArrowOutward)(({ theme }) => ({
-  transition: 'transform 0.3s ease, color 0.3s ease',
+  transition: "transform 0.3s ease, color 0.3s ease",
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  backgroundColor:'white',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '16px',
+  backgroundColor: "white",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: "16px",
   borderTop: `1px solid ${theme.palette.divider}`,
-  cursor: 'pointer',
-  '&:last-child': {
-    borderBottom: 'none',
+  cursor: "pointer",
+  "&:last-child": {
+    borderBottom: "none",
   },
-  '&:hover': {
+  "&:hover": {
     backgroundColor: theme.palette.background.default,
   },
-  '&:hover .arrow-icon': {
-    transform: 'translate(5px, -5px)',
+  "&:hover .arrow-icon": {
+    transform: "translate(5px, -5px)",
     color: theme.palette.secondary.main,
   },
 }));
 
 const ExpandMoreStyledIcon = styled(ExpandMoreIcon)(({ theme }) => ({
-  transition: 'color 0.3s ease',
+  transition: "color 0.3s ease",
 }));
 
-const PopOut: FC<PopOutProps> = ({ topText, mainText, descriptionText, cards, toggleName }) => {
+const PopOut: FC<PopOutProps> = ({
+  topText,
+  mainText,
+  descriptionText,
+  cards,
+  toggleName,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCardClick = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   return (
     <Container>
-      <Box onClick={() => setIsOpen(!isOpen)} sx={{cursor:'pointer'}}>
-        <Header sx={{ bgcolor: 'black', }}>
-          <Typography variant="h6" sx={{ color: 'white', paddingX:'8%', textAlign:'left',fontSize: {xs:'5.5px', sm:'11px', md:'15px'}}}>{topText}</Typography>
-          {/* <IconButton sx={{ color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
-            <ExpandMoreStyledIcon className="expand-more-icon" />
-          </IconButton> */}
+      <Box onClick={() => setIsOpen(!isOpen)} sx={{ cursor: "pointer" }}>
+        <Header sx={{ bgcolor: "black" }}>
+          <Typography variant="h5" sx={{ color: "white", textAlign: "left" }}>
+            {topText}
+          </Typography>
         </Header>
-        <Box p={2} sx={{height:{xs:'140px', sm:'170px'}, backgroundColor:'white' }}>
-          <MainText variant="h4" sx={{ fontWeight:'medium', textAlign: "left", paddingX:'8%', paddingTop:{xs:'5px',md:'15px'}, fontSize: {xs:'18px', sm:'20px', md:'30px', lg:'40px'}}}>{mainText}</MainText>
-          <DescriptionText sx={{ textAlign: "left",  paddingX:'8%', fontSize: {xs:'6px', sm:'10px', md:'12px'}}}>{descriptionText}</DescriptionText>
-        </Box>
+        <Grid spacing={2} container p={2} >
+          <Grid item>
+            <Typography
+              fontWeight={"bold"}
+              variant="h3"
+              sx={{
+                fontWeight: "medium",
+                textAlign: "left",
+              }}
+            >
+              {mainText}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography sx={{ textAlign: "left" }} variant="body1">
+              {descriptionText}
+            </Typography>
+          </Grid>
+        </Grid>
       </Box>
 
       <Collapse in={isOpen}>
         <Box>
           {cards.map((card, index) => (
-            <StyledCard key={index} sx={{ borderRadius: '0px',}} onClick={() => handleCardClick(card.url)}>
-              <Typography variant="body1" sx={{ textAlign:'left', paddingLeft:{xs:'10px',sm:'25px'}, fontSize: {xs:'9px', sm:'11px', md:'15px'} }}>{card.label}</Typography>
-              <ArrowIcon className="arrow-icon" sx={{width:{xs:'10px', sm:'15px'}}}/>
+            <StyledCard
+              key={index}
+              sx={{ borderRadius: "0px" }}
+              onClick={() => handleCardClick(card.url)}
+            >
+              <Typography
+                variant="body2"
+                sx={{ textAlign: "left", paddingLeft: "0.5rem" }}
+              >
+                {card.label}
+              </Typography>
+              <ArrowIcon className="arrow-icon" sx={{ width: "1rem" }} />
             </StyledCard>
           ))}
         </Box>
