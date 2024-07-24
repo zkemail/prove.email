@@ -22,7 +22,7 @@ const Page = async ({ params }) => {
   const { meta, content } = await getPageContent(params.slug);
 
   return (
-    <section className="py-24 px-[15%]">
+    <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="py-24">
       <Box mb={4}>
         <Typography variant="h1" component="h1" sx={{ color: 'black' }}>
           {meta.title}
@@ -54,7 +54,7 @@ const Page = async ({ params }) => {
         )}
         
       </Box>
-    </section>
+    </Box>
   );
 };
 

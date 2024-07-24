@@ -141,7 +141,7 @@ const FilterablePostList = ({ initialPosts }) => {
             {filteredPosts.map((post) => (
               <Link href={`/blog/${post.slug}`} key={post.title}>
                 <div className="grid grid-cols-4 mb-4 group">
-                  <Grid container style={{background: theme.palette.background.default}} className="w-full border-2 grid grid-cols-2 p-6 col-span-4  group-hover:bg-black gap-4">
+                  <Grid container className="w-full border-2 grid grid-cols-2 p-6 col-span-4  group-hover:bg-black gap-4">
                     <Grid item xs={12} container justifyContent={'space-between'}>
                       <Grid item>
                         <Typography className="group-hover:text-white font-normal" variant='h6'>{new Date(post.date).toISOString().split('T')[0]}</Typography>
