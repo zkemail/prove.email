@@ -58,10 +58,10 @@ const fadeInAnimationVariants = {
 
 const projects = [
   { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', url: 'https://twitter.prove.email/', description: 'Prove you own a Twitter username by sending yourself a Twitter password reset email', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png', githubLink: 'https://github.com/zkemail/proof-of-twitter', twitterLink: 'https://x.com/zkemail' },
-  { name: 'ZK P2P', tagline: 'per to per transactions using everyday payment networks', url: 'https://zkp2p.xyz/', description: 'Transactations entirely P2P leveraging everyday payment networks like Venmo, HDFC, Garanti, Revolut', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png',  githubLink: 'https://github.com/zkp2p/zk-p2p', twitterLink: 'https://x.com/zkp2p'},
-  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', url: 'https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png', githubLink: 'https://github.com/JernKunpittaya/zk-github', twitterLink: 'https://x.com/zkemail'},
-  { name: 'Nooze Proof of Organization', tagline: 'prove you own a twitter account', url: 'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117',  githubLink: 'https://github.com/emmaguo13/nozee', twitterLink: 'https://x.com/zkemail' },
-  { name: 'Email Wallet', tagline: 'email money to anyone', url: 'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg',  githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
+  { name: 'ZK P2P', tagline: 'per to per transactions using everyday payment networks', url: 'https://zkp2p.xyz/', description: 'Transactations entirely P2P leveraging everyday payment networks like Venmo, HDFC, Garanti, Revolut', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png', githubLink: 'https://github.com/zkp2p/zk-p2p', twitterLink: 'https://x.com/zkp2p' },
+  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', url: 'https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png', githubLink: 'https://github.com/JernKunpittaya/zk-github', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Nooze Proof of Organization', tagline: 'prove you own a twitter account', url: 'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117', githubLink: 'https://github.com/emmaguo13/nozee', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Email Wallet', tagline: 'email money to anyone', url: 'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg', githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
 ];
 
 const texts = [
@@ -116,53 +116,53 @@ const ProjectsPage = () => {
   return (
     <section className="min-h-screen bg-white">
       <div className='bg-[#161616]'>
-      <div className="pt-40 text-center relative"
-  style={{
-    backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
-    backgroundRepeat: 'no-repeat',
-    display: 'flex', // Use flexbox to center content
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  }}>
-  {/* <Typography sx={{ color: 'white', fontSize: { xs: '10px', sm:'15px', md: '16px' } }}>ZKEmail supports</Typography> */}
-  <motion.div
-    variants={fadeInAnimationVariants}
-    initial='initial'
-    whileInView='animate'
-    viewport={{ once: true }}
-  >
-    <Typography variant='h1' 
-      sx={{fontFamily: berkeleyOldStyle.style.fontFamily, paddingBottom: '20px', color: 'white', fontSize:{xs:'30px', sm:'40px',  md:'50px', lg:'60px'} }} 
-    >
-      Projects using our ZK Libraries
-    </Typography>
-  </motion.div>
-  <Typography
-    sx={{
-      color: 'white',
-      width: { xs: '60%', md: '40%' },
-      marginX: 'auto',
-      fontSize: { xs: '10px', sm: '12px', md: '14px' }
-    }}
-  >
-    While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries.
-    This repository contains both our own projects and community projects using our libraries.
-  </Typography>
-  <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[20px]">
-    <CustomInputBase
-      value={searchInput}
-      onChange={(e) => setSearchInput(e.target.value)}
-      placeholder="Search projects..."
-      sx={{ width: '50%' }}
-    ></CustomInputBase>
-  </div>
-</div>
+        <div className="pt-40 text-center relative"
+          style={{
+            backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
+            backgroundRepeat: 'no-repeat',
+            display: 'flex', // Use flexbox to center content
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {/* <Typography sx={{ color: 'white', fontSize: { xs: '10px', sm:'15px', md: '16px' } }}>ZKEmail supports</Typography> */}
+          <motion.div
+            variants={fadeInAnimationVariants}
+            initial='initial'
+            whileInView='animate'
+            viewport={{ once: true }}
+          >
+            <Typography variant='h1'
+              sx={{ fontFamily: berkeleyOldStyle.style.fontFamily, paddingBottom: '20px', color: 'white', fontSize: { xs: '30px', sm: '40px', md: '50px', lg: '60px' } }}
+            >
+              Projects using our ZK Libraries
+            </Typography>
+          </motion.div>
+          <Typography
+            sx={{
+              color: 'white',
+              width: { xs: '60%', md: '40%' },
+              marginX: 'auto',
+              fontSize: { xs: '10px', sm: '12px', md: '14px' }
+            }}
+          >
+            While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries.
+            This repository contains both our own projects and community projects using our libraries.
+          </Typography>
+          <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[20px]">
+            <CustomInputBase
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search projects..."
+              sx={{ width: '50%' }}
+            ></CustomInputBase>
+          </div>
+        </div>
 
       </div>
-      
+
       <div className="flex items-center justify-center  space-x-0.5 sm:space-x-2 pt-10">
         <Hidden smDown>
           <SortIcon className='inline-block align-middle' />

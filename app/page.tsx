@@ -264,7 +264,7 @@ export default function Home() {
 
       {/* HOW WE DO THIS */}
       <div
-        className="pb-[50px] z-50 w-full"
+        className="z-50 w-full"
         style={{
           background: theme.palette.mode === "light" ? "transparent" : "black",
         }}

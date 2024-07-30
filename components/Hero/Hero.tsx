@@ -1,7 +1,7 @@
 "use client";
 import CustomButton from "../CustomButton/CustomButton";
 import Image from "next/image";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography, useTheme } from "@mui/material";
 import { useState, useEffect } from "react";
 import localFont from "next/font/local";
 import { motion } from "framer-motion";
@@ -12,22 +12,39 @@ import rectangleEnvelope from "../../public/rectangleEnvelope.png";
 // import triangleEnvelope from '../../public/triangleEnvelope.svg';
 import triangleEnvelope from "../../public/triangleEnvelope.png";
 
-import heroBackground1 from "../../public/heroBackground1.svg";
-import heroBackground2 from "../../public/heroBackground2.svg";
-import heroBackground3 from "../../public/heroBackground3.svg";
-import heroBackground4 from "../../public/heroBackground4.svg";
-import heroBackground5 from "../../public/heroBackground5.svg";
-import heroBackground6 from "../../public/heroBackground6.svg";
-import heroBackground7 from "../../public/heroBackground7.svg";
+import heroBackground1Light from "../../public/heroBackground/light/heroBackground1Light.svg";
+import heroBackground1Dark from "../../public/heroBackground/dark/heroBackground1Dark.svg";
+import heroBackground2Light from "../../public/heroBackground/light/heroBackground2Light.svg";
+import heroBackground2Dark from "../../public/heroBackground/dark/heroBackground2Dark.svg";
+import heroBackground3Light from "../../public/heroBackground/light/heroBackground3Light.svg";
+import heroBackground3Dark from "../../public/heroBackground/dark/heroBackground3Dark.svg";
+import heroBackground4Light from "../../public/heroBackground/light/heroBackground4Light.svg";
+import heroBackground4Dark from "../../public/heroBackground/dark/heroBackground4Dark.svg";
+import heroBackground5Light from "../../public/heroBackground/light/heroBackground5Light.svg";
+import heroBackground5Dark from "../../public/heroBackground/dark/heroBackground5Dark.svg";
+import heroBackground6Light from "../../public/heroBackground/light/heroBackground6Light.svg";
+import heroBackground6Dark from "../../public/heroBackground/dark/heroBackground6Dark.svg";
+import heroBackground7Light from "../../public/heroBackground/light/heroBackground7Light.svg";
+import heroBackground7Dark from "../../public/heroBackground/dark/heroBackground7Dark.svg";
 
-const backgrounds = [
-  heroBackground1,
-  heroBackground2,
-  heroBackground3,
-  heroBackground4,
-  heroBackground5,
-  heroBackground6,
-  heroBackground7,
+const backgroundsLight = [
+  heroBackground1Light,
+  heroBackground2Light,
+  heroBackground3Light,
+  heroBackground4Light,
+  heroBackground5Light,
+  heroBackground6Light,
+  heroBackground7Light,
+];
+
+const backgroundsDark = [
+  heroBackground1Dark,
+  heroBackground2Dark,
+  heroBackground3Dark,
+  heroBackground4Dark,
+  heroBackground5Dark,
+  heroBackground6Dark,
+  heroBackground7Dark,
 ];
 
 const berkeleyOldStyle = localFont({
@@ -36,6 +53,7 @@ const berkeleyOldStyle = localFont({
 });
 
 export default function Hero() {
+  const theme = useTheme();
   const [isEmailOpen, setIsEmailOpen] = useState(false);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
@@ -43,7 +61,9 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+      setBackgroundIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundsLight.length
+      );
     }, 350);
     return () => clearInterval(interval);
   }, []);
@@ -77,7 +97,7 @@ export default function Hero() {
       className={`px-5 sm:px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
       style={{
         height: "calc(100vh - 6.5rem)",
-        backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
+        backgroundImage: `url(${theme.palette.mode === "light" ? backgroundsLight[backgroundIndex].src : backgroundsDark[backgroundIndex].src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -91,7 +111,10 @@ export default function Hero() {
           zIndex: 10000,
         }}
       ></div>
-      <Box sx={{height: {xs:'70%', sm: 'auto'}}} className="z-50 relative flex flex-col justify-center">
+      <Box
+        sx={{ height: { xs: "70%", sm: "auto" } }}
+        className="z-50 relative flex flex-col justify-center"
+      >
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +140,10 @@ export default function Hero() {
         </motion.div>
         <Typography
           variant="h4"
-          className="pb-3 pt-3 sm:pt-4 md:pt-6 lg:pt-7 text-[12px] md:text-[20px] text-[#828282] leading-[160%] sm:leading-[140%]"
+          style={{
+            color: theme.palette.mode === "light" ? "#828282" : "#b0b0b0",
+          }}
+          className="pb-3 pt-3 sm:pt-4 md:pt-6 lg:pt-7 text-[12px] md:text-[20px] leading-[160%] sm:leading-[140%]"
         >
           Anonymously prove any subset of any email <br></br>you sent or
           received. On or Offchain.{" "}
@@ -137,6 +163,10 @@ export default function Hero() {
               Docs
             </CustomButton>
             <CustomButton
+              style={{
+                color: theme.palette.mode === "light" ? "black" : "white",
+                borderColor: theme.palette.mode === "light" ? "black" : "white",
+              }}
               buttonLabel="Projects"
               filledIn={false}
               url="/projects"
@@ -146,22 +176,31 @@ export default function Hero() {
           </Stack>
         </div>
       </Box>
-      <Box sx={{height: {xs: '50%', md: '100%'}}}>
+      <Box sx={{ height: { xs: "50%", md: "100%" } }}>
         <motion.div
           className="h-full"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <div
-            className="relative h-full w-fit flex justify-center mx-auto mt-16 cursor-none"
+          <Box
+            sx={{
+              marginTop: {
+                xs: "2rem",
+                md: "10rem",
+              },
+            }}
+            className="relative h-full w-fit flex justify-center mx-auto cursor-none"
             onClick={handleToggle}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <Box
-              className="absolute inset-0 rounded-lg bg-white mx-auto p-4 sm:p-16 md:p-14 text-left text-[6px] sm:text-[10px] md:text-[11px] lg:text-[12px]"
-              style={{ zIndex: 1 }}
+              className="absolute inset-0 rounded-lg mx-auto p-4 sm:p-16 md:p-14 text-left text-[6px] sm:text-[10px] md:text-[11px] lg:text-[12px]"
+              style={{
+                zIndex: 1,
+                background: theme.palette.background.default,
+              }}
               sx={{ width: { xs: "90%", sm: "75%" } }}
             >
               <div className="font-semibold">
@@ -269,8 +308,6 @@ export default function Hero() {
             <div
               className="absolute inset-0"
               style={{
-                background:
-                  "radial-gradient(circle at bottom, #F4F1F1 80%, #FCFCFC 100%)",
                 zIndex: 0,
                 filter: "blur(20px)",
                 borderTopLeftRadius: "100%",
@@ -280,7 +317,7 @@ export default function Hero() {
                 bottom: "0",
               }}
             />
-          </div>
+          </Box>
         </motion.div>
       </Box>
 
