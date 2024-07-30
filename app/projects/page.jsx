@@ -114,7 +114,7 @@ const ProjectsPage = () => {
   });
 
   return (
-    <section className="min-h-screen bg-white">
+    <section className="min-h-screen" style={{ background: theme.palette.background.default }}>
       <div className='bg-[#161616]'>
         <div className="pt-40 text-center relative"
           style={{
@@ -343,8 +343,8 @@ const ProjectsPage = () => {
                   </CustomButton>
                 </Link>
                 <Stack direction="row" spacing={2}>
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} dark='true' IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} dark='true' IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color:  theme.palette.mode === 'light' ? 'black' : 'white'  }} IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} style={{ color:  theme.palette.mode === 'light' ? 'black' : 'white'  }} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
                 </Stack>
               </Stack>
             </>
