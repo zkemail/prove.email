@@ -114,7 +114,7 @@ const ProjectsPage = () => {
   });
 
   return (
-    <section className="min-h-screen" style={{ background: theme.palette.background.default }}>
+    <section style={{ background: theme.palette.background.default, height: '100%' }}>
       <div className='bg-[#161616]'>
         <div className="pt-40 text-center relative"
           style={{
@@ -170,6 +170,10 @@ const ProjectsPage = () => {
         {['ZK Email Library', 'ZK Library', 'On Chain', 'Off Chain', 'Made by Us'].map((label) => (
           <CustomButton
             key={label}
+            style={{
+              color: theme.palette.mode === "light" ? "black" : "white",
+              borderColor: theme.palette.mode === "light" ? "black" : "white",
+            }}
             buttonLabel={label}
             filledIn={selectedButtons.includes(label) ? true : false}
             color="primary"
@@ -264,7 +268,10 @@ const ProjectsPage = () => {
                     variant="outlined"
                     tag
                     color="primary"
-                    buttonLabel='ZK Email Library'
+                    buttonLabel='ZK Email Library' style={{
+                      color: theme.palette.mode === "light" ? "black" : "white",
+                      borderColor: theme.palette.mode === "light" ? "black" : "white",
+                    }}
                     sx={{
                       padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
                       fontSize: { xs: '8px', sm: '10px', md: '12px' },
@@ -278,7 +285,10 @@ const ProjectsPage = () => {
                     variant="outlined"
                     tag
                     color="primary"
-                    buttonLabel='ZK Library'
+                    buttonLabel='ZK Library' style={{
+                      color: theme.palette.mode === "light" ? "black" : "white",
+                      borderColor: theme.palette.mode === "light" ? "black" : "white",
+                    }}
                     sx={{
                       padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
                       fontSize: { xs: '8px', sm: '10px', md: '12px' },
@@ -291,7 +301,10 @@ const ProjectsPage = () => {
                   <CustomButton
                     variant="outlined"
                     tag
-                    color="primary"
+                    color="primary" style={{
+                      color: theme.palette.mode === "light" ? "black" : "white",
+                      borderColor: theme.palette.mode === "light" ? "black" : "white",
+                    }}
                     buttonLabel='Off Chain'
                     sx={{
                       padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
@@ -306,7 +319,10 @@ const ProjectsPage = () => {
                     variant="outlined"
                     tag
                     color="primary"
-                    buttonLabel='On Chain'
+                    buttonLabel='On Chain' style={{
+                      color: theme.palette.mode === "light" ? "black" : "white",
+                      borderColor: theme.palette.mode === "light" ? "black" : "white",
+                    }}
                     sx={{
                       padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
                       fontSize: { xs: '8px', sm: '10px', md: '12px' },
@@ -320,7 +336,10 @@ const ProjectsPage = () => {
                     variant="outlined"
                     tag
                     color="primary"
-                    buttonLabel='Made By Us'
+                    buttonLabel='Made By Us' style={{
+                      color: theme.palette.mode === "light" ? "black" : "white",
+                      borderColor: theme.palette.mode === "light" ? "black" : "white",
+                    }}
                     sx={{
                       padding: { xs: '2px 4px', sm: '4px 8px', md: '6px 10px' },
                       fontSize: { xs: '8px', sm: '10px', md: '12px' },
@@ -343,8 +362,8 @@ const ProjectsPage = () => {
                   </CustomButton>
                 </Link>
                 <Stack direction="row" spacing={2}>
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color:  theme.palette.mode === 'light' ? 'black' : 'white'  }} IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} style={{ color:  theme.palette.mode === 'light' ? 'black' : 'white'  }} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
                 </Stack>
               </Stack>
             </>
