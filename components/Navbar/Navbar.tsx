@@ -87,19 +87,20 @@ const Navbar: React.FC<NavbarProps> = ({
             }}
           >
             <Box sx={{ display: { xs: "flex" } }}>
-              <IconButton
-                href="/"
-                sx={{
-                  color: theme.palette.text.primary,
-                  padding: { sm: "6px", md: "8px" },
-                  "& .MuiSvgIcon-root": {
-                    fontSize: { xs: "16px", sm: "20px", md: "24px" },
-                  },
-                }}
-                aria-label="Home link"
-              >
-                <ZKEIcon mode={isDarkModeEnabled ? "dark" : "light"} />
-              </IconButton>
+              <Link href='/'>
+                <IconButton
+                  sx={{
+                    color: theme.palette.text.primary,
+                    padding: { sm: "6px", md: "8px" },
+                    "& .MuiSvgIcon-root": {
+                      fontSize: { xs: "16px", sm: "20px", md: "24px" },
+                    },
+                  }}
+                  aria-label="Home link"
+                >
+                  <ZKEIcon mode={isDarkModeEnabled ? "dark" : "light"} />
+                </IconButton>
+              </Link>
             </Box>
 
             <Box

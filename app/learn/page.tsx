@@ -106,7 +106,7 @@ export default function Home() {
   const theme = useTheme();
 
   return (
-    <main className="flex bg-white min-h-screen flex-col">
+    <main style={{background: theme.palette.background.default}} className="flex min-h-screen flex-col">
       <motion.div
         variants={fadeInAnimationVariants}
         initial="initial"
@@ -137,7 +137,7 @@ export default function Home() {
               }}
             >
               ZK Email leverages what emails already do but with{" "}
-              <span className="text-[#000000]">Regex & Zero Knowledge</span>
+              <span style={{color: theme.palette.text.primary}}>Regex & Zero Knowledge</span>
             </Typography>
           </div>
         </Box>
