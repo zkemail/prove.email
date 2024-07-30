@@ -5,7 +5,7 @@ import Link from 'next/link';
 import CustomButton from '.././CustomButton/CustomButton'
 import CustomInputBase from '../CustomInputBase/CustomInputBase'
 import { useTheme } from '@mui/material/styles';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import blogBackground1 from '../../public/blogBackground1.svg'
 import blogBackground2 from '../../public/blogBackground2.svg'
 import blogBackground3 from '../../public/blogBackground3.svg'
@@ -76,7 +76,7 @@ const FilterablePostList = ({ initialPosts }) => {
   }
 
   return (
-    <Grid container style={{background: theme.palette.background.default}}>
+    <Grid container style={{ background: theme.palette.background.default }}>
       <div className="h-[400px] sm:h-[430px] w-full bg-[#F5F5F5] flex flex-col justify-end"
         style={{
           backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
@@ -95,7 +95,10 @@ const FilterablePostList = ({ initialPosts }) => {
             <Typography variant='h1' sx={{ fontFamily: berkeleyOldStyle.style.fontFamily, fontSize: { xs: '70px', sm: '90px', md: '120px' }, textAlign: 'left', paddingTop: '20px', marginTop: '80px' }}>Blog</Typography>
           </motion.div>
         </div>
-        <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="absolute left-1/2 top-[495px] sm:top-[515px] md:top-[535px] transform -translate-x-1/2 -translate-y-1/2 rounded-[20px] w-[100%]">
+
+      </div>
+      <Box sx={{ padding: { xs: '1rem', md: '8vw' }, paddingTop: {xs: 0, md: "0"} }} className=" flex-grow">
+        <Box sx={{ paddingY: { xs: '4rem' } }} className="w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className='w-[50%]'>
               <CustomInputBase
@@ -134,8 +137,6 @@ const FilterablePostList = ({ initialPosts }) => {
             </div>
           </div>
         </Box>
-      </div>
-      <Box sx={{ padding: { xs: '1rem', md: '8vw' } }} className="mt-10 flex-grow">
         <div className="overflow-hidden relative w-full">
           <div className="">
             {filteredPosts.map((post) => (

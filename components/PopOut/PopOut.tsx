@@ -12,6 +12,7 @@ import {
 import { styled } from "@mui/system";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ArrowOutward from "@mui/icons-material/ArrowOutward";
+import { useTheme } from "@mui/material/styles";
 
 interface Card {
   label: string;
@@ -75,7 +76,7 @@ const ArrowIcon = styled(ArrowOutward)(({ theme }) => ({
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  backgroundColor: "white",
+  backgroundColor: theme.palette.background.default,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
@@ -106,6 +107,7 @@ const PopOut: FC<PopOutProps> = ({
   toggleName,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme()
 
   const handleCardClick = (url: string) => {
     window.open(url, "_blank");
@@ -114,7 +116,7 @@ const PopOut: FC<PopOutProps> = ({
   return (
     <Container>
       <Box onClick={() => setIsOpen(!isOpen)} sx={{ cursor: "pointer" }}>
-        <Header sx={{ bgcolor: "black" }}>
+        <Header sx={{ bgcolor: theme.palette.background.default }}>
           <Typography variant="h5" sx={{ color: "white", textAlign: "left" }}>
             {topText}
           </Typography>

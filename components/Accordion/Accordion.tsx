@@ -7,6 +7,7 @@ import {
   styled,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useTheme } from "@mui/material/styles";
 
 // Define the props types
 interface AccordionProps {
@@ -19,7 +20,7 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   "&:before": {
     display: "none",
   },
-  background: "white",
+  background: theme.palette.background.default,
   boxShadow: "none",
   borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
   "& .MuiAccordionSummary-root": {
@@ -48,6 +49,7 @@ const Accordion: FC<AccordionProps> = ({
   contents,
   alignment = "left",
 }) => {
+  const theme = useTheme()
   return (
     <CustomAccordion>
       <AccordionSummary
@@ -68,7 +70,6 @@ const Accordion: FC<AccordionProps> = ({
         }}
       >
         <Typography
-          color="black"
           fontWeight="500"
           variant="h5"
           sx={{
@@ -83,7 +84,7 @@ const Accordion: FC<AccordionProps> = ({
         <Typography
         variant="body2"
           sx={{
-            color: "#666363",
+            color: theme.palette.text.secondary,
             textAlign: alignment === "right" ? "right" : "left",
           }}
         >

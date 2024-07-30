@@ -12,7 +12,8 @@ import RedactedText from "@/components/RedactedText/RedactedText";
 import Link from "next/link";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTheme } from "@mui/material/styles";
-import buildYourOwnBackground from ".././public/buildYourOwnBackground.svg";
+import buildYourOwnBackgroundLight from ".././public/buildYourOwnBackgroundLight.svg";
+import buildYourOwnBackgroundDark from ".././public/buildYourOwnBackgroundDark.svg";
 import CustomCardAbout from ".././components/CustomCardAbout/CustomCardAbout";
 import AboutModal from ".././components/AboutModal/AboutModal";
 import ourGoalsBackground from ".././public/ourGoalsBackground.svg";
@@ -198,7 +199,7 @@ export default function Home() {
       <Box
         width="100%"
         sx={{
-          backgroundColor: "white",
+          backgroundColor: theme.palette.background.default,
           backgroundImage: `url(${waveBackground.src})`,
           padding: { xs: "1rem", md: "8vw" },
           background: "cover",
@@ -262,7 +263,12 @@ export default function Home() {
   </div> */}
 
       {/* HOW WE DO THIS */}
-      <div className="pb-[50px] z-50 w-full">
+      <div
+        className="pb-[50px] z-50 w-full"
+        style={{
+          background: theme.palette.mode === "light" ? "transparent" : "black",
+        }}
+      >
         <Box
           sx={{
             // height: { xs: "830px", sm: "650px" },
@@ -337,7 +343,7 @@ export default function Home() {
         <Box
           width="100%"
           sx={{
-            backgroundColor: "white",
+            backgroundColor: theme.palette.background.default,
             backgroundImage: `url(${waveBackgroundInverted.src})`,
             backgroundSize: "cover",
             backgroundPosition: "calc(100% - 10) center",
@@ -464,8 +470,8 @@ export default function Home() {
         sx={{
           height: { xs: "300px", sm: "400px" },
           padding: { xs: "1rem", md: "8vw" },
-          backgroundColor: "white",
-          backgroundImage: `url(${buildYourOwnBackground.src})`,
+          backgroundColor: theme.palette.background.default,
+          backgroundImage: `url(${theme.palette.mode === "light" ? buildYourOwnBackgroundLight.src : buildYourOwnBackgroundDark.src})`,
           paddingTop: { xs: "3.125rem", sm: "6.25rem" },
         }}
       >
@@ -503,7 +509,7 @@ export default function Home() {
       {/* LIBRARIES ON MAIN PAGE */}
       <div
         className="w-full min-h-[400px] relative z-10 pb-24"
-        style={{ background: "linear-gradient(to top, #FBFBFB, #FFFFFF)" }}
+        style={{ background: `linear-gradient(to top, ${theme.palette.background.paper}, ${theme.palette.background.default})` }}
       >
         <Box
           sx={{ padding: { xs: "1rem", md: "10vw" } }}
@@ -551,8 +557,8 @@ export default function Home() {
 
       {/* FAQ ACCORDION ON MAIN PAGE */}
       <Box
-        sx={{ padding: { xs: "1rem", md: "8vw" } }}
-        className="py-[100px] z-50 bg-white w-full"
+        sx={{ padding: { xs: "1rem", md: "8vw" }, background: theme.palette.background.default }}
+        className="py-[100px] z-50 w-full"
       >
         <div className="min-h-[200px]">
           <div className="relative ">
@@ -606,7 +612,7 @@ export default function Home() {
         </div>
       </Box>
 
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", background: theme.palette.background.default }}>
         <Grid
           container
           sx={{
@@ -638,7 +644,7 @@ export default function Home() {
       </Box>
 
       {/* VIDEO CAROUSEL ON MAIN PAGE */}
-      <div className="w-full py-16">
+      <div className="w-full py-16" style={{background: theme.palette.background.default}}>
         <div className="text-center py-10">
           <motion.div
             variants={fadeInAnimationVariants}

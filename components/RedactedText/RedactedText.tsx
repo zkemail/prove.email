@@ -16,7 +16,7 @@ const RedactedBox = styled(Box)(({ theme }) => ({
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: 'black',
+  backgroundColor: theme.palette.text.primary,
   transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
   transformOrigin: 'left',
 }));

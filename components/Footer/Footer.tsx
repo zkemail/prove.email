@@ -120,7 +120,7 @@ const Footer = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         transition: "background-image", // smooth transition for background image change
-        backgroundColor: "white", // ensure background color doesn't override background image
+        backgroundColor: theme.palette.background.default, // ensure background color doesn't override background image
       }}
     >
       <Box

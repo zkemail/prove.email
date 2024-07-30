@@ -13,6 +13,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ZKEIcon from "../ZKEIcon/ZKEIcon";
 import dynamic from "next/dynamic";
 import { DarkMode, LightMode } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 
 const FullScreenMenuDialog = dynamic(
   () => import("../OverlayMenu/OverlayMenu"),
@@ -38,6 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({
   setIsDarkModeEnabled,
 }) => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -52,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "white",
+          backgroundColor: theme.palette.background.default,
           paddingY: "20px",
           boxShadow: {
             xs: "none", // No box shadow on small screens
@@ -64,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({
       >
         <Container
           sx={{
-            backgroundColor: "white",
+            backgroundColor: theme.palette.background.default,
             boxShadow: {
               xs: "none", // No box shadow on small screens
               md: "0px 1px 5px rgba(0, 0, 0, 0.09)", // Box shadow on medium and larger screens
@@ -87,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({
               <IconButton
                 href="/"
                 sx={{
-                  color: "black",
+                  color: theme.palette.text.primary,
                   padding: { sm: "6px", md: "8px" },
                   "& .MuiSvgIcon-root": {
                     fontSize: { xs: "16px", sm: "20px", md: "24px" },
@@ -95,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 }}
                 aria-label="Home link"
               >
-                <ZKEIcon mode="light" />
+                <ZKEIcon mode={isDarkModeEnabled ? "dark" : "light"} />
               </IconButton>
             </Box>
 
@@ -109,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 <Link href={page.link} key={page.label} passHref>
                   <Button
                     sx={{
-                      color: "black",
+                      color: theme.palette.text.primary,
                       fontWeight: "regular",
                       textTransform: "capitalize",
                       fontSize: { xs: "0.6rem", sm: "0.9rem", md: "1rem" },
@@ -138,7 +141,7 @@ const Navbar: React.FC<NavbarProps> = ({
                       },
                     }}
                   >
-                    {page.label}
+                    <Typography>{page.label}</Typography>
                   </Button>
                 </Link>
               ))}
@@ -154,7 +157,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 href="https://github.com/zkemail/"
                 target="_blank"
                 sx={{
-                  color: "black",
+                  color: theme.palette.text.primary,
                   padding: { xs: "4px", sm: "6px", md: "0px" },
                   "& .MuiSvgIcon-root": {
                     fontSize: { xs: "16px", sm: "20px", md: "24px" },
@@ -166,7 +169,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </IconButton>
               <IconButton
                 sx={{
-                  color: "black",
+                  color: theme.palette.text.primary,
                   padding: { xs: "4px", sm: "6px", md: "0px" },
                   "& .MuiSvgIcon-root": {
                     fontSize: { xs: "16px", sm: "20px", md: "24px" },
@@ -199,7 +202,7 @@ const Navbar: React.FC<NavbarProps> = ({
               >
                 <IconButton
                   sx={{
-                    color: "black",
+                    color: theme.palette.text.primary,
                     position: "absolute",
                     width: "36px",
                     height: "36px",
