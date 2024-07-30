@@ -6,18 +6,26 @@ import CustomButton from '.././CustomButton/CustomButton'
 import CustomInputBase from '../CustomInputBase/CustomInputBase'
 import { useTheme } from '@mui/material/styles';
 import { Box, Button, Grid, Typography } from '@mui/material';
-import blogBackground1 from '../../public/blogBackground1.svg'
-import blogBackground2 from '../../public/blogBackground2.svg'
-import blogBackground3 from '../../public/blogBackground3.svg'
-import blogBackground4 from '../../public/blogBackground4.svg'
-import blogBackground5 from '../../public/blogBackground5.svg'
-import blogBackground6 from '../../public/blogBackground6.svg'
-import blogBackground7 from '../../public/blogBackground7.svg'
+import blogBackground1Light from '../../public/blogBackground1Light.svg'
+import blogBackground1Dark from '../../public/blogBackground1Dark.svg'
+import blogBackground2Light from '../../public/blogBackground2Light.svg'
+import blogBackground2Dark from '../../public/blogBackground2Dark.svg'
+import blogBackground3Light from '../../public/blogBackground3Light.svg'
+import blogBackground3Dark from '../../public/blogBackground3Dark.svg'
+import blogBackground4Light from '../../public/blogBackground4Light.svg'
+import blogBackground4Dark from '../../public/blogBackground4Dark.svg'
+import blogBackground5Light from '../../public/blogBackground5Light.svg'
+import blogBackground5Dark from '../../public/blogBackground5Dark.svg'
+import blogBackground6Light from '../../public/blogBackground6Light.svg'
+import blogBackground6Dark from '../../public/blogBackground6Dark.svg'
+import blogBackground7Light from '../../public/blogBackground7Light.svg'
+import blogBackground7Dark from '../../public/blogBackground7Dark.svg'
 
 import { motion } from 'framer-motion';
 import localFont from 'next/font/local';
 
-const backgrounds = [blogBackground1, blogBackground2, blogBackground3, blogBackground4, blogBackground5, blogBackground6, blogBackground7];
+const backgroundsLight = [blogBackground1Light, blogBackground2Light, blogBackground3Light, blogBackground4Light, blogBackground5Light, blogBackground6Light, blogBackground7Light];
+const backgroundsDark = [blogBackground1Dark, blogBackground2Dark, blogBackground3Dark, blogBackground4Dark, blogBackground5Dark, blogBackground6Dark, blogBackground7Dark];
 
 const berkeleyOldStyle = localFont({
   src: '../.././font/BerkeleyOldStyle.ttf',
@@ -44,7 +52,7 @@ const FilterablePostList = ({ initialPosts }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundsLight.length);
     }, 500);
     return () => clearInterval(interval);
   }, []);
@@ -77,9 +85,10 @@ const FilterablePostList = ({ initialPosts }) => {
 
   return (
     <Grid container style={{ background: theme.palette.background.default }}>
-      <div className="h-[400px] sm:h-[430px] w-full bg-[#F5F5F5] flex flex-col justify-end"
+      <div className="h-[400px] sm:h-[430px] w-full  flex flex-col justify-end"
         style={{
-          backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
+          background: theme.palette.mode === "light" ? '#F5F5F5': '#202020',
+          backgroundImage: `url(${theme.palette.mode === 'light' ? backgroundsLight[backgroundIndex].src : backgroundsDark[backgroundIndex].src})`,
           backgroundPosition: 'center',
           backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
           backgroundRepeat: 'no-repeat',
@@ -111,12 +120,14 @@ const FilterablePostList = ({ initialPosts }) => {
               <CustomButton
                 size="small"
                 buttonLabel='Newest'
-                filledIn={selectedButton.includes('Newest') ? true : false}
+                filledIn={selectedButton.includes('Newest')}
                 sx={{
                   padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
                   fontSize: { xs: '10px', sm: '12px', md: '14px' },
+                  background: theme.palette.background.default,
+                  color: theme.palette.text.primary
                 }}
-                className={`rounded-[5px] ${selectedButton === 'Newest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
+                // className={`rounded-[5px] ${selectedButton === 'Newest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
                 onClick={() => setSelectedButton('Newest')}
               >
                 Newest
@@ -124,12 +135,14 @@ const FilterablePostList = ({ initialPosts }) => {
               <CustomButton
                 size="small"
                 buttonLabel='Oldest'
-                filledIn={selectedButton.includes('Oldest') ? true : false}
+                filledIn={selectedButton.includes('Oldest')}
                 sx={{
                   padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
                   fontSize: { xs: '10px', sm: '12px', md: '14px' },
+                  background: theme.palette.background.default,
+                  color: theme.palette.text.primary
                 }}
-                className={`rounded-[5px] ${selectedButton === 'Oldest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
+                // className={`rounded-[5px] ${selectedButton === 'Oldest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
                 onClick={() => setSelectedButton('Oldest')}
               >
                 Oldest
@@ -160,7 +173,7 @@ const FilterablePostList = ({ initialPosts }) => {
                   </Grid>
                   <div className="h-[150px] w-full hidden"
                     style={{
-                      backgroundImage: `url(${backgrounds[backgroundIndex].src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
+                      backgroundImage: `url(${theme.palette.mode === 'light' ? backgroundsLight[backgroundIndex].src : backgroundsDark[backgroundIndex].src})`, backgroundPosition: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat'
                     }}>
                   </div>
                 </div>

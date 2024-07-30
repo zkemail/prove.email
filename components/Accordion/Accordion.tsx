@@ -22,7 +22,10 @@ const CustomAccordion = styled(MuiAccordion)(({ theme }) => ({
   },
   background: theme.palette.background.default,
   boxShadow: "none",
-  borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+  borderBottom:
+    theme.palette.mode === "light"
+      ? "1px solid rgba(0, 0, 0, 0.12)"
+      : "1px solid rgba(255,255,255, 0.12)",
   "& .MuiAccordionSummary-root": {
     backgroundColor: "rgba(0, 0, 0, 0)",
     "&:hover .MuiAccordionSummary-expandIconWrapper": {
@@ -49,7 +52,7 @@ const Accordion: FC<AccordionProps> = ({
   contents,
   alignment = "left",
 }) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <CustomAccordion>
       <AccordionSummary
@@ -82,7 +85,7 @@ const Accordion: FC<AccordionProps> = ({
       </AccordionSummary>
       <AccordionDetails>
         <Typography
-        variant="body2"
+          variant="body2"
           sx={{
             color: theme.palette.text.secondary,
             textAlign: alignment === "right" ? "right" : "left",
