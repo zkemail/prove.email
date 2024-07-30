@@ -94,8 +94,9 @@ export default function Hero() {
 
   return (
     <div
-      className={`px-5 sm:px-16 pt-16 w-full bg-[#F6F5F5] text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
+      className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
       style={{
+        backgroundColor: theme.palette.mode === 'light' ? '#F6F5F5': '0F0F0F',
         height: "calc(100vh - 6.5rem)",
         backgroundImage: `url(${theme.palette.mode === "light" ? backgroundsLight[backgroundIndex].src : backgroundsDark[backgroundIndex].src})`,
         backgroundSize: "cover",

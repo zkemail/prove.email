@@ -1,5 +1,5 @@
 'use client';
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -9,6 +9,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { lightTheme, darkTheme } from '../app/theme';
 import { AppBarProps } from '../types';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const pages = [
   { label: 'Projects', link: '/projects' },
@@ -28,11 +29,17 @@ const appBarProps: AppBarProps = {
 const inter = Inter({ subsets: ['latin'] });
 
 const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(false);
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [isDarkModeEnabled, setIsDarkModeEnabled] = useState(prefersDarkMode ?? false);
 
   const handleThemeChange = () => {
     setIsDarkModeEnabled(!isDarkModeEnabled);
   };
+
+  useEffect(() => {
+    setIsDarkModeEnabled(true)
+  }, [prefersDarkMode])
+
 
   return (
     <html lang="en">
