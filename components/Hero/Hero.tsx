@@ -12,20 +12,20 @@ import rectangleEnvelope from "../../public/rectangleEnvelope.png";
 // import triangleEnvelope from '../../public/triangleEnvelope.svg';
 import triangleEnvelope from "../../public/triangleEnvelope.png";
 
-import heroBackground1Light from "../../public/heroBackground/light/heroBackground1Light.svg";
-import heroBackground1Dark from "../../public/heroBackground/dark/heroBackground1Dark.svg";
-import heroBackground2Light from "../../public/heroBackground/light/heroBackground2Light.svg";
-import heroBackground2Dark from "../../public/heroBackground/dark/heroBackground2Dark.svg";
-import heroBackground3Light from "../../public/heroBackground/light/heroBackground3Light.svg";
-import heroBackground3Dark from "../../public/heroBackground/dark/heroBackground3Dark.svg";
-import heroBackground4Light from "../../public/heroBackground/light/heroBackground4Light.svg";
-import heroBackground4Dark from "../../public/heroBackground/dark/heroBackground4Dark.svg";
-import heroBackground5Light from "../../public/heroBackground/light/heroBackground5Light.svg";
-import heroBackground5Dark from "../../public/heroBackground/dark/heroBackground5Dark.svg";
-import heroBackground6Light from "../../public/heroBackground/light/heroBackground6Light.svg";
-import heroBackground6Dark from "../../public/heroBackground/dark/heroBackground6Dark.svg";
-import heroBackground7Light from "../../public/heroBackground/light/heroBackground7Light.svg";
-import heroBackground7Dark from "../../public/heroBackground/dark/heroBackground7Dark.svg";
+import heroBackground1Light from "@/public/heroBackground/light/heroBackground1Light.svg";
+import heroBackground1Dark from "@/public/heroBackground/dark/heroBackground1Dark.svg";
+import heroBackground2Light from "@/public/heroBackground/light/heroBackground2Light.svg";
+import heroBackground2Dark from "@/public/heroBackground/dark/heroBackground2Dark.svg";
+import heroBackground3Light from "@/public/heroBackground/light/heroBackground3Light.svg";
+import heroBackground3Dark from "@/public/heroBackground/dark/heroBackground3Dark.svg";
+import heroBackground4Light from "@/public/heroBackground/light/heroBackground4Light.svg";
+import heroBackground4Dark from "@/public/heroBackground/dark/heroBackground4Dark.svg";
+import heroBackground5Light from "@/public/heroBackground/light/heroBackground5Light.svg";
+import heroBackground5Dark from "@/public/heroBackground/dark/heroBackground5Dark.svg";
+import heroBackground6Light from "@/public/heroBackground/light/heroBackground6Light.svg";
+import heroBackground6Dark from "@/public/heroBackground/dark/heroBackground6Dark.svg";
+import heroBackground7Light from "@/public/heroBackground/light/heroBackground7Light.svg";
+import heroBackground7Dark from "@/public/heroBackground/dark/heroBackground7Dark.svg";
 
 const backgroundsLight = [
   heroBackground1Light,
@@ -59,6 +59,27 @@ export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
+  const [preloadedLightImages, setPreloadedLightImages] = useState([]);
+  const [preloadedDarkImages, setPreloadedDarkImages] = useState([]);
+
+  useEffect(() => {
+    // Preload light mode images
+    const lightImages = backgroundsLight.map((bg) => {
+      const img = document.createElement('img');
+      img.src = bg.src;
+      return img;
+    });
+    setPreloadedLightImages(lightImages);
+
+    // Preload dark mode images
+    const darkImages = backgroundsDark.map((bg) => {
+      const img = document.createElement('img');
+      img.src = bg.src;
+      return img;
+    });
+    setPreloadedDarkImages(darkImages);
+  }, [backgroundsLight, backgroundsDark]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex(
@@ -66,7 +87,7 @@ export default function Hero() {
       );
     }, 350);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgroundsLight]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -96,9 +117,13 @@ export default function Hero() {
     <div
       className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
       style={{
-        backgroundColor: theme.palette.mode === 'light' ? '#F6F5F5': '0F0F0F',
+        backgroundColor: theme.palette.mode === "light" ? "#F6F5F5" : "#0F0F0F",
         height: "calc(100vh - 6.5rem)",
-        backgroundImage: `url(${theme.palette.mode === "light" ? backgroundsLight[backgroundIndex].src : backgroundsDark[backgroundIndex].src})`,
+        backgroundImage: preloadedLightImages.length === backgroundsLight.length ? `url(${
+          theme.palette.mode === "light"
+            ? preloadedLightImages[backgroundIndex]?.src
+            : preloadedDarkImages[backgroundIndex]?.src
+        })`: 'black',
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
