@@ -163,7 +163,7 @@ const ProjectsPage = () => {
 
       </div>
 
-      <div className="flex items-center justify-center  space-x-0.5 sm:space-x-2 pt-10">
+      <Box sx={{ display: { md: 'flex', xs: 'none' } }} className="flex items-center justify-center space-x-0.5 sm:space-x-2 pt-10">
         <Hidden smDown>
           <SortIcon className='inline-block align-middle' />
         </Hidden>
@@ -186,7 +186,7 @@ const ProjectsPage = () => {
             {label}
           </CustomButton>
         ))}
-      </div>
+      </Box>
 
 
 
