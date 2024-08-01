@@ -15,7 +15,7 @@ const pages = [
   { label: 'Projects', link: '/projects' },
   { label: 'Docs', link: 'https://prove.email/docs.html' },
   { label: 'Blog', link: '/blog' },
-  { label: 'Learn', link: '/learn' }
+  // { label: 'Learn', link: '/learn' }
   // { label: 'Learn', link: 'https://prove.email/docs.html' }
 
 ];
