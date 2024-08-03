@@ -59,8 +59,8 @@ export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  const [preloadedLightImages, setPreloadedLightImages] = useState([]);
-  const [preloadedDarkImages, setPreloadedDarkImages] = useState([]);
+  const [preloadedLightImages, setPreloadedLightImages] = useState<HTMLImageElement[]>([]);
+  const [preloadedDarkImages, setPreloadedDarkImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
     // Preload light mode images
