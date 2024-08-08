@@ -1,3 +1,5 @@
+'use server'
+
 import fs from 'fs';
 import path from 'path';
 import { compileMDX } from 'next-mdx-remote/rsc';
@@ -38,7 +40,6 @@ export const getPostBySlug = async (slug) => {
       },
     });
 
-    console.log('Content Parsed:', JSON.stringify(content, null, 2)); // Debugging output
     return { meta: { ...frontmatter, slug: realSlug }, content };
 
   // } catch (error) {
