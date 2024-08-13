@@ -51,7 +51,7 @@ export default function FullScreenDialog({ open, onClose, pages }: FullScreenDia
       <AppBar sx={{ position: 'relative', background: 'black' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <IconButton edge="start" color="inherit" href="/" aria-label="home">
-            <ZKEIcon sx={{ color: 'white' }} mode={'dark'} />
+          <img src={'/zkemailLogo.png'} style={{height: '3rem', width:'auto'}} />
           </IconButton>
 
           <IconButton edge="end" color="inherit" onClick={onClose} aria-label="close">

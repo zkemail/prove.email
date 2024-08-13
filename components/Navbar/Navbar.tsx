@@ -10,7 +10,8 @@ import Link from "next/link";
 import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MenuIcon from "@mui/icons-material/Menu";
-import ZKEIcon from "../ZKEIcon/ZKEIcon";
+// import ZKEIcon from "../ZKEIcon/ZKEIcon";
+import ZKEmailLogo from '../../public/zkemailLogo.png'
 import dynamic from "next/dynamic";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
@@ -98,7 +99,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   }}
                   aria-label="Home link"
                 >
-                  <ZKEIcon mode={isDarkModeEnabled ? "dark" : "light"} />
+                  {/* <ZKEIcon mode={isDarkModeEnabled ? "dark" : "light"} /> */}
+                  <img src={'/zkemailLogo.png'} style={{height: '3rem', width:'auto'}} />
                 </IconButton>
               </Link>
             </Box>
