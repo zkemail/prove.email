@@ -5,17 +5,15 @@ import Link from 'next/link';
 import { getPostBySlug } from '../../lib/index';
 import CustomButton from '@/components/CustomButton/CustomButton';
 import { MDXRemote } from 'next-mdx-remote';
-import mdxComponents from '../../../mdx-components'; /// 
-import 'highlight.js/styles/github-dark.css'
-
+import mdxComponents from '../../../mdx-components'; 
 
 const PostContent = ({ meta, content }) => {
     const theme = useTheme()
     console.log(meta)
 
-    return <Box sx={{ padding: { xs: '1rem', md: '8vw', background: theme.palette.background.default } }} className="py-24">
-        <Box mb={4}>
-            <Typography variant="h1" component="h1">
+    return <Box sx={{ padding: { xs: '1rem', md: '8vw', background: theme.palette.background.default, width:'100%'}}}>
+        <Box mb={4} sx={{paddingX: 'auto', width:'100%'}}>
+            <Typography variant="h1" component="h1" >
                 {meta.title}
             </Typography>
             <Typography variant="body1" sx={{ color: 'grey.500' }}>
@@ -26,7 +24,7 @@ const PostContent = ({ meta, content }) => {
             </Typography>
         </Box>
 
-        <article className={`prose lg:prose-xl ${theme.palette.mode === 'dark' ? 'prose-invert dark:prose-invert-xl' : ''}`}>{content}</article>
+        <article className={`mx-auto prose lg:prose-xl ${theme.palette.mode === 'dark' ? 'prose-invert dark:prose-invert-xl' : ''}`}>{content}</article>
     </Box>
 }
 
