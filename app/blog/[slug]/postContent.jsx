@@ -1,11 +1,6 @@
 'use client'
 
 import { Typography, Box, Button, useTheme } from '@mui/material';
-import Link from 'next/link';
-import { getPostBySlug } from '../../lib/index';
-import CustomButton from '@/components/CustomButton/CustomButton';
-import { MDXRemote } from 'next-mdx-remote';
-import mdxComponents from '../../../mdx-components'; 
 
 const PostContent = ({ meta, content }) => {
     const theme = useTheme()

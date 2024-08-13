@@ -106,7 +106,7 @@ const FilterablePostList = ({ initialPosts }) => {
         </div>
 
       </div>
-      <Box sx={{ padding: { xs: '1rem', md: '8vw' }, paddingTop: {xs: 0, md: "0"} }} className=" flex-grow">
+      <Box sx={{ marginTop: {xs:'-85px'}, padding: { xs: '1rem', md: '8vw' }, paddingTop: {xs: 0, md: "0"} }} className=" flex-grow">
         <Box sx={{ paddingY: { xs: '4rem' } }} className="w-[100%]">
           <div className="flex justify-between items-center space-x-4">
             <div className='w-[50%]'>
