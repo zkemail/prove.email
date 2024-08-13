@@ -11,8 +11,9 @@ const PostContent = ({ meta, content }) => {
     const theme = useTheme()
     console.log(meta)
 
-    return <Box sx={{ padding: { xs: '1rem', md: '8vw', background: theme.palette.background.default, width:'100%'}}}>
-        <Box mb={4} sx={{paddingX: 'auto', width:'100%'}}>
+    return <Box sx={{ padding: { xs: '1rem', md: '8vw', background: theme.palette.background.default}}}>
+        <article className={`mx-auto prose lg:prose-xl ${theme.palette.mode === 'dark' ? 'prose-invert dark:prose-invert-xl' : ''}`}>
+        <Box mb={4}>
             <Typography variant="h1" component="h1" >
                 {meta.title}
             </Typography>
@@ -23,8 +24,8 @@ const PostContent = ({ meta, content }) => {
                 {meta.description}
             </Typography>
         </Box>
-
-        <article className={`mx-auto prose lg:prose-xl ${theme.palette.mode === 'dark' ? 'prose-invert dark:prose-invert-xl' : ''}`}>{content}</article>
+            {content}
+        </article>
     </Box>
 }
 
