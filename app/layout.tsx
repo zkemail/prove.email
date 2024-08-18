@@ -37,7 +37,7 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   };
 
   useEffect(() => {
-    setIsDarkModeEnabled(true)
+    setIsDarkModeEnabled(prefersDarkMode)
   }, [prefersDarkMode])
 
 
