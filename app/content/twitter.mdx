@@ -5,15 +5,13 @@ type: Post
 draft: false
 slug: "twitter"
 category: "10 min read"
-tags: ["intro"]
+tags: ["crypto", "zk"]
 description: "This tutorial guides you through creating a Twitter circom circuit using ZK Email's libraries."
 aliases:
   - /posts/zkemail
   - /zkemail
   - /posts/tutorial
   - /tutorial
-next: "/next-slug"  
-before: "/before-slug"  
 ---
 
 ## Introduction
@@ -26,19 +24,19 @@ Emails serve as our gateway to various online services and platforms. ZK Email u
 
  Before diving into the technical details, we encourage you to experience Proof of Twitter firsthand. Visit [https://twitter.prove.email/](https://twitter.prove.email/) to interact with a user-friendly interface that showcases the functionality of this technology. This hands-on experience will provide you with a practical understanding of the concepts we'll explore in this guide, making the process of building your own circuit more intuitive.
 
-![Proof of Twitter UI](/public/proofOfTwitterUI.png)
-
-
+<p align="center">
+<img src="/proofOftwitterUI.png" width="750"/>
+</p>
 
 ## ZK Email Library
 
 The ZK Email library contains 3 packages. 
 
-- **zk-email/helpers** - helper functions to help generate and verify the inputs of the circuit
+- **[zk-email/helpers](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-helpers)**  -  helper functions to help generate and verify the inputs of the circuit
 
-- **zk-email/contracts** - contains the DKIM Registry for public domains (google, yahoo, etc)
+- **[zk-email/contracts](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-contracts)**  -  contains the DKIM Registry for public domains (google, yahoo, etc)
 
-- **zk-email/circuits** - circuit templates that are used in creating your circuit
+- **[zk-email/circuits](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-circuits)**  -  circuit templates that are used in creating your circuit
 
 ## Setting up the Repository
 
@@ -81,18 +79,19 @@ For Gmail and Yahoo users, select 'Download Original Message', then copy and pas
 
 3. Finally, copy and paste the entire contents of the file into your .eml file.
 
-
 ## Generating the Input for ZKRegex
 
-Now, let's generate the input for a zkregex using zkregex.com. This tool will help us create a regular expression (regex) that matches the pattern of a Twitter username in the email body.
+Now, let's generate the input for a zk-regex. You can do this manually with the V1 zk regex code on zkregex.com, or automatically with our V2 zk regex code on registry-dev.zkregex.com.
+
+For the sake of explanation, let's do it the manual way for our V1 regexes using zkregex.com. This tool will help us create a regular expression (regex) that matches the pattern of a Twitter username in the email body.
 
 1. Go to [zkregex.com](https://tool.zkregex.com/).
 
-2. Enter the regex for a Twitter username in the "Regex Pattern" field. We'll use `@([a-zA-Z0-9_]+).`
+2. Enter the regex for a Twitter username in the "Regex Pattern" field. We'll use `this email was meant for @([a-zA-Z0-9_]+)`
 
-3. Input example Twitter usernames in the "Input 1", "Input 2", and "Input 3" fields, like `@yush_g`, `@zkemail`, and `@elonMusk`.
+3. Input example Twitter usernames in the "Input 1", "Input 2", and "Input 3" fields, like `this email was meant for @yush_g`, `this email was meant for @zkemail`, and `this email was meant for @elonmusk`.
 
-4. Click "Test" to generate and test the Circom and Halo2 circuits.
+4. Click "Test" to generate and test the Circom and Halo2 circuits. Note that the screenshot below is for the regex `@([a-zA-Z0-9_]+)\.` -- you'll have to figure out how to adapt it to this Twitter example.
 
 ![ZkRegex Tool](/zkTool.png)
 
@@ -107,6 +106,7 @@ We will integrate the regex circuit generated into our primary circuit. This wil
 After setting up the main Twitter verification circuit, we can proceed to generate inputs for your circuit using the ZK Email helpers SDK.
 
 You can create a `inputs.ts` file and place this code inside:
+
 ``` typescript
 import { bytesToBigInt, fromHex } from "@zk-email/helpers";
 import { generateCircuitInputs } from "@zk-email/helpers";
@@ -154,7 +154,8 @@ export async function generateTwitterVerifierCircuitInputs() {
 }) ();
 
 ```
-To create the inputs.json file run:
+
+If something goes wrong, you can try compiling [the full helper example](https://github.com/zkemail/proof-of-twitter/blob/87f1f79747a7ab4b4f94a98d0f866fc2141a0cbf/packages/circuits/helpers/generate-inputs.ts). To create the inputs.json file run:
 
 ```bash
 npx ts-node inputs.ts
@@ -287,7 +288,7 @@ Finally, we pack the Twitter username for output, into a minimal fixed number of
 
 For the finished circuit, refer to the following code:
 
-- [Twitter circom code](https://github.com/zkemail/zk-email-verify/blob/main/packages/twitter-verifier-circuits/twitter.circom)
+- [Twitter circom code](https://github.com/zkemail/proof-of-twitter/blob/main/packages/circuits/src/twitter.circom)
 
 To understand the contracts on-chain that verify this proof, you can peek at the [smart contracts](https://github.com/zkemail/zk-email-verify/blob/main/packages/contracts/) as well. 
 

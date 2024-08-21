@@ -8,19 +8,36 @@ type: Post
 slug: "zkregex"
 category: "30 min read"
 tags: ["crypto", "zk"]
-description: "A very technical explainer of how the newest version of the zk regex compiler works. Thank you to zksecurity for the writeup."
+description: "A very technical explainer of how the newest version of the zk regex compiler works. Thank you to zksecurity for the audit and help with the writeup."
 aliases:
   - /posts/zkregex
   - /zkregex
-next: "/next-slug"  
-before: "/before-slug"  
 ---
+
+ZK Regex is a powerful tool to be able to general string parsing with ZK. We use it as the primary way to parse data out of emails to prove on-chain.
+
+## Table of Contents
+
+1. [High-level Overview of zk-regex](#high-level-overview-of-zk-regex)
+2. [Regex Example](#regex-example)
+3. [Using zk-regex](#using-zk-regex)
+4. [Synthesizing Circom Circuits for Regex](#synthesizing-circom-circuits-for-regex)
+    1. [Regex to DFA](#regex-to-dfa)
+    2. [DFA Definition](#dfa-definition)
+    3. [Example DFA Transition Matrix](#example-dfa-transition-matrix)
+    4. [Synthesizing Circom Code and Applying Constraints](#synthesizing-circom-code-and-applying-constraints)
+    5. [Merging DFAs](#merging-dfas)
+    6. [Revealing sub-parts](#revealing-sub-parts)
+    7. [UTF-8 encoding](#utf-8-encoding)
+5. [2024 Expansion and Explanation](#2024-expansion-and-explanation)
+6. [Halo2 ZK Regex](#halo2-zk-regex)
+7. [Reef](#reef)
 
 ## High-level Overview of zk-regex
 
 The figure below describes the high-level interactions for using zk-regex. First, we define a regex for which we want to create a proof, then we use zk-regex to create the respective Circom code. In another Circom template, we can use our regex template as a component to feed data and get an output that represents whether the input satisfies the regex. Note that we can also produce a reveal array in the regex template to process a particular part of the input string that matches a specific regex. Afterward, we can use the circuit like any Circom circuit (e.g., perform preprocessing and create a JavaScript prover and a Solidity verifier). This allows us to perform regex checks on-chain using off-chain computations, without revealing the input string or only revealing part of it.
 
-Our latest update (April 2024) allows one to use a much wider set of regex syntax and supports all international UTF-8 characters, and uses a new method of regex generation via merging DFAs in order to do so.
+Our latest update (May 2024) allows one to use a much wider set of regex syntax and supports all international UTF-8 characters, and uses a new method of regex generation via merging DFAs in order to do so. It has been audited by ZK Security, and [the audited release is labeled 2.1.0 on Github](https://github.com/zkemail/zk-regex/).
 
 <p align="center">
 <img src="/zkregex/zk-regex-overview.png" width="750"/>
@@ -451,6 +468,21 @@ zk-regex works on any UTF-8 encoded Unicode character in its decimal representat
 <img src="/zkregex/utf-8.png" width="750"/>
 </p>
 <p style={{ textAlign: 'center' }}>UTF-8 conversion table (ref: <a href="https://en.wikipedia.org/wiki/UTF-8">https://en.wikipedia.org/wiki/UTF-8</a>).</p>
+
+## 2024 Expansion and Explanation
+
+For our audit in May 2024, we greatly expanded the scope of the zk-regex library and rewrote all the Typescript in Rust. The regular expressions supported by our newest compiler have the following limitations:
+
+1. Regular expressions where the results differ between greedy and lazy matching (e.g., .+, .+?) are not supported.
+2. The beginning anchor ^ must either appear at the beginning of the regular expression or be in the format (|^). Additionally, the section containing this ^ must be non-public (is_public: false).
+3. The end anchor $ must appear at the end of the regular expression.
+4. Regular expressions that, when converted to DFA (Deterministic Finite Automaton), include transitions to the initial state are not supported (e.g., .*).
+5. Regular expressions that, when converted to DFA, have multiple accepting states are not supported.
+6. All UTF-8 characters are supported, including international characters.
+
+This is because of the new way we generate and chain DFAs. Instead of providing a configuration defining how to interpret public and private parts *after* generating the DFA, we input it *before* generating the DFA. Then, we split up the regex into seperate DFAs for the public and private parts, and feed all the output states of each stage into the input states of the next stage. We then merge and minimize the resulting DFAs.
+
+Note that zkregex.com still reflects the 1.0 compiler and will be updated in Q3 2024, so there is no longer any DFA visualization (nor manual state selection needed).
 
 ## Halo2 ZK Regex
 
