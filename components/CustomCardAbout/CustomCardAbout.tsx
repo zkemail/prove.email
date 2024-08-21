@@ -37,7 +37,6 @@ const CustomCard: React.FC<CustomCardProps> = ({ title, description, url }) => {
             position: "relative",
             overflow: "visible",
             height: { xs: "140px", sm: "210px" },
-            // height: { xs: "200px", sm: "270px" },
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",

@@ -171,7 +171,6 @@ const ProjectsPage = () => {
           <CustomButton
             key={label}
             style={{
-              color: theme.palette.mode === "light" ? "black" : "white",
               borderColor: theme.palette.mode === "light" ? "black" : "white",
             }}
             buttonLabel={label}

@@ -137,7 +137,7 @@ const emails = [
   },
   {
     to: "<span>Bob</span>@gmail.com",
-    from: "itizenships@gov.com",
+    from: "Citizenships@gov.com",
     subject: "Nationality",
     mainText:
       "For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address",
@@ -471,7 +471,7 @@ export default function Home() {
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box
         sx={{
-          height: { xs: "350px", sm: "400px" },
+          height: { xs: "24rem", sm: "22rem" },
           padding: { xs: "1rem", md: "8vw" },
           backgroundColor: theme.palette.background.default,
           backgroundImage: `url(${theme.palette.mode === "light" ? buildYourOwnBackgroundLight.src : buildYourOwnBackgroundDark.src})`,
@@ -491,12 +491,21 @@ export default function Home() {
             sx={{
               paddingTop: "20px",
               paddingBottom: "10px",
+              '& .break': {
+                display: 'none',
+              },
+              '@media (min-width: 700px)': {
+                '& .break': {
+                  display: 'inline',
+                },
+              },
             }}
           >
-            No trusted hardware. No trusted attestation servers. <br></br> Only trust zero
-            knowledge proofs, smart contracts, email, and DNS infrastructure.
-            <br></br>All MIT open source libraries.
+            No trusted hardware. No trusted attestation servers. <span className="break"><br /></span>
+            Only trust zero knowledge proofs, smart contracts, email, and DNS infrastructure.
+            <span className="break"><br /></span>All MIT open source libraries.
           </Typography>
+
           <Stack direction='row' gap={2}>
             <CustomButton
               sx={{ marginTop: "10px", fontWeight: "light" }}
