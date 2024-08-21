@@ -397,6 +397,7 @@ export default function Home() {
                   url="https://zkp2p.xyz/"
                   projectDescription="Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more."
                   projectTag="Off Ramp"
+                  imageUrl="https://zkp2p.xyz/logo512.png"
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -405,6 +406,7 @@ export default function Home() {
                   url="https://emailwallet.org/"
                   projectDescription="Email a relayer in order to transfer money or transact on Ethereum, anonymously."
                   projectTag="Wallet"
+                  imageUrl="https://emailwallet.org/logo.svg"
                 />
               </Grid>
               <Grid item xs={12} sm={4}>
@@ -413,6 +415,7 @@ export default function Home() {
                   url="https://twitter.prove.email/"
                   projectDescription="Prove you own a Twitter username on-chain, via any email from Twitter."
                   projectTag="Identity"
+                  imageUrl="https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png"
                 />
               </Grid>
             </Grid>
@@ -468,7 +471,7 @@ export default function Home() {
       {/* BUILD YOUR OWN PROJECT CALL OUT ON MAIN PAGE */}
       <Box
         sx={{
-          height: { xs: "300px", sm: "400px" },
+          height: { xs: "350px", sm: "400px" },
           padding: { xs: "1rem", md: "8vw" },
           backgroundColor: theme.palette.background.default,
           backgroundImage: `url(${theme.palette.mode === "light" ? buildYourOwnBackgroundLight.src : buildYourOwnBackgroundDark.src})`,
@@ -490,19 +493,31 @@ export default function Home() {
               paddingBottom: "10px",
             }}
           >
-            No trusted hardware. No trusted attestation servers. Only trust zero
+            No trusted hardware. No trusted attestation servers. <br></br> Only trust zero
             knowledge proofs, smart contracts, email, and DNS infrastructure.
-            All MIT open source libraries.
+            <br></br>All MIT open source libraries.
           </Typography>
-          <CustomButton
-            sx={{ marginTop: "10px", fontWeight: "light" }}
-            filledIn={true}
-            buttonLabel="Docs"
-            target="true"
-            url="https://zkemail.gitbook.io/zk-email"
-          >
-            Docs
-          </CustomButton>
+          <Stack direction='row' gap={2}>
+            <CustomButton
+              sx={{ marginTop: "10px", fontWeight: "light" }}
+              filledIn={true}
+              buttonLabel="Access SDK"
+              target="true"
+              url="https://www.npmjs.com/search?q=%40zk-email"
+            >
+              Access SDK
+            </CustomButton>
+            <CustomButton
+              sx={{ marginTop: "10px", fontWeight: "light" }}
+              filledIn={true}
+              buttonLabel="Docs"
+              target="true"
+              url="https://zkemail.gitbook.io/zk-email"
+            >
+              Docs
+            </CustomButton>
+          </Stack>
+
         </motion.div>
       </Box>
 
