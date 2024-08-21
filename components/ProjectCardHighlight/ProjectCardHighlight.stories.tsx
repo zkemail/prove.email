@@ -7,6 +7,7 @@ interface ProjectCardHighlightProps {
   projectDescription: string;
   projectTag: string;
   url: string;
+  imageUrl: string;
 }
 
 export default {
@@ -17,6 +18,7 @@ export default {
     projectDescription: { control: 'text' },
     projectTag: { control: 'text' },
     url: { control: 'text' },
+    imageUrl: {control: 'text'}
   },
 } as Meta<typeof ProjectCardHighlight>;
 
@@ -28,6 +30,7 @@ DefaultProjectCardHighlight.args = {
   projectDescription: 'This is a description of Project Alpha. It covers the key features and objectives of the project.',
   projectTag: 'Technology',
   url: 'https://example.com/project-alpha',
+  imageUrl: 'https://zkp2p.xyz/logo512.png'
 };
 
 export const LargeProjectCardHighlight = Template.bind({});
@@ -36,7 +39,9 @@ LargeProjectCardHighlight.args = {
   projectDescription: 'Project Beta aims to revolutionize the industry with cutting-edge technology and innovative solutions.',
   projectTag: 'Innovation',
   url: 'https://example.com/project-beta',
+  imageUrl: 'https://zkp2p.xyz/logo512.png'
 };
+
 
 export const SmallProjectCardHighlight = Template.bind({});
 SmallProjectCardHighlight.args = {
@@ -44,4 +49,5 @@ SmallProjectCardHighlight.args = {
   projectDescription: 'A brief overview of Project Gamma, highlighting its main aspects and benefits.',
   projectTag: 'Research',
   url: 'https://example.com/project-gamma',
+  imageUrl: 'https://zkp2p.xyz/logo512.png'
 };
