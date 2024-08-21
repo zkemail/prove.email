@@ -117,7 +117,7 @@ const PopOut: FC<PopOutProps> = ({
     <Container>
       <Box onClick={() => setIsOpen(!isOpen)} sx={{ cursor: "pointer" }}>
         <Header sx={{ bgcolor: theme.palette.background.default }}>
-          <Typography variant="h5" sx={{ color:  theme.palette.text.main, textAlign: "left" }}>
+          <Typography variant="h5" sx={{ color:  theme.palette.text.primary, textAlign: "left" }}>
             {topText}
           </Typography>
         </Header>
