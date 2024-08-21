@@ -213,7 +213,8 @@ export default function Hero() {
             sx={{
               marginTop: {
                 xs: "2rem",
-                md: "10rem",
+                sm: "4rem",
+                md: "8rem",
               },
             }}
             className="relative h-full w-fit flex justify-center mx-auto cursor-none"
@@ -227,7 +228,7 @@ export default function Hero() {
                 zIndex: 1,
                 background: theme.palette.background.default,
               }}
-              sx={{ width: { xs: "90%", sm: "75%" } }}
+              sx={{ width: { xs: "90%", sm: "88%", md: "85%" } }}
             >
               <div className="font-semibold">
                 <div className="grid grid-cols-2">
@@ -306,24 +307,30 @@ export default function Hero() {
                 >
                   <Box
                     sx={{
+                      borderRadius:'20px',
                       position: "absolute",
                       top: 0,
                       left: 0,
+                      marginX:'4px',
+                      marginTop:'-6px',
                       width: "100%",
-                      height: "89%",
-                      clipPath: "polygon(0 100%, 100% 100%, 0 0)",
+                      height: "100%",
+                      clipPath: "polygon(0 100%, 100% 95%, 0 0)",
                       backdropFilter: "blur(10px)",
                       WebkitBackdropFilter: "blur(100px)", // for Safari!
                     }}
                   />
                   <Box
                     sx={{
+                      borderRadius:'10px',
                       position: "absolute",
                       top: 0,
                       right: 0,
+                      marginX:'4px',
+                      marginTop:'-6px',
                       width: "100%",
-                      height: "90%",
-                      clipPath: "polygon(100% 100%, 0 100%, 100% 0)",
+                      height: "100%",
+                      clipPath: "polygon(100% 100%, 0 95%, 100% 0)",
                       backdropFilter: "blur(10px)",
                       WebkitBackdropFilter: "blur(100px)", // for Safari!
                     }}
