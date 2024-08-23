@@ -24,7 +24,7 @@ import heroBackground5Light from "@/public/heroBackground/light/heroBackground5L
 import heroBackground5Dark from "@/public/heroBackground/dark/heroBackground5Dark.svg";
 import heroBackground6Light from "@/public/heroBackground/light/heroBackground6Light.svg";
 import heroBackground6Dark from "@/public/heroBackground/dark/heroBackground6Dark.svg";
-import heroBackground7Light from "@/public/heroBackground/light/heroBackground7Light.svg";
+// import heroBackground7Light from "@/public/heroBackground/light/heroBackground7Light.svg";
 import heroBackground7Dark from "@/public/heroBackground/dark/heroBackground7Dark.svg";
 
 const backgroundsLight = [
@@ -34,7 +34,7 @@ const backgroundsLight = [
   heroBackground4Light,
   heroBackground5Light,
   heroBackground6Light,
-  heroBackground7Light,
+  // heroBackground7Light,
 ];
 
 const backgroundsDark = [
