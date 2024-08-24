@@ -25,7 +25,7 @@ import heroBackground5Dark from "@/public/heroBackground/dark/heroBackground5Dar
 import heroBackground6Light from "@/public/heroBackground/light/heroBackground6Light.svg";
 import heroBackground6Dark from "@/public/heroBackground/dark/heroBackground6Dark.svg";
 // import heroBackground7Light from "@/public/heroBackground/light/heroBackground7Light.svg";
-import heroBackground7Dark from "@/public/heroBackground/dark/heroBackground7Dark.svg";
+// import heroBackground7Dark from "@/public/heroBackground/dark/heroBackground7Dark.svg";
 
 const backgroundsLight = [
   heroBackground1Light,
@@ -44,7 +44,7 @@ const backgroundsDark = [
   heroBackground4Dark,
   heroBackground5Dark,
   heroBackground6Dark,
-  heroBackground7Dark,
+  // heroBackground7Dark,
 ];
 
 const berkeleyOldStyle = localFont({
