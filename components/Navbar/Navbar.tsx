@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <>
-      <AppBar
+      <Box
         position="static"
         sx={{
           backgroundColor: theme.palette.background.default,
@@ -71,10 +71,10 @@ const Navbar: React.FC<NavbarProps> = ({
             backgroundColor: theme.palette.background.default,
             boxShadow: {
               xs: "none", // No box shadow on small screens
-              md: "0px 1px 5px rgba(0, 0, 0, 0.09)", // Box shadow on medium and larger screens
+              md: `${isDarkModeEnabled ? "0px 1px 5px rgba(255, 255, 255, 0.5)" : "0px 1px 5px rgba(0, 0, 0, 0.09)"}` , // Box shadow on medium and larger screens
             },
             borderRadius: "15px",
-            maxWidth: { xs: "100%", sm: "80%", md: "60%", lg: "50%" },
+            maxWidth: { xs: "95%", sm: "80%", md: "60%", lg: "50%" },
             zIndex: "20",
             padding: {
               xs: "0px", // Remove padding on xs screens
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({
               justifyContent: "space-between",
             }}
           >
-            <Box sx={{ display: { xs: "flex" } }}>
+            <Box sx={{ minWidth:"70px" }}>
               <Link href='/'>
                 <IconButton
                   sx={{
@@ -219,7 +219,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </Box>
           </Toolbar>
         </Container>
-      </AppBar>
+      </Box>
       <FullScreenMenuDialog open={open} onClose={handleClose} pages={pages} />
     </>
   );

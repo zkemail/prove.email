@@ -136,18 +136,10 @@ export default function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div
-        className="custom-cursor"
-        style={{
-          left: cursorPosition.x,
-          top: cursorPosition.y,
-          position: "fixed",
-          zIndex: 10000,
-        }}
-      ></div>
+
       <Box
         sx={{ height: { xs: "70%", sm: "auto" } }}
-        className="z-50 relative flex flex-col justify-center"
+        className="relative flex flex-col justify-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -179,7 +171,7 @@ export default function Hero() {
           }}
           className="pb-3 pt-3 sm:pt-4 md:pt-6 lg:pt-7 text-[12px] md:text-[20px] leading-[160%] sm:leading-[140%]"
         >
-          Anonymously prove any subset of any email <br></br>you sent or
+          Anonymously prove any subset of any email <span className="hidden sm:inline"><br /></span> you sent or
           received. On or Offchain.{" "}
         </Typography>
         <div className="content-center items-center flex justify-center">
@@ -227,7 +219,7 @@ export default function Hero() {
                 md: "8rem",
               },
             }}
-            className="relative h-full w-fit flex justify-center mx-auto cursor-none"
+            className="relative h-full w-fit flex justify-center mx-auto cursor-pointer"
             onClick={handleToggle}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -394,24 +386,7 @@ export default function Hero() {
 
       <style jsx>{`
         .custom-cursor {
-          cursor: none;
-        }
-
-        .custom-cursor::after {
-          content: "";
-          width: 20px;
-          height: 20px;
-          background-color: black;
-          border-radius: 50%;
-          position: absolute;
-          pointer-events: none;
-          transform: translate(-50%, -50%);
-          display: none;
-          z-index: 10000;
-        }
-
-        .custom-cursor-active .custom-cursor::after {
-          display: block;
+          cursor: pointer;
         }
       `}</style>
     </div>
