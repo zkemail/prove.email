@@ -41,12 +41,14 @@ const HoverableLinks = ({
   const theme = useTheme();
 
   return (
-    <Grid item>
+    <Grid item xs="auto">
       <Link href={href} color="inherit" target={target ?? "_blank"}>
         <Typography
           variant="subtitle2"
           sx={{
-            position: "relative", color: 'grey',
+            position: "relative",
+            color: "grey",
+            width: "fit-content",
             "&:hover": {
               backgroundColor: "transparent", // No background color on hover
               "&::after": {
@@ -153,7 +155,7 @@ const Footer = () => {
                 variant="h3"
                 sx={{
                   fontFamily: berkeleyOldStyle.style.fontFamily,
-                  lineHeight: '2rem',
+                  lineHeight: "2rem",
                   textAlign: { sm: "center", md: "left" },
                 }}
               >
@@ -171,7 +173,7 @@ const Footer = () => {
               container
               spacing={4}
               justifyContent="flex-end"
-              alignItems={'flex-start'}
+              alignItems={"flex-start"}
             >
               <Grid item xs={6} sm={4} container>
                 <Typography
@@ -179,7 +181,7 @@ const Footer = () => {
                   color="white"
                   fontWeight="bold"
                   pb={2}
-                  textAlign="left"                  
+                  textAlign="left"
                 >
                   DEVELOPERS
                 </Typography>
@@ -209,7 +211,7 @@ const Footer = () => {
                   color="white"
                   fontWeight="bold"
                   pb={2}
-                  textAlign="left"                  
+                  textAlign="left"
                 >
                   COMMUNITY
                 </Typography>
