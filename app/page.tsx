@@ -273,7 +273,7 @@ export default function Home() {
           sx={{
             // height: { xs: "830px", sm: "650px" },
             background: "black",
-            paddingY: "80px",
+            paddingY: "3.125rem",
             width: "90%",
             borderRadius: "14.85px 14.85px 0px 0px ",
             marginX: "auto",
