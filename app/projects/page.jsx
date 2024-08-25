@@ -100,14 +100,14 @@ const ProjectsPage = () => {
     const matchesSearch = project.name.toLowerCase().includes(searchInput.toLowerCase()) ||
       project.description.toLowerCase().includes(searchInput.toLowerCase()) ||
       (project.tagline && project.tagline.toLowerCase().includes(searchInput.toLowerCase()));
-    const matchesFilters = selectedButtons.some(button => {
+    const matchesFilters = selectedButtons.every(button => {
       switch (button) {
         case 'ZK Email Library': return project.zk_email_lib;
         case 'ZK Library': return project.zk_lib;
         case 'On Chain': return project.on_chain;
         case 'Off Chain': return project.off_chain;
         case 'Made by Us': return project.made_by_us;
-        default: return true;
+        default: return project ;
       }
     });
     return matchesSearch && matchesFilters;

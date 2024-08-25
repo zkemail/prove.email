@@ -34,9 +34,9 @@ const ActionCard: React.FC<ActionCardProps> = ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right",
-        "&:hover .top-text": {
-          color: theme.palette.secondary.main,
-        },
+        // "&:hover .top-text": {
+        //   color: theme.palette.secondary.main,
+        // },
       };
 
   return (
@@ -112,6 +112,7 @@ const ActionCard: React.FC<ActionCardProps> = ({
           </Typography>
           <CustomButton
             variant="contained"
+            filledIn={true}
             light={!light} // Set the opposite of light for the button
             sx={{ marginTop: { xs: 1, md: 3 }, paddingX: "30px" }}
             href={buttonLink}
