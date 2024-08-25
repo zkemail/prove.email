@@ -100,7 +100,7 @@ const ProjectsPage = () => {
     const matchesSearch = project.name.toLowerCase().includes(searchInput.toLowerCase()) ||
       project.description.toLowerCase().includes(searchInput.toLowerCase()) ||
       (project.tagline && project.tagline.toLowerCase().includes(searchInput.toLowerCase()));
-    const matchesFilters = selectedButtons.every(button => {
+    const matchesFilters = selectedButtons.some(button => {
       switch (button) {
         case 'ZK Email Library': return project.zk_email_lib;
         case 'ZK Library': return project.zk_lib;
