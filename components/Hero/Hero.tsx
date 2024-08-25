@@ -24,6 +24,7 @@ import heroBackground5Light from "@/public/heroBackground/light/heroBackground5L
 import heroBackground5Dark from "@/public/heroBackground/dark/heroBackground5Dark.svg";
 import heroBackground6Light from "@/public/heroBackground/light/heroBackground6Light.svg";
 import heroBackground6Dark from "@/public/heroBackground/dark/heroBackground6Dark.svg";
+import Link from "next/link";
 // import heroBackground7Light from "@/public/heroBackground/light/heroBackground7Light.svg";
 // import heroBackground7Dark from "@/public/heroBackground/dark/heroBackground7Dark.svg";
 
@@ -59,13 +60,17 @@ export default function Hero() {
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  const [preloadedLightImages, setPreloadedLightImages] = useState<HTMLImageElement[]>([]);
-  const [preloadedDarkImages, setPreloadedDarkImages] = useState<HTMLImageElement[]>([]);
+  const [preloadedLightImages, setPreloadedLightImages] = useState<
+    HTMLImageElement[]
+  >([]);
+  const [preloadedDarkImages, setPreloadedDarkImages] = useState<
+    HTMLImageElement[]
+  >([]);
 
   useEffect(() => {
     // Preload light mode images
     const lightImages = backgroundsLight.map((bg) => {
-      const img = document.createElement('img');
+      const img = document.createElement("img");
       img.src = bg.src;
       return img;
     });
@@ -73,7 +78,7 @@ export default function Hero() {
 
     // Preload dark mode images
     const darkImages = backgroundsDark.map((bg) => {
-      const img = document.createElement('img');
+      const img = document.createElement("img");
       img.src = bg.src;
       return img;
     });
@@ -119,11 +124,14 @@ export default function Hero() {
       style={{
         backgroundColor: theme.palette.mode === "light" ? "#F6F5F5" : "#0F0F0F",
         height: "calc(100vh - 6.5rem)",
-        backgroundImage: preloadedLightImages.length === backgroundsLight.length ? `url(${
-          theme.palette.mode === "light"
-            ? preloadedLightImages[backgroundIndex]?.src
-            : preloadedDarkImages[backgroundIndex]?.src
-        })`: 'black',
+        backgroundImage:
+          preloadedLightImages.length === backgroundsLight.length
+            ? `url(${
+                theme.palette.mode === "light"
+                  ? preloadedLightImages[backgroundIndex]?.src
+                  : preloadedDarkImages[backgroundIndex]?.src
+              })`
+            : "black",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -188,17 +196,19 @@ export default function Hero() {
             >
               Docs
             </CustomButton>
-            <CustomButton
-              style={{
-                color: theme.palette.mode === "light" ? "black" : "white",
-                borderColor: theme.palette.mode === "light" ? "black" : "white",
-              }}
-              buttonLabel="Projects"
-              filledIn={false}
-              url="/projects"
-            >
-              Projects
-            </CustomButton>
+            <Link href={"/projects"} passHref>
+              <CustomButton
+                style={{
+                  color: theme.palette.mode === "light" ? "black" : "white",
+                  borderColor:
+                    theme.palette.mode === "light" ? "black" : "white",
+                }}
+                buttonLabel="Projects"
+                filledIn={false}
+              >
+                Projects
+              </CustomButton>
+            </Link>
           </Stack>
         </div>
       </Box>
@@ -307,12 +317,12 @@ export default function Hero() {
                 >
                   <Box
                     sx={{
-                      borderRadius:'20px',
+                      borderRadius: "20px",
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      marginX:'4px',
-                      marginTop:'-6px',
+                      marginX: "4px",
+                      marginTop: "-6px",
                       width: "100%",
                       height: "100%",
                       clipPath: "polygon(0 100%, 100% 95%, 0 0)",
@@ -322,12 +332,12 @@ export default function Hero() {
                   />
                   <Box
                     sx={{
-                      borderRadius:'10px',
+                      borderRadius: "10px",
                       position: "absolute",
                       top: 0,
                       right: 0,
-                      marginX:'4px',
-                      marginTop:'-6px',
+                      marginX: "4px",
+                      marginTop: "-6px",
                       width: "100%",
                       height: "100%",
                       clipPath: "polygon(100% 100%, 0 95%, 100% 0)",
