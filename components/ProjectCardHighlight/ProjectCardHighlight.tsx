@@ -9,6 +9,7 @@ interface ProjectCardProps {
   projectDescription: string;
   projectTag: string;
   url: string;
+  imageUrl: string; // Add this new prop for the image URL
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -16,7 +17,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   projectDescription,
   projectTag,
   url,
+  imageUrl, // Destructure the imageUrl prop
 }) => {
+
   const theme = useTheme();
 
   return (
@@ -53,7 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             height: { xs: "auto", sm: "18.75rem" },
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between", // Adjust to space-between for top and bottom alignment
+            justifyContent: "space-between", 
             border: "1px solid grey",
             transition:
               "border-color 0.3s ease, transform 0.3s ease, color 0.3s ease",
@@ -91,13 +94,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               justifyContent: "flex-end",
             }}
           >
+            {/* Image here */}
+            <Box
+              component="img"
+              src={imageUrl}
+              alt={projectTitle}
+              sx={{
+                width: "100%",
+                height: "60px",
+                objectFit: "contain", // Ensures the image fits within the box without being stretched
+                borderRadius: "5px",
+                marginBottom: "auto",
+              }}
+            />
             <Typography
               variant="h3"
               component="div"
               className="title"
               sx={{
                 fontWeight: "bold",
-
                 marginTop: 1,
                 position: "relative",
                 "&::after": {
@@ -107,7 +122,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   bottom: "-4px",
                   width: "0",
                   height: "2px",
-                  // backgroundColor: theme.palette.secondary.main,
                   transition: "width 0.3s ease",
                 },
               }}

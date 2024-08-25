@@ -40,8 +40,8 @@ const StyledButton = styled(MuiButton, {
   lineHeight: 1.5,
   textDecoration: "none",
   textTransform: "none",
-  background: filledIn ? "#000000" : "transparent",
-  color: light ? "#FFFFFF" : filledIn ? "#FFFFFF" : grey[0],
+  background: filledIn ? '#000000' : "transparent",
+  color: light ? "#FFFFFF" : filledIn ? "#FFFFFF" : `${theme.palette.mode === "light" ? grey[0] : "#FFFFFF"}`,
   padding: "6px 30px",
   transition:
     "background 0s, color 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)",
@@ -58,13 +58,12 @@ const StyledButton = styled(MuiButton, {
   maxWidth: "100%",
   "&:hover": {
     background: filledIn
-      ? "linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(53,53,53,0.9) 100%)"
-      : "#F1EEEE",
-    color: filledIn ? "#FFFFFF" : grey[0],
+      ? "linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(53,53,53,0.9) 100%)" 
+      : `${theme.palette.mode === "light" ? "#F1EEEE" : "#111111"}`,
+    color: filledIn ? "#FFFFFF"  :  `${theme.palette.mode === "light" ? grey[0] : "#FFFFFF"}`,
     transition: "background 600ms ease-in-out",
   },
   "&:not(:hover)": {
-    background: filledIn ? "#000000" : "transparent",
     transition: "background 0s",
   },
   "&.MuiButton-root:active": {
