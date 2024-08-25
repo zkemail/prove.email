@@ -228,7 +228,7 @@ export default function Hero() {
                 zIndex: 1,
                 background: theme.palette.background.default,
               }}
-              sx={{ width: { xs: "90%", sm: "88%", md: "85%" } }}
+              sx={{ width: { xs: "90%", md: "85%" } }}
             >
               <div className="font-semibold">
                 <div className="grid grid-cols-2">

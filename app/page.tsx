@@ -137,7 +137,7 @@ const emails = [
   },
   {
     to: "<span>Bob</span>@gmail.com",
-    from: "Citizenships@gov.com",
+    from: "citizenships@gov.com",
     subject: "Nationality",
     mainText:
       "For example, you can prove you recieved an email from a goverment site site.gov.com which mentioned you did something like e vote without revealing your full <span>you</span>@gmail.com email address",
