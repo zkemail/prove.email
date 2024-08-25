@@ -106,7 +106,7 @@ const Footer = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBackground((prev) => (prev + 1) % backgrounds.length);
-    }, 500);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);

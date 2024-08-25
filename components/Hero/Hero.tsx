@@ -90,7 +90,7 @@ export default function Hero() {
       setBackgroundIndex(
         (prevIndex) => (prevIndex + 1) % backgroundsLight.length
       );
-    }, 350);
+    }, 1500);
     return () => clearInterval(interval);
   }, [backgroundsLight]);
 
@@ -243,8 +243,28 @@ export default function Hero() {
               <div className="font-semibold">
                 <div className="grid grid-cols-2">
                   <div>
-                    <Typography variant="subtitle2">From: zkEmail</Typography>
-                    <Typography variant="subtitle2">To: Developers</Typography>
+                    <Typography variant="subtitle2">
+                      From:{" "}
+                      <span
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >
+                        zkEmail
+                      </span>
+                    </Typography>
+                    <Typography variant="subtitle2">
+                      To:{" "}
+                      <span
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >
+                        Developers
+                      </span>
+                    </Typography>
                   </div>
                   <LabelImportantIcon
                     className="justify-self-end"
@@ -262,7 +282,15 @@ export default function Hero() {
                   variant="subtitle2"
                   className="pt-2 pb-2 sm:pt-6 sm:pb-4"
                 >
-                  Subject: prove any content for any email, sent or received{" "}
+                  Subject:{" "}
+                  <span
+                    style={{
+                      background: theme.palette.text.primary,
+                      color: theme.palette.text.primary,
+                    }}
+                  >
+                    prove any content for any email, sent or received
+                  </span>
                 </Typography>
               </div>
               <div>

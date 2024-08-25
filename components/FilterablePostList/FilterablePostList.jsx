@@ -53,7 +53,7 @@ const FilterablePostList = ({ initialPosts }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgroundsLight.length);
-    }, 500);
+    }, 1500);
     return () => clearInterval(interval);
   }, []);
 

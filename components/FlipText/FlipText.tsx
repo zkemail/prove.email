@@ -37,7 +37,7 @@ const FlipText: React.FC<FlipTextProps> = ({ texts }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 500);
+    }, 1500);
     return () => clearInterval(interval);
   }, []);
 
