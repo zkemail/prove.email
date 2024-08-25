@@ -39,6 +39,7 @@ const backgrounds = [projectBackground1, projectBackground2, projectBackground3,
 
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { selectClasses } from '@mui/base';
 
 const berkeleyOldStyle = localFont({
   src: '../.././font/BerkeleyOldStyle.ttf',
@@ -77,6 +78,8 @@ const ProjectsPage = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(0);
 
+
+  /* BACKGROUND IMAGE BLOCK CHANGES */
   useEffect(() => {
     const interval = setInterval(() => {
       setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
@@ -84,10 +87,16 @@ const ProjectsPage = () => {
     return () => clearInterval(interval);
   }, []);
 
+
+  /* WHEN A PROJECT TAB IS SELECTED FROM THE LIST, MAKE IT THE HIGHLIGHTED PROJECT ON THE RIGHT */
   const handleTabChange = (event, newValue) => {
+    // console.log("newValue: ", newValue)
+    // console.log("selectedProjectIndex: ", selectedProjectIndex)
     setSelectedProjectIndex(newValue);
   };
 
+
+  /* RECORDS THE BUTTON FILTERD CURRENTLY SELECTED */
   const toggleSelection = (buttonLabel) => {
     setSelectedButtons((current) =>
       current.includes(buttonLabel)
@@ -96,6 +105,12 @@ const ProjectsPage = () => {
     );
   };
 
+
+  /* 
+   --------- FILTERING LOGIC FOR PROJECTS LIST ---------
+   filteredProjects is the list of projects filtered by the filter buttons 'matchesFilters' and
+   filtered by search input 'matchesSearch' 
+   */
   const filteredProjects = projects.filter((project) => {
     const matchesSearch = project.name.toLowerCase().includes(searchInput.toLowerCase()) ||
       project.description.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -113,21 +128,25 @@ const ProjectsPage = () => {
     return matchesSearch && matchesFilters;
   });
 
+
+
   return (
     <section style={{ background: theme.palette.background.default, height: '100%' }}>
+
+      {/* TOP BANNER SECTION FOR PROJECTS PAGE */}
       <div className='bg-[#161616]'>
         <div className="pt-40 text-center relative"
           style={{
             backgroundImage: `url(${backgrounds[backgroundIndex].src})`,
             backgroundPosition: 'center',
-            backgroundSize: 'contain', // Ensure the image shrinks to fit within the container
+            backgroundSize: 'contain', 
             backgroundRepeat: 'no-repeat',
-            display: 'flex', // Use flexbox to center content
+            display: 'flex', 
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          {/* <Typography sx={{ color: 'white', fontSize: { xs: '10px', sm:'15px', md: '16px' } }}>ZKEmail supports</Typography> */}
+
           <motion.div
             variants={fadeInAnimationVariants}
             initial='initial'
@@ -140,6 +159,7 @@ const ProjectsPage = () => {
               Projects using our ZK Libraries
             </Typography>
           </motion.div>
+
           <Typography
             sx={{
               color: 'white',
@@ -151,6 +171,7 @@ const ProjectsPage = () => {
             While building the ZK Email ecosystem we created libraries for both building with ZK Email and general ZK libraries.
             This repository contains both our own projects and community projects using our libraries.
           </Typography>
+
           <div className="relative mt-[70px] mx-auto w-2/3 max-w-2xl top-[20px]">
             <CustomInputBase
               value={searchInput}
@@ -163,6 +184,8 @@ const ProjectsPage = () => {
 
       </div>
 
+
+      {/* FILTER BUTTONS ROW */}
       <Box sx={{ display: { md: 'flex', xs: 'none' } }} className="flex items-center justify-center space-x-0.5 sm:space-x-2 pt-10">
         <Hidden smDown>
           <SortIcon className='inline-block align-middle' />
@@ -191,7 +214,7 @@ const ProjectsPage = () => {
 
 
 
-      {/* SELECTED PROJECT SECTION */}
+      {/* PROJECTS LIST TABS ON THE LEFT */}
       <Box sx={{ display: 'flex', pt: '40px', textAlign: 'left' }}>
         <div className='w-[50%]'>
           <Tabs
@@ -231,6 +254,8 @@ const ProjectsPage = () => {
             ))}
           </Tabs>
         </div>
+
+        {/* SELECTED PROJECT DETAILS ON THE RIGHT */}
         <Box sx={{ p: 3, width: '50%' }}>
           {filteredProjects[selectedProjectIndex] && (
             <>
@@ -369,7 +394,13 @@ const ProjectsPage = () => {
           )}
         </Box>
       </Box>
+
+
+      {/* FLIP TEXT BETTEWN USE CASES  SECTION */}
       <FlipText texts={texts} />
+
+
+      {/* DEVELOPER ACTION CARDS SECTION */}
       <motion.div
         variants={fadeInAnimationVariants}
         initial='initial'
@@ -386,6 +417,8 @@ const ProjectsPage = () => {
       >
         <ActionCard topText='For Developers' title='Build Proof of Twitter Tutorial' text='Check out our How to Set Up Proof of Twitter Example' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
       </motion.div>
+
+
     </section>
   );
 };
