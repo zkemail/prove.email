@@ -94,33 +94,14 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [backgroundsLight]);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
 
   const handleToggle = () => {
     setIsEmailOpen(!isEmailOpen);
   };
 
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
   return (
     <div
-      className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
+      className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center`}
       style={{
         backgroundColor: theme.palette.mode === "light" ? "#F6F5F5" : "#0F0F0F",
         height: "calc(100vh - 6.5rem)",
@@ -204,7 +185,7 @@ export default function Hero() {
           </Stack>
         </div>
       </Box>
-      <Box sx={{ height: { xs: "50%", md: "100%" } }}>
+      <Box sx={{ height: { xs: "50%", sm:"70%", md: "100%" } }}>
         <motion.div
           className="h-full"
           initial={{ opacity: 0, y: 100 }}
@@ -214,15 +195,12 @@ export default function Hero() {
           <Box
             sx={{
               marginTop: {
-                xs: "2rem",
-                sm: "4rem",
-                md: "8rem",
+                xs: "3rem",
+                sm: "9rem",
               },
             }}
             className="relative h-full w-fit flex justify-center mx-auto cursor-pointer"
             onClick={handleToggle}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             <Box
               className="absolute inset-0 rounded-lg mx-auto p-4 sm:p-16 md:p-14 text-left text-[6px] sm:text-[10px] md:text-[11px] lg:text-[12px]"
@@ -301,7 +279,7 @@ export default function Hero() {
               </div>
             </Box>
             <Box
-              className={`translate-y-[25px] absolute transition-transform duration-500 ${isEmailOpen ? "transform translate-y-[400px]" : ""}`}
+              className={` absolute transition-transform duration-500 ${isEmailOpen ? "transform translate-y-[400px]" : ""}`}
               sx={{ zIndex: 0, top: "-20%", width: "100%", height: "auto" }}
             >
               <Image
@@ -383,12 +361,6 @@ export default function Hero() {
           </Box>
         </motion.div>
       </Box>
-
-      <style jsx>{`
-        .custom-cursor {
-          cursor: pointer;
-        }
-      `}</style>
     </div>
   );
 }

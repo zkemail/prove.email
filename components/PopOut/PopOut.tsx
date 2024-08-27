@@ -51,7 +51,6 @@ const Header = styled(Box)(({ theme }) => ({
 }));
 
 const DescriptionText = styled(Typography)(({ theme }) => ({
-  marginTop: "8px",
   color: theme.palette.text.secondary,
 }));
 

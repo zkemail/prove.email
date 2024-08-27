@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({
               justifyContent: "space-between",
             }}
           >
-            <Box sx={{ minWidth:"70px" }}>
+            <Box sx={{ minWidth:"5rem" }}>
               <Link href='/'>
                 <IconButton
                   sx={{
@@ -194,8 +194,8 @@ const Navbar: React.FC<NavbarProps> = ({
               <Box
                 sx={{
                   position: "relative",
-                  width: "40px",
-                  height: "40px",
+                  width: "2.5rem",
+                  height: "2.5rem",
                   borderRadius: "50%",
                   border: "1px solid #D9D9D9",
                   display: "flex",
@@ -207,8 +207,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   sx={{
                     color: theme.palette.text.primary,
                     position: "absolute",
-                    width: "36px",
-                    height: "36px",
+                    width: "2.5rem",
+                    height: "2.5rem",
                     borderRadius: "50%",
                   }}
                   onClick={handleClickOpen}

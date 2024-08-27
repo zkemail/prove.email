@@ -239,12 +239,12 @@ export default function Home() {
           <Grid item xs={12} md={6}>
             <Grid
               container
-              sx={{ paddingBottom: "50px", overflow: "visable" }}
+              sx={{ paddingBottom: "50px", overflow: "visible" }}
               direction="row"
               justifyContent="space-between"
             >
-              <Grid item xs={12} md={12} justifySelf="right" overflow="visable">
-                <Box display="flex" justifyContent="end" overflow="visable">
+              <Grid item xs={12} md={12} justifySelf="right" overflow="visible">
+                <Box display="flex" justifyContent="end" overflow="visible">
                   <SlideInDiv direction="right">
                     <AboutModal emails={emails} />
                   </SlideInDiv>
