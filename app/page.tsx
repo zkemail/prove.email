@@ -266,7 +266,7 @@ export default function Home() {
       <div
         className="z-50 w-full"
         style={{
-          background: theme.palette.mode === "light" ? "transparent" : "black",
+          background: theme.palette.mode === "light" ? "transparent" : theme.palette.background.default,
         }}
       >
         <Box
@@ -484,7 +484,7 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <Typography variant="h5">For Developers</Typography>
+          <Typography variant="h5" sx={{marginBottom:'0.5rem'}}>For Developers</Typography>
           <Typography variant="h1">Build Your Own</Typography>
           <Typography
             variant="body1"
@@ -605,7 +605,7 @@ export default function Home() {
           <Grid container>
             <Grid item xs={12} sm={4}>
               <Typography variant="h4">
-                Have a Question that isn’t answered? Reach out!
+                Have a Question that isn’t answered?
               </Typography>
               <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
                 <CustomButton

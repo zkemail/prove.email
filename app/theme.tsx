@@ -115,8 +115,10 @@ const createCustomTheme = (mode: "light" | "dark") => {
     },
     typography: {
       fontFamily: spaceGrotesk.style.fontFamily,
+
       h1: {
         fontSize: "2.25em",
+        fontWeight: 500,
         "@media (max-width:1280px)": {
           fontSize: "2.14em",
         },

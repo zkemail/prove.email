@@ -278,6 +278,7 @@ const ProjectsPage = () => {
                 {filteredProjects[selectedProjectIndex].description}
               </Typography>
 
+              {/* LABEL TAGS ON THE SELECTED PROJECT DETAILS ON THE RIGHT */}
               <Box
                 sx={{
                   display: 'flex',
@@ -290,7 +291,7 @@ const ProjectsPage = () => {
                 {filteredProjects[selectedProjectIndex].zk_email_lib && (
                   <CustomButton
                     variant="outlined"
-                    tag
+                    tag 
                     color="primary"
                     buttonLabel='ZK Email Library' style={{
                       color: theme.palette.mode === "light" ? "black" : "white",
