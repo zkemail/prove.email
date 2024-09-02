@@ -17,6 +17,7 @@ import XIcon from '@mui/icons-material/X';
 
 
 import CustomGitHubIcon from '../../public/CustomGithubIcon';
+import CustomGitHubIconLight from '../../public/CustomGithubIconLight';
 import CustomXIcon from '../../public/CustomXIcon';
 
 import localFont from 'next/font/local';
@@ -60,7 +61,7 @@ const fadeInAnimationVariants = {
 const projects = [
   { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', url: 'https://twitter.prove.email/', description: 'Prove you own a Twitter username by sending yourself a Twitter password reset email', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png', githubLink: 'https://github.com/zkemail/proof-of-twitter', twitterLink: 'https://x.com/zkemail' },
   { name: 'ZK P2P', tagline: 'per to per transactions using everyday payment networks', url: 'https://zkp2p.xyz/', description: 'Transactations entirely P2P leveraging everyday payment networks like Venmo, HDFC, Garanti, Revolut', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png', githubLink: 'https://github.com/zkp2p/zk-p2p', twitterLink: 'https://x.com/zkp2p' },
-  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', url: 'https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png', githubLink: 'https://github.com/JernKunpittaya/zk-github', twitterLink: 'https://x.com/zkemail' },
+  { name: 'ZK Proof of Github', tagline: 'prove you own a twitter account', url: 'https://www.loom.com/share/4a280711e0944cecbe680149cf4de02b?sid=d1247bf1-d78c-4295-81be-832f9ceaa8b8', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo:'https://cdn-icons-png.flaticon.com/512/25/25231.png', logoLight: 'https://static-00.iconduck.com/assets.00/github-light-icon-2048x1998-m3c0rgap.png', githubLink: 'https://github.com/JernKunpittaya/zk-github', twitterLink: 'https://x.com/zkemail' },
   { name: 'Nooze Proof of Organization', tagline: 'prove you own a twitter account', url: 'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117', githubLink: 'https://github.com/emmaguo13/nozee', twitterLink: 'https://x.com/zkemail' },
   { name: 'Email Wallet', tagline: 'email money to anyone', url: 'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg', githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
 ];
@@ -261,7 +262,13 @@ const ProjectsPage = () => {
             <>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
                 <img
-                  src={filteredProjects[selectedProjectIndex].logo}
+                  src={
+                    theme.palette.mode === 'dark' && filteredProjects[selectedProjectIndex].logoLight
+                      ? filteredProjects[selectedProjectIndex].logoLight
+                      : filteredProjects[selectedProjectIndex].logo
+                  }
+
+                  
                   alt={`${filteredProjects[selectedProjectIndex].name} logo`}
                   className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] mr-[20px]"
                 />
@@ -387,7 +394,7 @@ const ProjectsPage = () => {
                   </CustomButton>
                 </Link>
                 <Stack direction="row" spacing={2}>
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={theme.palette.mode === 'light' ? CustomGitHubIcon : CustomGitHubIconLight} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
                   <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
                 </Stack>
               </Stack>
