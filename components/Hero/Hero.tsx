@@ -142,7 +142,7 @@ export default function Hero() {
               },
             }}
           >
-            Prove who sent an email <br /> & any of it&apos;s contents.
+            Prove who sent an email <span className="hidden sm:inline"><br /></span> & any of it&apos;s contents.
           </Typography>
         </motion.div>
         <Typography
