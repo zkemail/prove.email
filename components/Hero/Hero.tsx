@@ -173,6 +173,7 @@ export default function Hero() {
               <CustomButton
                 style={{
                   color: theme.palette.mode === "light" ? "black" : "white",
+                  backgroundColor: theme.palette.mode === "light" ? "white" : "black",
                   borderColor:
                     theme.palette.mode === "light" ? "black" : "white",
                 }}
@@ -265,16 +266,36 @@ export default function Hero() {
               </div>
               <div>
                 <Typography variant="subtitle2">
-                  we built a primitive that allows you to prove who sent an
-                  email + prove only what content you want from an email while
-                  hiding what you don’t want known.
+                  <span
+                    style={{
+                      background: theme.palette.text.primary,
+                      color: theme.palette.text.primary,
+                    }}
+                  >
+                    we built a primitive that allows you to prove who sent an
+                    email + prove only what content you want from an email while
+                    hiding what you don’t want known.
+                    <br />
+                    Excited to see what you build : )
+                    <br />
+                    <br />
+                  </span>
+                  
+                  <span className="font-semibold"
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >The Zk team</span>
                   <br />
-                  Excited to see what you build : )
-                  <br />
-                  <br />
-                  <span className="font-semibold">The Zk team</span>
-                  <br />
+                  <span
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >
                   Aayush, Sora, Saleel, Wataru, Aditya and Elo
+                  </span>
                 </Typography>
               </div>
             </Box>
