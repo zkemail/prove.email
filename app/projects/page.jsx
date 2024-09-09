@@ -17,7 +17,6 @@ import XIcon from '@mui/icons-material/X';
 
 
 import CustomGitHubIcon from '../../public/CustomGithubIcon';
-import CustomGitHubIconLight from '../../public/CustomGithubIconLight';
 import CustomXIcon from '../../public/CustomXIcon';
 
 import localFont from 'next/font/local';
