@@ -177,7 +177,7 @@ const VideoCarousel = () => {
                   height: "100%",
                   zIndex: 2,
                   background:
-                    "linear-gradient(to bottom right, #000000, #080808, #161616, #494949)",
+                    "linear-gradient(to bottom right, #000000, #080808, #161616, #222222)",
                 }}
               >
                 <Box sx={{ gridColumn: "span 2" }}>

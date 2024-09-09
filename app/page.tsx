@@ -116,27 +116,27 @@ const faqs = [
 const emails = [
   {
     to: "potus@gov.com",
-    from: "<span>Email</span>@gov.com",
+    from: "<span>email</span>@gov.com",
     subject: "Whistle Blowing",
     mainText:
       "For example, you can prove you have an email from <span>you</span>@gov.com without disclosing your full address. We can confirm the email has mentions a name, place etc and confirm who we sent/recieved it from potus@gmail.com",
   },
   {
-    to: "<span>Bob</span>@gmail.com",
-    from: "Github.com",
+    to: "<span>bob</span>@gmail.com",
+    from: "github.com",
     subject: "Github Contribution to X Repo",
     mainText:
       "For example, you can prove you recieved an contribution email from github.com for a specific repo without revealing your full <span>you</span>@gmail.com email address",
   },
   {
-    to: "<span>Bob</span>@gmail.com",
-    from: "Venmo.com",
+    to: "<span>bob</span>@gmail.com",
+    from: "venmo.com",
     subject: "Payment confirmation to X Person",
     mainText:
       "For example, you can prove you recieved an Venmo payment email from venmo.com which says you venmoed a specific person without revealing your full <span>you</span>@gmail.com email address ",
   },
   {
-    to: "<span>Bob</span>@gmail.com",
+    to: "<span>bob</span>@gmail.com",
     from: "citizenships@gov.com",
     subject: "Nationality",
     mainText:
@@ -239,12 +239,12 @@ export default function Home() {
           <Grid item xs={12} md={6}>
             <Grid
               container
-              sx={{ paddingBottom: "70px", overflow: "visable" }}
+              sx={{ paddingBottom: "50px", overflow: "visible" }}
               direction="row"
               justifyContent="space-between"
             >
-              <Grid item xs={12} md={12} justifySelf="right" overflow="visable">
-                <Box display="flex" justifyContent="end" overflow="visable">
+              <Grid item xs={12} md={12} justifySelf="right" overflow="visible">
+                <Box display="flex" justifyContent="end" overflow="visible">
                   <SlideInDiv direction="right">
                     <AboutModal emails={emails} />
                   </SlideInDiv>
@@ -266,7 +266,7 @@ export default function Home() {
       <div
         className="z-50 w-full"
         style={{
-          background: theme.palette.mode === "light" ? "transparent" : "black",
+          background: theme.palette.mode === "light" ? "transparent" : theme.palette.background.default,
         }}
       >
         <Box
@@ -311,8 +311,8 @@ export default function Home() {
                 paddingBottom: "30px",
               }}
             >
-              We leverage what emails already do... <br />
-              but using Regex & Zero Knowledge
+            We leverage what emails already do... <span className="hidden sm:inline"><br /></span>
+            but using Regex & Zero Knowledge
             </Typography>
           </Box>
           <Grid container spacing={2} sx={{ padding: "20px" }}>
@@ -484,7 +484,7 @@ export default function Home() {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <Typography variant="h5">For Developers</Typography>
+          <Typography variant="h5" sx={{marginBottom:'0.5rem'}}>For Developers</Typography>
           <Typography variant="h1">Build Your Own</Typography>
           <Typography
             variant="body1"
@@ -605,7 +605,7 @@ export default function Home() {
           <Grid container>
             <Grid item xs={12} sm={4}>
               <Typography variant="h4">
-                Have a Question that isn’t answered? Reach out!
+                Have a Question that isn’t answered?
               </Typography>
               <Stack spacing={2} direction="row" sx={{ paddingTop: "16px" }}>
                 <CustomButton

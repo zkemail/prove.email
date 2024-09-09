@@ -34,8 +34,6 @@
 <rect x="-36" y="69" width="160.889" height="23.1111" fill="#141414"/>
 <rect x="190" y="714" width="160.889" height="23.1111" fill="#141414"/>
 <rect x="1016" y="714" width="117" height="23" fill="#181818"/>
-<circle cx="938.673" cy="53.3335" r="16" fill="#0D0D0D"/>
-<circle cx="938.673" cy="53.3335" r="15.5294" stroke="white" stroke-opacity="0.04" stroke-width="0.941176"/>
 </g>
 <path d="M1440 742.07L1224.2 742.07" stroke="#333333"/>
 <path d="M1223.7 766.172L1223.7 741.64" stroke="#333333"/>

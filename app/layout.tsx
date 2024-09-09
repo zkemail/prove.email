@@ -68,7 +68,7 @@ const RootLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         <AppRouterCacheProvider>
           <ThemeProvider theme={isDarkModeEnabled ? darkTheme : lightTheme}>
             <CssBaseline />
-            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', colorScheme:'only light' }}>
               <Navbar {...appBarProps} isDarkModeEnabled={isDarkModeEnabled} setIsDarkModeEnabled={setIsDarkModeEnabled} />
               <main>{children}</main>
               <Footer />

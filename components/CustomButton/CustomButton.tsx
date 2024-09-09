@@ -36,7 +36,7 @@ const StyledButton = styled(MuiButton, {
     prop !== "filledIn" && prop !== "tag" && prop !== "light",
 })<CustomButtonProps>(({ theme, filledIn, tag, light }) => ({
   fontWeight: 500,
-  fontSize: "1rem",
+  fontSize: tag ? "0.5rem" : "1rem",
   lineHeight: 1.5,
   textDecoration: "none",
   textTransform: "none",
@@ -119,7 +119,7 @@ const CustomButton: React.FC<CustomButtonProps> = ({
       {...props}
       buttonLabel={buttonLabel}
     >
-      <Typography>{buttonLabel}</Typography>
+      {buttonLabel}
     </StyledButton>
   );
 };

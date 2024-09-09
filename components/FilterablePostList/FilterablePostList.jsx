@@ -125,6 +125,7 @@ const FilterablePostList = ({ initialPosts }) => {
                   padding: { xs: '6px 8px', sm: '8px 16px', md: '10px 20px' },
                   fontSize: { xs: '10px', sm: '12px', md: '14px' },
                   background: theme.palette.background.default,
+                  color: theme.palette.text.primary
                 }}
                 // className={`rounded-[5px] ${selectedButton === 'Newest' ? 'bg-black text-white' : 'bg-white text-black border-2 border-solid border-black-500'}`}
                 onClick={() => setSelectedButton('Newest')}

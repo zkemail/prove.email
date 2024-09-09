@@ -61,7 +61,7 @@ const lightPalette = {
   primary: {
     main: "#FFBB6B",
     light: "#FFD580",
-    dark: "#B3773E",
+    dark: "#000000",
     contrastText: "#ffffff",
   },
   secondary: {
@@ -84,7 +84,7 @@ const darkPalette = {
   primary: {
     main: "#FFBB6B",
     light: "#FFD580",
-    dark: "#B3773E",
+    dark: "#000000",
     contrastText: "#ffffff",
   },
   secondary: {
@@ -115,8 +115,10 @@ const createCustomTheme = (mode: "light" | "dark") => {
     },
     typography: {
       fontFamily: spaceGrotesk.style.fontFamily,
+
       h1: {
         fontSize: "2.25em",
+        fontWeight: 500,
         "@media (max-width:1280px)": {
           fontSize: "2.14em",
         },
@@ -199,6 +201,13 @@ const createCustomTheme = (mode: "light" | "dark") => {
             "@media (min-width:1000px)": {
               fontSize: "16px",
             },
+          },
+        },
+      },
+      MuiDialog: {
+        styleOverrides: {
+          paper: {
+            background:'#000000'
           },
         },
       },

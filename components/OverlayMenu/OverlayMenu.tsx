@@ -41,7 +41,6 @@ export default function FullScreenDialog({ open, onClose, pages }: FullScreenDia
       TransitionComponent={Transition}
       PaperProps={{
         sx: {
-          backgroundColor: 'black',
           paddingX: '8%',
           paddingY: '4%',
           position: 'relative', // Ensure relative positioning

@@ -51,7 +51,6 @@ const Header = styled(Box)(({ theme }) => ({
 }));
 
 const DescriptionText = styled(Typography)(({ theme }) => ({
-  marginTop: "8px",
   color: theme.palette.text.secondary,
 }));
 
@@ -117,11 +116,11 @@ const PopOut: FC<PopOutProps> = ({
     <Container>
       <Box onClick={() => setIsOpen(!isOpen)} sx={{ cursor: "pointer" }}>
         <Header sx={{ bgcolor: theme.palette.background.default }}>
-          <Typography variant="h5" sx={{ color:  theme.palette.text.primary, textAlign: "left" }}>
+          <Typography variant="h5" sx={{ color:  theme.palette.text.primary, textAlign: "left", marginBottom:'1rem'}}>
             {topText}
           </Typography>
         </Header>
-        <Grid spacing={2} container p={2} >
+        <Grid spacing={2} container p={2} sx={{background: theme.palette.primary.dark}}>
           <Grid item>
             <Typography
               fontWeight={"bold"}
@@ -129,13 +128,14 @@ const PopOut: FC<PopOutProps> = ({
               sx={{
                 fontWeight: "medium",
                 textAlign: "left",
+                color: 'white',
               }}
             >
               {mainText}
             </Typography>
           </Grid>
           <Grid item>
-            <Typography sx={{ textAlign: "left" }} variant="body1">
+            <Typography sx={{ textAlign: "left", color: 'white' }} variant="body1">
               {descriptionText}
             </Typography>
           </Grid>

@@ -94,33 +94,14 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [backgroundsLight]);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
 
   const handleToggle = () => {
     setIsEmailOpen(!isEmailOpen);
   };
 
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
-
   return (
     <div
-      className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center ${isHovering ? "custom-cursor-active" : ""}`}
+      className={`px-5 sm:px-16 pt-16 w-full text-center align-content-center content-center`}
       style={{
         backgroundColor: theme.palette.mode === "light" ? "#F6F5F5" : "#0F0F0F",
         height: "calc(100vh - 6.5rem)",
@@ -136,18 +117,10 @@ export default function Hero() {
         backgroundPosition: "center",
       }}
     >
-      <div
-        className="custom-cursor"
-        style={{
-          left: cursorPosition.x,
-          top: cursorPosition.y,
-          position: "fixed",
-          zIndex: 10000,
-        }}
-      ></div>
+
       <Box
         sx={{ height: { xs: "70%", sm: "auto" } }}
-        className="z-50 relative flex flex-col justify-center"
+        className="relative flex flex-col justify-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -169,7 +142,7 @@ export default function Hero() {
               },
             }}
           >
-            Prove who sent an email <br /> & any of it&apos;s contents.
+            Prove who sent an email <span className="hidden sm:inline"><br /></span> & any of it&apos;s contents.
           </Typography>
         </motion.div>
         <Typography
@@ -179,7 +152,7 @@ export default function Hero() {
           }}
           className="pb-3 pt-3 sm:pt-4 md:pt-6 lg:pt-7 text-[12px] md:text-[20px] leading-[160%] sm:leading-[140%]"
         >
-          Anonymously prove any subset of any email <br></br>you sent or
+          Anonymously prove any subset of any email <span className="hidden sm:inline"><br /></span> you sent or
           received. On or Offchain.{" "}
         </Typography>
         <div className="content-center items-center flex justify-center">
@@ -200,6 +173,7 @@ export default function Hero() {
               <CustomButton
                 style={{
                   color: theme.palette.mode === "light" ? "black" : "white",
+                  backgroundColor: theme.palette.mode === "light" ? "white" : "black",
                   borderColor:
                     theme.palette.mode === "light" ? "black" : "white",
                 }}
@@ -212,7 +186,7 @@ export default function Hero() {
           </Stack>
         </div>
       </Box>
-      <Box sx={{ height: { xs: "50%", md: "100%" } }}>
+      <Box sx={{ height: { xs: "50%", sm:"70%", md: "100%" } }}>
         <motion.div
           className="h-full"
           initial={{ opacity: 0, y: 100 }}
@@ -222,15 +196,12 @@ export default function Hero() {
           <Box
             sx={{
               marginTop: {
-                xs: "2rem",
-                sm: "4rem",
-                md: "8rem",
+                xs: "3rem",
+                sm: "9rem",
               },
             }}
-            className="relative h-full w-fit flex justify-center mx-auto cursor-none"
+            className="relative h-full w-fit flex justify-center mx-auto cursor-pointer"
             onClick={handleToggle}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             <Box
               className="absolute inset-0 rounded-lg mx-auto p-4 sm:p-16 md:p-14 text-left text-[6px] sm:text-[10px] md:text-[11px] lg:text-[12px]"
@@ -295,21 +266,41 @@ export default function Hero() {
               </div>
               <div>
                 <Typography variant="subtitle2">
-                  we built a primitive that allows you to prove who sent an
-                  email + prove only what content you want from an email while
-                  hiding what you don’t want known.
+                  <span
+                    style={{
+                      background: theme.palette.text.primary,
+                      color: theme.palette.text.primary,
+                    }}
+                  >
+                    we built a primitive that allows you to prove who sent an
+                    email + prove only what content you want from an email while
+                    hiding what you don’t want known.
+                    <br />
+                    Excited to see what you build : )
+                    <br />
+                    <br />
+                  </span>
+                  
+                  <span className="font-semibold"
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >The Zk team</span>
                   <br />
-                  Excited to see what you build : )
-                  <br />
-                  <br />
-                  <span className="font-semibold">The Zk team</span>
-                  <br />
+                  <span
+                        style={{
+                          background: theme.palette.text.primary,
+                          color: theme.palette.text.primary,
+                        }}
+                      >
                   Aayush, Sora, Saleel, Wataru, Aditya and Elo
+                  </span>
                 </Typography>
               </div>
             </Box>
             <Box
-              className={`translate-y-[25px] absolute transition-transform duration-500 ${isEmailOpen ? "transform translate-y-[400px]" : ""}`}
+              className={` absolute transition-transform duration-500 ${isEmailOpen ? "transform translate-y-[400px]" : ""}`}
               sx={{ zIndex: 0, top: "-20%", width: "100%", height: "auto" }}
             >
               <Image
@@ -391,29 +382,6 @@ export default function Hero() {
           </Box>
         </motion.div>
       </Box>
-
-      <style jsx>{`
-        .custom-cursor {
-          cursor: none;
-        }
-
-        .custom-cursor::after {
-          content: "";
-          width: 20px;
-          height: 20px;
-          background-color: black;
-          border-radius: 50%;
-          position: absolute;
-          pointer-events: none;
-          transform: translate(-50%, -50%);
-          display: none;
-          z-index: 10000;
-        }
-
-        .custom-cursor-active .custom-cursor::after {
-          display: block;
-        }
-      `}</style>
     </div>
   );
 }
