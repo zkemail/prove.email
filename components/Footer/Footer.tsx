@@ -250,6 +250,8 @@ const Footer = () => {
                     target={false}
                     href="https://twitter.com/zkemail?lang=en"
                     IconComponent={XIcon}
+                    dark={true}
+                    
                   />
                 </Grid>
                 <Grid item>
@@ -257,6 +259,7 @@ const Footer = () => {
                     target={false}
                     href="https://t.me/zkemail"
                     IconComponent={TelegramIcon}
+                    dark={true}
                   />
                 </Grid>
                 {/* <Grid item>
@@ -267,6 +270,7 @@ const Footer = () => {
                     target={false}
                     href="https://www.youtube.com/yourchannel"
                     IconComponent={YouTubeIcon}
+                    dark={true}
                   />
                 </Grid>
                 <Grid item>
@@ -274,6 +278,7 @@ const Footer = () => {
                     target={false}
                     href="https://github.com/zkemail"
                     IconComponent={GitHubIcon}
+                    dark={true}
                   />
                 </Grid>
               </Grid>
