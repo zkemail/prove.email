@@ -41,6 +41,7 @@ const backgrounds = [projectBackground1, projectBackground2, projectBackground3,
 import { animate, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { selectClasses } from '@mui/base';
+import CustomBlogIcon from '@/public/CustomBlogIcon';
 
 const berkeleyOldStyle = localFont({
   src: '../.././font/BerkeleyOldStyle.ttf',
@@ -59,11 +60,14 @@ const fadeInAnimationVariants = {
 };
 
 const projects = [
-  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', url: 'https://twitter.prove.email/', description: 'Prove you own a Twitter username by sending yourself a Twitter password reset email', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png', githubLink: 'https://github.com/zkemail/proof-of-twitter', twitterLink: 'https://x.com/zkemail' },
-  { name: 'ZK P2P', tagline: 'peer to peer transactions using everyday payment networks', url: 'https://zkp2p.xyz/', description: 'Transactations entirely P2P leveraging everyday payment networks like Venmo, HDFC, Garanti, Revolut', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png', githubLink: 'https://github.com/zkp2p/zk-p2p', twitterLink: 'https://x.com/zkp2p' },
+  { name: 'Account Recovery', tagline: 'recover any safe wallet or smart wallet via email addresses', url: 'https://prove.email/recovery', description: 'Use email addresses to recover wallet ownership Integrate into new wallets in 5 lines of code!', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: false, made_by_us: true, logo: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*FJXPBexD-aQvAKH-qhjbmQ.png', blogLink: 'https://prove.email/blog/recovery', githubLink: 'https://github.com/zkemail/email-recovery', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Safe 2FA', tagline: 'confirm any multisig transaction via an email', url: 'https://prove.email/blog/2fa', description: 'Use an email controlled smart contract to confirm multisig transactions.', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: false, made_by_us: true, logo: 'https://recovery.prove.email/assets/gnosis-safe-logo-CWjLluxj.svg', blogLink: 'https://prove.email/blog/2fa', githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Decentralized Oauth Login', tagline: 'authorize any session key to scoped wallet access via emails', url: 'https://oauth.emailwallet.org', description: 'Login to any app for a specific crypto scope using emails, in just 3 lines of code.', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: false, made_by_us: true, logo: 'https://i.imgur.com/SvAOP8F.png', blogLink: 'https://zkemail.gitbook.io/zk-email/login-with-zk-email-oauth-api', githubLink: 'https://github.com/zkemail/oauth-demo-ui/', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Proof Of Twitter', tagline: 'prove you own a twitter account', url: 'https://twitter.prove.email/', description: 'Prove you own a Twitter username by sending yourself a Twitter password reset email', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: true, logo: 'https://em-content.zobj.net/source/apple/76/dark-sunglasses_1f576.png', blogLink: 'https://prove.email/blog/twitter', githubLink: 'https://github.com/zkemail/proof-of-twitter', twitterLink: 'https://x.com/zkemail' },
+  { name: 'ZK P2P', tagline: 'peer to peer transactions using everyday payment networks', url: 'https://zkp2p.xyz/', description: 'Transactations entirely P2P leveraging everyday payment networks like Venmo, HDFC, Garanti, Revolut', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://zkp2p.xyz/logo512.png', blogLink: 'https://docs.zkp2p.xyz', githubLink: 'https://github.com/zkp2p/zk-p2p', twitterLink: 'https://x.com/zkp2p' },
   { name: 'ZK Proof of Github', tagline: 'prove you own a github account', url: 'https://sdk.prove.email/try/rdave8/proof-of-github-user', description: 'Prove you committed to a Github repo', zk_email_lib: true, zk_lib: true, on_chain: false, off_chain: true, made_by_us: false, logo: 'https://cdn-icons-png.flaticon.com/512/25/25231.png', githubLink: 'https://github.com/JernKunpittaya/zk-github', twitterLink: 'https://x.com/zkemail' },
-  { name: 'Nozee Proof of Organization', tagline: 'prove you own an @domain account, and anonymously post from it', url: 'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117', githubLink: 'https://github.com/emmaguo13/nozee', twitterLink: 'https://x.com/zkemail' },
-  { name: 'Email Wallet', tagline: 'email money to anyone', url: 'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg', githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Nozee Proof of Organization', tagline: 'prove you own an @domain account, and anonymously post from it', url: 'https://www.nozee.xyz/', description: 'Prove you own an email address from a domain', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: false, logo: 'https://emojiisland.com/cdn/shop/products/36_grande.png?v=1571606117', blogLink: 'https://prove.email/blog/jwt', githubLink: 'https://github.com/emmaguo13/nozee', twitterLink: 'https://x.com/zkemail' },
+  { name: 'Email Wallet', tagline: 'email money to any wallet or email address, via emails', url: 'https://emailwallet.org/', description: 'Send transactions via email, including account recovery', zk_email_lib: true, zk_lib: true, on_chain: true, off_chain: true, made_by_us: true, logo: 'https://emailwallet.org/logo.svg', blogLink: 'https://prove.email/blog/emailwallet', githubLink: 'https://github.com/zkemail/email-wallet', twitterLink: 'https://x.com/zkemail' },
 ];
 
 const texts = [
@@ -261,17 +265,13 @@ const ProjectsPage = () => {
           {filteredProjects[selectedProjectIndex] && (
             <>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                <img
-                  src={
-                    theme.palette.mode === 'dark' && filteredProjects[selectedProjectIndex].logoLight
-                      ? filteredProjects[selectedProjectIndex].logoLight
-                      : filteredProjects[selectedProjectIndex].logo
-                  }
-
-                  
-                  alt={`${filteredProjects[selectedProjectIndex].name} logo`}
-                  className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] mr-[20px]"
-                />
+                <div className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px] md:w-[50px] md:h-[50px] mr-[20px] flex items-center justify-center">
+                  <img
+                    src={filteredProjects[selectedProjectIndex].logo}
+                    alt={`${filteredProjects[selectedProjectIndex].name} logo`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
                 <div>
                   <Typography variant='h2' sx={{ fontWeight: 'bold', fontSize: { xs: '12px', sm: '15px', md: '25px' } }}>
                     {filteredProjects[selectedProjectIndex].name}
@@ -394,8 +394,9 @@ const ProjectsPage = () => {
                   </CustomButton>
                 </Link>
                 <Stack direction="row" spacing={2}>
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={theme.palette.mode === 'light' ? CustomGitHubIcon : CustomGitHubIconLight} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
-                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].githubLink ? filteredProjects[selectedProjectIndex].githubLink : 'https://github.com/zkemail'} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} dark={theme.palette.mode != 'light'} IconComponent={CustomGitHubIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].blogLink ? filteredProjects[selectedProjectIndex].blogLink : 'https://prove.email/blog'} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} dark={theme.palette.mode != 'light'} IconComponent={CustomBlogIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
+                  <IconLink target={false} href={filteredProjects[selectedProjectIndex].twitterLink ? filteredProjects[selectedProjectIndex].twitterLink : 'https://x.com/zkemail'} style={{ color: theme.palette.mode === 'light' ? 'black' : 'white' }} dark={theme.palette.mode != 'light'} IconComponent={CustomXIcon} size={{ xs: 'small', sm: 'medium', md: 'large' }} />
                 </Stack>
               </Stack>
             </>
@@ -423,7 +424,7 @@ const ProjectsPage = () => {
         whileInView='animate'
         viewport={{ once: true }}
       >
-        <ActionCard topText='For Developers' title='Build Proof of Twitter Tutorial' text='Check out our How to Set Up Proof of Twitter Example' buttonText='Docs' buttonLink='https://zkemail.gitbook.io/zk-email' />
+        <ActionCard topText='For Developers' title='Put up a new proof in 5 minutes' text='Try our new ZK Email SDK and proof registry' buttonText='SDK Registry' buttonLink='https://sdk.prove.email/' />
       </motion.div>
 
 

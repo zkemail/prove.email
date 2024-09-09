@@ -49,13 +49,7 @@ const IconLink: React.FC<IconLinkProps> = ({
         },
       }}
     >
-      <IconComponent
-        sx={{
-          color: dark ? "black" : "white",
-          fontSize: "inherit",
-          "&:hover": { color: theme.palette.secondary.main },
-        }}
-      />
+      <IconComponent sx={{ color: dark ? 'white' : 'black', fontSize: 'inherit', "&:hover": { color: theme.palette.secondary.main } }} />
     </Link>
   );
 };
