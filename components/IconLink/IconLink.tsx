@@ -43,7 +43,7 @@ const IconLink: React.FC<IconLinkProps> = ({ href, IconComponent, dark, size = '
         },
       }}
     >
-      <IconComponent style={{ color: dark ? 'black' : 'white', fontSize: 'inherit' }} />
+      <IconComponent style={{ color: dark ? 'white' : 'black', fontSize: 'inherit' }} />
     </Link>
   );
 };
