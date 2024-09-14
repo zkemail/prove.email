@@ -301,7 +301,7 @@ export default function Hero() {
             </Box>
             <Box
               className={` absolute transition-transform duration-500 ${isEmailOpen ? "transform translate-y-[400px]" : ""}`}
-              sx={{ zIndex: 0, top: "-20%", width: "100%", height: "auto" }}
+              sx={{ zIndex: 0, top: {xxs:"-2rem", xs:"-3.5rem", sm:"-7rem", lg:"-7.5rem"}, width: "100%", height: "auto" }}
             >
               <Image
                 src={triangleEnvelope}

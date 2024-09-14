@@ -472,7 +472,7 @@ export default function Home() {
       <Box
         sx={{
           height: { xs: "24rem", sm: "22rem" },
-          padding: { xs: "1rem", md: "8vw" },
+          padding: { xs: "1rem", md: "8rem" },
           backgroundColor: theme.palette.background.default,
           backgroundImage: `url(${theme.palette.mode === "light" ? buildYourOwnBackgroundLight.src : buildYourOwnBackgroundDark.src})`,
           paddingTop: { xs: "3.125rem", sm: "6.25rem" },
