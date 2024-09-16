@@ -130,7 +130,7 @@ const VideoCarousel = () => {
           transform: !isSmallScreen
             ? `translateX(-${currentIndex * (100 / visibleCards)}%)`
             : "none",
-          overflowX: isSmallScreen ? "scroll" : "hidden", // Enable scrolling on small screens
+          overflowX: isSmallScreen ? "scroll" : "", // Enable scrolling on small screens
           scrollSnapType: isSmallScreen ? "x mandatory" : "none", // Enable snap scrolling on small screens
           "-webkit-overflow-scrolling": "touch", // For smoother scrolling on iOS
           scrollbarWidth: "none", // Hide scrollbar for Firefox
