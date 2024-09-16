@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Box,
   Card,
@@ -73,10 +73,14 @@ const videos = [
   },
 ];
 
+
 const VideoCarousel = () => {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.up("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const carouselRef = useRef(null);
 
   const getVisibleCards = () => {
     if (isLargeScreen) return 4;
@@ -99,6 +103,15 @@ const VideoCarousel = () => {
     }
   };
 
+  const handleScroll = (event) => {
+    if (isSmallScreen) {
+      const scrollLeft = event.target.scrollLeft;
+      const cardWidth = event.target.clientWidth / visibleCards;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(newIndex);
+    }
+  };
+
   return (
     <Box
       className="relative w-full"
@@ -108,13 +121,25 @@ const VideoCarousel = () => {
       }}
     >
       <Box
+        ref={carouselRef}
         className="carousel-container"
+        onScroll={handleScroll}
         sx={{
           display: "flex",
-          transition: "transform 0.5s ease-in-out",
-          transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
+          transition: !isSmallScreen ? "transform 0.5s ease-in-out" : "none",
+          transform: !isSmallScreen
+            ? `translateX(-${currentIndex * (100 / visibleCards)}%)`
+            : "none",
+          overflowX: isSmallScreen ? "scroll" : "hidden", // Enable scrolling on small screens
+          scrollSnapType: isSmallScreen ? "x mandatory" : "none", // Enable snap scrolling on small screens
+          "-webkit-overflow-scrolling": "touch", // For smoother scrolling on iOS
+          scrollbarWidth: "none", // Hide scrollbar for Firefox
+          "&::-webkit-scrollbar": {
+            display: "none", // Hide scrollbar for Chrome, Safari, and Edge
+          },
         }}
       >
+
         {videos.map((video) => (
           <Box
             key={video.url}
@@ -123,6 +148,7 @@ const VideoCarousel = () => {
               flex: `0 0 ${100 / visibleCards}%`,
               padding: "8px",
               boxSizing: "border-box",
+              scrollSnapAlign: isSmallScreen ? "start" : "none", // Snap each item to start
             }}
           >
             <Card
@@ -257,20 +283,23 @@ const VideoCarousel = () => {
           </Box>
         ))}
       </Box>
-      <Box className="flex justify-center space-x-4 mt-12">
-        <CustomButton
-          buttonLabel="Previous"
-          onClick={previous}
-          disabled={currentIndex === 0}
-          filledIn={currentIndex !== 0}
-        />
-        <CustomButton
-          buttonLabel="Next"
-          onClick={next}
-          filledIn={!(currentIndex >= videos.length - visibleCards)}
-          disabled={currentIndex >= videos.length - visibleCards}
-        />
-      </Box>
+
+      {!isSmallScreen && (
+        <Box className="flex justify-center space-x-4 mt-12">
+          <CustomButton
+            buttonLabel="Previous"
+            onClick={previous}
+            disabled={currentIndex === 0}
+            filledIn={currentIndex !== 0}
+          />
+          <CustomButton
+            buttonLabel="Next"
+            onClick={next}
+            filledIn={!(currentIndex >= videos.length - visibleCards)}
+            disabled={currentIndex >= videos.length - visibleCards}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
