@@ -103,14 +103,15 @@ const VideoCarousel = () => {
     }
   };
 
-  const handleScroll = (event) => {
+  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
     if (isSmallScreen) {
-      const scrollLeft = event.target.scrollLeft;
-      const cardWidth = event.target.clientWidth / visibleCards;
+      const scrollLeft = event.currentTarget.scrollLeft;
+      const cardWidth = event.currentTarget.clientWidth / visibleCards;
       const newIndex = Math.round(scrollLeft / cardWidth);
       setCurrentIndex(newIndex);
     }
   };
+  
 
   return (
     <Box
