@@ -18,11 +18,13 @@ aliases:
 
 Emails serve as our gateway to various online services and platforms. ZK Email uses zk proofs to authenticate these interactions on chain while preserving privacy.
 
- This guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain, without disclosing any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion.
+If you are trying to setup a new circuit for yourself, we recommend the full automated circuit generation tool at our [SDK Registry](https://sdk.prove.email) -- it automatically generates and deploys your circuit specifications with an automatic frontend demo, in as few as 5 minutes with no ZK expertise needed.
 
- ## Experience it Yourself
+However, if you want to go more custom into the circuits and contracts, this guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain from scratch. It does not reveal any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion. Note that it uses a slightly outdated version of the SDK, but the process is very similar, and you can refer to the [SDK docs](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide) for more information.
 
- Before diving into the technical details, we encourage you to experience Proof of Twitter firsthand. Visit [https://twitter.prove.email/](https://twitter.prove.email/) to interact with a user-friendly interface that showcases the functionality of this technology. This hands-on experience will provide you with a practical understanding of the concepts we'll explore in this guide, making the process of building your own circuit more intuitive.
+## Experience it Yourself
+
+Before diving into the technical details, we encourage you to experience Proof of Twitter firsthand. Visit [https://twitter.prove.email/](https://twitter.prove.email/) to interact with a user-friendly interface to try it out. This hands-on experience will provide you with a practical understanding of the concepts we'll explore in this guide, making the process of building your own circuit more intuitive.
 
 <p align="center">
 <img src="/proofOftwitterUI.png" width="750"/>
