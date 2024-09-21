@@ -233,9 +233,9 @@ We have lookup-based regex code in Halo2 that performs much better than our Circ
 [^5]: **Why you need a regex for the from: field**<br/><br/>
 
 The main reason we need this is because of the diverse formatting of the from: field. According to the DKIM RFC (and reproduced fully in practice), the from field comes in 5 flavors:<br/>
-from: "User Set Name" <test@gmail.com>;<br/><br/>
-from: User Set Name <test@gmail.com>;<br/>
-from: <test@gmail.com>;<br/>
+from: "User Set Name" &lt;test@gmail.com&gt;;<br/><br/>
+from: User Set Name &lt;test@gmail.com&gt;;<br/>
+from: &lt;test@gmail.com&gt;;<br/>
 from: "test@gmail.com";<br/>
 from: test@gmail.com;<br/><br/>
 
