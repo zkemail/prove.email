@@ -98,6 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <Box
               component="img"
               src={imageUrl}
+              draggable="false"
               alt={projectTitle}
               sx={{
                 width: "100%",

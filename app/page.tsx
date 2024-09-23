@@ -25,6 +25,10 @@ import { animate, motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
+import Image from "next/image";
+import IconLink from "@/components/IconLink/IconLink";
+
+
 interface SlideInDivProps {
   direction: "left" | "right";
   children: React.ReactNode;
@@ -177,6 +181,8 @@ let PopOutZKEmailLibraryCards = [
   },
 ];
 
+
+
 export default function Home() {
   const theme = useTheme();
 
@@ -253,14 +259,103 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Box>
 
-      {/* TEST ENVELOPE BLUR
-<div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="relative w-80 h-48 bg-white rounded-lg shadow">
-        <div className="absolute inset-0 bg-white" style={{ clipPath: 'polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%)' }}></div>
-      </div>
-  </div> */}
+        {/* TRUSTED BY THE BEST SECTION */}
+        <motion.div
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+        >
+          <Box 
+            width="100%" 
+            textAlign="center"
+          >
+            <Typography variant="h3" sx={{marginBottom:'1rem', marginTop:{xs:'2rem',sm:'3.5rem'}, fontWeight:'700'}}>Trusted by the best</Typography>
+            <Typography variant="h5" sx={{marginBottom:'2rem', color:'#828282', fontWeight:'500'}}>From next-gen enterprises to established organizations</Typography>
+          </Box>
+        </motion.div>
+
+        <motion.div
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+        >
+        <Box sx={{ width: '100%', marginBottom: '5' }}>
+          
+          <Grid 
+            container 
+            spacing={1} 
+            justifyContent="space-between" 
+            alignItems="center"
+            marginBottom={{xs:'3rem', sm:'2.5rem'}}
+          >
+            
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/ethereum-foundation.svg`}
+                alt="ethereum foundation logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/ikyk.svg`}
+                alt="if you know you know logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/gitcoin-passport.svg`}
+                alt="gitcoin passport logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/zkp2p.svg`}
+                alt="zkp2p logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/clave.svg`}
+                alt="clave logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+            <Grid item xs={4} sm={2} display="flex" justifyContent="center">
+              <Image 
+                src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/open-passport.svg`}
+                alt="open passport logo" 
+                width={80} 
+                height={80} 
+                draggable="false"
+              />
+            </Grid>
+          </Grid>
+        </Box>
+        </motion.div>
+         {/* END OF: TRUSTED BY COMPANIES SECTION */}
+
+      </Box>
+      {/*END OF: ABOUT SECTION*/}
+      
+
+
 
       {/* HOW WE DO THIS */}
       <div
@@ -427,7 +522,6 @@ export default function Home() {
                 paddingY: "30px",
               }}
             >
-              {/* <Typography sx={{visibility:{xs:'hidden', md:'visible'}}}>Serverless, Anonymous Proof Of Personhood ??</Typography> */}
               <div></div>
               <SlideInDiv direction="right">
                 <Box
