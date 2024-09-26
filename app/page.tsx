@@ -314,8 +314,8 @@ export default function Home() {
               <Image 
                 src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/gitcoin-passport.svg`}
                 alt="gitcoin passport logo" 
-                width={80} 
-                height={80} 
+                width={130} 
+                height={130} 
                 draggable="false"
               />
             </Grid>
@@ -341,8 +341,8 @@ export default function Home() {
               <Image 
                 src={`/trustedByLogos/${theme.palette.mode === 'dark' ? 'dark' : 'light'}/open-passport.svg`}
                 alt="open passport logo" 
-                width={80} 
-                height={80} 
+                width={120} 
+                height={120} 
                 draggable="false"
               />
             </Grid>
