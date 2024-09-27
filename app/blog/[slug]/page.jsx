@@ -8,6 +8,27 @@ const getPageContent = async (slug) => {
   return { meta, content };
 };
 
+export async function generateMetadata({ params }) {
+  const { meta } = await getPageContent(params.slug);
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      images: [
+        {
+          url: meta.ogImage || '/blog/default/zk-email-default-banner.png',
+          width: 1200,
+          height: 630,
+          alt: meta.title,
+        },
+      ],
+    },
+  };
+}
+
 const Page = async ({ params }) => {
   const { meta, content } = await getPageContent(params.slug);
 
