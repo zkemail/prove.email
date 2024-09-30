@@ -1,0 +1,61 @@
+---
+title: "Zellic Completes Security Audit of ether-email-auth"
+date: 2024-10-30
+authors: ["ZK Email Team"]
+type: Post
+draft: false
+slug: "zellic-security-audit-ether-email-auth"
+category: "5m read"
+tags: ["security", "audit", "zk-email", "ethereum", "blockchain security"]
+description: "Zellic has completed an audit of our ether-email-auth project."
+math: false
+ogImage: "/blog-media/zellic-audit/banner.png"
+---
+
+<img src="/blog-media/zellic-audit/banner.png" alt="ZK Email Banner"/>
+
+We're excited to announce that [Zellic](https://www.zellic.io/) has completed an audit of our [ether-email-auth](https://github.com/zkemail/ether-email-auth) repository. This audit is an important step in ensuring the security and reliability of our ZK Email authentication system.
+
+## Audit Highlights
+
+The audit revealed a total of 12 issues:
+
+- 1 Critical issue
+- 4 High impact issues
+- 5 Low impact issues
+- 2 Informational findings
+
+We're proud to announce that we've already addressed and fixed the critical vulnerability and all high impact issues identified in the audit. Additionally, we've resolved several low impact issues.
+
+For a detailed overview of the audit findings, you can access the full ZK Email audit report [here](/blog-media/zellic-audit/zellic-audit-report.pdf).
+
+## Issues Fixed
+
+1. Critical vulnerability in EmailAuth.sol
+2. Regular expression flaw for email validation in the circuit
+3. Incorrect public input range check
+4. ZK-regex audit fixes incorporation
+5. Index validation in circuits
+6. Three additional low impact issues
+
+The remaining low impact and informational issues are currently being addressed and will be resolved in the coming days.
+
+Our team is already hard at work addressing the issues identified in the audit. We're committed to implementing all necessary fixes and improvements to ensure the highest level of security.
+
+---
+
+In addition to addressing the audit findings, we're also making significant progress on other fronts. We are currently completing an audit of our zk-regex rewrite and our Solidity zksync deployments. 
+
+This audit, conducted in collaboration with [Matter Labs](https://matter-labs.io/), is expected to conclude by mid-October 2024.
+
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <img src="/matterlabs.webp" alt="Matter Labs Logo" style={{ width: '50%' }} />
+</div>
+
+These updates will further enhance the robustness and efficiency of our ZK Email authentication system, ensuring we stay at the forefront of blockchain security and zero-knowledge proof technology.
+
+We'll be sharing a more detailed breakdown of the audit findings and our action plan in the coming weeks. Stay tuned for updates on our progress!
+
+We believe in transparency and continuous improvement. This audit is just one step in our ongoing commitment to security. We're planning additional audits and considering implementing a bug bounty program to further strengthen our system.
+
+Thank you for your continued support and trust in ZK Email.
