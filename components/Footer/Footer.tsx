@@ -268,7 +268,7 @@ const Footer = () => {
                 <Grid item>
                   <IconLink
                     target={false}
-                    href="https://www.youtube.com/yourchannel"
+                    href="https://www.youtube.com/@sigsing"
                     IconComponent={YouTubeIcon}
                     dark={true}
                   />
