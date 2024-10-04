@@ -233,6 +233,11 @@ const Footer = () => {
                     target="_blank"
                     href="https://t.me/zkemail"
                   />
+                  <HoverableLinks
+                    title="Privacy Policy"
+                    target="_blank"
+                    href="/privacy-policy"
+                  />
                 </Grid>
               </Grid>
 
