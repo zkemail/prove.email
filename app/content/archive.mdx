@@ -69,25 +69,25 @@ This is where the real magic starts. The whole problem we wanted to solve in the
 
 Recall this is the format of RSA Signature and verification process, where e = 65537 usually:
 
-RSA Signature: $$m^d \mod n$$
-Verification: $$(m^d)^e \mod n = m$$
+RSA Signature: $m^d \mod n$
+Verification: $(m^d)^e \mod n = m$
 
 So if we have two signatures with the same modulus and exponent, but different messages, we can kind of 'write out' the modulus part as adding in a multiple of the modulus:
 
-Signature 1: $$ m_1^d \mod n$$
-Signature 2: $$ m_2^d \mod n$$
+Signature 1: $ m_1^d \mod n$
+Signature 2: $ m_2^d \mod n$
 
-$$ m_1^{de} = m_1 mod n = m_1 + nk_1$$
-$$ m_2^{de} = m_2 mod n = m_2 + nk_2$$
+$ m_1^{de} = m_1 mod n = m_1 + nk_1$
+$ m_2^{de} = m_2 mod n = m_2 + nk_2$
 
 And then if we subtract the message from the total mod two, we can then calculate these two:
-$$ nk_1$$
-$$ nk_2$$
+$ nk_1$
+$ nk_2$
 
 Then take their GCD to get n:
-$$ gcd(nk_1, nk_2) = n$$
+$ gcd(nk_1, nk_2) = n$
 
-This is pretty big, because now any two emails from the same sender with the same public key lets us get it back! So now, during scrapes, we also cache temporarily the sender domain and selector, as well as the timestamp, and the hash of the header ($$m$$) and the signature ($$m^d$$) of that hash. Note that this we cannot deanonymize the user later or make fake proofs of ownership of that email, since we would have to reconstruct the preimage of the header hash to do so -- and that has as input an unknown, 256-bit body hash that we cannot guess.
+This is pretty big, because now any two emails from the same sender with the same public key lets us get it back! So now, during scrapes, we also cache temporarily the sender domain and selector, as well as the timestamp, and the hash of the header ($m$) and the signature ($m^d$) of that hash. Note that this we cannot deanonymize the user later or make fake proofs of ownership of that email, since we would have to reconstruct the preimage of the header hash to do so -- and that has as input an unknown, 256-bit body hash that we cannot guess.
 
 Now, every time we see a new email, we check any other emails from that domain and selector just before and just after that timestamp, and if those exist then we can run the GCD method and recover the public key! In the registry, you can see this under 'reverse engineered', for instance this is how we got many old Gmail.com keys. We still need to add this feature to the Gmail upload section of the archive, but it is a high priority issue that we hope to address soon.
 
