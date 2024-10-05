@@ -3,12 +3,11 @@ title: "The DKIM Public Key Archive: A million keys, an attempted hack, and veri
 date: 2024-10-05
 authors: ["yush_g"]
 type: Post
-draft: true
+draft: false
 slug: "archive"
 category: "30m read"
 tags: ["ZK Email", "dkim", "whistleblowing", "RSA"]
 description: "How we built the largest DKIM public key registry on Earth"
-math: true
 ogImage: "/blog-media/archive/banner.png"
 ---
 
@@ -18,12 +17,12 @@ One of the biggest problems we have at ZK Email (and one of the biggest problems
 
 So we set out to create the largest registry of such keys, and here's how we did it. Note that nearly all the discussion and engineering [happened over open source Github issues](https://github.com/zkemail/archive.prove.email/issues), so definitely search there for more details.
 
-**Table of Contents**
-[Getting Selectors](#Getting-Selectors)
-[The Scrape](#The-Scrape)
-[The Hack](#The-Hack)
-[The Reverse Engineer](#The-Reverse-Engineer) 
-[The Future](#The-Future)
+**Table of Contents**<br/>
+[Getting Selectors](#Getting-Selectors)<br/>
+[The Scrape](#The-Scrape)<br/>
+[The Hack](#The-Hack)<br/>
+[The Reverse Engineer](#The-Reverse-Engineer)<br/>
+[The Future](#The-Future)<br/>
 
 ## Getting Selectors
 
@@ -69,23 +68,22 @@ This is where the real magic starts. The whole problem we wanted to solve in the
 
 Recall this is the format of RSA Signature and verification process, where e = 65537 usually:
 
-RSA Signature: $m^d \mod n$
-Verification: $(m^d)^e \mod n = m$
+RSA Signature: $m^d \mod n$<br/>
+Verification: $(m^d)^e \mod n = m$<br/>
 
 So if we have two signatures with the same modulus and exponent, but different messages, we can kind of 'write out' the modulus part as adding in a multiple of the modulus:
 
-Signature 1: $ m_1^d \mod n$
+Signature 1: $ m_1^d \mod n$<br/>
 Signature 2: $ m_2^d \mod n$
 
-$ m_1^{de} = m_1 mod n = m_1 + nk_1$
-$ m_2^{de} = m_2 mod n = m_2 + nk_2$
+Because $ m_1^{de} = m_1 \mod n$, we know that for some $k_1$ and $k_2$:
 
-And then if we subtract the message from the total mod two, we can then calculate these two:
-$ nk_1$
-$ nk_2$
+$ m_1^{de} = m_1 + nk_1$<br/>
+$ m_2^{de} = m_2 + nk_2$
 
-Then take their GCD to get n:
-$ gcd(nk_1, nk_2) = n$
+And then if we subtract the message from the total mod two, we can then calculate $nk_1$ and $nk_2$.
+
+Then we take their GCD to get n: $ gcd(nk_1, nk_2) = n$ and then divide by small prime factors in case $gcd(k_1, k_2) \neq 1$.
 
 This is pretty big, because now any two emails from the same sender with the same public key lets us get it back! So now, during scrapes, we also cache temporarily the sender domain and selector, as well as the timestamp, and the hash of the header ($m$) and the signature ($m^d$) of that hash. Note that this we cannot deanonymize the user later or make fake proofs of ownership of that email, since we would have to reconstruct the preimage of the header hash to do so -- and that has as input an unknown, 256-bit body hash that we cannot guess.
 

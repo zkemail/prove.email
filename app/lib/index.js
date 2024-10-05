@@ -32,7 +32,7 @@ export const getPostBySlug = async (slug) => {
           rehypeHighlight, 
           rehypeSlug, 
           [rehypeAutolinkHeadings, { behavior: 'wrap' }], 
-          rehypeKatex, 
+          [rehypeKatex, { output: 'mathml' }], 
           rehypePrettyCode
         ],
       }
