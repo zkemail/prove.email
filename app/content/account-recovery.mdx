@@ -4,7 +4,7 @@ date: 2024-09-23
 authors: ["Saul Garcia"]
 type: Post
 draft: false
-slug: "account-recovery-setup-recovery-guide"
+slug: "account-recovery"
 category: "15m read"
 tags: ["account recovery", "zero-knowledge proofs", "ZK Email", "Safe Wallet", "crypto security", "blockchain", "Web3"]
 description: "Learn how to set up and use ZK Email Account Recovery for both older and newer Safe Accounts. This guide covers everything from initial setup to the recovery process, ensuring the security of your crypto assets with zero-knowledge proofs and trusted guardians."
@@ -118,7 +118,7 @@ Our implementation of ZK Email Account Recovery has been designed to adapt to bo
 
 1. **Initiate Recovery**
 
-   If you ever need to recover your account, start by visiting [recovery.prove.email](https://recovery.prove.email/). Select Recover option and then click on **"Recover Wallet Flow"**.
+   If you ever need to recover your account, start by visiting [recovery.prove.email](https://recovery.prove.email/). Select **"Recover"** option and then click on **"Recover Wallet Flow"**.
 
    <img src="/blog-media/email-account-recovery/recover-wallet-flow.png" alt="ZK Email Recovery Recover Wallet Flow"/>
    
@@ -136,11 +136,15 @@ Our implementation of ZK Email Account Recovery has been designed to adapt to bo
 
 3. **Complete Recovery**
 
-   After your guardians have verified the request, you'll be able to complete the recovery process. This typically involves clicking a **"Confirm Recovery"** button on the recovery interface. This action will replace the current owner of the Safe with the new address you've specified during the recovery process.
+   After your guardians have verified the request, you'll be able to complete the recovery process. This typically involves clicking a **"Confirm Recovery"** button on the recovery interface.
 
    <img src="/blog-media/email-account-recovery/complete-recovery.png" alt="ZK Email Recovery Complete Recovery"/>
 
-## Safe Wallet v1.4 and above
+   This action will replace the current owner of the Safe with the new address you've specified during the recovery process.
+
+   <img src="/blog-media/email-account-recovery/complete-recovery-confirmation.png" alt="ZK Email Recovery Complete Recovery Confirmation"/>
+
+## Burner Safe
 
 ### Setting up Your Account with Email Recovery
 
@@ -150,15 +154,11 @@ Our implementation of ZK Email Account Recovery has been designed to adapt to bo
 
    <img src="/blog-media/email-account-recovery/burner-safe-flow.png" alt="ZK Email Recovery Burner Safe Flow"/>
 
-   Connect your wallet as you would normally do by clicking **"Connect Wallet"** on the top right corner. 
-
-   <img src="/blog-media/email-account-recovery/connect-wallet.png" alt="ZK Email Recovery Connect Wallet"/>
-
    Then type your email on the Guardian's Email input box and click **"Create burner wallet"**.
 
    <img src="/blog-media/email-account-recovery/create-burner-wallet.png" alt="ZK Email Recovery Create Burner Wallet"/>
 
-   You have to confirm the transaction and sign the messages. This will generate a burner safe that will be used in the recovery process. 
+   You wallet automatically will open. You have to confirm the transaction and sign the messages. This will send some ETH to cover the gas fees and create a burner safe with the recovery module already configured. 
 
 2. **Confirm Guardian**
 
