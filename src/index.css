@@ -1,7 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --background: #ffffff;
@@ -20,7 +22,8 @@
 }
 
 body {
-  height: 100vh;
+  margin: 0;
+  padding: 0;
   width: 100vw;
   background: #161819;
   color: var(--Neutral-100);
@@ -77,8 +80,8 @@ body {
 .noise-container:before {
   content: "";
   background-color: transparent;
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E"); */
-  background-image: url('../assets/noise.svg');
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  /* background-image: url('../assets/noise.svg'); */
   background-repeat: repeat;
   opacity: 0.1;
   top: 0;
@@ -113,11 +116,56 @@ body {
 
 .b2 {
   font-size: 0.875rem;
-  line-height: 24px;
+}
+
+.subtitle1 {
+  font-size: 1rem;
+  color: var(--Grey-600, #A8A8A8);
+}
+
+.subtitle2 {
+  font-size: 0.875rem;
 }
 
 .display-flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #111;
+  color: #fff;
+}
+
+.marquee-inner {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+  margin: 0 50px;
+}
+
+.separator {
+  color: #0C3D77;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
