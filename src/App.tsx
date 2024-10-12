@@ -10,10 +10,12 @@ function App() {
         style={{
           display: "flex",
           flexDirection: "column",
+          gap: "6.25rem",
+          overflow: "scroll",
         }}
       >
         <Hero />
-        {/* <PartnersAndProjects /> */}
+        <PartnersAndProjects />
         {/* <Hero />
         <PartnersAndProjects />
         <HowZKEmailWorks />

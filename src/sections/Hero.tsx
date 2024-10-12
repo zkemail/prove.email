@@ -11,16 +11,8 @@ const Hero = () => {
   ];
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        height: "100vh",
-        position: "relative",
-      }}
-    >
-      <div style={{ width: "70vw", textAlign: "center", paddingTop: "10rem" }}>
+    <section>
+      <div style={{ width: "70vw", textAlign: "center", paddingTop: "8rem" }}>
         <p
           className="h1"
           style={{
@@ -66,7 +58,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

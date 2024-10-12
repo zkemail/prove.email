@@ -30,6 +30,14 @@ body {
   font-family: "Fustat", sans-serif;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
 .navbar {
   position: absolute;
   top: 1.5rem;
@@ -49,7 +57,8 @@ body {
 }
 
 .grid-container {
-  height: 100vh;
+  min-height: 400vh;
+  height: fit-content;
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -65,12 +74,14 @@ body {
   top: 0;
   left: 0;
   position: absolute;
-  height: 100vh;
+  min-height: 400vh;
+  height: fit-content;
   width: 100vw;
 }
 
 .noise-container {
-  height: 100vh;
+  min-height: 400vh;
+  height: fit-content;
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -87,7 +98,7 @@ body {
   top: 0;
   left: 0;
   position: absolute;
-  height: 100vh;
+  height: 400vh;
   width: 100vw;
 }
 
@@ -100,6 +111,13 @@ body {
 .h3 {
   font-size: 2rem;
   font-family: "Newsreader", serif;
+  color: "var(--Neutral-100, #F5F3EF)";
+text-align: center;
+font-family: Newsreader;
+font-style: normal;
+font-weight: 300;
+line-height: 36px; /* 112.5% */
+
 }
 
 .h5 {
@@ -133,14 +151,17 @@ body {
   align-items: center;
 }
 
-
-
 .marquee {
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   background-color: #111;
   color: #fff;
+
+  border-top: 1px dashed #161819;
+  border-bottom: 1px dashed #161819;
+  background: linear-gradient(90deg, #161819 0%, #222425 51%, #161819 100%);
+  box-shadow: 0px 4px 12px 12px rgba(0, 0, 0, 0.10);
 }
 
 .marquee-inner {
@@ -168,4 +189,14 @@ body {
   to {
     transform: translateX(-50%);
   }
+}
+
+.projectPins {
+  width: 12px;
+  height: 12px;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+  border-radius: 2.268px;
+  border: 1px solid var(--Brand-500, #2962A5);
+  background: #062E5D;
 }
