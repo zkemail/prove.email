@@ -1,10 +1,12 @@
 import "./App.css";
 import Hero from "./sections/Hero";
+import HowZKEmailWorks from "./sections/HowZKEmailWorks";
 import PartnersAndProjects from "./sections/PartnersAndProjects";
 
 function App() {
   return (
     <div className="grid-container">
+      <div className="noise-layer" />
       <div
         className="noise-container"
         style={{
@@ -16,6 +18,7 @@ function App() {
       >
         <Hero />
         <PartnersAndProjects />
+        <HowZKEmailWorks />
         {/* <Hero />
         <PartnersAndProjects />
         <HowZKEmailWorks />
