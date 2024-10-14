@@ -1,4 +1,5 @@
 import "./App.css";
+import FAQs from "./sections/FAQs";
 import Hero from "./sections/Hero";
 import HowZKEmailWorks from "./sections/HowZKEmailWorks";
 import PartnersAndProjects from "./sections/PartnersAndProjects";
@@ -24,6 +25,7 @@ function App() {
         <HowZKEmailWorks />
         <Resources />
         <FAQs /> */}
+        <FAQs />
       </div>
     </div>
   );
