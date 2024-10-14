@@ -3,11 +3,11 @@ import GitcoinPassportLogo from "../assets/GitcoinPassportLogo.svg";
 import ClaveLogo from "../assets/ClaveLogo.svg";
 import IYKLogo from "../assets/IYKLogo.svg";
 import ZKP2PLogo from "../assets/ZKP2PLogo.svg";
-import ZKP2PProjectLogo from "../assets/ZKP2PLogo.png";
+import ZKP2PProjectLogo from "../assets/zkp2p.png";
 import OpenPassportLogo from "../assets/OpenPassportLogo.svg";
 import NoiseTexture from "../assets/NoiseTexture.png";
-import ProofOfTwitterLogo from "../assets/ProofOfTwitterLogo.png";
-import AccountRecoveryLogo from "../assets/AccountRecoveryLogo.png";
+import ProofOfTwitterLogo from "../assets/proofOfTwitter.png";
+import AccountRecoveryLogo from "../assets/accountRecovery.png";
 
 const PROJECTS = [
   {
@@ -43,7 +43,7 @@ const ProjectCard = ({
     <div
       style={{
         width: "17.5rem",
-        background: `url(${NoiseTexture})`,
+        background: `url(${imgSrc})`,
         position: "relative",
         border: "1px solid #272727",
       }}
