@@ -3,6 +3,7 @@ import FAQs from "./sections/FAQs";
 import Hero from "./sections/Hero";
 import HowZKEmailWorks from "./sections/HowZKEmailWorks";
 import PartnersAndProjects from "./sections/PartnersAndProjects";
+import Resources from "./sections/Resources";
 
 function App() {
   return (
@@ -20,11 +21,7 @@ function App() {
         <Hero />
         <PartnersAndProjects />
         <HowZKEmailWorks />
-        {/* <Hero />
-        <PartnersAndProjects />
-        <HowZKEmailWorks />
         <Resources />
-        <FAQs /> */}
         <FAQs />
       </div>
     </div>
