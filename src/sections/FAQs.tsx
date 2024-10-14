@@ -60,7 +60,7 @@ const Faq = () => {
               onClick={() => toggleFaq(index)}
             >
               <div className='flex gap-3 items-center'>
-                {/* blue diagonal icon  */}
+                {/* blue diagonal diamond icon  */}
                 <div className="w-3 h-3 rotate-[-45deg] rounded-[2.268px] border border-[#2962A5] bg-[#062E5D]"></div>
 
                 <span className='text-[#F5F3EF]'>{faq.question}</span>
