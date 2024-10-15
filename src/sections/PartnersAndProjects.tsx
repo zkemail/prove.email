@@ -43,7 +43,6 @@ const ProjectCard = ({
     <div
       style={{
         width: "17.5rem",
-        background: `url(${imgSrc})`,
         position: "relative",
         border: "1px solid #272727",
       }}
@@ -86,18 +85,19 @@ const ProjectCard = ({
       />
       <div
         style={{
-          height: "14rem",
+          height: "13.8rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <img src={imgSrc} style={{ height: "7rem" }} />
+        <img src={imgSrc} />
       </div>
       <div
         style={{
           height: "8.5rem",
-          borderTop: "2px solid #161819",
+          borderTop: "2px solid",
+          borderImage: "linear-gradient(to right, #161819, #3B3B3B, #161819) 1",
           background: "var(--Grey-900, #161819)",
           display: "flex",
           padding: "16px",
@@ -131,6 +131,7 @@ const PartnersAndProjects = () => {
         <div
           style={{
             display: "flex",
+            flexWrap: "wrap",
             justifyContent: "space-between",
             margin: "2.25rem",
           }}
@@ -166,7 +167,7 @@ const PartnersAndProjects = () => {
           }}
         >
           Explore all projects
-          <span style={{marginLeft: 8}}>→</span>
+          <span style={{ marginLeft: 8 }}>→</span>
         </p>
       </div>
     </section>
