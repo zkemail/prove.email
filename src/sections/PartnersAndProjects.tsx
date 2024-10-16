@@ -123,7 +123,7 @@ const ProjectCard = ({
 const PartnersAndProjects = () => {
   return (
     <section>
-      <div style={{ width: "70vw", textAlign: "center", paddingTop: "10rem" }}>
+      <div className="container-width" style={{ textAlign: "center" }}>
         <p className="h3">Trusted by the best</p>
         <p className="subtitle1">
           From next-gen enterprises to established organizations
@@ -144,7 +144,10 @@ const PartnersAndProjects = () => {
           <img src={OpenPassportLogo} alt="OpenPassportLogo" />
         </div>
       </div>
-      <div style={{ width: "70vw", textAlign: "center", paddingTop: "6rem" }}>
+      <div
+        className="container-width"
+        style={{ textAlign: "center", paddingTop: "6rem" }}
+      >
         <p className="h3">Projects Using ZK Email</p>
         <div
           style={{

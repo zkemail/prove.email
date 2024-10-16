@@ -14,7 +14,7 @@ function App() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "6.25rem",
+          gap: "8.25rem",
           overflow: "scroll",
         }}
       >
