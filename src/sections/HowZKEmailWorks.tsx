@@ -84,7 +84,7 @@ const FlowDetailsCard = ({
 const HowZKEmailWorks = () => {
   return (
     <section>
-      <div style={{ width: "75vw", textAlign: "center", paddingTop: "10rem" }}>
+      <div style={{ width: "75vw", textAlign: "center" }}>
         <p className="h3">How ZK Email works?</p>
         <div
           style={{

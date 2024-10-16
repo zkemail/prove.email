@@ -12,8 +12,11 @@ const Hero = () => {
   ];
 
   return (
-    <section>
-      <div style={{ width: "70vw", textAlign: "center", paddingTop: "8rem" }}>
+    <section style={{ height: "100vh" }}>
+      <div
+        className="container-width"
+        style={{ textAlign: "center", paddingTop: "8rem" }}
+      >
         <p
           className="h1"
           style={{
@@ -25,7 +28,10 @@ const Hero = () => {
           Bringing on-chain trust to the masses through intuitive email
           integrations
         </p>
-        <p className="subtitle1" style={{ marginTop: "1rem", textWrap: 'balance' }}>
+        <p
+          className="subtitle1"
+          style={{ marginTop: "1rem", textWrap: "balance" }}
+        >
           Extensive set of open source SDKs, libraries, and
           <br /> protocols that enables email-based identity
         </p>
@@ -36,7 +42,7 @@ const Hero = () => {
           position: "absolute",
           width: "100vw",
           bottom: 0,
-          maxHeight: '50vh',
+          maxHeight: "50vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -46,7 +52,7 @@ const Hero = () => {
           src={HeroImg}
           style={{
             maxWidth: "70vw",
-            maxHeight: 'calc(50vh - 1.5rem)'
+            maxHeight: "calc(50vh - 1.5rem)",
           }}
         />
         <div className="marquee">
