@@ -108,7 +108,9 @@ section {
 }
 
 .h1 {
-  font-size: 3.75rem;
+  font-size: 48px;
+  line-height: 62px;
+  text-wrap: balance;
   font-family: "Newsreader", serif;
   font-weight: 300;
 }
@@ -162,7 +164,7 @@ line-height: 36px; /* 112.5% */
   white-space: nowrap;
   background-color: #111;
   color: #fff;
-  margin-top: -1.5rem;
+  margin-top: -3.25rem;
 
   border-top: 1px dashed linear-gradient(90deg, #161819 0%, #222425 51%, #161819 100%);
   border-bottom: 1px dashed linear-gradient(90deg, #161819 0%, #222425 51%, #161819 100%);
