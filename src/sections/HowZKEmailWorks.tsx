@@ -84,7 +84,7 @@ const FlowDetailsCard = ({
 const HowZKEmailWorks = () => {
   return (
     <section>
-      <div style={{ width: "75vw", textAlign: "center" }}>
+      <div className="container-width" style={{ textAlign: "center" }}>
         <p className="h3">How ZK Email works?</p>
         <div
           style={{
@@ -96,7 +96,11 @@ const HowZKEmailWorks = () => {
         >
           <div style={{}}>
             <img
-              style={{ height: "100%", maxHeight: "calc(33rem + 48px)", objectFit: "cover" }}
+              style={{
+                height: "100%",
+                maxHeight: "calc(33rem + 48px)",
+                objectFit: "cover",
+              }}
               src={ZKEmailWorkingFlow}
               alt="ZKEmailWorkingFlow"
             />

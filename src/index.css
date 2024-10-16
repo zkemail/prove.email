@@ -216,11 +216,13 @@ line-height: 36px; /* 112.5% */
 @media (max-width: 1440px) {
   .container-width {
     width: 1000px;
+    padding: 0 2rem;
   }
 }
 
 @media (max-width: 1000px) {
   .container-width {
     width: 100vw;
+    padding: 0 2rem;
   }
 }
