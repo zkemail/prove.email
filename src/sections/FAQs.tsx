@@ -78,56 +78,58 @@ const Faq = () => {
   ];
 
   return (
-    <div className="w-full mx-auto mt-10 z-10 px-8 sm:px-36">
-      <div className="flex flex-row justify-between">
-        <div>
-          <h1
-            className="text-3xl font-semibold mb-6 h3 text-left "
-            style={{ textAlign: "left" }}
-          >
-            FAQs
-          </h1>
-          <p className="text-left mb-4 text-[#A8A8A8]">
-            Quick answers to the common questions you might have.{" "}
-            <br className="hidden md:inline"></br>
-            Can’t find what you looking for? Read our docs or{" "}
-            <a href="/contact" className=" underline text-[#F5F3EF]">
-              contact us
+    <section>
+      <div className="w-full mt-10 z-10 container-width">
+        <div className="flex flex-row justify-between">
+          <div>
+            <h1
+              className="text-3xl font-semibold mb-6 h3 text-left "
+              style={{ textAlign: "left" }}
+            >
+              FAQs
+            </h1>
+            <p className="text-left mb-4 text-[#A8A8A8]">
+              Quick answers to the common questions you might have.{" "}
+              <br className="hidden md:inline"></br>
+              Can’t find what you looking for? Read our docs or{" "}
+              <a href="/contact" className=" underline text-[#F5F3EF]">
+                contact us
+              </a>
+            </p>
+          </div>
+          <div>
+            <a href="https://zkemail.gitbook.io/zk-email" target="_blank">
+              <button className="flex flex-row justify-between gap-1 items-center px-[12px] py-[8px] bg-[#1C1C1C] border-solid border-2 border-[#3B3B3B] rounded-[12px] text-[#F5F3EF] text-[16px] whitespace-nowrap">
+                Read Docs
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                >
+                  <path
+                    d="M9.93388 7.30938L5.55888 11.6844C5.51823 11.725 5.46997 11.7573 5.41686 11.7793C5.36375 11.8013 5.30683 11.8126 5.24935 11.8126C5.19186 11.8126 5.13494 11.8013 5.08183 11.7793C5.02872 11.7573 4.98046 11.725 4.93982 11.6844C4.89917 11.6437 4.86692 11.5955 4.84492 11.5424C4.82293 11.4893 4.8116 11.4323 4.8116 11.3748C4.8116 11.3174 4.82293 11.2604 4.84492 11.2073C4.86692 11.1542 4.89917 11.106 4.93982 11.0653L9.00583 6.99985L4.93982 2.93438C4.85772 2.85228 4.8116 2.74094 4.8116 2.62485C4.8116 2.50875 4.85772 2.39741 4.93982 2.31532C5.02191 2.23322 5.13325 2.1871 5.24935 2.1871C5.36544 2.1871 5.47679 2.23322 5.55888 2.31532L9.93388 6.69032C9.97456 6.73095 10.0068 6.7792 10.0288 6.83231C10.0509 6.88542 10.0622 6.94235 10.0622 6.99985C10.0622 7.05734 10.0509 7.11427 10.0288 7.16738C10.0068 7.22049 9.97456 7.26875 9.93388 7.30938Z"
+                    fill="#F5F3EF"
+                  />
+                </svg>
+              </button>
             </a>
-          </p>
+          </div>
         </div>
-        <div>
-          <a href="https://zkemail.gitbook.io/zk-email" target="_blank">
-            <button className="flex flex-row justify-between gap-1 items-center px-[12px] py-[8px] bg-[#1C1C1C] border-solid border-2 border-[#3B3B3B] rounded-[12px] text-[#F5F3EF] text-[16px] whitespace-nowrap">
-              Read Docs
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-              >
-                <path
-                  d="M9.93388 7.30938L5.55888 11.6844C5.51823 11.725 5.46997 11.7573 5.41686 11.7793C5.36375 11.8013 5.30683 11.8126 5.24935 11.8126C5.19186 11.8126 5.13494 11.8013 5.08183 11.7793C5.02872 11.7573 4.98046 11.725 4.93982 11.6844C4.89917 11.6437 4.86692 11.5955 4.84492 11.5424C4.82293 11.4893 4.8116 11.4323 4.8116 11.3748C4.8116 11.3174 4.82293 11.2604 4.84492 11.2073C4.86692 11.1542 4.89917 11.106 4.93982 11.0653L9.00583 6.99985L4.93982 2.93438C4.85772 2.85228 4.8116 2.74094 4.8116 2.62485C4.8116 2.50875 4.85772 2.39741 4.93982 2.31532C5.02191 2.23322 5.13325 2.1871 5.24935 2.1871C5.36544 2.1871 5.47679 2.23322 5.55888 2.31532L9.93388 6.69032C9.97456 6.73095 10.0068 6.7792 10.0288 6.83231C10.0509 6.88542 10.0622 6.94235 10.0622 6.99985C10.0622 7.05734 10.0509 7.11427 10.0288 7.16738C10.0068 7.22049 9.97456 7.26875 9.93388 7.30938Z"
-                  fill="#F5F3EF"
-                />
-              </svg>
-            </button>
-          </a>
-        </div>
-      </div>
 
-      <div className=" py-6 text-white rounded-md text-left">
-        {faqs.map((faq, index) => (
-          <AccordianItem
-            faq={faq}
-            index={index}
-            handleToggle={handleToggle}
-            open={openIndex === index}
-          />
-        ))}
+        <div className=" py-6 text-white rounded-md text-left">
+          {faqs.map((faq, index) => (
+            <AccordianItem
+              faq={faq}
+              index={index}
+              handleToggle={handleToggle}
+              open={openIndex === index}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
