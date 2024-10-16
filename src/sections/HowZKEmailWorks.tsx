@@ -41,11 +41,10 @@ const FlowDetailsCard = ({
   return (
     <div
       style={{
-        height: "30%",
         width: "100%",
         border: "1px solid #272727",
         display: "flex",
-        minHeight: "9rem",
+        maxHeight: "11rem",
         flexDirection: "row",
       }}
     >
@@ -57,15 +56,15 @@ const FlowDetailsCard = ({
           flexDirection: "column",
           justifyContent: "space-between",
           background: "var(--Grey-900, #161819)",
-          width: "calc(100% - 10rem)",
+          width: "calc(100% + 9rem)",
           textAlign: "left",
         }}
       >
-        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           <p className="h5" style={{ fontWeight: 700 }}>
             {title}
           </p>
-          <p className="subtitle2">{description}</p>
+          <p className="subtitle1">{description}</p>
         </div>
         <a
           href={link}
@@ -91,15 +90,15 @@ const HowZKEmailWorks = () => {
           style={{
             display: "flex",
             marginTop: "2.25rem",
-            height: "60vh",
+            height: "fit-content",
             gap: 24,
           }}
         >
           <div style={{}}>
             <img
+              style={{ height: "100%", maxHeight: "calc(33rem + 48px)", objectFit: "cover" }}
               src={ZKEmailWorkingFlow}
               alt="ZKEmailWorkingFlow"
-              style={{ height: "100%" }}
             />
           </div>
           <div
