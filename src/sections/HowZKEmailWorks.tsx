@@ -36,14 +36,16 @@ const FlowDetailsCard = ({
   title: string;
   description: string;
   link?: string;
-  imgSrc: any;
+  imgSrc: string;
 }) => {
   return (
     <div
       style={{
+        height: "30%",
         width: "100%",
         border: "1px solid #272727",
         display: "flex",
+        minHeight: "9rem",
         flexDirection: "row",
       }}
     >
@@ -55,13 +57,16 @@ const FlowDetailsCard = ({
           flexDirection: "column",
           justifyContent: "space-between",
           background: "var(--Grey-900, #161819)",
-          gap: 8,
+          width: "calc(100% - 10rem)",
+          textAlign: "left",
         }}
       >
-        <p className="h5" style={{ fontWeight: 700 }}>
-          {title}
-        </p>
-        <p className="subtitle2">{description}</p>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '8px'}}>
+          <p className="h5" style={{ fontWeight: 700 }}>
+            {title}
+          </p>
+          <p className="subtitle2">{description}</p>
+        </div>
         <a
           href={link}
           className="subtitle1"
@@ -71,7 +76,7 @@ const FlowDetailsCard = ({
         </a>
       </div>
       <div>
-        <img src={imgSrc} style={{ height: "7rem" }} />
+        <img src={imgSrc} style={{ height: "100%" }} />
       </div>
     </div>
   );
@@ -80,14 +85,21 @@ const FlowDetailsCard = ({
 const HowZKEmailWorks = () => {
   return (
     <section>
-      <div style={{ width: "70vw", textAlign: "center", paddingTop: "10rem" }}>
+      <div style={{ width: "75vw", textAlign: "center", paddingTop: "10rem" }}>
         <p className="h3">How ZK Email works?</p>
-        <div style={{ display: "flex", marginTop: "2.25rem" }}>
-          <div style={{ flexGrow: 4 }}>
+        <div
+          style={{
+            display: "flex",
+            marginTop: "2.25rem",
+            height: "60vh",
+            gap: 24,
+          }}
+        >
+          <div style={{}}>
             <img
               src={ZKEmailWorkingFlow}
               alt="ZKEmailWorkingFlow"
-              style={{ width: "25rem" }}
+              style={{ height: "100%" }}
             />
           </div>
           <div
@@ -96,6 +108,8 @@ const HowZKEmailWorks = () => {
               display: "flex",
               flexDirection: "column",
               gap: 24,
+              height: "100%",
+              justifyContent: "space-between",
             }}
           >
             {FLOW_DETAILS.map((flowStep) => (
