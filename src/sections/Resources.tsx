@@ -1,35 +1,27 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { useWindowWidth } from "../utils";
+import BlueDiamond from "../assets/BlueDiamond.svg";
+import RedDiamond from "../assets/RedDiamond.svg";
+import GreenDiamond from "../assets/GreenDiamond.svg";
 
 const RESOURCE_CONFIG = {
   talk: {
     color: "#0C3D7766",
     colorLight: "#CCE0EA",
+    img: BlueDiamond,
   },
   documentation: {
     color: "#C72C2266",
     colorLight: "#FDC8C5",
+    img: RedDiamond,
   },
   blog: {
     color: "#27826640",
     colorLight: "#95CEBC",
+    img: GreenDiamond,
   },
 };
-
-const BACKGROUND_COLORS = [
-  {
-    color: "#C72C2266",
-    colorLight: "#FDC8C5",
-  },
-  {
-    color: "#0C3D7766",
-    colorLight: "#CCE0EA",
-  },
-  {
-    color: "#27826640",
-    colorLight: "#95CEBC",
-  },
-];
 
 const resources = [
   {
@@ -129,22 +121,6 @@ const resources = [
     contentType: "talk",
   },
 ];
-
-function useWindowWidth() {
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return windowWidth;
-}
 
 const Resources = () => {
   const windowWidth = useWindowWidth();
@@ -262,22 +238,12 @@ const Resources = () => {
                 >
                   <div className="col-span-2">
                     <div className="flex items-center pt-4 py-3">
-                      <div
-                        className="w-3 h-3 rotate-[-45deg]  border border-[#2962A5]"
-                        style={{
-                          backgroundColor:
-                            RESOURCE_CONFIG[resource.contentType].color,
-                          borderColor:
-                            RESOURCE_CONFIG[resource.contentType]
-                              .colorLight,
-                        }}
-                      ></div>
+                      <img src={RESOURCE_CONFIG[resource.contentType].img} alt="" />
                       <p
                         className="pl-1 sm:pl-3 text-xs"
                         style={{
                           color:
-                            RESOURCE_CONFIG[resource.contentType]
-                              .colorLight,
+                            RESOURCE_CONFIG[resource.contentType].colorLight,
                         }}
                       >
                         {resource.contentType}
@@ -299,8 +265,7 @@ const Resources = () => {
                           className="text-right text-xs"
                           style={{
                             color:
-                              RESOURCE_CONFIG[resource.contentType]
-                                .colorLight,
+                              RESOURCE_CONFIG[resource.contentType].colorLight,
                           }}
                         >
                           {resource.date}
