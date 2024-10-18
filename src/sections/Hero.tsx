@@ -1,6 +1,9 @@
 import React from "react";
 import HeroImg from "../assets/HeroImg.png";
 import MarqueeSeparator from "../assets/MarqueeSeparator.svg";
+import CustomButton from "./CustomButton";
+import ChevronRight from "../assets/ChevronRight.svg"
+import DocsIcon from "../assets/DocsIcon.svg"
 
 const Hero = () => {
   const items = [
@@ -35,8 +38,35 @@ const Hero = () => {
           Extensive set of open source SDKs, libraries, and
           <br /> protocols that enables email-based identity
         </p>
+        <div className="flex flex-row gap-5 justify-center w-full mt-[25px]">
+          <CustomButton
+              label="Learn"
+              icon={ChevronRight}
+              iconPosition="right"
+              href=""
+          />
+          <CustomButton
+              label="Docs"
+              highlighted={true}
+              icon={DocsIcon}
+              iconPosition="right"
+              href=""
+          />
+        </div>
       </div>
-
+      <div
+        style={{
+          position: "absolute",
+          top: "100%",
+          borderRadius: "447px",
+          background: "rgba(41, 67, 91, 0.12)",
+          filter: "blur(85px)",
+          width: "447px",
+          height: "413px",
+          flexShrink: 0,
+          transform: "translateY(-50%)",
+        }}
+      />
       <div
         style={{
           position: "absolute",
@@ -53,16 +83,21 @@ const Hero = () => {
           style={{
             maxWidth: "70vw",
             maxHeight: "calc(50vh - 1.5rem)",
+            borderRadius: '24px 24px 0 0',
+            boxShadow:
+              "0px -4px 32px 0px rgba(0, 0, 0, 0.32), 0px 4px 4px 0px rgba(29, 29, 29, 0.60) inset",
           }}
         />
         <div className="marquee">
-          <div className="marquee-inner">
-            {[...items, ...items].map((item, index) => (
-              <React.Fragment key={index}>
-                <span className="marquee-item">{item}</span>
-                <img src={MarqueeSeparator} alt="◆" />
-              </React.Fragment>
-            ))}
+          <div className="marquee-container">
+            <div className="marquee-inner">
+              {[...items, ...items, ...items].map((item, index) => (
+                <React.Fragment key={index}>
+                  <span className="marquee-item">{item}</span>
+                  <img src={MarqueeSeparator} alt="◆" />
+                </React.Fragment>
+              ))}
+            </div>
           </div>
         </div>
       </div>

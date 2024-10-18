@@ -43,7 +43,6 @@ const Faq = () => {
           </div>
           <div style={{minWidth:'9rem'}}>
             <CustomButton
-              highlighted={true} // change to false, just put true temporialy to show what the highlighted button looks like
               label="Read Docs"
               icon={ChevronRight}
               iconPosition="right"

@@ -1,38 +1,30 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import ChevronRight from '../assets/ChevronRight.svg'
-import ChevronLeft from '../assets/ChevronLeft.svg'
+import { useWindowWidth } from "../utils";
 import CustomButton from "./CustomButton";
+import BlueDiamond from "../assets/BlueDiamond.svg";
+import RedDiamond from "../assets/RedDiamond.svg";
+import GreenDiamond from "../assets/GreenDiamond.svg";
+import ChevronRight from "../assets/ChevronRight.svg"
+import ChevronLeft from "../assets/ChevronLeft.svg"
 
 const RESOURCE_CONFIG = {
-  talk: {
+  Talk: {
     color: "#0C3D7766",
     colorLight: "#CCE0EA",
+    img: BlueDiamond,
   },
-  documentation: {
+  Documentation: {
     color: "#C72C2266",
     colorLight: "#FDC8C5",
+    img: RedDiamond,
   },
-  blog: {
+  Blog: {
     color: "#27826640",
     colorLight: "#95CEBC",
+    img: GreenDiamond,
   },
 };
-
-const BACKGROUND_COLORS = [
-  {
-    color: "#C72C2266",
-    colorLight: "#FDC8C5",
-  },
-  {
-    color: "#0C3D7766",
-    colorLight: "#CCE0EA",
-  },
-  {
-    color: "#27826640",
-    colorLight: "#95CEBC",
-  },
-];
 
 const resources = [
   {
@@ -41,7 +33,7 @@ const resources = [
     url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE",
     date: "2024/04/19",
     thumbnail: "https://img.youtube.com/vi/rZTNzvLXB14/0.jpg",
-    contentType: "documentation",
+    contentType: "Documentation",
   },
   {
     title: "ZK Email Account Recovery: Setup and Recovery Guide",
@@ -49,7 +41,7 @@ const resources = [
     url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE",
     date: "2024/04/19",
     thumbnail: "https://img.youtube.com/vi/rZTNzvLXB14/0.jpg",
-    contentType: "blog",
+    contentType: "Blog",
   },
   {
     title: "ZK Email: Novel ZK Applications Unlocked by Portable Provenance",
@@ -57,7 +49,7 @@ const resources = [
     url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE",
     date: "2024/04/19",
     thumbnail: "https://img.youtube.com/vi/rZTNzvLXB14/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "Another Resource Title",
@@ -65,7 +57,7 @@ const resources = [
     url: "https://example.com",
     date: "2024/05/20",
     thumbnail: "https://example.com/image.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "ZK Email: Novel ZK Applications Unlocked by Portable Provenance",
@@ -73,7 +65,7 @@ const resources = [
     url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE",
     date: "2024/04/19",
     thumbnail: "https://img.youtube.com/vi/rZTNzvLXB14/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "ZK Email: Email Wallet and Identity Attestations",
@@ -81,7 +73,7 @@ const resources = [
     url: "https://www.youtube.com/embed/GEWuGtsjATw?si=ApokIEW2h8KYYAYO",
     date: "2024/03/15",
     thumbnail: "https://img.youtube.com/vi/GEWuGtsjATw/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "ZK Email: Email Wallets and Provenant Identity",
@@ -89,7 +81,7 @@ const resources = [
     url: "https://www.youtube.com/embed/qUYBja0glio?si=MuVP2sgVo9y7egLd",
     date: "2024/01/26",
     thumbnail: "https://img.youtube.com/vi/qUYBja0glio/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "Ethcon Korea ZK Email Mention",
@@ -97,7 +89,7 @@ const resources = [
     url: "https://www.youtube.com/embed/gsrtxq0xYxs?si=twKpt5bfFzmZVi21&amp;start=939",
     date: "2023/11/15",
     thumbnail: "https://img.youtube.com/vi/gsrtxq0xYxs/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "Universal Recovery: A Social Recovery Solution Utilizes ZK Email",
@@ -105,7 +97,7 @@ const resources = [
     url: "https://www.youtube.com/embed/iMAaHEYyuxA?si=aUdeSJ60Dv57TjQI",
     date: "2023/01/26",
     thumbnail: "https://img.youtube.com/vi/iMAaHEYyuxA/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "ZK for web2 interop with zkLogin & ZK Email",
@@ -113,7 +105,7 @@ const resources = [
     url: "https://www.youtube.com/embed/vFYUWRks7Kg?si=CDU7Ks4Bq5WgngAN",
     date: "2023/12/06",
     thumbnail: "https://img.youtube.com/vi/vFYUWRks7Kg/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "Zuconnect 2023 ZK Day: ZK Email",
@@ -121,7 +113,7 @@ const resources = [
     url: "https://www.youtube.com/embed/3jCKdxQ9Pfw?si=Q4jVStBCmntXnOfO",
     date: "2023/12/03",
     thumbnail: "https://img.youtube.com/vi/3jCKdxQ9Pfw/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
   {
     title: "ZK Email: Decentralized ID Verification on Chain Without Servers",
@@ -129,25 +121,9 @@ const resources = [
     url: "https://www.youtube.com/embed/sPCHiUT3TmA?si=TiNLxkoj9n-0NbDl",
     date: "2022/11/16",
     thumbnail: "https://img.youtube.com/vi/sPCHiUT3TmA/0.jpg",
-    contentType: "talk",
+    contentType: "Talk",
   },
 ];
-
-function useWindowWidth() {
-  const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return windowWidth;
-}
 
 const Resources = () => {
   const windowWidth = useWindowWidth();
@@ -265,22 +241,12 @@ const Resources = () => {
                 >
                   <div className="col-span-2">
                     <div className="flex items-center pt-4 py-3">
-                      <div
-                        className="w-3 h-3 rotate-[-45deg]  border border-[#2962A5]"
-                        style={{
-                          backgroundColor:
-                            RESOURCE_CONFIG[resource.contentType].color,
-                          borderColor:
-                            RESOURCE_CONFIG[resource.contentType]
-                              .colorLight,
-                        }}
-                      ></div>
+                      <img src={RESOURCE_CONFIG[resource.contentType].img} alt="" />
                       <p
                         className="pl-1 sm:pl-3 text-xs"
                         style={{
                           color:
-                            RESOURCE_CONFIG[resource.contentType]
-                              .colorLight,
+                            RESOURCE_CONFIG[resource.contentType].colorLight,
                         }}
                       >
                         {resource.contentType}
@@ -302,8 +268,7 @@ const Resources = () => {
                           className="text-right text-xs"
                           style={{
                             color:
-                              RESOURCE_CONFIG[resource.contentType]
-                                .colorLight,
+                              RESOURCE_CONFIG[resource.contentType].colorLight,
                           }}
                         >
                           {resource.date}
@@ -324,8 +289,6 @@ const Resources = () => {
             label="Previous"
             icon={ChevronLeft}
             iconPosition="left"
-            color="#1C1C1C"
-            borderColor="#3B3B3B"
             disabled={currentIndex === 0}
           />
           <CustomButton
@@ -333,8 +296,6 @@ const Resources = () => {
             label="Next"
             icon={ChevronRight}
             iconPosition="right"
-            color="#1C1C1C"
-            borderColor="#3B3B3B"
             disabled={currentIndex >= resources.length - visibleCards}
           />
         </div>
