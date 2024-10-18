@@ -1,6 +1,9 @@
 import React from "react";
 import HeroImg from "../assets/HeroImg.png";
 import MarqueeSeparator from "../assets/MarqueeSeparator.svg";
+import CustomButton from "./CustomButton";
+import ChevronRight from "../assets/ChevronRight.svg"
+import DocsIcon from "../assets/DocsIcon.svg"
 
 const Hero = () => {
   const items = [
@@ -35,6 +38,21 @@ const Hero = () => {
           Extensive set of open source SDKs, libraries, and
           <br /> protocols that enables email-based identity
         </p>
+        <div className="flex flex-row gap-5 justify-center w-full mt-[25px]">
+          <CustomButton
+              label="Learn"
+              icon={ChevronRight}
+              iconPosition="right"
+              href=""
+          />
+          <CustomButton
+              label="Docs"
+              highlighted={true}
+              icon={DocsIcon}
+              iconPosition="right"
+              href=""
+          />
+        </div>
       </div>
       <div
         style={{
