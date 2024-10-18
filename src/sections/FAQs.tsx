@@ -41,16 +41,14 @@ const Faq = () => {
               </a>
             </p>
           </div>
-          <div style={{minWidth:'125px'}}>
+          <div style={{minWidth:'9rem'}}>
             <CustomButton
+              highlighted={true} // change to false, just put true temporialy to show what the highlighted button looks like
               label="Read Docs"
               icon={ChevronRight}
               iconPosition="right"
-              color="#1C1C1C"
-              borderColor="#3B3B3B"
               disabled={false}
               href="https://zkemail.gitbook.io/zk-email"
-              target="_blank"
             />
           </div>
         </div>
