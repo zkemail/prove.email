@@ -238,3 +238,16 @@ section {
     /* margin: 0 20px; */
   }
 }
+
+.card-spotlight-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  opacity: 0;
+  transition: opacity 300ms;
+}
