@@ -125,16 +125,17 @@ const resources = [
 const Resources = () => {
   const windowWidth = useWindowWidth();
 
-  const isLargeScreen = windowWidth >= 1200;
-  const isMediumScreen = windowWidth >= 960 && windowWidth < 1200;
-  const isSmallScreen = windowWidth < 600;
+  const isLargeScreen = windowWidth >= 1280;
+  const isMediumScreen = windowWidth >= 1024 && windowWidth < 1280;
+  const isSmallScreen = windowWidth < 640;
 
   const carouselRef = useRef(null);
 
   const getVisibleCards = () => {
     if (isLargeScreen) return 4;
     if (isMediumScreen) return 3;
-    return 1.25;
+    if (isSmallScreen) return 1.25;
+    return 2.25;
   };
 
   const visibleCards = getVisibleCards();
@@ -176,15 +177,12 @@ const Resources = () => {
   return (
     <div>
       <h1 className="h3">Resources</h1>
-      <p className="subtitle1 text-center mb-[50px]">
+      <p className="subtitle1 text-center mb-[50px] px-5">
         Know about us from our recent blogs, talks and documentations
       </p>
 
-      {/* RESOURCE CAROSOLE */}
       <div
-        className={`relative w-full ${
-          isSmallScreen ? "h-[900px]" : "h-full"
-        } px-2 md:px-8`}
+        className={`relative w-full ${"h-full"} px-2 md:px-8`}
         style={{ overflow: "hidden" }}
       >
         <div
@@ -238,7 +236,10 @@ const Resources = () => {
                 >
                   <div className="col-span-2">
                     <div className="flex items-center pt-4 py-3">
-                      <img src={RESOURCE_CONFIG[resource.contentType].img} alt="" />
+                      <img
+                        src={RESOURCE_CONFIG[resource.contentType].img}
+                        alt=""
+                      />
                       <p
                         className="pl-1 sm:pl-3 text-xs"
                         style={{
