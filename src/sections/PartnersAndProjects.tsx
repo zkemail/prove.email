@@ -88,13 +88,8 @@ const ProjectCard = ({
 
   return (
     <div
-      className="transition-all ease-in-out"
+      className="transition-all ease-in-out project-card"
       style={{
-        width: "17.5rem",
-        position: "relative",
-        border: "1px solid #272727",
-        // opacity: cardOpacity,
-        transitionDuration: "0.3s",
         transform: `scale(${scale})`,
       }}
     >
@@ -175,13 +170,14 @@ const ProjectCard = ({
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            overflow: "hidden",
           }}
         >
           <img src={imgSrc} />
         </div>
         <div
+          className=" lg:h-40 h-max"
           style={{
-            height: "8.5rem",
             borderTop: "2px solid",
             borderImage:
               "linear-gradient(to right, #161819, #3B3B3B, #161819) 1",
@@ -218,14 +214,7 @@ const PartnersAndProjects = () => {
         <p className="subtitle1">
           From next-gen enterprises to established organizations
         </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            margin: "2.25rem",
-          }}
-        >
+        <div className="partner-logos">
           <img src={EthereumFoundationLogo} alt="EthereumFoundationLogo" />
           <img src={IYKLogo} alt="IYKLogo" />
           <img src={GitcoinPassportLogo} alt="GitcoinPassportLogo" />
@@ -239,14 +228,7 @@ const PartnersAndProjects = () => {
         style={{ textAlign: "center", paddingTop: "6rem" }}
       >
         <p className="h3">Projects Using ZK Email</p>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginTop: "2.25rem",
-          }}
-        >
+        <div className="project-cards-container">
           {PROJECTS.map((project, index) => (
             <ProjectCard
               {...project}
@@ -260,10 +242,9 @@ const PartnersAndProjects = () => {
           ))}
         </div>
         <p
-          className="subtitle1"
+          className="subtitle1 lg:text-right text-center"
           style={{
             color: "var(--Grey-600, #A8A8A8)",
-            textAlign: "right",
             marginTop: 24,
           }}
         >

@@ -1,21 +1,32 @@
 import React from "react";
 import HeroImg from "../assets/HeroImg.png";
+import HeroImgMobile from "../assets/HeroImgMobile.png";
 import MarqueeSeparator from "../assets/MarqueeSeparator.svg";
+import { useWindowWidth } from "../utils";
+import CaretRight from "../assets/CaretRight.svg";
+import FileTextIcon from "../assets/FileTextIcon.svg";
+import Button from "../components/Button";
+
+const MARQUEE_ITEMS = [
+  "Restore your wallet",
+  "Prove your identity",
+  "Whistleblowing",
+  "Prove your organization",
+  "Send or receive assets",
+];
 
 const Hero = () => {
-  const items = [
-    "Restore your wallet",
-    "Prove your identity",
-    "Whistleblowing",
-    "Prove your organization",
-    "Send or receive assets",
-  ];
+  const windowWidth = useWindowWidth();
+
+  const isSmallScreen = windowWidth < 1024;
 
   return (
     <section style={{ height: "100vh" }}>
       <div
-        className="container-width"
-        style={{ textAlign: "center", paddingTop: "8rem" }}
+        className="w-full lg:w-[70vw] pt-40 lg:pt-32"
+        style={{
+          textAlign: "center",
+        }}
       >
         <p
           className="h1"
@@ -35,6 +46,22 @@ const Hero = () => {
           Extensive set of open source SDKs, libraries, and
           <br /> protocols that enables email-based identity
         </p>
+        <div className="flex gap-8 justify-center pt-10 lg:pt-8">
+          <Button
+            href="https://prove.email/"
+            color="primary"
+            endIcon={CaretRight}
+          >
+            Learn
+          </Button>
+          <Button
+            href="https://prove.email/"
+            color="secondary"
+            endIcon={FileTextIcon}
+          >
+            Docs
+          </Button>
+        </div>
       </div>
       <div
         style={{
@@ -61,11 +88,11 @@ const Hero = () => {
         }}
       >
         <img
-          src={HeroImg}
+          src={isSmallScreen ? HeroImgMobile : HeroImg}
           style={{
             maxWidth: "70vw",
             maxHeight: "calc(50vh - 1.5rem)",
-            borderRadius: '24px 24px 0 0',
+            borderRadius: "24px 24px 0 0",
             boxShadow:
               "0px -4px 32px 0px rgba(0, 0, 0, 0.32), 0px 4px 4px 0px rgba(29, 29, 29, 0.60) inset",
           }}
@@ -73,12 +100,14 @@ const Hero = () => {
         <div className="marquee">
           <div className="marquee-container">
             <div className="marquee-inner">
-              {[...items, ...items, ...items].map((item, index) => (
-                <React.Fragment key={index}>
-                  <span className="marquee-item">{item}</span>
-                  <img src={MarqueeSeparator} alt="◆" />
-                </React.Fragment>
-              ))}
+              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map(
+                (item, index) => (
+                  <React.Fragment key={index}>
+                    <span className="marquee-item">{item}</span>
+                    <img src={MarqueeSeparator} alt="◆" />
+                  </React.Fragment>
+                )
+              )}
             </div>
           </div>
         </div>

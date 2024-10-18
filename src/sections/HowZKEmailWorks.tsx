@@ -80,12 +80,11 @@ const FlowDetailsCard = ({
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="card-spotlight-effect"
+      className="card-spotlight-effect lg:max-h-44"
       style={{
         width: "100%",
         border: "1px solid #272727",
         display: "flex",
-        maxHeight: "11rem",
         flexDirection: "row",
       }}
     >
@@ -133,13 +132,15 @@ const HowZKEmailWorks = () => {
   return (
     <section>
       <div className="container-width" style={{ textAlign: "center" }}>
-        <p className="h3">How ZK Email works?</p>
+        <p className="h3">How ZK Email works</p>
         <div
+          className="flex lg:flex-nowrap flex-wrap"
           style={{
             display: "flex",
             marginTop: "2.25rem",
             height: "fit-content",
             gap: 24,
+            justifyContent: "center",
           }}
         >
           <div style={{}}>

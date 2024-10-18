@@ -25,6 +25,10 @@
   }
 }
 
+a {
+  color: #A8A8A8;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -134,11 +138,11 @@ section {
   font-size: 1.125rem;
 }
 
-.b1 {
+.body1 {
   font-size: 1rem;
 }
 
-.b2 {
+.body2 {
   font-size: 0.875rem;
 }
 
@@ -215,27 +219,117 @@ section {
   width: 70vw;
 }
 
-@media (max-width: 1440px) {
+.partner-logos {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  margin: 2.5rem 0;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.project-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: 'wrap';
+  gap: 3.5rem;
+  justify-content: space-between;
+  margin-top: 2.25rem;
+}
+
+.project-card {
+  width: 17.5rem;
+  position: relative;
+  border: 1px solid #272727;
+  transition-duration: 0.3s;
+}
+
+@media (min-width: 1024px) {
+  .partner-logos {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1280px) {
   .container-width {
     width: 1000px;
     padding: 0 2rem;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
   .container-width {
     width: 100vw;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
   }
-}
 
-
-@media (max-width: 1000px) {
   .navbar {
     width: calc(100vw - 20px - 20px);
-    position: relative;
     top: 2.5rem;
-    /* margin: 0 20px; */
+  }
+
+  .h1 {
+    font-size: 32px;
+    line-height: 36px;
+    text-wrap: balance;
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+  }
+
+  .h3 {
+    font-size: 1.625rem;
+    font-family: "Newsreader", serif;
+    color: "var(--Neutral-100, #F5F3EF)";
+    text-align: center;
+    font-family: Newsreader;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 36px;
+  }
+
+  .h5 {
+    font-size: 1.25rem;
+  }
+
+  .h6 {
+    font-size: 1.125rem;
+  }
+
+  .body1 {
+    font-size: 1rem;
+  }
+
+  .body2 {
+    font-size: 0.75rem;
+  }
+
+  .subtitle1 {
+    font-size: 0.875rem;
+    color: var(--Grey-600, #A8A8A8);
+  }
+
+  .subtitle2 {
+    font-size: 0.875rem;
+    color: var(--Grey-600, #A8A8A8);
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+    border: 1px solid #272727;
+    transition-duration: 0.3s;
+  }
+
+  .project-cards-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2.25rem;
   }
 }
 
