@@ -239,6 +239,12 @@ const Footer = () => {
                     href="/privacy-policy"
                   />
                 </Grid>
+                  <HoverableLinks
+                    title="Archive Privacy Policy"
+                    target="_blank"
+                    href="https://archive.prove.email/privacy-policy"
+                  />
+                </Grid>
               </Grid>
 
               {/* FOOTER SOCIAL ICONS  */}
