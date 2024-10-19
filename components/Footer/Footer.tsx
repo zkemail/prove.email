@@ -238,7 +238,6 @@ const Footer = () => {
                     target="_blank"
                     href="/privacy-policy"
                   />
-                </Grid>
                   <HoverableLinks
                     title="Archive Privacy Policy"
                     target="_blank"
