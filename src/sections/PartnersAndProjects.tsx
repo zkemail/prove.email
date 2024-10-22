@@ -209,7 +209,7 @@ const PartnersAndProjects = () => {
 
   return (
     <section>
-      <div className="container-width" style={{ textAlign: "center" }}>
+      <div className="container-width container-padding" style={{ textAlign: "center" }}>
         <p className="h3">Trusted by the best</p>
         <p className="subtitle1">
           From next-gen enterprises to established organizations
@@ -224,7 +224,7 @@ const PartnersAndProjects = () => {
         </div>
       </div>
       <div
-        className="container-width"
+        className="container-width container-padding"
         style={{ textAlign: "center", paddingTop: "6rem" }}
       >
         <p className="h3">Projects Using ZK Email</p>

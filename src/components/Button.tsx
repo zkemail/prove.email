@@ -36,9 +36,9 @@ const Button = ({
           color === "primary" ? (disabled ? "#3B3B3B" : "#F5F3EF") : "#161819",
       }}
     >
-      {startIcon ? <img src={startIcon} /> : null}
+      {startIcon ? <img src={startIcon} alt={startIcon} /> : null}
       {children}
-      {endIcon ? <img src={endIcon} /> : null}
+      {endIcon ? <img src={endIcon} alt={endIcon} /> : null}
     </button>
   );
 };

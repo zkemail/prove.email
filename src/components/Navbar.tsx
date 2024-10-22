@@ -10,7 +10,7 @@ const Navbar = () => {
 
   if (isMobile) {
     return (
-      <nav className="navbar">
+      <nav className="navbar container-width">
         <img src={ZKEmailLogo} alt="zkemail-logo" />
         <img src={BreadCrumb} alt="BreadCrumb" />
       </nav>
@@ -18,7 +18,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="navbar">
+    <nav className="navbar container-width">
       <img src={ZKEmailLogo} alt="zkemail-logo" />
       <div style={{ display: "flex", gap: 24 }}>
         <p className="body1" style={{ display: "flex", gap: 4 }}>

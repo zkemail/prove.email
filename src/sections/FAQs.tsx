@@ -78,7 +78,7 @@ const Faq = () => {
 
   return (
     <section>
-      <div className="w-full mt-10 z-10 container-width">
+      <div className="w-full mt-10 z-10 container-width container-padding">
         <div className="flex flex-col items-center lg:items-start lg:flex-row justify-between">
           <div>
             <h1
