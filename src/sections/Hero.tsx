@@ -89,6 +89,7 @@ const Hero = () => {
       >
         <img
           src={isSmallScreen ? HeroImgMobile : HeroImg}
+          alt="hero-image"
           style={{
             maxWidth: "70vw",
             maxHeight: "calc(50vh - 1.5rem)",

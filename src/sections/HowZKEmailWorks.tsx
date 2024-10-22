@@ -131,7 +131,7 @@ const FlowDetailsCard = ({
 const HowZKEmailWorks = () => {
   return (
     <section>
-      <div className="container-width" style={{ textAlign: "center" }}>
+      <div className="container-width container-padding" style={{ textAlign: "center" }}>
         <p className="h3">How ZK Email works</p>
         <div
           className="flex lg:flex-nowrap flex-wrap"

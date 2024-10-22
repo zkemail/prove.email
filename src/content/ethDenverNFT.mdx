@@ -1,0 +1,71 @@
+---
+title: Send and Receive NFTs using Email wallet
+date: 2024-02-20
+authors: ["Elo Mukoro"]
+type: Post
+draft: false
+slug: "ethDenverNFT"
+category: "2 minute read"
+tags: ["crypto", "zk"]
+description: "Use this guide to claim your EthDenver NFT using Email Wallet, learn how to send any NFT via emails, and integrate your own email-based NFTs into your app."
+---
+
+Try out our collaboration with cursive and IYK at ETH Denver, where one click and one email confirmation will let you claim an exclusive NFT by interacting with different locations around the venue! Here's a simple guide to secure your digital collectibles just by using your email:
+
+## User Flow
+
+### Step 1: Interact with NFC Badges
+Engage with others by tapping their NFC Badge. Each tap is a unique interaction that can lead to claiming a special NFT.
+
+### Step 2: Choose How to Claim
+After the tap, a modal will appear, giving you two options to claim your NFT:
+
+#### Option 1: Use Your Email
+Enter your email address to receive your NFT. This will also create your very own Email Wallet if you don't have one yet. It's like a digital pocket for your NFTs, accessible right from your inbox!
+
+#### Option 2: Withdraw to an EOA
+If you're already a crypto enthusiast with your own wallet, you can choose to directly withdraw your NFT to your Externally Owned Account (EOA). Just enter your wallet address, and your NFT will be on its way.
+
+### Step 3: Confirm and Receive
+Once you've made your choice and entered the necessary information, confirm the action. Your NFT will be minted and either sent to your Email Wallet or your specified EOA.
+
+### Step 4: Transfer from Email Wallet to EOA (Optional)
+If you initially chose to receive your NFT in your Email Wallet but later decide to transfer it to your EOA, you can easily do so:
+
+1. In the Cursive app, find the NFT you want to transfer.
+2. Enter your email address and the wallet address to which you wish to transfer the NFT.
+3. Transfer it. You will then receive an email confirmation that it has been sent.
+
+### Step 5: Enjoy Your NFT
+Your NFT represents an interaction at ETH Denver, and can be sent, traded, or sold from your email wallet by going to emailwallet.org and logging in.
+
+## Retrospective
+
+We had 49 total people respond to their NFT claim emails (thus sending a transaction on chain), and people often replied hours after getting the email. 
+
+## Does your app want to add email-based NFT minting?
+
+This integration for cursive and IYK was one button and one API call, and we handled the rest, in a decentralized manner. If you want to put this into your app, simply [reach out](https://t.me/zkemail) for us to give you access to our hosted version, or help you set up your own self-hosted version. Your frontend would look as simple as:
+```javascript
+fetch('https://api.emailwallet.org/mint', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    emailAddress: "adityabisht64@gmail.com",
+    locationId: 10,
+    locationName: "Coffeshop",
+    imageUrl: "https://otwmejiqeu9zjdkz.public.blob.vercel-storage.com/cafe-YnH9KMPUveci3R0NLh2tO2W2YYRpTL.jpeg",
+    auth: "<zk proof, password, or signature>",
+    nonce: 1
+  }),
+})
+.then(response => response.json())
+.then(data => console.log('Success:', data))
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+On our side, we use the authentication from the 'auth' field -- a zk proof or signature is recommended for maximum security, but a password is ok for low-stakes experiments -- and once it verifies, we mint the NFT that that ZK proof corresponds to.

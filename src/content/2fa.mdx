@@ -1,0 +1,101 @@
+---
+title: "Email Based Safe Wallet Signers via ZK Email and Email Wallet"
+date: 2024-05-30T22:12:03.284Z
+type: Post
+draft: true
+slug: "2fa"
+category: "10 min read"
+tags: ["crypto", "zk"]
+description: "This will explain how to use and how to have email replies automatically approve Gnosis Safe Wallet transactions via ZK Email and Email Wallet."
+aliases:
+  - /posts/2fa
+  - /2fa
+  - /posts/safe
+  - /safe
+---
+
+#### Introduction
+
+By using ZK Email, you can approve multisig confirmations through email replies. This project aimed to simplify 2FA and DAO management, especially for non-crypto users, and enhance the security of on-chain transactions. You can watch our [Signature Singularity demo](https://youtu.be/rT7zLiOYX8s?t=2716) to see a video explanation and demo.
+
+### Why Multisig Signers
+
+Multisig wallets are a cornerstone in decentralizing control and increasing security for DAOs, companies, and collaborative groups. Traditional multisig operations require participants to have web3 knowledge and use externally owned accounts (EOAs). Unfortunately, the steep learning curve means that less people can participate in the ecosystem. In addition, multisigs operate slowly because transactions that need to get approved by many people, require everyone to be able to access their wallet. 
+
+These were the main challenges in the current multi-signature transaction process:
+- **Coordination Difficulties**: Safe signers and DAO multi-signature transactions often face delays because signers may be away from their devices.
+- **Inclusion of Non-Crypto Users**: It's challenging to involve users who are not familiar with crypto in the signing process.
+- **Need for Email-Based 2FA**: Many users prefer email-based 2FA for its familiarity and ease of use, especially for signing large transactions.
+
+Our solution introduces a simpler and more accessible approach by leveraging emails, making them direct signers on multisigs. This lets people use emails as signers for their own 2FA, or as signers on larger safes, where approving a transaction is as simple as replying to an email.
+
+#### User Flow Overview
+
+Once you have made an emailwallet.org account, send your address (found either in emails or on the 'Deposit Assets' page) to the multisig owners, who can add that as a signer.
+- **Transaction Initiation**: Only Externally Owned Accounts (EOAs) can initiate transactions to ensure that the multisig has at least one fully self-owned wallet.
+- **Email Confirmation**: Any email wallet signers automatically receive an email to approve the transaction.
+- **Approval Process**: Signers reply to the email to confirm their approval.
+- **ZK Proof Generation**: The relayer generates a zero-knowledge (ZK) proof from the email response.
+- **On-Chain Verification**: The ZK proof is verified on-chain, and the transaction is approved once the required number of approvals is met.
+
+#### Technical Components
+
+**ZK Email**: This system uses RSA signatures to verify email data (such as from, to, subject) without revealing sensitive information. Each email is signed according to the DomainKeys Identified Mail (DKIM) protocol, ensuring the authenticity of the email.
+
+**Email Wallet**: The email wallet utilizes account codes to protect user privacy and ensure decentralization. Users can approve transactions by simply replying to an email, and the system verifies the email's authenticity using ZK proofs.
+
+**Relayer**: The relayer plays a crucial role by monitoring transactions, sending confirmation emails, and generating ZK proofs for on-chain verification. It ensures that the entire process is seamless and secure. 
+
+**Safe Tracker**: Our event tracker automatically detects Safes that have started transactions, added email wallet signers that the relayer is aware of, or removed email wallet signers that the relayer is aware of. Then, if a transaction is pending on any Safe for an email wallet signer that it knows about, it automatically emails a transaction confirmation.
+
+#### Benefits of ZK Email for 2FA
+
+- **Enhanced Security**: By using ZK proofs, the system ensures that sensitive information is not exposed, providing a high level of security for on-chain transactions.
+- **User-Friendly**: The email-based approach makes it easy for non-crypto users to participate in multi-signature transactions.
+- **Decentralization**: The use of account codes and ZK proofs ensures that the system remains decentralized and privacy-preserving.
+
+### Email Anonymity On-Chain
+
+- Each signer must have an email wallet. Upon registration, each account is assigned an accountCode, a unique identifier used to derive the CREATE2 salt from the user’s email address: 
+
+```plaintext
+userEthAddr= CREATE2(hash(userEmailAddr, accountCode))
+```
+
+Note that as long as the account code is hidden, no adversary can learn the user's email address from on-chain data.
+
+### Full Transaction Flow
+
+The transaction flow for 2FA in our multisig wallet system is designed to be a straightforward process, with the relayer acting as the central orchestrator.
+
+![2FA.drawio](https://hackmd.io/_uploads/ByKpGlyIR.png)
+
+When a transaction requiring multiple signatures for a certain threshold is initiated, the relayer plays a key role. It communicates with the users by sending an "Approve Transaction" email, which includes the transaction address directly to their registered email addresses. 
+
+![Screenshot 2024-06-18 at 5.49.40 PM](https://hackmd.io/_uploads/rkc1JQ1I0.png)
+
+### Next Steps
+
+We are planning to begin audit soon, and will soon natively integrate this into Safe Wallet's interface for users to directly add email addresses as signers!
+
+### Conclusion
+
+The ZK Email system offers a streamlined and secure way to handle multi-signature confirmations via email, making 2FA more accessible and user-friendly. By leveraging zero-knowledge proofs, the system ensures privacy and decentralization, providing a robust solution for both crypto and non-crypto users.
+
+For more information and to try the system yourself, visit [emailwallet.org](https://emailwallet.org), and use the address there as a signer on your Safe Wallet -- everything else will happen automatically.
+
+## Appendix: ZK Email and DKIM
+
+We ensure the authenticity of these email responses using [ZK Email](https://prove.email/blog/zkemail) on top of the DomainKeys Identified Mail (DKIM) protocol, which verifies that the emails sent and received are secure and unaltered during transmission.
+
+Using [ZK Email](https://prove.email), we verify the RSA signature and SHA hash in the DKIM signature. This verification confirms that the response indeed originates from the correct email wallet account associated with the user. 
+
+```plaintext 
+rsa_sign(SHA256(from:<>, to:<>, subject:<>, <bodyHash>,...), RSA private key of domain)
+```
+
+For other types of proofs, you can also verify any piece of arbitrary data in the email such as subject, body text, etc and make proofs selectively revealing what you choose to reveal. 
+
+Once the relayer recieves the response to the email, a zk proof is generated which is then sent to the email wallet that triggers the on-chain action of the user signing. 
+
+Signers receive a confirmation email with the transaction hash from the relayer, marking the successful completion of their signing action.

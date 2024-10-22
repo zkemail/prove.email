@@ -54,7 +54,6 @@ section {
   background: var(--Grey-900, #161819);
   backdrop-filter: blur(12px);
   display: flex;
-  width: 62.5rem;
   padding: 1rem 1.5rem;
   justify-content: space-between;
   align-items: center;
@@ -255,13 +254,20 @@ section {
 @media (max-width: 1280px) {
   .container-width {
     width: 1000px;
+  }
+
+  .container-padding {
     padding: 0 2rem;
   }
+
 }
 
 @media (max-width: 1024px) {
   .container-width {
     width: 100vw;
+  }
+
+  .container-padding {
     padding: 0 1.25rem;
   }
 
@@ -281,7 +287,7 @@ section {
   .h3 {
     font-size: 1.625rem;
     font-family: "Newsreader", serif;
-    color: "var(--Neutral-100, #F5F3EF)";
+    color: var(--Neutral-100, #F5F3EF);
     text-align: center;
     font-family: Newsreader;
     font-style: normal;
@@ -344,4 +350,11 @@ section {
   inset: -1px;
   opacity: 0;
   transition: opacity 300ms;
+}
+
+.input-field {
+  border-radius: 8px;
+  border: 1px solid var(--Grey-800, #3B3B3B);
+  background: var(--Grey-900, #161819);
+  padding: 12px;
 }

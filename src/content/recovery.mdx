@@ -1,0 +1,120 @@
+---
+title: "Email-based Account Recovery using ZK Email and Rhinestone"
+date: 2024-06-26T22:12:03.284Z
+type: Post
+draft: false
+slug: "recovery"
+category: "15 min read"
+tags: ["crypto", "zk"]
+description: "This blog post explains the importance of zk email-based account recovery modules, and how to use it for any smart contract wallet."
+aliases:
+  - /posts/7579
+  - /posts/recovery
+  - /7579
+---
+
+In crypto, the difficulty of managing seed phrases means account recovery is critical. Conventional methods of recovery, such as seed phrases and centralized recovery mechanisms, not only introduce friction for users but also pose security risks, undermining the decentralization of cryptocurrency. Smart account standards like ERC-4337 present promising new ways to avoid seed phrases like using secure element biometric signatures, but account recovery is still needed in the case of device loss or password reset. Currently, users are forced to only choose from crypto-native friends to be recovery signers, making broad adoption more difficult.
+
+Ideally, we would bridge the gap between the security of blockchain technology and the user-friendly recovery methods found in traditional finance.
+
+With the maturation of Acount Abstraction (AA) wallets, we have reached a stage where we can begin to build modules and extensions to support this technology, some of which are enabled by Zero Knowledge (ZK). This inspired us to develop an email-based account recovery tool using ZK Email. This solution simplifies the recovery process so much that even your mom, who is (probably) not very familiar with crypto, can recover the user’s wallet simply by replying to an email. We worked in close partership with Rhinestone to ensure it was ERC 7579 compatible, making it very easy to install and use with a wide variety of smart wallets via a simple installation via [ModuleSDK](http://docs.rhinestone.wtf/module-sdk). Note that even non-7579 compliant wallets can implement this module via manually calling the interfaces. It is being audited in Q2 2024 and released in production on mainnet in Q3 2024.
+
+To understand the end to end flow in video form, [watch our ZK Summit speech](https://www.youtube.com/watch?v=rZTNzvLXB14). We will explain it again here.
+
+![image](https://hackmd.io/_uploads/HJ5-rQqLR.png)
+
+## How ZK Email works (in short)
+
+ZK email works by using two mechanisms:
+* [DKIM](https://prove.email/blog/zkemail) - emails are signed by the email service using DKIM (DomainKeys Identified Mail) to verify the email was sent from the domain it claims to be sent from
+  * DKIM is a standard that allows a domain to sign an email, and the email service to verify the signature
+  * DKIM typically uses RSA signatures, which is how zk email verifies the email signature
+  * DKIM is used by most email services, but its not always the case
+  * **Emails sent to self aren't signed**; the user has to either:
+    * send an email to another email address they control and generate the proof themselves
+    * Or use a service that receives their email and generates the proof on their behalf.
+
+* [ZK Regex](https://github.com/zkemail/zk-regex/) - regular expressions are used in circom to match some pattern in the email and expose certain information as an output
+  * This can be used to ensure that the user understands who they are setting as a new wallet owner/manager
+
+Example Email:
+  * TO: `recovery@4337wallet.net`
+  * FROM: `george@gmail.com`
+  * Subject: `Recover my account 0x123... to 0x84a...`
+
+
+## How Account Abstraction with 4337 Works (in short)
+
+Account abstraction is the ability for a smart contract accounts (in contrast to an EOA) to send and verify transactions.  AA wallets have existed for some time (ie. Gnosis Safe), however, not with the ability to originate transactions. ERC-4337 enables things like sponsored transactions (where the protocol pays gas for the user), batched transactions (to reduce total gas fee), novel account sources (like passkeys), and more.
+
+Specifically, ERC-4337 defines an interface for bundlers, entrypoint contracts, and smart contract accounts.  This interface enables the deployment of smart contract accounts and sending of transactions without the need for users to have an [EOA account](https://ethereum.stackexchange.com/a/5829), via an alternate mempool of bundlers.
+
+As wallets shift from EOAs to smart account wallets, we thought an intuitive recovery interface via emails that they all could share, would benefit users and apps.
+
+ ![](https://hackmd.io/_uploads/rJTrOjHMT.png)
+
+## How Modules with Rhinestone and ERC 7579 Work
+
+ERC 7579 is a minimal standard for modular smart accounts that makes it easy for smart wallets to share modules between them, by exposing the a standardized set of interfaces. It was [developed by Rhinestone in partnership with Safe, OKX, Biconomy, Zerodev, and Etherspot](https://blog.rhinestone.wtf/introducing-erc-7579-417084d7a66f), to replace the overly opinionated ERC-6900. We are working closely with Rhinestone to ensure that it is easy for new wallets to quickly integrate, and easy for established wallets to extend and change.
+
+## Enabling Email-Based Recovery for Smart Accounts using ZK Email:
+Email-based recovery is a solution for AA wallets to enable a more intuitive recovery method that allows anyone familiar with email the ability to act as a guardian. As the crypto space matures, the need for user interfaces and experiences that resonate with non-technical users becomes crucial for wider adoption. ZK Email's SDKs make this possible by providing developers with the tools needed to create recovery systems that are both user-friendly and uphold the principles of decentralization.
+
+### User Flow
+Account recovery has two main parts: `setting a guardian`, and `recovering your wallet`
+
+**Here's a step by step guide to the account recovery process**: 
+1. **Set a Guardian**: On the set guardian page, a wallet owner sets a guardian by entering their email address into the system. 
+2. **Verification Email**: The relayer receives this request and sends a verification email to the guardian.
+3. **Guardian Confirmation**: The guardian confirms their role by simply replying to the verification email.
+
+![accountRecovery1](https://hackmd.io/_uploads/r1fCnAzeA.png)
+
+5. **Recovery Initiation**: If the wallet owner loses access to their wallet, they can initiate the recovery process. On the account recovery page, a wallet owner puts in the email address of the guardian and they can also put the new ethereum signer address. They select "Request recovery", and the relayer sends an email to the guardian.  
+5. **Guardian Action**: Upon receiving the recovery request, the guardian replies to the email without modification, which is then processed by the relayer to confirm the recovery action.
+6. **Proof Verification and Wallet Recovery**: The relayer generates a ZKP from the guardian's email response and submits it to the smart contract on the blockchain. Upon successful verification, the contract initiates a process to update the ownership of the wallet securely.
+![account-recovery2](https://hackmd.io/_uploads/B13pEy7eR.png)
+
+
+### How it works
+**1. Proof Generation and Parsing at the Email Server:**
+
+Upon receipt of a recovery request, the relayer will process the email request using regex. Key details, particularly from the subject line and Message-ID, for action. 
+
+For instance:
+```
+  FROM: `recovery@wallet.org`
+  TO: `guardian@gmail.com`
+  Subject: `Accept guardian request from 0x123...` 
+  Message-ID: `ACCOUNT_CODE.0x1ad9839d...`
+```
+  
+In this scenario, the relayer (`recovery@wallet.org`) receives a set guardian request and forwards it to the guardian (`guardian@gmail.com`). The relayer parses the subject of the email, which contains the wallet address that will be guarded, and the Message-ID, which contains the account key of the wallet owner. Upon the guardian's response to this email without any modification, the relayer generates a proof of the guardian's email to the wallet contract on-chain.
+
+The ZK Email proof parses the subject to ensure that the correct addresses are being rotated, and anonymizes the email address on-chain (via a salted hash) so that no one can learn the email address used by looking at the chain.
+
+**2. Enabling either 7579 or Safe Module for Wallets**
+
+We partnered with John from the Wax team at PSE to develop an email account recovery demo, accessible here: [ZK Email Recovery Demo](https://prove.email/recovery). For detailed steps on integrating with the demo, please refer to the documentation provided [here](https://github.com/zkemail/email-recovery/).
+
+Here's a concise guide on incorporating the Recovery Module into your wallets:
+
+- **Installation**: If you are using a legacy Gnosis Safe, copy paste the walletconnect link into your Safe connection UI in order to connect your Safe and install. If you are using Safe 1.4.1 (released Q3 2024) or different 7579-enabled smart wallet, your wallet will have enabled the email account recovery on the Rhinestone [ModuleSDK](http://docs.rhinestone.wtf/module-sdk) store (to be released in Q3 2024) so you can install it in one click. 
+- **Configuration**: Once installed, customize the recovery settings to suit your preferences. Specify the recovery delay duration, and add guardians' email addresses.
+- **Guardian Confirmation**: After configuring the settings, the relayer automatically dispatches verification emails to designated guardians. Guardians confirm their roles by replying "Confirm" to these emails. This action triggers a `processRecovery` function, starting a timelock delay to ensure that the original wallet owner can notice and remove malicious gaurdians if they have not lost their wallet. Once the threshold of guardians is reached and the timelock has passed, anyone (usually the app does this automatically) can call the `completeRecovery` function to securely rotate the owner of the account.
+
+## Conclusion
+Account recovery using ZK Email is a huge step for seamless web2 to web3 integrations, creating a trustless environment where users can recover their wallets without compromising security and autonomy. We want to integrate this feature into as many AA wallets as possible! If you're an AA wallet interested in incorporating email-based account recovery into your wallet application, we recommend trying the demo [here](https://prove.email/recovery). If you'd like to ask more questions, please text us on [telegram](https://t.me/zkemail). 
+
+_Special thanks to Elo and Yush for crafting the post, Aditya, Sora, John, Rhinestone, and Yush for writing the module, and Tyler, John, Kurt, and Kichong for their reviews and feedback._
+
+## References/Additional Info
+
+* [Email Recovery repo](https://github.com/zkemail/email-recovery/): This contains the latest code for the 7579 compatible account recovery module, built atop of ether-email-auth. 
+* [Ether-Email-Auth repo](https://github.com/zkemail/ether-email-auth): This is our new, audited codebase for easily sending emails, and automatically relaying them to a blockchain. Users only need write Solidity to create new ZK Email proofs on smart contracts. We use this as the backbone of email account recovery.
+* [Legacy Safe Account Recovery Spec](https://proofofemail.notion.site/Email-Sender-Auth-c87063cd6cdc4c5987ea3bc881c68813?pvs=4): This is an extremely technical spec describing the precise Solidity interfaces used to build the library.
+* [ModuleSDK](http://docs.rhinestone.wtf/module-sdk): The Rhinestone library that you can use to install the default ZK Email Account Recovery to any smart wallet.
+* [ModuleKit guide for 7579 Email Recovery (coming Q3 2024)](http://docs.rhinestone.wtf/modulekit): For wallet developers who want more customization, change the individual function calls or syntax with zk email account recovery for any smart wallet, with ModuleSDK-compatible tooling.
+* Email Account Recovery demo for Legacy Safes: [prove.email/recovery](https://prove.email/recovery). This will allow you to add a module to currently deployed safes (v1-v1.3), ahead of their 7579 upgrade (v1.4.1) in Q3 2024. 
+* ZK Email Documentation: [prove.email/docs](https://prove.email/docs).
+* [Rhinestone's Blog Post about ZK Email](https://blog.rhinestone.wtf/private-email-recovery-with-zk-email-3405ce4d866e)
