@@ -60,6 +60,10 @@ const config: Config = {
               fontWeight: "700",
               textDecoration: "none",
             },
+            "h4 a": {
+              fontWeight: "700",
+              textDecoration: "none",
+            },
             "ul li": {
               background: "**",
             },

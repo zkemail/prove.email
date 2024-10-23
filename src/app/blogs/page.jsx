@@ -26,10 +26,9 @@ const PostContainer = ({ post }) => {
 
 const Blogs = async () => {
   const posts = await getAllPostsMeta();
-  console.log(posts);
 
   return (
-    <div className="w-full lg:w-[70vw] px-5 pt-40 lg:pt-32 m-auto">
+    <div className="container-width container-padding m-auto" style={{paddingTop: '10rem'}}>
       <div>
         <p className="h3 text-left" style={{ textAlign: 'left' }}>Blogposts</p>
         <p className="sutitle1">Latest blogs from our team</p>

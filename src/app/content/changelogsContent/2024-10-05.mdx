@@ -1,0 +1,27 @@
+---
+date: "2024-10-05"
+version: "1.3.0"
+---
+
+## Version Update 1.3.0
+We’ve released v6.1.6 of zk-email’s core libraries! This adds:
+
+- DKIM public keys now work on DNS over HTTPS, which allows more consistent browser fetching for sites like proton.me
+- constrained regex reveal more tightly to address concerns from our Zellic audit
+- added header masking to make masking/whistleblowing applications more robust
+- added substring matching, allowing for more efficient matches where regex is not needed
+
+### Account Recovery
+This update includes improvements to the `CoinbaseSDK` connect popup and `MockConnector`
+- Localisations for `Spanish`
+- `CoinbaseSDK` connect popup now works on first interaction.
+- `MockConnector` now working as intended.
+
+
+### New Features
+- Added support for encrypted messages.
+- Improved mobile UI for account settings.
+
+
+### ZK Whistleblow
+- Improved backend performance for whistleblowing applications.
