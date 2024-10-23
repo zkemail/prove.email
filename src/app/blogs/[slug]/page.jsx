@@ -2,7 +2,6 @@ import { getPostBySlug } from '@/lib';
 import 'highlight.js/styles/github-dark.css'
 import PostContent from './postContent'
 
-
 const getPageContent = async (slug) => {
   const { meta, content } = await getPostBySlug(slug);
   return { meta, content };

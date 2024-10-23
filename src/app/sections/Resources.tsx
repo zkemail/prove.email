@@ -8,7 +8,7 @@ const RedDiamond = "/assets/RedDiamond.svg";
 const GreenDiamond = "/assets/GreenDiamond.svg";
 const CaretRight = "/assets/CaretRight.svg";
 const CaretLeft = "/assets/CaretLeft.svg";
-const BlueDiamond = "/assets/BlueDiamond.svg";
+const BlueDiamond = "/assets/BlueDiamondOutlined.svg";
 
 type ResourceItem = {
   color: string;

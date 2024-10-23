@@ -14,7 +14,7 @@ const Footer = () => {
             alt="ZK Email Footer Logo"
           />
         </div>
-        <div className="flex flex-row justify-between w-full lg:w-96 px-5 pb-10 lg:p-0 lg:pr-12">
+        <div className="flex flex-row justify-between w-full lg:w-[440px] px-5 pb-10 lg:p-0 lg:mr-12">
           <div className="flex flex-col gap-3">
             <p
               className="subtitle2 font-semibold leading-4"

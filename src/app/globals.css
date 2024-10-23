@@ -409,3 +409,13 @@ section {
   font-size: 1.25rem;
   line-height: 1;
 }
+
+.hide-on-mobile {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
