@@ -22,11 +22,14 @@ const Footer = () => {
             >
               Developers
             </p>
-            <Link href="/" className="subtitle2">
+            <Link href="https://zkemail.gitbook.io/zk-email" target="_blank" className="subtitle2">
               Docs
             </Link>
             <Link href="/" className="subtitle2">
               Projects
+            </Link>
+            <Link href="/changelogs" className="subtitle2">
+              Changelogs
             </Link>
           </div>
 
@@ -37,19 +40,19 @@ const Footer = () => {
             >
               Community
             </p>
-            <Link href="/" className="subtitle2">
+            <Link href="/blogs" className="subtitle2">
               Blogs
             </Link>
-            <Link href="/" className="subtitle2">
+            <Link href="https://prove.email/learn" className="subtitle2">
               Learn More
             </Link>
-            <Link href="/" className="subtitle2">
+            <Link href="https://t.me/zkemail" className="subtitle2">
               Partner
             </Link>
           </div>
 
           <div className="flex flex-row gap-3">
-            <Link href="/https://x.com/zkemail?lang=en" target="_blank">
+            <Link href="https://x.com/zkemail?lang=en" target="_blank">
               <img src={"/assets/XLogo.svg"} alt="twitter-logo" />
             </Link>
             <Link href="https://t.me/zkemail" target="_blank">

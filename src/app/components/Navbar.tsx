@@ -16,7 +16,7 @@ const Navbar = () => {
           <Link href="/blogs">
             <p className="body1" style={{color: '#F5F3EF'}}>Blog</p>
           </Link>
-          <Link href="/blogs">
+          <Link href="https://zkemail.gitbook.io/zk-email" target="_blank">
             <p className="body1" style={{color: '#F5F3EF'}}>Documentation</p>
           </Link>
         </div>
