@@ -88,7 +88,7 @@ const FAQs = () => {
               Quick answers to the common questions you might have.{" "}
               <br className="hidden md:inline"></br>
               Can’t find what you looking for? Read our docs or{" "}
-              <a href="/contact" className=" underline text-[#F5F3EF]">
+              <a href="https://t.me/zkemail" className=" underline text-[#F5F3EF]">
                 contact us
               </a>
             </p>

@@ -42,7 +42,7 @@ The figure below describes the high-level interactions for using zk-regex. First
 Our latest update (May 2024) allows one to use a much wider set of regex syntax and supports all international UTF-8 characters, and uses a new method of regex generation via merging DFAs in order to do so. It has been audited by ZK Security, and [the audited release is labeled 2.1.0 on Github](https://github.com/zkemail/zk-regex/).
 
 <p align="center">
-<img src="/zkregex/zk-regex-overview.png" width="750"/>
+<img src="/zkregex/zk-regex-overview.png" width="750" alt="zk-regex-overview"/>
 </p>
 <p style={{ textAlign: 'center' }}>zk-regex overview.</p>
 
@@ -160,7 +160,7 @@ A deterministic finite automaton $M$ is defined as a 5-tuple, ($Q$, $\Sigma$, $\
 Furthermore, typically, we have a transitions matrix for a DFA. Let's consider our example from above, i.e., `m[01]+-[ab]+;`.
 
 <p align="center">
-<img src="/zkregex/long-dfa-example.png" width="750"/>
+<img src="/zkregex/long-dfa-example.png" width="750" alt="long-dfa-example-image" />
 </p>
 <p style={{ textAlign: 'center' }}>DFA of m[01]+-[ab]+; (produced using <a href="https://zkregex.com/min_dfa">https://zkregex.com/min_dfa</a>).</p>
 
@@ -282,7 +282,7 @@ For simplicity, we are going to describe how that works for the regex `m[ab];` a
 So, our DFA is the following.
 
 <p align="center">
-<img src="/zkregex/short-dfa-example.png" width="750"/>
+<img src="/zkregex/short-dfa-example.png" width="750" alt="short-dfa-example-image" />
 </p>
 <p style={{ textAlign: 'center' }}>Visualisation for DFA of m[ab]+; (produced using <a href="https://zkregex.com/min_dfa">https://zkregex.com/min_dfa</a>).</p>
 
@@ -390,7 +390,7 @@ Note that we transition to state `1` because `and[0][i]` is `1` (meaning that st
 Next, being in state `1` and processing the next input, we want to check if we can transition to state `2`, which means that we need input to be `97` or `98`. As it is not (`0`) we change all the states for the next input to `0` which means we return to state `0`. Following the same logic, we eventually will have the following state transition table.
 
 <p align="center">
-<img src="/zkregex/state_transitions_table.png" width="750"/>
+<img src="/zkregex/state_transitions_table.png" width="750" alt="state-transitions-table"/>
 </p>
 <p style={{ textAlign: 'center' }}>State transitions table.</p>
 
@@ -467,7 +467,7 @@ That checks if the proper state transitions are enabled and if they are part of 
 zk-regex works on any UTF-8 encoded Unicode character in its decimal representation. This means that `.` should match any valid UTF-8 encoded beyond the line terminator. More specifically, every character that is described using the [following format](https://en.wikipedia.org/wiki/UTF-8) and represented in its decimal form is accepted (note that it should broken into bytes), and a single character could be broken into multiple bytes, resulting in multiple consecutive nodes in the DFA. Still, there needs to be more specific documentation on what is accepted and what is not. It is up to the user to define a verifier by either using a very strict regex that will be sure to accept only the strings that he wants or defining and checking how a message should look.
 
 <p align="center">
-<img src="/zkregex/utf-8.png" width="750"/>
+<img src="/zkregex/utf-8.png" width="750" alt="utf-8" />
 </p>
 <p style={{ textAlign: 'center' }}>UTF-8 conversion table (ref: <a href="https://en.wikipedia.org/wiki/UTF-8">https://en.wikipedia.org/wiki/UTF-8</a>).</p>
 

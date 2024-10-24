@@ -139,7 +139,7 @@ const ProjectCard = ({
             overflow: "hidden",
           }}
         >
-          <img src={imgSrc} />
+          <img src={imgSrc} alt={`${title}-image`} />
         </div>
         <div
           className=" lg:h-40 h-max"

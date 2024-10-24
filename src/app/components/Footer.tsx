@@ -55,7 +55,7 @@ const Footer = () => {
             <Link href="https://x.com/zkemail?lang=en" target="_blank">
               <img src={"/assets/XLogo.svg"} alt="twitter-logo" />
             </Link>
-            <Link href="https://t.me/zkemail" target="_blank">
+            <Link href="https://www.youtube.com/@sigsing" target="_blank">
               <img src={"/assets/YoutubeLogo.svg"} alt="youtube-logo" />
             </Link>
             <Link href="https://t.me/zkemail" target="_blank">
