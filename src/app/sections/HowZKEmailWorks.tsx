@@ -113,7 +113,7 @@ const FlowDetailsCard = ({
           <p className="h5" style={{ fontWeight: 700 }}>
             {title}
           </p>
-          <p className="subtitle1">{description}</p>
+          <p className="subtitle1 hidden lg:block">{description}</p>
         </div>
         <a
           href={link}

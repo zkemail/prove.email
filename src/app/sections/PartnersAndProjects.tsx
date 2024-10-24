@@ -148,15 +148,11 @@ const ProjectCard = ({
           className="transition-all ease-in-out"
           style={{
             background: "#161819",
-            visibility:
-              hoveredCardIdx !== index && hoveredCardIdx !== null
-                ? "visible"
-                : "hidden",
             height: "100%",
-            // transitionDuration: "0.3s",
             width: "100%",
             position: "absolute",
-            opacity: 0.5,
+            opacity:
+              hoveredCardIdx !== index && hoveredCardIdx !== null ? 0.5 : 0,
           }}
         />
         <div
@@ -232,7 +228,7 @@ const PartnersAndProjects = () => {
         className="container-width container-padding"
         style={{ textAlign: "center", paddingTop: "6rem" }}
       >
-        <p className="h3">Projects Using ZK Email</p>
+        <p className="h3">ZK Email in Action</p>
         <div className="project-cards-container">
           {PROJECTS.map((project, index) => (
             <ProjectCard
