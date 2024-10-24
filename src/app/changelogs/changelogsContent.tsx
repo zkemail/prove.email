@@ -2,7 +2,9 @@
 
 import { dateFormatter } from "../utils/dateFormatter";
 
-const ChangelogsContent = ({ changeLogs }) => {
+type ChangelogType = { date: string; content: string };
+
+const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
   return (
     <div
       className="container-width container-padding m-auto"
@@ -17,7 +19,7 @@ const ChangelogsContent = ({ changeLogs }) => {
 
       <div className="w-full py-8">
         <div>
-          {changeLogs?.map((log, index) => (
+          {changeLogs?.map((log: ChangelogType, index: number) => (
             <div
               key={log.date}
               //   ref={index === 0 ? firstDateRef : null}
@@ -45,7 +47,10 @@ const ChangelogsContent = ({ changeLogs }) => {
                 }`}
                 style={{ width: 0, border: "1px solid #272727", zIndex: -1 }}
               />
-              <div className="mt-1 body1 block md:hidden" style={{ color: "#D4D4D4" }}>
+              <div
+                className="mt-1 body1 block md:hidden"
+                style={{ color: "#D4D4D4" }}
+              >
                 {dateFormatter(log?.date)}
               </div>
               <div>

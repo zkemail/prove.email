@@ -199,7 +199,7 @@ const Resources = () => {
     <div>
       <h1 className="h3">Resources</h1>
       <p className="subtitle1 text-center mb-[50px] px-5">
-        Know about us from our recent blogs, talks and documentations
+        Read our recent blogs, talks and documentations
       </p>
 
       <div
@@ -310,14 +310,14 @@ const Resources = () => {
       {!isSmallScreen && (
         <div className="flex justify-center space-x-4 mt-12">
           <Button
-            startIcon={CaretLeft}
+            startIcon={<img src={CaretLeft} style={{color: 'red'}} alt="caret-left" />}
             onClick={handlePrevious}
             disabled={currentIndex === 0}
           >
             Previous
           </Button>
           <Button
-            endIcon={CaretRight}
+            endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
             onClick={handleNext}
             disabled={currentIndex >= RESOURCES.length - getVisibleCards()}
           >

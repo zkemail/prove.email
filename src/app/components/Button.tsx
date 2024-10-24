@@ -11,8 +11,8 @@ const Button = ({
   href?: string;
   disabled?: boolean;
   children: React.ReactNode;
-  startIcon?: string;
-  endIcon?: string;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   color?: "primary" | "secondary";
 }) => {
   return (
@@ -38,9 +38,9 @@ const Button = ({
           color === "primary" ? (disabled ? "#3B3B3B" : "#F5F3EF") : "#161819",
       }}
     >
-      {startIcon ? <img src={startIcon} alt={startIcon} /> : null}
+      {startIcon}
       {children}
-      {endIcon ? <img src={endIcon} alt={endIcon} /> : null}
+      {endIcon}
     </button>
   );
 };

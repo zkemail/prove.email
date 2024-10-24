@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
 import { Fragment } from "react";
 import Button from "../components/Button";
 
 const MARQUEE_ITEMS = [
-  "Restore your wallet",
+  "Recover account",
   "Prove your identity",
   "Whistleblowing",
   "Prove your organization",
@@ -42,14 +42,14 @@ const Hero = () => {
           <Button
             href="https://prove.email/"
             color="primary"
-            endIcon={'/assets/CaretRight.svg'}
+            endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
           >
             Learn
           </Button>
           <Button
             href="https://prove.email/"
             color="secondary"
-            endIcon={'/assets/FileTextIcon.svg'}
+            endIcon={<img src="/assets/FileTextIcon.svg" alt="file-icon" />}
           >
             Docs
           </Button>
@@ -63,6 +63,7 @@ const Hero = () => {
           background: "rgba(41, 67, 91, 0.12)",
           filter: "blur(85px)",
           width: "447px",
+          maxWidth: "100%",
           height: "413px",
           flexShrink: 0,
           transform: "translateY(-50%)",
@@ -72,7 +73,7 @@ const Hero = () => {
         style={{
           position: "absolute",
           width: "100vw",
-          bottom: 0,
+          bottom: -1.5,
           maxHeight: "50vh",
           display: "flex",
           flexDirection: "column",
@@ -80,7 +81,7 @@ const Hero = () => {
         }}
       >
         <img
-          src={'/assets/HeroImgMobile.webp'}
+          src={"/assets/HeroImgMobile.webp"}
           alt="hero-image"
           className="image-mobile"
           style={{
@@ -92,7 +93,7 @@ const Hero = () => {
           }}
         />
         <img
-          src={'/assets/HeroImg.webp'}
+          src={"/assets/HeroImg.webp"}
           alt="hero-image"
           className="image-desktop"
           style={{
@@ -110,7 +111,7 @@ const Hero = () => {
                 (item, index) => (
                   <Fragment key={index}>
                     <span className="marquee-item">{item}</span>
-                    <img src={'/assets/MarqueeSeparator.svg'} alt="◆" />
+                    <img src={"/assets/MarqueeSeparator.svg"} alt="◆" />
                   </Fragment>
                 )
               )}

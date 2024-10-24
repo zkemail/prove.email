@@ -95,7 +95,7 @@ const FAQs = () => {
           </div>
           <div>
             <Button
-              endIcon={"/assets/CaretRight.svg"}
+              endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
               href="https://zkemail.gitbook.io/zk-email"
             >
               Read Docs
