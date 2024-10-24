@@ -11,9 +11,8 @@ const ProofOfTwitterLogo = "/assets/proofOfTwitter.png";
 const AccountRecoveryLogo = "/assets/accountRecovery.png";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import ProjectCard from "../components/ProjectCard";
-import Link from "next/link";
 
-const PROJECTS = [
+export const PROJECTS = [
   {
     title: "ZKP2P",
     description:
@@ -32,35 +31,38 @@ const PROJECTS = [
       "Prove you own a Twitter username on-chain, via any email from Twitter.",
     imgSrc: ProofOfTwitterLogo,
   },
+  {
+    title: "Blueprint Registry",
+    description:
+      "List of community submitted ZK Email blueprints that can be dropped into your project.",
+    imgSrc: ProofOfTwitterLogo,
+  },
+  {
+    title: "Email Wallet",
+    description: "Send or receive assets just through your emails.",
+    imgSrc: ProofOfTwitterLogo,
+  },
+  {
+    title: "ZK Whistleblow",
+    description:
+      "Let the world know about any information received on your email without reveling your identity.",
+    imgSrc: ProofOfTwitterLogo,
+  },
 ];
 
-const PartnersAndProjects = () => {
+const Projects = () => {
   const [hoveredCardIdx, setHoveredCardIdx] = useState<number | null>(null);
 
   return (
     <section>
       <div
         className="container-width container-padding"
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center", paddingTop: "10rem", paddingBottom: "5rem" }}
       >
-        <p className="h3">Trusted by the best</p>
+        <p className="h3">Projects using our tech</p>
         <p className="subtitle1">
-          From next-gen enterprises to established organizations
+          From sending assets P2P to recovering your lost account
         </p>
-        <div className="partner-logos">
-          <img src={EthereumFoundationLogo} alt="EthereumFoundationLogo" />
-          <img src={IYKLogo} alt="IYKLogo" />
-          <img src={GitcoinPassportLogo} alt="GitcoinPassportLogo" />
-          <img src={ZKP2PLogo} alt="ZKP2PLogo" />
-          <img src={ClaveLogo} alt="ClaveLogo" />
-          <img src={OpenPassportLogo} alt="OpenPassportLogo" />
-        </div>
-      </div>
-      <div
-        className="container-width container-padding"
-        style={{ textAlign: "center", paddingTop: "6rem" }}
-      >
-        <p className="h3">ZK Email in Action</p>
         <div className="project-cards-container">
           {PROJECTS.map((project, index) => (
             <ProjectCard
@@ -72,22 +74,9 @@ const PartnersAndProjects = () => {
             />
           ))}
         </div>
-
-        <Link href={"/projects"}>
-          <p
-            className="subtitle1 lg:text-right text-center"
-            style={{
-              color: "var(--Grey-600, #A8A8A8)",
-              marginTop: 24,
-            }}
-          >
-            Explore all projects
-            <span style={{ marginLeft: 8 }}>→</span>
-          </p>
-        </Link>
       </div>
     </section>
   );
 };
 
-export default PartnersAndProjects;
+export default Projects;

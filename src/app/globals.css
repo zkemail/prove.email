@@ -241,7 +241,8 @@ section {
 }
 
 .project-cards-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   flex-direction: row;
   flex-wrap: 'wrap';
   gap: 3.5rem;
@@ -342,9 +343,15 @@ section {
   }
 
   .project-cards-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    margin-top: 2.25rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .project-cards-container {
+    grid-template-columns: repeat(1, 1fr);
     justify-content: space-between;
     margin-top: 2.25rem;
   }

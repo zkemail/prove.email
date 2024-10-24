@@ -25,7 +25,7 @@ const Footer = () => {
             <Link href="https://zkemail.gitbook.io/zk-email" target="_blank" className="subtitle2">
               Docs
             </Link>
-            <Link href="/" className="subtitle2">
+            <Link href="/projects" className="subtitle2">
               Projects
             </Link>
             <Link href="/changelogs" className="subtitle2">
