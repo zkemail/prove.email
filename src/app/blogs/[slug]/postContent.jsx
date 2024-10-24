@@ -10,7 +10,7 @@ const PostContent = ({ meta, content }) => {
             <p className="h5 font-semibold" style={{ color: '#D4D4D4' }} >
                 {meta.description}
             </p>
-            <p className="body1" style={{ fontSize: '12px', color: '#A8A8A8' }} >
+            <p className="subtitle2" style={{  color: '#A8A8A8' }} >
                 {new Date(meta.date).toISOString().split("T")[0]} <span className="mx-2">◆</span> {meta.category}
             </p>
         </div>

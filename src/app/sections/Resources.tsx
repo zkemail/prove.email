@@ -239,7 +239,7 @@ const Resources = () => {
                 <div className="shadow-md overflow-hidden cursor-pointer relative h-72 transform transition-transform duration-300 ease-in-out">
                   <img
                     src={resource.thumbnail}
-                    alt={resource.title}
+                    alt={`${resource.title}-image`}
                     className="absolute top-0 left-0 w-full h-3/5 object-cover opacity-50 transition-opacity duration-300 ease-in-out hover:opacity-100"
                   />
 

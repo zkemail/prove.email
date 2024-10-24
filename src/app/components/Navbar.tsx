@@ -11,7 +11,7 @@ const Navbar = () => {
         </Link>
         <div style={{ display: "flex", gap: 24 }}>
           <p className="body1" style={{ display: "flex", gap: 4 }}>
-            Features <img src={"/assets/CaretDown.svg"} />
+            Features <img src={"/assets/CaretDown.svg"} alt="caret-down-icon" />
           </p>
           <Link href="/blogs">
             <p className="body1" style={{color: '#F5F3EF'}}>Blog</p>

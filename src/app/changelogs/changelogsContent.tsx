@@ -38,6 +38,7 @@ const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
                       top: 6,
                     }}
                     src="/assets/BlueDiamond.svg"
+                    alt="◆"
                   />
                 </div>
               </div>

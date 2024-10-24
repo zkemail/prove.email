@@ -124,7 +124,7 @@ const FlowDetailsCard = ({
         </a>
       </div>
       <div>
-        <img src={imgSrc} style={{ height: "100%" }} />
+        <img src={imgSrc} style={{ height: "100%" }} alt={`${title}-image`} />
       </div>
     </div>
   );
