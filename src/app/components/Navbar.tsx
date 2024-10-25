@@ -262,7 +262,7 @@ const Navbar = () => {
               style={{
                 paddingTop: 0,
                 border: "1px solid var(--Grey-850, #272727)",
-                background: "url(/assets/MobileNavBackground.png)",
+                background: "url(/assets/MobileNavBackground.webp)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: `${contentHeight}px`,

@@ -121,7 +121,7 @@ section {
 }
 
 .nav-sub-items {
-  background: url("/assets/NavItemsBackground.png");
+  background: url("/assets/NavItemsBackground.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
