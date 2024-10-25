@@ -11,7 +11,7 @@ const PostContainer = ({ post }) => {
         style={{ padding: 24, border: "1px solid var(--Grey-850, #272727)" }}
       >
         {/*  // TODO: Remove the default image */}
-        <Image width={278} height={156} src={post.ogImage ?? "/blog-media/email-account-recovery/banner.png"} alt={post.title} />
+        <Image width={278} height={156} src={post.ogImage ?? "/blog-media/email-account-recovery/banner.png"} alt={post.title} className="w-full lg:w-auto" />
         <div>
           <p className="h4 font-semibold" style={{ color: '#F5F3EF' }}>{post.title}</p>
           <p className="subtitle1 mt-2">{post.description}</p>
@@ -28,7 +28,7 @@ const Blogs = async () => {
   const posts = await getAllPostsMeta();
 
   return (
-    <div className="container-width container-padding m-auto" style={{paddingTop: '10rem'}}>
+    <div className="container-width container-padding m-auto" style={{ paddingTop: '10rem' }}>
       <div>
         <p className="h3 text-left" style={{ textAlign: 'left' }}>Blogposts</p>
         <p className="sutitle1">Latest blogs from our team</p>
