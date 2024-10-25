@@ -69,12 +69,12 @@ const NAV_ITEMS_DATA: {
       description: "Our team battlefield notes",
       href: "/blogs",
     },
-    // {
-    //   icon: "/assets/NavPartners.png",
-    //   title: "Partner",
-    //   description: "Let's build the future",
-    //   href: "/partners",
-    // },
+    {
+      icon: "/assets/NavPartners.png",
+      title: "Partner",
+      description: "Let's build the future",
+      href: "https://t.me/zkemail",
+    },
     // {
     //   icon: "/assets/NavLearnMore.png",
     //   title: "Learn More",

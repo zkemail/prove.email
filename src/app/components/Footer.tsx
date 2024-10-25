@@ -73,10 +73,14 @@ const Footer = () => {
             <Link href="/blogs" className="subtitle2">
               Blogs
             </Link>
-            <Link href="https://prove.email/learn" className="subtitle2">
+            {/* <Link href="/learn" className="subtitle2">
               Learn More
-            </Link>
-            <Link href="https://t.me/zkemail" className="subtitle2">
+            </Link> */}
+            <Link
+              href="https://t.me/zkemail"
+              target="_blank"
+              className="subtitle2"
+            >
               Partner
             </Link>
             <Link href="/privacy-policy" className="subtitle2">
