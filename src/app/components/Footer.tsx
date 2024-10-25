@@ -79,6 +79,16 @@ const Footer = () => {
             <Link href="https://t.me/zkemail" className="subtitle2">
               Partner
             </Link>
+            <Link href="/privacy-policy" className="subtitle2">
+              Privacy Policy
+            </Link>
+            <Link
+              href="https://archive.prove.email/privacy-policy"
+              className="subtitle2"
+              target="_blank"
+            >
+              Archive Privacy Policy
+            </Link>
           </div>
 
           <div className="flex flex-row gap-3">
