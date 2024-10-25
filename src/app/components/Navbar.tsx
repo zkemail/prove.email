@@ -19,6 +19,7 @@ const SubItemDesktop = ({
 }) => (
   <Link
     href={href}
+    target={href.includes("http") ? "_blank" : "_self"}
     className="nav-sub-items max-w-full w-full flex-col justify-center flex-grow flex items-center rounded-lg pb-4"
     onClick={onClick}
   >
@@ -46,7 +47,7 @@ const NAV_ITEMS_DATA: {
       icon: "/assets/NavDocumentation.png",
       title: "Documentation",
       description: "Get started with our tech",
-      href: "/docs",
+      href: "https://zkemail.gitbook.io/zk-email",
     },
     {
       icon: "/assets/NavProjects.png",
@@ -68,18 +69,18 @@ const NAV_ITEMS_DATA: {
       description: "Our team battlefield notes",
       href: "/blogs",
     },
-    {
-      icon: "/assets/NavPartners.png",
-      title: "Partner",
-      description: "Let's build the future",
-      href: "/partners",
-    },
-    {
-      icon: "/assets/NavLearnMore.png",
-      title: "Learn More",
-      description: "About our underlying tech",
-      href: "/learn-more",
-    },
+    // {
+    //   icon: "/assets/NavPartners.png",
+    //   title: "Partner",
+    //   description: "Let's build the future",
+    //   href: "/partners",
+    // },
+    // {
+    //   icon: "/assets/NavLearnMore.png",
+    //   title: "Learn More",
+    //   description: "About our underlying tech",
+    //   href: "/learn-more",
+    // },
   ],
 };
 
@@ -190,7 +191,7 @@ const Navbar = () => {
         </div>
         <div
           ref={contentRefDesktop}
-          className="w-full flex flex-row justify-between gap-3 overflow-hidden"
+          className="w-full grid grid-cols-3 justify-between gap-3 overflow-hidden"
           onMouseEnter={() =>
             hoveredSection && handleMouseEnter(hoveredSection)
           }
@@ -202,7 +203,7 @@ const Navbar = () => {
               (item, index) => (
                 <div
                   key={index}
-                  className="w-full max-w-full"
+                  className="w-full max-w-full h-full"
                   style={{
                     paddingTop: hoveredSection ? 16 : 0,
                     opacity: index < visibleItems ? 1 : 0,
