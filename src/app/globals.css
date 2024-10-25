@@ -120,6 +120,13 @@ section {
   font-weight: 300;
 }
 
+.nav-sub-items {
+  background: url("/assets/NavItemsBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 @media (min-width: 1500px) {
   .h1 {
     font-size: 3.5rem;
