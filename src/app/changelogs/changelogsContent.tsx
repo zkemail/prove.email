@@ -9,7 +9,7 @@ const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
   return (
     <div
       className="container-width container-padding m-auto"
-      style={{ paddingTop: "10rem" }}
+      style={{ paddingTop: "10rem", paddingBottom: "10rem" }}
     >
       <div>
         <p className="h3 text-left" style={{ textAlign: "left" }}>
@@ -50,7 +50,11 @@ const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
                 className={`mx-12 relative md:block hidden ${
                   index === 0 ? "mt-6" : "mt-0"
                 }`}
-                style={{ width: 0, border: "1px solid #272727", zIndex: -1 }}
+                style={{
+                  width: 0,
+                  border: "1px solid #272727",
+                  zIndex: -1,
+                }}
               />
               <div
                 className="mt-1 body1 block md:hidden"
