@@ -9,9 +9,10 @@ const ZKP2PProjectLogo = "/assets/zkp2p.webp";
 const OpenPassportLogo = "/assets/OpenPassportLogo.svg";
 const ProofOfTwitterLogo = "/assets/proofOfTwitter.png";
 const AccountRecoveryLogo = "/assets/accountRecovery.png";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import Link from "next/link";
+import Image from "next/image";
 
 const PROJECTS = [
   {
@@ -48,12 +49,42 @@ const PartnersAndProjects = () => {
           From next-gen enterprises to established organizations
         </p>
         <div className="partner-logos">
-          <img src={EthereumFoundationLogo} alt="EthereumFoundationLogo" />
-          <img src={IYKLogo} alt="IYKLogo" />
-          <img src={GitcoinPassportLogo} alt="GitcoinPassportLogo" />
-          <img src={ZKP2PLogo} alt="ZKP2PLogo" />
-          <img src={ClaveLogo} alt="ClaveLogo" />
-          <img src={OpenPassportLogo} alt="OpenPassportLogo" />
+          <Image
+            height={36}
+            width={150}
+            src={EthereumFoundationLogo}
+            alt="EthereumFoundationLogo"
+          />
+          <Image
+            height={36}
+            width={150}
+            src={IYKLogo}
+            alt="IYKLogo"
+          />
+          <Image
+            height={36}
+            width={150}
+            src={GitcoinPassportLogo}
+            alt="GitcoinPassportLogo"
+          />
+          <Image
+            height={36}
+            width={150}
+            src={ZKP2PLogo}
+            alt="ZKP2PLogo"
+          />
+          <Image
+            height={36}
+            width={150}
+            src={ClaveLogo}
+            alt="ClaveLogo"
+          />
+          <Image
+            height={36}
+            width={150}
+            src={OpenPassportLogo}
+            alt="OpenPassportLogo"
+          />
         </div>
       </div>
       <div

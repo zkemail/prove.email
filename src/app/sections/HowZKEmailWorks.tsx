@@ -124,7 +124,16 @@ const FlowDetailsCard = ({
         </a>
       </div>
       <div>
-        <img src={imgSrc} style={{ height: "100%" }} alt={`${title}-image`} />
+        <img
+          src={imgSrc}
+          style={{
+            height: "100%",
+            width: "100%",
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+          alt={`${title}-image`}
+        />
       </div>
     </div>
   );

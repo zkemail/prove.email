@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -19,7 +20,13 @@ const Navbar = () => {
       <nav className="navbar container-width navbar-desktop relative flex flex-col">
         <div className=" w-full flex flex-row justify-between">
           <Link href="/">
-            <img src={"/assets/Logo.svg"} alt="zkemail-logo" />
+            <Image
+              layout="responsive"
+              src={"/assets/Logo.svg"}
+              alt="zkemail-logo"
+              height={20}
+              width={94}
+            />
           </Link>
           <div style={{ display: "flex", gap: 24 }}>
             <div
@@ -54,9 +61,19 @@ const Navbar = () => {
 
       <nav className="navbar container-width navbar-mobile">
         <Link href="/">
-          <img src={"/assets/Logo.svg"} alt="zkemail-logo" />
+          <Image
+            height={20}
+            width={94}
+            src={"/assets/Logo.svg"}
+            alt="zkemail-logo"
+          />
         </Link>
-        <img src={"/assets/Breadcrumb.svg"} alt="BreadCrumb" />
+        <Image
+          src={"/assets/Breadcrumb.svg"}
+          alt="BreadCrumb"
+          height={24}
+          width={24}
+        />
       </nav>
     </>
   );
