@@ -1,6 +1,28 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const Footer = () => {
+  const [hoveredImages, setHoveredImages] = useState({
+    XLogo: false,
+    YoutubeLogo: false,
+    TelegramLogo: false,
+    GithubLogo: false,
+  });
+
+  const handleMouseEnter = (
+    image: "XLogo" | "YoutubeLogo" | "TelegramLogo" | "GithubLogo"
+  ) => {
+    setHoveredImages((prev) => ({ ...prev, [image]: true }));
+  };
+
+  const handleMouseLeave = (
+    image: "XLogo" | "YoutubeLogo" | "TelegramLogo" | "GithubLogo"
+  ) => {
+    setHoveredImages((prev) => ({ ...prev, [image]: false }));
+  };
+
   return (
     <>
       <div
@@ -22,7 +44,11 @@ const Footer = () => {
             >
               Developers
             </p>
-            <Link href="https://zkemail.gitbook.io/zk-email" target="_blank" className="subtitle2">
+            <Link
+              href="https://zkemail.gitbook.io/zk-email"
+              target="_blank"
+              className="subtitle2"
+            >
               Docs
             </Link>
             <Link href="/projects" className="subtitle2">
@@ -53,16 +79,52 @@ const Footer = () => {
 
           <div className="flex flex-row gap-3">
             <Link href="https://x.com/zkemail?lang=en" target="_blank">
-              <img src={"/assets/XLogo.svg"} alt="twitter-logo" />
+              <img
+                onMouseEnter={() => handleMouseEnter("XLogo")}
+                onMouseLeave={() => handleMouseLeave("XLogo")}
+                src={
+                  hoveredImages["XLogo"]
+                    ? "/assets/XLogoFilled.svg"
+                    : "/assets/XLogo.svg"
+                }
+                alt="twitter-logo"
+              />
             </Link>
             <Link href="https://www.youtube.com/@sigsing" target="_blank">
-              <img src={"/assets/YoutubeLogo.svg"} alt="youtube-logo" />
+              <img
+                onMouseEnter={() => handleMouseEnter("YoutubeLogo")}
+                onMouseLeave={() => handleMouseLeave("YoutubeLogo")}
+                src={
+                  hoveredImages["YoutubeLogo"]
+                    ? "/assets/YoutubeLogoFilled.svg"
+                    : "/assets/YoutubeLogo.svg"
+                }
+                alt="youtube-logo"
+              />
             </Link>
             <Link href="https://t.me/zkemail" target="_blank">
-              <img src={"/assets/TelegramLogo.svg"} alt="telegram-logo" />
+              <img
+                onMouseEnter={() => handleMouseEnter("TelegramLogo")}
+                onMouseLeave={() => handleMouseLeave("TelegramLogo")}
+                src={
+                  hoveredImages["TelegramLogo"]
+                    ? "/assets/TelegramLogoFilled.svg"
+                    : "/assets/TelegramLogo.svg"
+                }
+                alt="telegram-logo"
+              />
             </Link>
             <Link href="https://github.com/zkemail" target="_blank">
-              <img src={"/assets/GithubLogo.svg"} alt="telegram-logo" />
+              <img
+                onMouseEnter={() => handleMouseEnter("GithubLogo")}
+                onMouseLeave={() => handleMouseLeave("GithubLogo")}
+                src={
+                  hoveredImages["GithubLogo"]
+                    ? "/assets/GithubLogoFilled.svg"
+                    : "/assets/GithubLogo.svg"
+                }
+                alt="github-logo"
+              />
             </Link>
           </div>
         </div>
