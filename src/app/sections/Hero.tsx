@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import Button from "../components/Button";
 import Image from "next/image";
 
@@ -12,11 +11,17 @@ const MARQUEE_ITEMS = [
   "Send or receive assets",
 ];
 
+import dynamic from "next/dynamic";
+
+const DynamicMarquee = dynamic(() => import("../components/Marquee"), {
+  ssr: false,
+});
+
 const Hero = () => {
   return (
     <section style={{ height: "100vh" }}>
       <div
-        className="w-full lg:w-[70vw] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center" 
+        className="w-full lg:w-[70vw] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center"
         style={{
           textAlign: "center",
         }}
@@ -108,7 +113,11 @@ const Hero = () => {
           }}
           height={922}
           width={412}
-          layout="responsive"
+          priority
+          loading="eager"
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 412 922'%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='20'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%23718096'/%3E%3C/svg%3E"
+          sizes="(max-width: 768px) 70vw, 412px"
         />
         <Image
           src={"/assets/HeroImg.webp"}
@@ -125,25 +134,7 @@ const Hero = () => {
           width={412}
           layout="responsive"
         />
-        <div className="marquee">
-          <div className="marquee-container">
-            <div className="marquee-inner">
-              {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map(
-                (item, index) => (
-                  <Fragment key={index}>
-                    <span className="marquee-item">{item}</span>
-                    <Image
-                      height={20}
-                      width={20}
-                      src={"/assets/MarqueeSeparator.svg"}
-                      alt="◆"
-                    />
-                  </Fragment>
-                )
-              )}
-            </div>
-          </div>
-        </div>
+        <DynamicMarquee items={MARQUEE_ITEMS} />
       </div>
     </section>
   );
