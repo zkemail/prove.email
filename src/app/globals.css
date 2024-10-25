@@ -68,7 +68,7 @@ section {
   opacity: .07;
   pointer-events: none;
   mix-blend-mode: hard-light;
-  background-image: url("https://cdn.prod.website-files.com/5f6b7190899f41fb70882d08/65ef502da8040d3a22232a77_noise%20(1).jpg");
+  background-image: url("/assets/noise.jpg");
   background-position: 0 0;
   background-size: 100px 100px;
   flex: 1 0 auto;
@@ -118,6 +118,16 @@ section {
   text-wrap: balance;
   font-family: "Newsreader", serif;
   font-weight: 300;
+}
+
+@media (min-width: 1500px) {
+  .h1 {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+    text-wrap: balance;
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+  }
 }
 
 .h2 {
@@ -234,7 +244,7 @@ section {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  gap: 1rem;
+  gap: 2.5rem;
   align-items: center;
   margin: 2.5rem 0;
   justify-items: center;
@@ -286,7 +296,7 @@ section {
 
   .navbar {
     width: calc(100vw - 20px - 20px);
-    top: 2.5rem;
+    top: 1.125rem;
   }
 
   .h1 {

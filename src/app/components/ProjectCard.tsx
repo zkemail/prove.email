@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 
 const ProjectCard = ({
@@ -139,7 +140,13 @@ const ProjectCard = ({
             overflow: "hidden",
           }}
         >
-          <img src={imgSrc} alt={`${title}-image`} />
+          <Image
+            width={280}
+            height={220}
+            layout="responsive"
+            src={imgSrc}
+            alt={`${title}-image`}
+          />
         </div>
         <div
           className=" lg:h-40 h-max"

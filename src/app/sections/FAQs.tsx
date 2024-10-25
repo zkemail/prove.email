@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Button from "../components/Button";
+import Image from "next/image";
 
 const AccordianItem = ({
   faq,
@@ -14,7 +15,7 @@ const AccordianItem = ({
   handleToggle: (index: number) => void;
   open: boolean;
 }) => {
-  const ref = useRef<HTMLDivElement | null>(null);  // Typing the ref correctly
+  const ref = useRef<HTMLDivElement | null>(null); // Typing the ref correctly
 
   return (
     <div key={faq.question}>
@@ -27,10 +28,12 @@ const AccordianItem = ({
           <span className="body1">{faq.question}</span>
         </div>
         <span>
-          <img
+          <Image
             src={"/assets/ChevronDown.svg"}
             className={`transition-transform ${open ? "rotate-180" : ""}`}
             alt="chevron-icon"
+            height={20}
+            width={20}
           />
         </span>
       </button>
@@ -88,14 +91,24 @@ const FAQs = () => {
               Quick answers to the common questions you might have.{" "}
               <br className="hidden md:inline"></br>
               Can’t find what you looking for? Read our docs or{" "}
-              <a href="https://t.me/zkemail" className=" underline text-[#F5F3EF]">
+              <a
+                href="https://t.me/zkemail"
+                className=" underline text-[#F5F3EF]"
+              >
                 contact us
               </a>
             </p>
           </div>
           <div>
             <Button
-              endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
+              endIcon={
+                <Image
+                  height={16}
+                  width={16}
+                  src="/assets/CaretRight.svg"
+                  alt="caret-right"
+                />
+              }
               href="https://zkemail.gitbook.io/zk-email"
             >
               Read Docs

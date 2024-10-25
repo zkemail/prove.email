@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { dateFormatter } from "../utils/dateFormatter";
 
 type ChangelogType = { date: string; content: string };
@@ -30,7 +31,7 @@ const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
                   <div className="mt-1 body1" style={{ color: "#D4D4D4" }}>
                     {dateFormatter(log?.date)}
                   </div>
-                  <img
+                  <Image
                     className=" h-4 w-4 max-w-max absolute"
                     style={{
                       left: "calc(100% + 48px)",
@@ -39,6 +40,9 @@ const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
                     }}
                     src="/assets/BlueDiamond.svg"
                     alt="◆"
+                    height={20}
+                    width={20}
+                    layout="responsive"
                   />
                 </div>
               </div>

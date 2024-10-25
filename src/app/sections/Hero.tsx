@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import Button from "../components/Button";
+import Image from "next/image";
 
 const MARQUEE_ITEMS = [
   "Recover account",
@@ -15,7 +16,7 @@ const Hero = () => {
   return (
     <section style={{ height: "100vh" }}>
       <div
-        className="w-full lg:w-[70vw] pt-40 lg:pt-32"
+        className="w-full lg:w-[70vw] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center" 
         style={{
           textAlign: "center",
         }}
@@ -39,19 +40,33 @@ const Hero = () => {
           <br /> protocols that enables email-based identity
         </p>
         <div className="flex gap-8 justify-center pt-10 lg:pt-8">
-          <Button
+          {/* <Button
             href="https://prove.email/"
             color="primary"
-            endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
+            endIcon={
+              <Image
+                height={16}
+                width={16}
+                src="/assets/CaretRight.svg"
+                alt="caret-right"
+              />
+            }
           >
             Learn
-          </Button>
+          </Button> */}
           <Button
-            href="https://prove.email/"
+            href="https://docs.prove.email/introduction"
             color="secondary"
-            endIcon={<img src="/assets/FileTextIcon.svg" alt="file-icon" />}
+            endIcon={
+              <Image
+                height={16}
+                width={16}
+                src="/assets/arrowRight.svg"
+                alt="file-icon"
+              />
+            }
           >
-            Docs
+            Get Started
           </Button>
         </div>
       </div>
@@ -80,7 +95,7 @@ const Hero = () => {
           alignItems: "center",
         }}
       >
-        <img
+        <Image
           src={"/assets/HeroImgMobile.webp"}
           alt="hero-image"
           className="image-mobile"
@@ -91,8 +106,11 @@ const Hero = () => {
             boxShadow:
               "0px -4px 32px 0px rgba(0, 0, 0, 0.32), 0px 4px 4px 0px rgba(29, 29, 29, 0.60) inset",
           }}
+          height={922}
+          width={412}
+          layout="responsive"
         />
-        <img
+        <Image
           src={"/assets/HeroImg.webp"}
           alt="hero-image"
           className="image-desktop"
@@ -103,6 +121,9 @@ const Hero = () => {
             boxShadow:
               "0px -4px 32px 0px rgba(0, 0, 0, 0.32), 0px 4px 4px 0px rgba(29, 29, 29, 0.60) inset",
           }}
+          height={321}
+          width={412}
+          layout="responsive"
         />
         <div className="marquee">
           <div className="marquee-container">
@@ -111,7 +132,12 @@ const Hero = () => {
                 (item, index) => (
                   <Fragment key={index}>
                     <span className="marquee-item">{item}</span>
-                    <img src={"/assets/MarqueeSeparator.svg"} alt="◆" />
+                    <Image
+                      height={20}
+                      width={20}
+                      src={"/assets/MarqueeSeparator.svg"}
+                      alt="◆"
+                    />
                   </Fragment>
                 )
               )}

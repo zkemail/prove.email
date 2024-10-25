@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -30,10 +31,13 @@ const Footer = () => {
         style={{ borderTop: "1px solid var(--Grey-800, #3B3B3B)" }}
       >
         <div>
-          <img
+          <Image
             className=" lg:w-2/4 w-full"
             src={"/assets/FooterLogo1.png"}
             alt="ZK Email Footer Logo"
+            width={1800}
+            height={1400}
+            layout="responsive"
           />
         </div>
         <div className="flex flex-row justify-between w-full lg:w-[440px] px-5 pb-10 lg:p-0 lg:mr-12">
@@ -79,7 +83,7 @@ const Footer = () => {
 
           <div className="flex flex-row gap-3">
             <Link href="https://x.com/zkemail?lang=en" target="_blank">
-              <img
+              <Image
                 onMouseEnter={() => handleMouseEnter("XLogo")}
                 onMouseLeave={() => handleMouseLeave("XLogo")}
                 src={
@@ -88,10 +92,13 @@ const Footer = () => {
                     : "/assets/XLogo.svg"
                 }
                 alt="twitter-logo"
+                layout="responsive"
+                height={20}
+                width={20}
               />
             </Link>
             <Link href="https://www.youtube.com/@sigsing" target="_blank">
-              <img
+              <Image
                 onMouseEnter={() => handleMouseEnter("YoutubeLogo")}
                 onMouseLeave={() => handleMouseLeave("YoutubeLogo")}
                 src={
@@ -100,10 +107,13 @@ const Footer = () => {
                     : "/assets/YoutubeLogo.svg"
                 }
                 alt="youtube-logo"
+                layout="responsive"
+                height={20}
+                width={20}
               />
             </Link>
             <Link href="https://t.me/zkemail" target="_blank">
-              <img
+              <Image
                 onMouseEnter={() => handleMouseEnter("TelegramLogo")}
                 onMouseLeave={() => handleMouseLeave("TelegramLogo")}
                 src={
@@ -112,10 +122,13 @@ const Footer = () => {
                     : "/assets/TelegramLogo.svg"
                 }
                 alt="telegram-logo"
+                layout="responsive"
+                height={20}
+                width={20}
               />
             </Link>
             <Link href="https://github.com/zkemail" target="_blank">
-              <img
+              <Image
                 onMouseEnter={() => handleMouseEnter("GithubLogo")}
                 onMouseLeave={() => handleMouseLeave("GithubLogo")}
                 src={
@@ -124,6 +137,9 @@ const Footer = () => {
                     : "/assets/GithubLogo.svg"
                 }
                 alt="github-logo"
+                layout="responsive"
+                height={20}
+                width={20}
               />
             </Link>
           </div>

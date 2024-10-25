@@ -3,10 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import Button from "../components/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 const RedDiamond = "/assets/RedDiamond.svg";
 const GreenDiamond = "/assets/GreenDiamond.svg";
-const CaretRight = "/assets/CaretRight.svg";
 const CaretLeft = "/assets/CaretLeft.svg";
 const BlueDiamond = "/assets/BlueDiamondOutlined.svg";
 
@@ -237,11 +237,11 @@ const Resources = () => {
             >
               <Link href={resource.url}>
                 <div className="shadow-md overflow-hidden cursor-pointer relative h-72 transform transition-transform duration-300 ease-in-out">
-                  <img
+                  {/* <img
                     src={resource.thumbnail}
                     alt={`${resource.title}-image`}
                     className="absolute top-0 left-0 w-full h-3/5 object-cover opacity-50 transition-opacity duration-300 ease-in-out hover:opacity-100"
-                  />
+                  /> */}
 
                   <div
                     className="p-4 grid grid-cols-2 bg-black relative border-solid border-[1px] border-[#272727]"
@@ -310,14 +310,29 @@ const Resources = () => {
       {!isSmallScreen && (
         <div className="flex justify-center space-x-4 mt-12">
           <Button
-            startIcon={<img src={CaretLeft} style={{color: 'red'}} alt="caret-left" />}
+            startIcon={
+              <Image
+                height={16}
+                width={16}
+                src={CaretLeft}
+                style={{ color: "red" }}
+                alt="caret-left"
+              />
+            }
             onClick={handlePrevious}
             disabled={currentIndex === 0}
           >
             Previous
           </Button>
           <Button
-            endIcon={<img src="/assets/CaretRight.svg" alt="caret-right" />}
+            endIcon={
+              <Image
+                height={16}
+                width={16}
+                src="/assets/CaretRight.svg"
+                alt="caret-right"
+              />
+            }
             onClick={handleNext}
             disabled={currentIndex >= RESOURCES.length - getVisibleCards()}
           >
