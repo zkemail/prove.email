@@ -271,7 +271,7 @@ const Navbar = () => {
             >
               <div
                 className="flex flex-col justify-between"
-                style={{ height: "calc(100vh + 24px - 60px" }}
+                style={{ height: "calc(100dvh + 24px - 60px" }}
               >
                 <div className="flex flex-row justify-between items-center p-4 px-6">
                   <Link href="/">
