@@ -15,7 +15,7 @@ const PostContainer = ({ post }: { post: Meta }) => {
         <Image
           width={278}
           height={156}
-          src={post.ogImage ?? "/blog-media/email-account-recovery/banner.png"}
+          src={post.ogImage ?? "/blog-media/email-account-recovery/webp/banner.webp"}
           alt={post.title}
         />
         <div>
