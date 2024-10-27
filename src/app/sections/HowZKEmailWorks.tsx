@@ -15,7 +15,7 @@ const FLOW_DETAILS = [
     imgSrc: DKIMIcon,
   },
   {
-    title: "Regex (Hashing & Regex)",
+    title: "Regex and Hashing",
     description:
       "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
     link: "",
