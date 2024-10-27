@@ -25,7 +25,7 @@ export async function generateMetadata({
         {
           url: meta.ogImage
             ? `https://prove.email${meta.ogImage}`
-            : `https://prove.email/blog-media/default/zk-email-default-banner.png`,
+            : `https://prove.email/blog-media/default/zk-email-default-banner.webp`,
           width: 1200,
           height: 630,
           alt: meta.title,
