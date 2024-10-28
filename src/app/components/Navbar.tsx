@@ -144,7 +144,7 @@ const Navbar = () => {
         <div className="w-full flex flex-row justify-between">
           <Link href="/">
             <Image
-              layout="responsive"
+              
               src={"/assets/Logo.svg"}
               alt="zkemail-logo"
               height={20}
@@ -262,7 +262,8 @@ const Navbar = () => {
               style={{
                 paddingTop: 0,
                 border: "1px solid var(--Grey-850, #272727)",
-                background: "url(/assets/MobileNavBackground.webp)",
+                backgroundImage: "url(/assets/MobileNavBackground.webp)",
+                backgroundColor: "black",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: `${contentHeight}px`,
@@ -280,6 +281,7 @@ const Navbar = () => {
                       width={94}
                       src={"/assets/Logo.svg"}
                       alt="zkemail-logo"
+                      priority
                     />
                   </Link>
                   <Image
@@ -295,6 +297,7 @@ const Navbar = () => {
                     alt="CrossIcon"
                     height={24}
                     width={24}
+                    priority
                   />
                 </div>
                 <div>
@@ -339,9 +342,10 @@ const Navbar = () => {
                         <Image
                           src={"/assets/XLogo.svg"}
                           alt="twitter-logo"
-                          layout="responsive"
+                          
                           height={20}
                           width={20}
+                          priority
                         />
                       </Link>
                       <Link
@@ -351,27 +355,30 @@ const Navbar = () => {
                         <Image
                           src={"/assets/YoutubeLogo.svg"}
                           alt="youtube-logo"
-                          layout="responsive"
+                          
                           height={20}
                           width={20}
+                          priority
                         />
                       </Link>
                       <Link href="https://t.me/zkemail" target="_blank">
                         <Image
                           src={"/assets/TelegramLogo.svg"}
                           alt="telegram-logo"
-                          layout="responsive"
+                          
                           height={20}
                           width={20}
+                          priority
                         />
                       </Link>
                       <Link href="https://github.com/zkemail" target="_blank">
                         <Image
                           src={"/assets/GithubLogo.svg"}
                           alt="github-logo"
-                          layout="responsive"
+                          
                           height={20}
                           width={20}
+                          priority
                         />
                       </Link>
                     </div>
