@@ -9,6 +9,7 @@ const ProjectCard = ({
   index,
   setHoveredCardIdx,
   link,
+  ...props
 }: {
   title: string;
   description: string;
@@ -17,6 +18,8 @@ const ProjectCard = ({
   index: number;
   setHoveredCardIdx: Dispatch<SetStateAction<number | null>>; // Correct type
   link: string;
+  style?: React.CSSProperties;
+  ref?: React.RefObject<HTMLDivElement>;
 }) => {
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -65,6 +68,7 @@ const ProjectCard = ({
       style={{
         transform: `scale(${scale})`,
       }}
+      {...props}
     >
       <div
         className="projectPins"
