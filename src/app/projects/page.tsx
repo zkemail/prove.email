@@ -3,12 +3,18 @@
 import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import { PROJECTS } from "../contants";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const Projects = () => {
   const [hoveredCardIdx, setHoveredCardIdx] = useState<number | null>(null);
+  const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
+
+  const cardAnimations = PROJECTS.map((_, index) =>
+    useAnimateIn(undefined, { delay: 100 + index * 100 })
+  );
 
   return (
-    <section>
+    <section ref={sectionRef} style={sectionStyles}>
       <div
         className="container-width container-padding"
         style={{
@@ -29,6 +35,8 @@ const Projects = () => {
               index={index}
               hoveredCardIdx={hoveredCardIdx}
               setHoveredCardIdx={setHoveredCardIdx}
+              style={cardAnimations[index][0]}
+              ref={cardAnimations[index][1]}
             />
           ))}
         </div>
