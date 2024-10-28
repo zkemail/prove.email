@@ -91,7 +91,7 @@ const Footer = () => {
               className="subtitle2"
               target="_blank"
             >
-              Archive Privacy Policy
+              Archive Policy
             </Link>
           </div>
 
