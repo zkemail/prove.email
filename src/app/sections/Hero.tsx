@@ -24,7 +24,6 @@ const Hero = () => {
   const [subtitleStyles, subtitleRef] = useAnimateIn(undefined, { delay: 100 });
   const [buttonStyles, buttonRef] = useAnimateIn(undefined, { delay: 200 });
   const [imageStyles, imageRef] = useAnimateIn(undefined, { delay: 300 });
-  const [marqueeStyles, marqueeRef] = useAnimateIn(true);
 
   return (
     <section style={{ height: "100vh" }}>
@@ -44,7 +43,8 @@ const Hero = () => {
             alignSelf: "stretch",
           }}
         >
-          Bringing on-chain trust to the masses through intuitive email integrations
+          Bringing on-chain trust to the masses through intuitive email
+          integrations
         </p>
         <p
           ref={subtitleRef}
@@ -140,12 +140,8 @@ const Hero = () => {
           width={412}
           layout="responsive"
         />
-        <div
-          ref={marqueeRef}
-          style={marqueeStyles}
-        >
-          <DynamicMarquee items={MARQUEE_ITEMS} />
-        </div>
+
+        <DynamicMarquee items={MARQUEE_ITEMS} />
       </div>
     </section>
   );

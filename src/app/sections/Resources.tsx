@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Button from "../components/Button";
 import Link from "next/link";
 import Image from "next/image";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const RedDiamond = "/assets/RedDiamond.svg";
 const GreenDiamond = "/assets/GreenDiamond.svg";
@@ -142,6 +143,7 @@ const RESOURCES: Resource[] = [
 
 const Resources = () => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [styles, ref] = useAnimateIn();
 
   const isLargeScreen = windowWidth >= 1280;
   const isMediumScreen = windowWidth >= 1024 && windowWidth < 1280;
@@ -196,7 +198,7 @@ const Resources = () => {
   };
 
   return (
-    <div>
+    <div ref={ref} style={styles}>
       <h1 className="h3">Resources</h1>
       <p className="subtitle1 text-center mb-[50px] px-5">
         Read our recent blogs, talks and documentations

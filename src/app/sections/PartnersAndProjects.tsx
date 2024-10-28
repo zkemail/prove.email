@@ -11,15 +11,19 @@ import ProjectCard from "../components/ProjectCard";
 import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS } from "../contants";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const PartnersAndProjects = () => {
   const [hoveredCardIdx, setHoveredCardIdx] = useState<number | null>(null);
+  const [partnersStyles, partnersRef] = useAnimateIn(undefined, { delay: 0 });
+  const [projectStyles, projectRef] = useAnimateIn(undefined, { delay: 100 });
 
   return (
     <section>
       <div
         className="container-width container-padding"
-        style={{ textAlign: "center" }}
+        style={{ ...partnersStyles, textAlign: "center" }}
+        ref={partnersRef}
       >
         <p className="h3">Trusted by the best</p>
         <p className="subtitle1">
@@ -32,30 +36,15 @@ const PartnersAndProjects = () => {
             src={EthereumFoundationLogo}
             alt="EthereumFoundationLogo"
           />
-          <Image
-            height={36}
-            width={150}
-            src={IYKLogo}
-            alt="IYKLogo"
-          />
+          <Image height={36} width={150} src={IYKLogo} alt="IYKLogo" />
           <Image
             height={36}
             width={150}
             src={GitcoinPassportLogo}
             alt="GitcoinPassportLogo"
           />
-          <Image
-            height={36}
-            width={150}
-            src={ZKP2PLogo}
-            alt="ZKP2PLogo"
-          />
-          <Image
-            height={36}
-            width={150}
-            src={ClaveLogo}
-            alt="ClaveLogo"
-          />
+          <Image height={36} width={150} src={ZKP2PLogo} alt="ZKP2PLogo" />
+          <Image height={36} width={150} src={ClaveLogo} alt="ClaveLogo" />
           <Image
             height={36}
             width={150}
@@ -66,19 +55,28 @@ const PartnersAndProjects = () => {
       </div>
       <div
         className="container-width container-padding"
-        style={{ textAlign: "center", paddingTop: "6rem" }}
+        style={{ ...projectStyles, textAlign: "center", paddingTop: "6rem" }}
+        ref={projectRef}
       >
         <p className="h3">ZK Email in Action</p>
         <div className="project-cards-container">
-          {PROJECTS.slice(0, 3).map((project, index) => (
-            <ProjectCard
-              {...project}
-              key={project.title}
-              index={index}
-              hoveredCardIdx={hoveredCardIdx}
-              setHoveredCardIdx={setHoveredCardIdx}
-            />
-          ))}
+          {PROJECTS.slice(0, 3).map((project, index) => {
+            const [cardStyles, cardRef] = useAnimateIn(undefined, {
+              delay: 100 + index * 100,
+            });
+
+            return (
+              <ProjectCard
+                {...project}
+                style={cardStyles}
+                ref={cardRef}
+                key={project.title}
+                index={index}
+                hoveredCardIdx={hoveredCardIdx}
+                setHoveredCardIdx={setHoveredCardIdx}
+              />
+            );
+          })}
         </div>
 
         <Link href={"/projects"}>

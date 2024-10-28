@@ -5,6 +5,7 @@ const ZKCircuitsIcon = "/assets/ZKCircuitsIcon.webp";
 const RegexIcon = "/assets/RegexIcon.png";
 const DKIMIcon = "/assets/DKIMIcon.png";
 import { useRef, useState } from "react";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const FLOW_DETAILS = [
   {
@@ -140,8 +141,10 @@ const FlowDetailsCard = ({
 };
 
 const HowZKEmailWorks = () => {
+  const [styles, ref] = useAnimateIn();
+
   return (
-    <section>
+    <section ref={ref} style={styles}>
       <div
         className="container-width container-padding"
         style={{ textAlign: "center" }}
