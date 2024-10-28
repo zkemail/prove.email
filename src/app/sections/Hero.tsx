@@ -12,12 +12,20 @@ const MARQUEE_ITEMS = [
 ];
 
 import dynamic from "next/dynamic";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const DynamicMarquee = dynamic(() => import("../components/Marquee"), {
   ssr: false,
 });
 
 const Hero = () => {
+  // Create refs for different sections
+  const [headingStyles, headingRef] = useAnimateIn(undefined, { delay: 0 });
+  const [subtitleStyles, subtitleRef] = useAnimateIn(undefined, { delay: 100 });
+  const [buttonStyles, buttonRef] = useAnimateIn(undefined, { delay: 200 });
+  const [imageStyles, imageRef] = useAnimateIn(undefined, { delay: 300 });
+  const [marqueeStyles, marqueeRef] = useAnimateIn(true);
+
   return (
     <section style={{ height: "100vh" }}>
       <div
@@ -27,38 +35,34 @@ const Hero = () => {
         }}
       >
         <p
+          ref={headingRef}
           className="h1"
           style={{
+            ...headingStyles,
             letterSpacing: "-0.6px",
             fontStyle: "normal",
             alignSelf: "stretch",
           }}
         >
-          Bringing on-chain trust to the masses through intuitive email
-          integrations
+          Bringing on-chain trust to the masses through intuitive email integrations
         </p>
         <p
+          ref={subtitleRef}
           className="subtitle1"
-          style={{ marginTop: "1rem", textWrap: "balance" }}
+          style={{
+            ...subtitleStyles,
+            marginTop: "1rem",
+            textWrap: "balance",
+          }}
         >
           Extensive set of open source SDKs, libraries, and
           <br /> protocols that enables email-based identity
         </p>
-        <div className="flex gap-8 justify-center pt-10 lg:pt-8">
-          {/* <Button
-            href="https://prove.email/"
-            color="primary"
-            endIcon={
-              <Image
-                height={16}
-                width={16}
-                src="/assets/CaretRight.svg"
-                alt="caret-right"
-              />
-            }
-          >
-            Learn
-          </Button> */}
+        <div
+          ref={buttonRef}
+          className="flex gap-8 justify-center pt-10 lg:pt-8"
+          style={buttonStyles}
+        >
           <Button
             href="https://docs.prove.email/introduction"
             color="secondary"
@@ -90,7 +94,9 @@ const Hero = () => {
         }}
       />
       <div
+        ref={imageRef}
         style={{
+          ...imageStyles,
           position: "absolute",
           width: "100vw",
           bottom: -1.5,
@@ -134,7 +140,12 @@ const Hero = () => {
           width={412}
           layout="responsive"
         />
-        <DynamicMarquee items={MARQUEE_ITEMS} />
+        <div
+          ref={marqueeRef}
+          style={marqueeStyles}
+        >
+          <DynamicMarquee items={MARQUEE_ITEMS} />
+        </div>
       </div>
     </section>
   );
