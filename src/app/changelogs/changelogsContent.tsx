@@ -2,14 +2,18 @@
 
 import Image from "next/image";
 import { dateFormatter } from "../utils/dateFormatter";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 type ChangelogType = { date: string; content: string };
 
 const ChangelogsContent = ({ changeLogs }: { changeLogs: ChangelogType[] }) => {
+  const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
+
   return (
     <div
+      ref={sectionRef}
       className="container-width container-padding m-auto"
-      style={{ paddingTop: "10rem", paddingBottom: "10rem" }}
+      style={{ ...sectionStyles, paddingTop: "10rem", paddingBottom: "10rem" }}
     >
       <div>
         <p className="h3 text-left" style={{ textAlign: "left" }}>
