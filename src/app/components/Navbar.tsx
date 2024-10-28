@@ -88,8 +88,27 @@ const Navbar = () => {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [contentHeight, setContentHeight] = useState<number>(0);
   const [visibleItems, setVisibleItems] = useState<number>(0);
+  const [showContent, setShowContent] = useState(false);
   const contentRefDesktop = useRef<HTMLDivElement>(null);
   const contentRefMobile = useRef<HTMLDivElement>(null);
+
+  console.log(contentHeight);
+
+  useEffect(() => {
+    if (hoveredSection) {
+      // Reset content visibility first
+      setShowContent(false);
+
+      // Wait for height transition to complete (300ms) before showing content
+      const timer = setTimeout(() => {
+        setShowContent(true);
+      }, 300); // matches the transition duration in the parent
+
+      return () => clearTimeout(timer);
+    } else {
+      setShowContent(false);
+    }
+  }, [hoveredSection]);
 
   useEffect(() => {
     if (hoveredSection) {
@@ -144,7 +163,6 @@ const Navbar = () => {
         <div className="w-full flex flex-row justify-between">
           <Link href="/">
             <Image
-              
               src={"/assets/Logo.svg"}
               alt="zkemail-logo"
               height={20}
@@ -223,171 +241,135 @@ const Navbar = () => {
       </nav>
 
       <nav
-        className="navbar container-width navbar-mobile relative"
-        style={{ borderRadius: 16 }}
+        className="navbar container-width navbar-mobile relative flex flex-col"
+        style={{
+          borderRadius: 16,
+          height: hoveredSection ? "calc(100dvh + 24px - 60px)" : "60px",
+          transition: "height 0.3s ease-in-out",
+          backgroundImage: hoveredSection
+            ? "url(/assets/MobileNavBackground.webp)"
+            : undefined,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <Link href="/">
+        <div className="flex flex-row w-full justify-between items-center">
+          <Link href="/">
+            <Image
+              height={20}
+              width={94}
+              src={"/assets/Logo.svg"}
+              alt="zkemail-logo"
+            />
+          </Link>
           <Image
-            height={20}
-            width={94}
-            src={"/assets/Logo.svg"}
-            alt="zkemail-logo"
-          />
-        </Link>
-        <Image
-          className="ml-auto"
-          onClick={() => {
-            if (hoveredSection === null) {
-              return handleMouseEnter("breadcrumb");
+            className="ml-auto"
+            onClick={() => {
+              if (hoveredSection === null) {
+                return handleMouseEnter("breadcrumb");
+              }
+
+              handleMouseLeave();
+            }}
+            src={
+              hoveredSection
+                ? "/assets/CrossIcon.svg"
+                : "/assets/Breadcrumb.svg"
             }
-
-            handleMouseLeave();
-          }}
-          src={"/assets/Breadcrumb.svg"}
-          alt="BreadCrumb"
-          height={24}
-          width={24}
-        />
-        <div
-          ref={contentRefMobile}
-          className="w-full flex flex-row justify-between gap-3 overflow-hidden absolute top-0 left-0 rounded-2xl"
-          onMouseEnter={() =>
-            hoveredSection && handleMouseEnter(hoveredSection)
-          }
-          onMouseLeave={handleMouseLeave}
-        >
-          {hoveredSection && (
-            <div
-              className="bg-black w-full rounded-2xl"
-              style={{
-                paddingTop: 0,
-                border: "1px solid var(--Grey-850, #272727)",
-                backgroundImage: "url(/assets/MobileNavBackground.webp)",
-                backgroundColor: "black",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: `${contentHeight}px`,
-                transition: "height 0.3s ease-in-out",
-              }}
-            >
-              <div
-                className="flex flex-col justify-between"
-                style={{ height: "calc(100dvh + 24px - 60px" }}
-              >
-                <div className="flex flex-row justify-between items-center p-4 px-6">
-                  <Link href="/">
-                    <Image
-                      height={20}
-                      width={94}
-                      src={"/assets/Logo.svg"}
-                      alt="zkemail-logo"
-                      priority
-                    />
+            alt="BreadCrumb"
+            height={24}
+            width={24}
+          />
+        </div>
+        {hoveredSection && (
+          <div
+            className="flex flex-col w-full"
+            style={{
+              opacity: showContent ? 1 : 0,
+              filter: showContent ? "blur(0px)" : "blur(8px)",
+              transform: showContent ? "translateY(0)" : "translateY(10px)",
+              transition:
+                "opacity 0.3s ease-in-out, filter 0.3s ease-in-out, transform 0.3s ease-in-out",
+            }}
+          >
+            {Object.entries(NAV_ITEMS_DATA).map(([section, items]) => (
+              <div key={section} className="mb-8">
+                <h2 className="h4 font-semibold mb-4 capitalize">{section}</h2>
+                {items.map((item, index) => (
+                  <Link
+                    href={item.href}
+                    onClick={() => handleMouseLeave()}
+                    key={index}
+                    className="block mb-4"
+                  >
+                    <p className="h6 font-medium" style={{ color: "#F5F3EF" }}>
+                      {item.title}
+                    </p>
+                    <p className="subtitle2 text-gray-400">
+                      {item.description}
+                    </p>
                   </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+        {hoveredSection ? (
+          <div
+            className="flex flex-row w-full justify-between"
+            style={{
+              opacity: showContent ? 1 : 0,
+              filter: showContent ? "blur(0px)" : "blur(8px)",
+              transform: showContent ? "translateY(0)" : "translateY(10px)",
+              transition:
+                "opacity 0.3s ease-in-out, filter 0.3s ease-in-out, transform 0.3s ease-in-out",
+            }}
+          >
+            <div>
+              <p>Privacy Policy</p>
+            </div>
+            <div>
+              <div className="flex flex-row gap-3">
+                <Link href="https://x.com/zkemail?lang=en" target="_blank">
                   <Image
-                    className="ml-auto"
-                    onClick={() => {
-                      if (hoveredSection === null) {
-                        return handleMouseEnter("breadcrumb");
-                      }
-
-                      handleMouseLeave();
-                    }}
-                    src={"/assets/CrossIcon.svg"}
-                    alt="CrossIcon"
-                    height={24}
-                    width={24}
+                    src={"/assets/XLogo.svg"}
+                    alt="twitter-logo"
+                    height={20}
+                    width={20}
                     priority
                   />
-                </div>
-                <div>
-                  <div className="flex flex-col px-6 mt-8">
-                    {Object.entries(NAV_ITEMS_DATA).map(([section, items]) => (
-                      <div key={section} className="mb-8">
-                        <h2 className="h4 font-semibold mb-4 capitalize">
-                          {section}
-                        </h2>
-                        {items.map((item, index) => (
-                          <Link
-                            href={item.href}
-                            onClick={() => handleMouseLeave()}
-                            key={index}
-                            className="block mb-4"
-                          >
-                            <p
-                              className="h6 font-medium"
-                              style={{ color: "#F5F3EF" }}
-                            >
-                              {item.title}
-                            </p>
-                            <p className="subtitle2 text-gray-400">
-                              {item.description}
-                            </p>
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-row justify-between p-4">
-                  <div>
-                    <p>Privacy Policy</p>
-                  </div>
-                  <div>
-                    <div className="flex flex-row gap-3">
-                      <Link
-                        href="https://x.com/zkemail?lang=en"
-                        target="_blank"
-                      >
-                        <Image
-                          src={"/assets/XLogo.svg"}
-                          alt="twitter-logo"
-                          
-                          height={20}
-                          width={20}
-                          priority
-                        />
-                      </Link>
-                      <Link
-                        href="https://www.youtube.com/@sigsing"
-                        target="_blank"
-                      >
-                        <Image
-                          src={"/assets/YoutubeLogo.svg"}
-                          alt="youtube-logo"
-                          
-                          height={20}
-                          width={20}
-                          priority
-                        />
-                      </Link>
-                      <Link href="https://t.me/zkemail" target="_blank">
-                        <Image
-                          src={"/assets/TelegramLogo.svg"}
-                          alt="telegram-logo"
-                          
-                          height={20}
-                          width={20}
-                          priority
-                        />
-                      </Link>
-                      <Link href="https://github.com/zkemail" target="_blank">
-                        <Image
-                          src={"/assets/GithubLogo.svg"}
-                          alt="github-logo"
-                          
-                          height={20}
-                          width={20}
-                          priority
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                </Link>
+                <Link href="https://www.youtube.com/@sigsing" target="_blank">
+                  <Image
+                    src={"/assets/YoutubeLogo.svg"}
+                    alt="youtube-logo"
+                    height={20}
+                    width={20}
+                    priority
+                  />
+                </Link>
+                <Link href="https://t.me/zkemail" target="_blank">
+                  <Image
+                    src={"/assets/TelegramLogo.svg"}
+                    alt="telegram-logo"
+                    height={20}
+                    width={20}
+                    priority
+                  />
+                </Link>
+                <Link href="https://github.com/zkemail" target="_blank">
+                  <Image
+                    src={"/assets/GithubLogo.svg"}
+                    alt="github-logo"
+                    height={20}
+                    width={20}
+                    priority
+                  />
+                </Link>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        ) : null}
       </nav>
     </>
   );
