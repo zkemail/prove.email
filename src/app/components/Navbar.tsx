@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const SubItemDesktop = ({
   icon,
@@ -85,6 +86,7 @@ const NAV_ITEMS_DATA: {
 };
 
 const Navbar = () => {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(false);
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [contentHeight, setContentHeight] = useState<number>(0);
   const [visibleItems, setVisibleItems] = useState<number>(0);
@@ -93,6 +95,10 @@ const Navbar = () => {
   const contentRefMobile = useRef<HTMLDivElement>(null);
 
   console.log(contentHeight);
+
+  useEffect(() => {
+    setIsNavbarVisible(true);
+  }, []);
 
   useEffect(() => {
     if (hoveredSection) {
@@ -150,14 +156,18 @@ const Navbar = () => {
     setHoveredSection(null);
   };
 
+  const [animateInStyles] = useAnimateIn(showContent);
+
   return (
     <>
       <nav
         className="navbar container-width navbar-desktop relative flex flex-col gap-0"
         style={{
-          // height: `${contentHeight + 60}px`,
-          height: "max-height",
-          transition: "height 0.3s ease-in-out",
+          opacity: isNavbarVisible ? 1 : 0,
+          filter: isNavbarVisible ? "blur(0px)" : "blur(8px)",
+          transition: `opacity 0.3s ease-in-out 100ms, 
+                      filter 0.3s ease-in-out 100ms, height 0.3s ease-in-out`,
+          willChange: "opacity, filter, height",
         }}
       >
         <div className="w-full flex flex-row justify-between">
@@ -245,12 +255,16 @@ const Navbar = () => {
         style={{
           borderRadius: 16,
           height: hoveredSection ? "calc(100dvh + 24px - 60px)" : "60px",
-          transition: "height 0.3s ease-in-out",
           backgroundImage: hoveredSection
             ? "url(/assets/MobileNavBackground.webp)"
             : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          opacity: isNavbarVisible ? 1 : 0,
+          filter: isNavbarVisible ? "blur(0px)" : "blur(8px)",
+          transition: `opacity 0.3s ease-in-out 100ms, 
+                      filter 0.3s ease-in-out 100ms, height 0.3s ease-in-out`,
+          willChange: "opacity, filter, height",
         }}
       >
         <div className="flex flex-row w-full justify-between items-center">
@@ -282,16 +296,7 @@ const Navbar = () => {
           />
         </div>
         {hoveredSection && (
-          <div
-            className="flex flex-col w-full"
-            style={{
-              opacity: showContent ? 1 : 0,
-              filter: showContent ? "blur(0px)" : "blur(8px)",
-              transform: showContent ? "translateY(0)" : "translateY(10px)",
-              transition:
-                "opacity 0.3s ease-in-out, filter 0.3s ease-in-out, transform 0.3s ease-in-out",
-            }}
-          >
+          <div className="flex flex-col w-full" style={animateInStyles}>
             {Object.entries(NAV_ITEMS_DATA).map(([section, items]) => (
               <div key={section} className="mb-8">
                 <h2 className="h4 font-semibold mb-4 capitalize">{section}</h2>
@@ -317,13 +322,7 @@ const Navbar = () => {
         {hoveredSection ? (
           <div
             className="flex flex-row w-full justify-between"
-            style={{
-              opacity: showContent ? 1 : 0,
-              filter: showContent ? "blur(0px)" : "blur(8px)",
-              transform: showContent ? "translateY(0)" : "translateY(10px)",
-              transition:
-                "opacity 0.3s ease-in-out, filter 0.3s ease-in-out, transform 0.3s ease-in-out",
-            }}
+            style={animateInStyles}
           >
             <div>
               <p>Privacy Policy</p>
