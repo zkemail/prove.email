@@ -44,7 +44,7 @@ const PostContainer = ({ post }) => {
   );
 };
 
-const BlogsPage = ({ posts }: any) => {
+const BlogsPage = ({ posts }: { posts: unknown }) => {
   const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
   return (
     <div

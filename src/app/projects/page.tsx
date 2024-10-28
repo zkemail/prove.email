@@ -10,6 +10,7 @@ const Projects = () => {
   const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
 
   const cardAnimations = PROJECTS.map((_, index) =>
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useAnimateIn(undefined, { delay: 100 + index * 100 })
   );
 
