@@ -1,8 +1,11 @@
 'use client'
 
-const PostContent = ({ meta, content }) => {
+import { useAnimateIn } from "@/app/hooks/useAnimateIn";
 
-    return <div>
+const PostContent = ({ meta, content }) => {
+    const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
+
+    return <div ref={sectionRef} style={sectionStyles}>
         <div className="flex flex-col gap-6">
             <p className="h2" component="h1" >
                 {meta.title}
