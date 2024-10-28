@@ -13,27 +13,7 @@ import { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
 import Link from "next/link";
 import Image from "next/image";
-
-const PROJECTS = [
-  {
-    title: "ZKP2P",
-    description:
-      "Peer to peer marketplace for decentralized onramp/offramp to Ethereum via Venmo, UPI, Garanti, and more.",
-    imgSrc: ZKP2PProjectLogo,
-  },
-  {
-    title: "Account Recovery",
-    description:
-      "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
-    imgSrc: AccountRecoveryLogo,
-  },
-  {
-    title: "Proof of Twitter",
-    description:
-      "Prove you own a Twitter username on-chain, via any email from Twitter.",
-    imgSrc: ProofOfTwitterLogo,
-  },
-];
+import { PROJECTS } from "../contants";
 
 const PartnersAndProjects = () => {
   const [hoveredCardIdx, setHoveredCardIdx] = useState<number | null>(null);
@@ -93,7 +73,7 @@ const PartnersAndProjects = () => {
       >
         <p className="h3">ZK Email in Action</p>
         <div className="project-cards-container">
-          {PROJECTS.map((project, index) => (
+          {PROJECTS.slice(0, 3).map((project, index) => (
             <ProjectCard
               {...project}
               key={project.title}

@@ -81,7 +81,7 @@ const FAQs = () => {
 
   return (
     <section>
-      <div className="w-full mt-10 z-10 container-width container-padding">
+      <div className="w-full my-10 z-10 container-width container-padding">
         <div className="flex flex-col items-center lg:items-start lg:flex-row justify-between">
           <div>
             <h1 className="text-3xl font-semibold mb-3 lg:mb-6 h3 text-center lg:text-left ">
