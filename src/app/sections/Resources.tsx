@@ -220,6 +220,7 @@ const Resources = () => {
             overflowX: isSmallScreen ? "scroll" : "visible",
             scrollSnapType: isSmallScreen ? "x mandatory" : "none",
             WebkitOverflowScrolling: "touch",
+            scrollbarWidth: 'none'
           }}
           onScroll={handleScroll}
         >
@@ -237,12 +238,6 @@ const Resources = () => {
             >
               <Link href={resource.url}>
                 <div className="shadow-md overflow-hidden cursor-pointer relative h-72 transform transition-transform duration-300 ease-in-out">
-                  {/* <img
-                    src={resource.thumbnail}
-                    alt={`${resource.title}-image`}
-                    className="absolute top-0 left-0 w-full h-3/5 object-cover opacity-50 transition-opacity duration-300 ease-in-out hover:opacity-100"
-                  /> */}
-
                   <div
                     className="p-4 grid grid-cols-2 bg-black relative border-solid border-[1px] border-[#272727]"
                     style={{

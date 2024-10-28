@@ -8,6 +8,7 @@ const ProjectCard = ({
   hoveredCardIdx,
   index,
   setHoveredCardIdx,
+  link,
 }: {
   title: string;
   description: string;
@@ -15,6 +16,7 @@ const ProjectCard = ({
   imgSrc: string;
   index: number;
   setHoveredCardIdx: Dispatch<SetStateAction<number | null>>; // Correct type
+  link: string;
 }) => {
   const divRef = useRef<HTMLDivElement | null>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -111,7 +113,7 @@ const ProjectCard = ({
         onBlur={handleBlur}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="card-spotlight-effect"
+        className="card-spotlight-effect h-full flex flex-col"
       >
         <div
           className="transition-all ease-in-out"
@@ -149,7 +151,7 @@ const ProjectCard = ({
           />
         </div>
         <div
-          className=" lg:h-40 h-max"
+          className="flex flex-col justify-between flex-1"
           style={{
             borderTop: "2px solid",
             borderImage:
@@ -162,15 +164,27 @@ const ProjectCard = ({
             gap: "8px",
           }}
         >
-          <div className="h5" style={{ fontWeight: 700 }}>
-            {title}
+          <div>
+            <div className="h5" style={{ fontWeight: 700 }}>
+              {title}
+            </div>
+            <div
+              className="subtitle2"
+              style={{ color: "var(--Grey-500, #D4D4D4)" }}
+            >
+              {description}
+            </div>
           </div>
-          <div
-            className="subtitle2"
-            style={{ color: "var(--Grey-500, #D4D4D4)" }}
-          >
-            {description}
-          </div>
+          {link ? (
+            <a
+              href={link}
+              target="_blank"
+              className="subtitle1 z-50"
+              style={{ textDecoration: "none", marginTop: 16 }}
+            >
+              Learn More →
+            </a>
+          ) : null}
         </div>
       </div>
     </div>
