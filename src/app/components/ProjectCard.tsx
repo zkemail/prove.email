@@ -65,10 +65,11 @@ const ProjectCard = ({
   return (
     <div
       className="transition-all ease-in-out project-card"
+      {...props}
       style={{
+        ...props.style,
         transform: `scale(${scale})`,
       }}
-      {...props}
     >
       <div
         className="projectPins"
