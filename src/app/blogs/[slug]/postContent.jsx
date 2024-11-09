@@ -1,15 +1,14 @@
 'use client'
 
+import Loader from "@/app/components/Loader";
 import { useAnimateIn } from "@/app/hooks/useAnimateIn";
 
 const PostContent = ({ meta, content }) => {
-    const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
+    const [sectionStyles, sectionRef] = useAnimateIn(true, { delay: 100 });
 
     if (!meta) {
-        return <div>Loading...</div>;
+        return <Loader />
     }
-
-    console.log(content);
 
     return <div ref={sectionRef} style={sectionStyles}>
         <div className="flex flex-col gap-6">
@@ -19,7 +18,7 @@ const PostContent = ({ meta, content }) => {
             <p className="h5 font-semibold" style={{ color: '#D4D4D4' }} >
                 {meta.description}
             </p>
-            <p className="subtitle2" style={{  color: '#A8A8A8' }} >
+            <p className="subtitle2" style={{ color: '#A8A8A8' }} >
                 {new Date(meta.date).toISOString().split("T")[0]} <span className="mx-2">◆</span> {meta.category}
             </p>
         </div>
