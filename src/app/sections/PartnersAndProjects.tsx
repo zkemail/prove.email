@@ -82,9 +82,8 @@ const PartnersAndProjects = () => {
 
         <Link href={"/projects"}>
           <p
-            className="subtitle1 lg:text-right text-center"
+            className="subtitle1 lg:text-right text-[##A8A8A8] text-center hover:text-white transition-colors"
             style={{
-              color: "var(--Grey-600, #A8A8A8)",
               marginTop: 24,
             }}
           >

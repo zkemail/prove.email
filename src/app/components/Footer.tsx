@@ -37,7 +37,7 @@ const Footer = () => {
             alt="ZK Email Footer Logo"
             width={1800}
             height={1400}
-            layout="responsive"
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
         <div className="flex flex-row justify-between w-full lg:w-[440px] px-5 pb-10 lg:p-0 lg:mr-12">
@@ -49,16 +49,16 @@ const Footer = () => {
               Developers
             </p>
             <Link
-              href="https://zkemail.gitbook.io/zk-email"
+              href="https://docs.prove.email"
               target="_blank"
-              className="subtitle2"
+              className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors"
             >
               Docs
             </Link>
-            <Link href="/projects" className="subtitle2">
+            <Link href="/projects" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Projects
             </Link>
-            <Link href="/changelogs" className="subtitle2">
+            <Link href="/changelogs" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Changelogs
             </Link>
           </div>
@@ -70,25 +70,25 @@ const Footer = () => {
             >
               Community
             </p>
-            <Link href="/blogs" className="subtitle2">
+            <Link href="/blogs" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Blogs
             </Link>
-            {/* <Link href="/learn" className="subtitle2">
+            {/* <Link href="/learn" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Learn More
             </Link> */}
             <Link
               href="https://t.me/zkemail"
               target="_blank"
-              className="subtitle2"
+              className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors"
             >
               Partner
             </Link>
-            <Link href="/privacy-policy" className="subtitle2">
+            <Link href="/privacy-policy" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <Link
               href="https://archive.prove.email/privacy-policy"
-              className="subtitle2"
+              className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors"
               target="_blank"
             >
               Archive Policy
@@ -106,7 +106,7 @@ const Footer = () => {
                     : "/assets/XLogo.svg"
                 }
                 alt="twitter-logo"
-                layout="responsive"
+                style={{ width: '100%', height: 'auto' }}
                 height={20}
                 width={20}
               />
@@ -121,7 +121,7 @@ const Footer = () => {
                     : "/assets/YoutubeLogo.svg"
                 }
                 alt="youtube-logo"
-                layout="responsive"
+                style={{ width: '100%', height: 'auto' }}
                 height={20}
                 width={20}
               />
@@ -136,7 +136,7 @@ const Footer = () => {
                     : "/assets/TelegramLogo.svg"
                 }
                 alt="telegram-logo"
-                layout="responsive"
+                style={{ width: '100%', height: 'auto' }}
                 height={20}
                 width={20}
               />
@@ -151,7 +151,7 @@ const Footer = () => {
                     : "/assets/GithubLogo.svg"
                 }
                 alt="github-logo"
-                layout="responsive"
+                style={{ width: '100%', height: 'auto' }}
                 height={20}
                 width={20}
               />

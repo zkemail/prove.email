@@ -29,6 +29,9 @@
 a {
   color: #A8A8A8;
 }
+a:hover {
+  color: #FFF;
+}
 
 body {
   margin: 0;
