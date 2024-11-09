@@ -114,7 +114,7 @@ const FAQs = () => {
                   alt="caret-right"
                 />
               }
-              href="https://zkemail.gitbook.io/zk-email"
+              href="https://docs.prove.email"
             >
               Read Docs
             </Button>

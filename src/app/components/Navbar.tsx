@@ -48,7 +48,7 @@ const NAV_ITEMS_DATA: {
       icon: "/assets/NavDocumentation.png",
       title: "Documentation",
       description: "Get started with our tech",
-      href: "https://zkemail.gitbook.io/zk-email",
+      href: "https://docs.prove.email",
     },
     {
       icon: "/assets/NavProjects.png",

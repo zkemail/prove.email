@@ -8,7 +8,9 @@ const getPageContent = async (slug) => {
 };
 
 export async function generateMetadata({ params }) {
-  const { meta } = await getPageContent(params.slug);
+  const { slug } = await params
+
+  const { meta } = await getPageContent(slug);
 
   return {
     title: meta.title,
@@ -29,7 +31,9 @@ export async function generateMetadata({ params }) {
 }
 
 const Page = async ({ params }) => {
-  const { meta, content } = await getPageContent(params.slug);
+  const { slug } = await params
+
+  const { meta, content } = await getPageContent(slug);
 
   return <div className='container-width container-padding m-auto my-40'><PostContent meta={meta} content={content} /></div>
 };

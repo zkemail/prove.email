@@ -150,7 +150,7 @@ const ProjectCard = ({
           <Image
             width={280}
             height={220}
-            layout="responsive"
+            style={{ width: '100%', height: 'auto' }}
             src={imgSrc}
             alt={`${title}-image`}
           />

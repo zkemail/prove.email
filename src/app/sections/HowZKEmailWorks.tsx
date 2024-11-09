@@ -12,21 +12,21 @@ const FLOW_DETAILS = [
     title: "DKIM Scheme Status Quo",
     description:
       "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
-    link: "",
+    link: "https://docs.prove.email/architecture/dkim-verification",
     imgSrc: DKIMIcon,
   },
   {
     title: "Regex and Hashing",
     description:
       "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
-    link: "",
+    link: "https://docs.prove.email/architecture/zk-proofs#3-perform-regex-matching-on-emails",
     imgSrc: RegexIcon,
   },
   {
     title: "Zero Knowledge Circuits",
     description:
       "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
-    link: "",
+    link: "https://docs.prove.email/architecture/zk-proofs#zk-circuits-in-zk-email",
     imgSrc: ZKCircuitsIcon,
   },
 ];
