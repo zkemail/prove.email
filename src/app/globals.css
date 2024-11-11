@@ -248,10 +248,11 @@ section {
 
 .container-width {
   width: 70vw;
+  max-width: 1100px;
 }
 
 .partner-logos {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   display: grid;
   gap: 2.5rem;
@@ -266,6 +267,7 @@ section {
   grid-template-columns: repeat(3, 1fr);
   flex-direction: row;
   flex-wrap: 'wrap';
+  justify-items: center;
   gap: 3.5rem;
   justify-content: space-between;
   margin-top: 2.25rem;
