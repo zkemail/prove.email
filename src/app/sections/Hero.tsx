@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section style={{ height: "100vh" }}>
       <div
-        className="w-full lg:w-[70vw] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center"
+        className="w-full lg:w-[70vw] lg:max-w-[1100px] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center"
         style={{
           textAlign: "center",
         }}
