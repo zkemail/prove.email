@@ -18,7 +18,7 @@ aliases:
 
 Emails serve as our gateway to various online services and platforms. ZK Email uses zk proofs to authenticate these interactions on chain while preserving privacy.
 
-If you are trying to setup a new circuit for yourself, we recommend the full automated circuit generation tool at our [SDK Registry](https://registry-dev.zkregex.com) -- it automatically generates and deploys your circuit specifications with an automatic frontend demo, in as few as 5 minutes with no ZK expertise needed.
+If you are trying to setup a new circuit for yourself, we recommend the full automated circuit generation tool at our [SDK Registry](https://sdk.prove.email) -- it automatically generates and deploys your circuit specifications with an automatic frontend demo, in as few as 5 minutes with no ZK expertise needed.
 
 However, if you want to go more custom into the circuits and contracts, this guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain from scratch. It does not reveal any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion. Note that it uses a slightly outdated version of the SDK, but the process is very similar, and you can refer to the [SDK docs](https://docs.prove.email/zk-email-verifier/usage-guide) for more information.
 
@@ -83,7 +83,7 @@ For Gmail and Yahoo users, select 'Download Original Message', then copy and pas
 
 ## Generating the Input for ZKRegex
 
-Now, let's generate the input for a zk-regex. You can do this manually with the V1 zk regex code on zkregex.com, or automatically with our V2 zk regex code on registry-dev.zkregex.com.
+Now, let's generate the input for a zk-regex. You can do this manually with the V1 zk regex code on zkregex.com, or automatically with our V2 zk regex code on sdk.prove.email.
 
 For the sake of explanation, let's do it the manual way for our V1 regexes using zkregex.com. This tool will help us create a regular expression (regex) that matches the pattern of a Twitter username in the email body.
 
