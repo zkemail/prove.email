@@ -32,12 +32,12 @@ const Footer = () => {
       >
         <div>
           <Image
-            className=" lg:w-2/4 w-full"
+            className=" md:w-2/4 w-full lg:w-[640px]"
             src={"/assets/FooterLogo1.png"}
             alt="ZK Email Footer Logo"
             width={1800}
             height={1400}
-            style={{ width: '100%', height: 'auto' }}
+            style={{ height: 'auto' }}
           />
         </div>
         <div className="flex flex-row justify-between w-full lg:w-[440px] px-5 pb-10 lg:p-0 lg:mr-12">

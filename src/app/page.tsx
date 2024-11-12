@@ -14,7 +14,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           gap: "8.25rem",
-          overflow: "scroll",
+          overflow: "auto",
         }}
       >
         <Hero />

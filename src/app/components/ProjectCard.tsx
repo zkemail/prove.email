@@ -180,7 +180,7 @@ const ProjectCard = ({
               {description}
             </div>
           </div>
-          {link ? (
+          {/* {link ? (
             <a
               href={link}
               target="_blank"
@@ -189,7 +189,7 @@ const ProjectCard = ({
             >
               Learn More →
             </a>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </div>
