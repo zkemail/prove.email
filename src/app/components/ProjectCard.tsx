@@ -111,87 +111,84 @@ const ProjectCard = ({
           translate: "-50% 50%",
         }}
       />
-      <div
-        ref={divRef}
-        onMouseMove={handleMouseMove}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        className="card-spotlight-effect h-full flex flex-col"
+      <a
+        href={link}
+        target="_blank"
+        className="subtitle1 z-50"
+        style={{ textDecoration: "none", marginTop: 16 }}
       >
         <div
-          className="transition-all ease-in-out"
-          style={{
-            background: "#161819",
-            height: "100%",
-            width: "100%",
-            position: "absolute",
-            opacity:
-              hoveredCardIdx !== index && hoveredCardIdx !== null ? 0.5 : 0,
-          }}
-        />
-        <div
-          className="spotlight"
-          style={{
-            opacity,
-            background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.06), transparent 40%)`,
-          }}
-        />
-        <div
-          style={{
-            height: "13.8rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
+          ref={divRef}
+          onMouseMove={handleMouseMove}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="card-spotlight-effect h-full flex flex-col"
         >
-          <Image
-            width={280}
-            height={220}
-            style={{ width: '100%', height: 'auto' }}
-            src={imgSrc}
-            alt={`${title}-image`}
+          <div
+            className="transition-all ease-in-out"
+            style={{
+              background: "#161819",
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              opacity:
+                hoveredCardIdx !== index && hoveredCardIdx !== null ? 0.5 : 0,
+            }}
           />
-        </div>
-        <div
-          className="flex flex-col justify-between flex-1"
-          style={{
-            borderTop: "2px solid",
-            borderImage:
-              "linear-gradient(to right, #161819, #3B3B3B, #161819) 1",
-            background: "var(--Grey-900, #161819)",
-            display: "flex",
-            padding: "16px",
-            flexDirection: "column",
-            textAlign: "left",
-            gap: "8px",
-          }}
-        >
-          <div>
-            <div className="h5" style={{ fontWeight: 700 }}>
-              {title}
-            </div>
-            <div
-              className="subtitle2"
-              style={{ color: "var(--Grey-500, #D4D4D4)" }}
-            >
-              {description}
+          <div
+            className="spotlight"
+            style={{
+              opacity,
+              background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(255,255,255,.06), transparent 40%)`,
+            }}
+          />
+          <div
+            style={{
+              height: "13.8rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              overflow: "hidden",
+            }}
+          >
+            <Image
+              width={280}
+              height={220}
+              style={{ width: "100%", height: "auto" }}
+              src={imgSrc}
+              alt={`${title}-image`}
+            />
+          </div>
+          <div
+            className="flex flex-col justify-between flex-1"
+            style={{
+              borderTop: "2px solid",
+              borderImage:
+                "linear-gradient(to right, #161819, #3B3B3B, #161819) 1",
+              background: "var(--Grey-900, #161819)",
+              display: "flex",
+              padding: "16px",
+              flexDirection: "column",
+              textAlign: "left",
+              gap: "8px",
+            }}
+          >
+            <div>
+              <div className="h5" style={{ fontWeight: 700 }}>
+                {title}
+              </div>
+              <div
+                className="subtitle2"
+                style={{ color: "var(--Grey-500, #D4D4D4)" }}
+              >
+                {description}
+              </div>
             </div>
           </div>
-          {/* {link ? (
-            <a
-              href={link}
-              target="_blank"
-              className="subtitle1 z-50"
-              style={{ textDecoration: "none", marginTop: 16 }}
-            >
-              Learn More →
-            </a>
-          ) : null} */}
         </div>
-      </div>
+      </a>
     </div>
   );
 };

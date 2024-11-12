@@ -1,6 +1,9 @@
 const ZKP2PProjectLogo = "/assets/zkp2p.webp";
 const ProofOfTwitterLogo = "/assets/proofOfTwitter.png";
 const AccountRecoveryLogo = "/assets/accountRecovery.png";
+const BlueprintRegistryLogo = "/assets/BlueprintRegistryLogo.png";
+const EmailWalletLogo = "/assets/EmailWallet.png";
+const ZKWhistleblowLogo = "/assets/ZKWhistleblow.png";
 
 export const PROJECTS = [
   {
@@ -28,19 +31,19 @@ export const PROJECTS = [
     title: "Blueprint Registry",
     description:
       "List of community submitted ZK Email blueprints that can be dropped into your project.",
-    imgSrc: ProofOfTwitterLogo,
+    imgSrc: BlueprintRegistryLogo,
     link: "https://registry-dev.zkregex.com"
   },
   {
     title: "Email Wallet",
     description: "Send or receive assets just through your emails.",
-    imgSrc: ProofOfTwitterLogo,
+    imgSrc: EmailWalletLogo,
     link: "https://emailwallet.org"
   },
   {
     title: "ZK Whistleblow",
     description:
       "Let the world know about any information received on your email without reveling your identity.",
-    imgSrc: ProofOfTwitterLogo,
+    imgSrc: ZKWhistleblowLogo,
   },
 ];
