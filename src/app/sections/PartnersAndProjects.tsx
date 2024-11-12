@@ -36,7 +36,7 @@ const PartnersAndProjects = () => {
             src={EthereumFoundationLogo}
             alt="EthereumFoundationLogo"
           />
-          <Image height={36} width={150} src={IYKLogo} alt="IYKLogo" />
+          <Image height={36} width={100} src={IYKLogo} alt="IYKLogo" />
           <Image
             height={36}
             width={150}
