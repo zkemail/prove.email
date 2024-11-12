@@ -195,7 +195,7 @@ const Footer = () => {
                   <HoverableLinks
                     title="Docs"
                     target="_blank"
-                    href="https://zkemail.gitbook.io/zk-email"
+                    href="https://docs.prove.email"
                   />
                   <HoverableLinks
                     title="Projects"

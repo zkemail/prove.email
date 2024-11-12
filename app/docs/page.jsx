@@ -10,7 +10,7 @@ export default function RecoveryPage() {
 
   useEffect(() => {
     const redirect = async () => {
-      await router.replace('https://docs.prove.email');
+      await router.replace('https://docs.prove.email/');
       setIsLoading(false);
     };
     redirect();
@@ -28,7 +28,11 @@ export default function RecoveryPage() {
     >
       {isLoading && (
         <Typography variant="h4" align="center">
+<<<<<<< Updated upstream
           Redirecting to <a href="https://docs.prove.email/" style={{ textDecoration: 'underline' }}>https://docs.prove.email</a>...
+=======
+          Redirecting to <a href="https://docs.prove.email/" style={{ textDecoration: 'underline' }}>https://docs.prove.email/</a>...
+>>>>>>> Stashed changes
         </Typography>
       )}
     </Box>

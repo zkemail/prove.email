@@ -11,5 +11,5 @@ export const ButtonTest = (args) => <CustomButton {...args} />
 ButtonTest.args = {
     buttonLabel: "Test",
     filledIn: false,
-    url: 'https://zkemail.gitbook.io/zk-email'
+    url: 'https://docs.prove.email'
 }

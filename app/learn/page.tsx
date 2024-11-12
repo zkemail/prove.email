@@ -304,7 +304,7 @@ export default function Home() {
               </Link>{" "}
               &{" "}
               <Link
-                href="https://zkemail.gitbook.io/zk-email"
+                href="https://docs.prove.email"
                 target="_blank"
                 className="underline font-bold"
               >
@@ -537,7 +537,7 @@ export default function Home() {
 //           <SlideInDiv direction="left">
 //             <Box>
 //               <Typography sx={{paddingY: '5%'}}>
-//                 Dive deeper by reading our <Link href='/blog' target='_blank' className='underline font-bold'>blog</Link> & <Link  href='https://zkemail.gitbook.io/zk-email' target='_blank'  className='underline font-bold'>docs</Link>
+//                 Dive deeper by reading our <Link href='/blog' target='_blank' className='underline font-bold'>blog</Link> & <Link  href='https://docs.prove.email' target='_blank'  className='underline font-bold'>docs</Link>
 //               </Typography>
 //             </Box>
 //           </SlideInDiv>

@@ -165,7 +165,7 @@ export default function Hero() {
               buttonLabel="Docs"
               filledIn={true}
               target="_blank"
-              url="https://zkemail.gitbook.io/zk-email"
+              url="https://docs.prove.email"
             >
               Docs
             </CustomButton>

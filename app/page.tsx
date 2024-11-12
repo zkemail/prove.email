@@ -415,14 +415,14 @@ export default function Home() {
               <CustomCardAbout
                 title="DKIM Scheme Status Quo"
                 description="Part of your current emails "
-                url="https://zkemail.gitbook.io/zk-email/frequently-asked-questions"
+                url="https://docs.prove.email/frequently-asked-questions"
               />
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
               <CustomCardAbout
                 title="Regex (Hashing & Regex)"
                 description="Checks if a text contains a string"
-                url="https://zkemail.gitbook.io/zk-email/zk-regex"
+                url="https://docs.prove.email/zk-regex"
               />
             </Grid>
             <Grid item xs={12} sm={4} md={4}>
@@ -615,7 +615,7 @@ export default function Home() {
               filledIn={true}
               buttonLabel="Docs"
               target="true"
-              url="https://zkemail.gitbook.io/zk-email"
+              url="https://prove.email/docs"
             >
               Docs
             </CustomButton>
