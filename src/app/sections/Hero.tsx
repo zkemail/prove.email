@@ -64,7 +64,7 @@ const Hero = () => {
           style={buttonStyles}
         >
           <Button
-            href="https://docs.prove.email/introduction"
+            href="https://docs.zk.email/introduction"
             color="secondary"
             endIcon={
               <Image

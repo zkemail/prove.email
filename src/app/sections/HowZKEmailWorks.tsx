@@ -12,21 +12,21 @@ const FLOW_DETAILS = [
     title: "DKIM Scheme Status Quo",
     description:
       "Part of your current emails.",
-    link: "https://docs.prove.email/architecture/dkim-verification",
+    link: "https://docs.zk.email/architecture/dkim-verification",
     imgSrc: DKIMIcon,
   },
   {
     title: "Regex and Hashing",
     description:
       "Checks if a text contains a string.",
-    link: "https://docs.prove.email/architecture/zk-proofs#3-perform-regex-matching-on-emails",
+    link: "https://docs.zk.email/architecture/zk-proofs#3-perform-regex-matching-on-emails",
     imgSrc: RegexIcon,
   },
   {
     title: "Zero Knowledge Circuits",
     description:
       "Prove DKIM & Regex calculations are correct, without revealing extra info.",
-    link: "https://docs.prove.email/architecture/zk-proofs#zk-circuits-in-zk-email",
+    link: "https://docs.zk.email/architecture/zk-proofs#zk-circuits-in-zk-email",
     imgSrc: ZKCircuitsIcon,
   },
 ];

@@ -49,7 +49,7 @@ const Footer = () => {
               Developers
             </p>
             <Link
-              href="https://docs.prove.email"
+              href="https://docs.zk.email"
               target="_blank"
               className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors"
             >

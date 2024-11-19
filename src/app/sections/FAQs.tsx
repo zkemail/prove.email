@@ -114,7 +114,7 @@ const FAQs = () => {
                   alt="caret-right"
                 />
               }
-              href="https://docs.prove.email"
+              href="https://docs.zk.email"
             >
               Read Docs
             </Button>
