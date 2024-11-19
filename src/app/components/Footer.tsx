@@ -70,7 +70,7 @@ const Footer = () => {
             >
               Community
             </p>
-            <Link href="/blogs" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
+            <Link href="/blog" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">
               Blogs
             </Link>
             {/* <Link href="/learn" className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors">

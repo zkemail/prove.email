@@ -6,7 +6,7 @@ import { Meta } from "../types";
 const PostContainer = ({ post }: { post: Meta }) => {
   console.log(post.image);
   return (
-    <Link href={`/blogs/${post.slug}`} key={post.title}>
+    <Link href={`/blog/${post.slug}`} key={post.title}>
       <div
         className="flex flex-col lg:flex-row gap-8"
         style={{ padding: 24, border: "1px solid var(--Grey-850, #272727)" }}

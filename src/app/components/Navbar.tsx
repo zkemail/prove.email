@@ -68,7 +68,7 @@ const NAV_ITEMS_DATA: {
       icon: "/assets/NavBlogs.png",
       title: "Blogs",
       description: "Our team battlefield notes",
-      href: "/blogs",
+      href: "/blog",
     },
     {
       icon: "/assets/NavPartners.png",

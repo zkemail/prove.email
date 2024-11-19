@@ -8,7 +8,7 @@ const PostContainer = ({ post }) => {
   const [sectionStyles, sectionRef] = useAnimateIn(undefined, { delay: 0 });
 
   return (
-    <Link href={`/blogs/${post.slug}`} key={post.title}>
+    <Link href={`/blog/${post.slug}`} key={post.title}>
       <div
         ref={sectionRef}
         className="flex flex-col lg:flex-row gap-8"
