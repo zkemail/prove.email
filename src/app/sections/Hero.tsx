@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <section style={{ height: "100vh" }}>
       <div
-        className="w-full lg:w-[70vw] lg:max-w-[1100px] pt-40 lg:pt-32 h-[50vh] flex flex-col justify-center"
+        className="w-full lg:w-[70vw] lg:max-w-[1100px] pt-32 lg:pt-32 h-[50vh] flex flex-col justify-center"
         style={{
           textAlign: "center",
         }}
@@ -43,8 +43,13 @@ const Hero = () => {
             alignSelf: "stretch",
           }}
         >
-          Bringing on-chain trust to the masses through intuitive email
-          integrations
+          <span className="hidden sm:inline">
+            Bringing on-chain trust to the masses through intuitive email
+            integrations
+          </span>
+          <span className="sm:hidden">
+            Bringing trust through intuitive email integration
+          </span>
         </p>
         <p
           ref={subtitleRef}
@@ -60,7 +65,7 @@ const Hero = () => {
         </p>
         <div
           ref={buttonRef}
-          className="flex gap-8 justify-center pt-10 lg:pt-8"
+          className="flex gap-8 justify-center pt-6  sm:pt-10 lg:pt-8"
           style={buttonStyles}
         >
           <Button
