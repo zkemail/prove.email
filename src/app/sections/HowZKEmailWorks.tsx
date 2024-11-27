@@ -9,23 +9,23 @@ import { useAnimateIn } from "../hooks/useAnimateIn";
 
 const FLOW_DETAILS = [
   {
-    title: "DKIM Scheme Status Quo",
+    title: "Works with your existing inbox",
     description:
-      "Part of your current emails.",
+      "Make proofs of any of your existing emails.",
     link: "https://docs.zk.email/architecture/dkim-verification",
     imgSrc: DKIMIcon,
   },
   {
     title: "Regex and Hashing",
     description:
-      "Checks if a text contains a string.",
+      "Keep data private, and check for the presence of any string or pattern in the email.",
     link: "https://docs.zk.email/architecture/zk-proofs#3-perform-regex-matching-on-emails",
     imgSrc: RegexIcon,
   },
   {
     title: "Zero Knowledge Circuits",
     description:
-      "Prove DKIM & Regex calculations are correct, without revealing extra info.",
+      "Prove DKIM & regex calculations are correct, without revealing extra info.",
     link: "https://docs.zk.email/architecture/zk-proofs#zk-circuits-in-zk-email",
     imgSrc: ZKCircuitsIcon,
   },
@@ -149,7 +149,7 @@ const HowZKEmailWorks = () => {
         className="container-width container-padding"
         style={{ textAlign: "center" }}
       >
-        <p className="h3">How ZK Email works</p>
+        <p className="h3">How ZK Email Works</p>
         <div
           className="flex lg:flex-nowrap flex-wrap"
           style={{

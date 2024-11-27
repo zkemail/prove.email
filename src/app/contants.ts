@@ -21,18 +21,18 @@ export const PROJECTS = [
     link: "https://recovery.prove.email"
   },
   {
-    title: "Proof of Twitter",
-    description:
-      "Prove you own a Twitter username on-chain, via any email from Twitter.",
-    imgSrc: ProofOfTwitterLogo,
-    link: "https://twitter.prove.email"
-  },
-  {
     title: "Blueprint Registry",
     description:
       "List of community submitted ZK Email blueprints that can be dropped into your project.",
     imgSrc: BlueprintRegistryLogo,
     link: "https://registry-dev.zkregex.com"
+  },
+  {
+    title: "Proof of Twitter",
+    description:
+      "Prove you own a Twitter username on-chain, via any email from Twitter.",
+    imgSrc: ProofOfTwitterLogo,
+    link: "https://twitter.prove.email"
   },
   {
     title: "Email Wallet",
@@ -45,5 +45,35 @@ export const PROJECTS = [
     description:
       "Let the world know about any information received on your email without reveling your identity.",
     imgSrc: ZKWhistleblowLogo,
+  },
+  {
+    title: "ZK Proof of Github",
+    description: "Prove you own a github account.",
+    imgSrc: ZKWhistleblowLogo,
+    link: "https://sdk.prove.email/try/rdave8/proof-of-github-user"
+  },
+  {
+    title: "Nozee Proof of Organization",
+    description: "Prove you own an @domain account, and anonymously post from it.",
+    imgSrc: ZKWhistleblowLogo,
+    link: "https://www.nozee.xyz"
+  },
+  {
+    title: "DKIM Archive",
+    description: "Archives over a million old DKIM keys and selectors for various domains.",
+    imgSrc: ZKWhistleblowLogo,
+    link: "https://archive.prove.email"
+  },
+  {
+    title: "Decentralized Oauth Login",
+    description: "Authorize any session key to scoped wallet access via emails.",
+    imgSrc: ZKWhistleblowLogo,
+    link: "https://oauth.emailwallet.org"
+  },
+  {
+    title: "Safe 2FA",
+    description: "Confirm any multisig transaction via an email.",
+    imgSrc: ZKWhistleblowLogo,
+    link: "https://prove.email/blog/2fa"
   },
 ];

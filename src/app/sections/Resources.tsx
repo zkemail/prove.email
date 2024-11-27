@@ -52,6 +52,22 @@ type Resource = {
 
 const RESOURCES: Resource[] = [
   {
+    title: "ZK Email: ZK Email at Axiom House Presentation",
+    where: "EthDenver 2024",
+    url: "https://www.youtube.com/watch?v=KqyJxPsdx-0&ab_channel=ZKEmail",
+    date: "2024/10/31",
+    thumbnail: "https://i.ytimg.com/vi/KqyJxPsdx-0/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIFYoSjAP&rs=AOn4CLD2tgYHcb2U4jgKBMpfeHH_xPmp_w",
+    contentType: "Talk",
+  },
+  {
+    title: "ZK Email: Decentralized Email Login + Account Recovery + 2FA",
+    where: "EthCC 2024",
+    url: "https://www.youtube.com/watch?v=O1hv8gVTub8&ab_channel=ZKEmail",
+    date: "2024/10/31",
+    thumbnail: "https://i.ytimg.com/vi/O1hv8gVTub8/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLDaTtCt8HcSlTSf5Ez6-eBuBQ1kFg",
+    contentType: "Talk",
+  },
+  {
     title: "ZK Email: Novel ZK Applications Unlocked by Portable Provenance",
     where: "ZK Summit 11",
     url: "https://www.youtube.com/embed/rZTNzvLXB14?si=2NOAwXQYalqGYTGE",
