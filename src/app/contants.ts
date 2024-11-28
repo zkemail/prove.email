@@ -16,7 +16,7 @@ export const PROJECTS = [
   {
     title: "Account Recovery",
     description:
-      "Email a relayer in order to transfer money or transact on Ethereum, anonymously.",
+      "Recover any safe wallet or smart wallet via email addresses",
     imgSrc: AccountRecoveryLogo,
     link: "https://recovery.prove.email"
   },
