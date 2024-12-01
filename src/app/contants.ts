@@ -1,7 +1,7 @@
 const ZKP2PProjectLogo = "/assets/zkp2p.webp";
-const ProofOfTwitterLogo = "/assets/proofOfTwitter.png";
-const AccountRecoveryLogo = "/assets/accountRecovery.png";
-const BlueprintRegistryLogo = "/assets/BlueprintRegistryLogo.png";
+const ProofOfTwitterLogo = "/assets/Twitter.png";
+const AccountRecoveryLogo = "/assets/Recovery.png";
+const BlueprintRegistryLogo = "/assets/Blueprint.png";
 const EmailWalletLogo = "/assets/EmailWallet.png";
 const ZKWhistleblowLogo = "/assets/ZKWhistleblow.png";
 
