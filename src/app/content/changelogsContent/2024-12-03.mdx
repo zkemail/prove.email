@@ -6,19 +6,31 @@ version: "1.3.0"
 ## ZK Email Updates
 
 #### SDK
-
-This week, we have implemented several improvements to our [Blueprint SDK](https://docs.prove.email/zk-email-sdk/overview-v2). We fixed issues related to external input handling in SDK proof generation and implemented WASM build support for Next.js environments. Additionally, we integrated e2e testing with Checkly. We also implemented the backend for compiling circuits and generating proofs.
-
-On the documentation front, we completed comprehensive SDK documentation that now includes templates for React and Next.js, making it easier for developers to integrate our tools. https://docs.prove.email/zk-email-sdk/setup
+- Implemented circuit compilation and proof generation backend
+- Fixed external input handling in proof generation
+- Added WASM build support for any JS bundler including Next.js server and client side.
+- Integrated e2e testing with Checkly
+- Added React & Next.js templates to docs https://docs.prove.email/zk-email-sdk/setup
 
 #### JWT Tx Builder
-
-We successfully deployed the JWT prover on Taceo and implemented the SHA2-prover in SP1. We reviewed and updated the JWT verifier contracts. And we expanded our documentation with new guides for jwt-tx-builder and fixed minor issues. https://docs.zk.email/jwt-tx-builder/
+- Deployed JWT prover on Taceo
+- Implemented SHA2-prover in SP1
+- Updated JWT verifier contracts
+- Added jwt-tx-builder guides to docs https://docs.zk.email/jwt-tx-builder/
 
 #### Email Tx Builder
-
-We refactored the relayer based on a new high-level design, adding database changes and job tracking endpoints to improve functionality. The new relayer will no longer broadcast the final transaction to the network.
-
+- Refactored relayer to focus solely on email proving
+- Removed transaction broadcasting from relayer to simplify architecture and avoid gas reimbursement complexity
+- Added database changes and job tracking endpoints
 
 #### Upcoming Events
-Our team will be participating in [ETH India](https://ethindia2024.devfolio.co/) hackathon where we'll be offering bounties. We'll be supporting hackers building with our SDK and helping them integrate email-tx-builder and email proof generation with our SDK into their projects.
+Our team will be supporting hackers in [ETH India](https://ethindia2024.devfolio.co/) hackathon where we'll be offering two bounties:
+
+1. Registry and SDK Integration ($1500): Build a creative application using ZK Email SDK and registry.zk.email. Must use ZK Email SDK for proof generation. https://docs.zk.email/zk-email-sdk/setup
+    - 1st place: $1000
+    - 2nd place: $500
+
+2. Email Transaction Auth ($1000): Build a smart contract workflow using email proofs for authentication and integrate Email Auth contract with generic relayer. https://docs.zk.email/email-tx-builder/setup
+    - 1st place: $1000
+
+Visit [docs.zk.email](https://docs.zk.email) to get started.
