@@ -1,0 +1,36 @@
+---
+date: "2024-12-03"
+version: "1.3.0"
+---
+
+## ZK Email Updates
+
+This week, we've made several improvements to our SDK, JWT Tx Builder, and Email Tx Builder. You can read more about them on the [docs](https://docs.zk.email).
+
+#### SDK
+- Implemented circuit compilation and proof generation backend
+- Fixed external input handling in proof generation
+- Added WASM build support for any JS bundler including Next.js server and client side.
+- Integrated e2e testing with Checkly
+- Added React & Next.js templates to docs https://docs.prove.email/zk-email-sdk/setup
+
+#### JWT Tx Builder
+- Deployed JWT prover on Taceo
+- Implemented SHA2-prover in SP1
+- Updated JWT verifier contracts
+- Added jwt-tx-builder guides to docs https://docs.zk.email/jwt-tx-builder/
+
+#### Email Tx Builder
+- Refactored relayer to focus solely on email proving
+- Removed transaction broadcasting from relayer to simplify architecture and avoid gas reimbursement complexity
+- Added database changes and job tracking endpoints
+
+#### Upcoming Events
+Our team will be supporting hackers in [ETH India](https://ethindia2024.devfolio.co/) hackathon where we'll be offering two bounties:
+
+1. Registry and SDK Integration ($1500): Build a creative application using ZK Email SDK and registry.zk.email. Must use ZK Email SDK for proof generation. https://docs.zk.email/zk-email-sdk/setup
+    - 1st place: $1000
+    - 2nd place: $500
+
+2. Email Transaction Auth ($1000): Build a smart contract workflow using email proofs for authentication and integrate Email Auth contract with generic relayer. https://docs.zk.email/email-tx-builder/setup
+    - 1st place: $1000
