@@ -9,7 +9,7 @@ const fustat = Fustat({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ZK Email",
   description:
-    "ZK Email is a privacy-focused email service that uses zero-knowledge proofs to ensure your emails are private and secure.",
+    "ZK Email lets you make privacy-preserving proofs of your existing emails. You can prove you own an email at some domain, prove attendance at a real-world event, or confirm transactions on chain.",
   icons: {
     icon: [
       {
