@@ -1,0 +1,26 @@
+---
+date: "2024-10-09"
+version: "1.3.0"
+---
+
+## ZK Email Updates
+We’ve released v6.1.6 of zk-email’s core libraries! This adds:
+- DKIM public keys now work on DNS over HTTPS, which allows more consistent browser fetching for sites like proton.me
+- constrained regex reveal more tightly to address concerns from our Zellic audit
+- added header masking to make masking/whistleblowing applications more robust
+- added substring matching, allowing for more efficient matches where regex is not needed
+
+We also have very beta Noir zk-email circuits with Mach34: https://github.com/zkemail/zkemail.nr
+- Note that the Noir compiler used is completely unaudited and has several critical bugs, so we recommend usage only in fast client-side proving prototypes!
+
+Our beta registry has more features, but is still in unstable beta (sdk.prove.email): 
+- The downloaded project now includes the generated zkeys and .sol files
+- Execution now occurs entirely on modal.com, meaning operations can happen in parallel
+- Proving defaults to GPU, making proofs ~3x faster
+
+DKIM Archive:
+- We have a draft blog post up explaining it at prove.email/blog/archive
+- We now support domains with dashes in their DKIM urls, such as pse.dev, and searching a string includes prefixes instead of exact matches now
+
+Account Recovery on Safe:
+- The main website now supports the new 1.4.1 safes, via both the UI and the permissionless.js burner wallet flow! Try them out at recovery.prove.email and look at our guide at zk.email/blog/account-recovery
