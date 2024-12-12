@@ -15,10 +15,24 @@ export const metadata: Metadata = {
       {
         media: "(prefers-color-scheme: light)",
         url: "/favicon-dark.svg",
+        type: "image/svg+xml",
       },
       {
         media: "(prefers-color-scheme: dark)",
         url: "/favicon-light.svg",
+        type: "image/svg+xml",
+      },
+    ],
+    apple: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: [
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
       },
     ],
   },
@@ -31,6 +45,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/favicon-dark.svg"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/favicon-light.svg"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link rel="apple-touch-icon" type="image/png" href="/favicon.png" />
+        <link
+          rel="shortcut icon"
+          type="image/svg+xml"
+          href="/favicon-dark.svg"
+        />
+      </head>
       <body
         className={`${newsreader.className} ${fustat.className} antialiased`}
       >
