@@ -18,14 +18,14 @@ export const PROJECTS = [
     description:
       "Recover any safe wallet or smart wallet via email addresses",
     imgSrc: AccountRecoveryLogo,
-    link: "https://recovery.prove.email"
+    link: "https://recovery.zk.email"
   },
   {
     title: "Blueprint Registry",
     description:
       "List of community submitted ZK Email blueprints that can be dropped into your project.",
     imgSrc: BlueprintRegistryLogo,
-    link: "https://registry-dev.zkregex.com"
+    link: "https://registry.zk.email"
   },
   {
     title: "Proof of Twitter",
@@ -50,7 +50,7 @@ export const PROJECTS = [
     title: "ZK Proof of Github",
     description: "Prove you own a github account.",
     imgSrc: ZKWhistleblowLogo,
-    link: "https://sdk.prove.email/try/rdave8/proof-of-github-user"
+    link: "https://registry.zk.email/526bb307-61ec-4c1d-8cd9-d393727b60c0"
   },
   {
     title: "Nozee Proof of Organization",
@@ -62,7 +62,7 @@ export const PROJECTS = [
     title: "DKIM Archive",
     description: "Archives over a million old DKIM keys and selectors for various domains.",
     imgSrc: ZKWhistleblowLogo,
-    link: "https://archive.prove.email"
+    link: "https://archive.zk.email"
   },
   {
     title: "Decentralized Oauth Login",
@@ -74,6 +74,6 @@ export const PROJECTS = [
     title: "Safe 2FA",
     description: "Confirm any multisig transaction via an email.",
     imgSrc: ZKWhistleblowLogo,
-    link: "https://prove.email/blog/2fa"
+    link: "https://zk.email/blog/2fa"
   },
 ];
