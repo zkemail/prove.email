@@ -95,7 +95,7 @@ The ZK Email proof parses the subject to ensure that the correct addresses are b
 
 **2. Enabling either 7579 or Safe Module for Wallets**
 
-We partnered with John from the Wax team at PSE to develop an email account recovery demo, accessible here: [ZK Email Recovery Demo](https://recovery.prove.email). For detailed steps on integrating with the demo, please refer to the documentation provided [here](https://github.com/zkemail/email-recovery/).
+We partnered with John from the Wax team at PSE to develop an email account recovery demo, accessible here: [ZK Email Recovery Demo](https://recovery.zk.email). For detailed steps on integrating with the demo, please refer to the documentation provided [here](https://github.com/zkemail/email-recovery/).
 
 Here's a concise guide on incorporating the Recovery Module into your wallets:
 
@@ -104,7 +104,7 @@ Here's a concise guide on incorporating the Recovery Module into your wallets:
 - **Guardian Confirmation**: After configuring the settings, the relayer automatically dispatches verification emails to designated guardians. Guardians confirm their roles by replying "Confirm" to these emails. This action triggers a `processRecovery` function, starting a timelock delay to ensure that the original wallet owner can notice and remove malicious gaurdians if they have not lost their wallet. Once the threshold of guardians is reached and the timelock has passed, anyone (usually the app does this automatically) can call the `completeRecovery` function to securely rotate the owner of the account.
 
 ## Conclusion
-Account recovery using ZK Email is a huge step for seamless web2 to web3 integrations, creating a trustless environment where users can recover their wallets without compromising security and autonomy. We want to integrate this feature into as many AA wallets as possible! If you're an AA wallet interested in incorporating email-based account recovery into your wallet application, we recommend trying the demo [here](https://recovery.prove.email). If you'd like to ask more questions, please text us on [telegram](https://t.me/zkemail). 
+Account recovery using ZK Email is a huge step for seamless web2 to web3 integrations, creating a trustless environment where users can recover their wallets without compromising security and autonomy. We want to integrate this feature into as many AA wallets as possible! If you're an AA wallet interested in incorporating email-based account recovery into your wallet application, we recommend trying the demo [here](https://recovery.zk.email). If you'd like to ask more questions, please text us on [telegram](https://t.me/zkemail). 
 
 _Special thanks to Elo and Yush for crafting the post, Aditya, Sora, John, Rhinestone, and Yush for writing the module, and Tyler, John, Kurt, and Kichong for their reviews and feedback._
 
@@ -115,6 +115,6 @@ _Special thanks to Elo and Yush for crafting the post, Aditya, Sora, John, Rhine
 * [Legacy Safe Account Recovery Spec](https://proofofemail.notion.site/Email-Sender-Auth-c87063cd6cdc4c5987ea3bc881c68813?pvs=4): This is an extremely technical spec describing the precise Solidity interfaces used to build the library.
 * [ModuleSDK](http://docs.rhinestone.wtf/module-sdk): The Rhinestone library that you can use to install the default ZK Email Account Recovery to any smart wallet.
 * [ModuleKit guide for 7579 Email Recovery (coming Q3 2024)](http://docs.rhinestone.wtf/modulekit): For wallet developers who want more customization, change the individual function calls or syntax with zk email account recovery for any smart wallet, with ModuleSDK-compatible tooling.
-* Email Account Recovery demo for Legacy Safes: [prove.email/recovery](https://recovery.prove.email). This will allow you to add a module to currently deployed safes (v1-v1.3), ahead of their 7579 upgrade (v1.4.1) in Q3 2024. 
+* Email Account Recovery demo for Legacy Safes: [zk.email/recovery](https://recovery.zk.email). This will allow you to add a module to currently deployed safes (v1-v1.3), ahead of their 7579 upgrade (v1.4.1) in Q3 2024. 
 * ZK Email Documentation: [docs.zk.email](https://docs.zk.email).
 * [Rhinestone's Blog Post about ZK Email](https://blog.rhinestone.wtf/private-email-recovery-with-zk-email-3405ce4d866e)

@@ -87,7 +87,7 @@ const Footer = () => {
               Privacy Policy
             </Link>
             <Link
-              href="https://archive.prove.email/privacy-policy"
+              href="https://zk.email/privacy-policy"
               className="subtitle2 text-[##A8A8A8] hover:text-white transition-colors"
               target="_blank"
             >

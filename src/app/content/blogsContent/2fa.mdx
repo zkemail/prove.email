@@ -87,9 +87,9 @@ For more information and to try the system yourself, visit [emailwallet.org](htt
 
 ## Appendix: ZK Email and DKIM
 
-We ensure the authenticity of these email responses using [ZK Email](https://prove.email/blog/zkemail) on top of the DomainKeys Identified Mail (DKIM) protocol, which verifies that the emails sent and received are secure and unaltered during transmission.
+We ensure the authenticity of these email responses using [ZK Email](https://zk.email/blog/zkemail) on top of the DomainKeys Identified Mail (DKIM) protocol, which verifies that the emails sent and received are secure and unaltered during transmission.
 
-Using [ZK Email](https://prove.email), we verify the RSA signature and SHA hash in the DKIM signature. This verification confirms that the response indeed originates from the correct email wallet account associated with the user. 
+Using [ZK Email](https://zk.email), we verify the RSA signature and SHA hash in the DKIM signature. This verification confirms that the response indeed originates from the correct email wallet account associated with the user. 
 
 ```plaintext 
 rsa_sign(SHA256(from:<>, to:<>, subject:<>, <bodyHash>,...), RSA private key of domain)

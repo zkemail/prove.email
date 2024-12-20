@@ -18,9 +18,9 @@ aliases:
 
 Emails serve as our gateway to various online services and platforms. ZK Email uses zk proofs to authenticate these interactions on chain while preserving privacy.
 
-If you are trying to setup a new circuit for yourself, we recommend the full automated circuit generation tool at our [SDK Registry](https://registry-dev.zkregex.com) -- it automatically generates and deploys your circuit specifications with an automatic frontend demo, in as few as 5 minutes with no ZK expertise needed.
+If you are trying to setup a new circuit for yourself, we recommend the full automated circuit generation tool at our [Registry](https://registry.zk.email) -- it automatically generates and deploys your circuit specifications with an automatic frontend demo, in as few as 5 minutes with no ZK expertise needed.
 
-However, if you want to go more custom into the circuits and contracts, this guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain from scratch. It does not reveal any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion. Note that it uses a slightly outdated version of the SDK, but the process is very similar, and you can refer to the [SDK docs](https://zkemail.gitbook.io/zk-email/zk-email-verifier/usage-guide) for more information.
+However, if you want to go more custom into the circuits and contracts, this guide will walk you through setting up a circuit that enables you to verify your Twitter username on-chain from scratch. It does not reveal any information beyond the username itself. This process uses ZK Email libraries and regex verification to ensure the authenticity and privacy of your Twitter username, allowing you to mint an NFT upon completion. Note that it uses a slightly outdated version of the SDK, but the process is very similar, and you can refer to the [SDK docs](https://docs.zk.email/zk-email-verifier/usage-guide) for more information.
 
 ## Experience it Yourself
 
@@ -34,11 +34,11 @@ Before diving into the technical details, we encourage you to experience Proof o
 
 The ZK Email library contains 3 packages. 
 
-- **[zk-email/helpers](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-helpers)**  -  helper functions to help generate and verify the inputs of the circuit
+- **[zk-email/helpers](https://docs.zk.email/zk-email-verifier/packages/zk-email-helpers)**  -  helper functions to help generate and verify the inputs of the circuit
 
-- **[zk-email/contracts](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-contracts)**  -  contains the DKIM Registry for public domains (google, yahoo, etc)
+- **[zk-email/contracts](https://docs.zk.email/zk-email-verifier/packages/zk-email-contracts)**  -  contains the DKIM Registry for public domains (google, yahoo, etc)
 
-- **[zk-email/circuits](https://zkemail.gitbook.io/zk-email/zk-email-verifier/packages/zk-email-circuits)**  -  circuit templates that are used in creating your circuit
+- **[zk-email/circuits](https://docs.zk.email/zk-email-verifier/packages/zk-email-circuits)**  -  circuit templates that are used in creating your circuit
 
 ## Setting up the Repository
 
